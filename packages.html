@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>باقات اشتراك الأعمال — رواق التميز</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="cart.js"></script>
+<style>
+:root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);direction:rtl;}a{text-decoration:none;color:inherit;}
+.topbar{background:var(--green);color:#fff;text-align:center;font-size:13px;padding:8px 20px;}.topbar a{color:var(--gold-light);font-weight:700;}
+header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.header-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px;}
+.logo{display:flex;align-items:center;gap:12px;}.logo img{height:50px;width:auto;border-radius:8px;}
+.logo-text strong{display:block;font-size:16px;font-weight:900;color:var(--green);}.logo-text span{font-size:11px;color:var(--muted);}
+.header-nav{display:flex;gap:6px;}.header-nav a{font-size:13px;font-weight:600;padding:7px 14px;border-radius:8px;color:var(--mid);transition:all .2s;}
+.header-nav a:hover,.header-nav a.active{background:var(--green-pale);color:var(--green);}
+.header-cta{display:flex;gap:10px;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
+.btn-green{background:var(--green);color:#fff;}.btn-green:hover{background:var(--green-light);}
+.menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border-radius:10px;cursor:pointer;background:var(--green);border:none;padding:10px;flex-shrink:0;}
+.menu-btn span{display:block;height:2px;background:#fff;border-radius:2px;}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:7px;background:#f3f4f6;border:2px solid #e5e7eb;color:#374151;padding:9px 16px;border-radius:9px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
+.cart-btn:hover{border-color:var(--green);color:var(--green);}
+.cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;}
+.breadcrumb .wrap{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.breadcrumb a{font-size:13px;color:var(--green);font-weight:600;}.breadcrumb span{margin:0 5px;color:var(--muted);font-size:13px;}
+.bc-title{font-size:20px;font-weight:900;}
+.wrap{max-width:1280px;margin:auto;}.page-body{padding:40px 24px 80px;}
+.pkg-hero{background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:16px;padding:48px 32px;text-align:center;color:#fff;margin-bottom:48px;}
+.pkg-hero h1{font-size:clamp(22px,4vw,36px);font-weight:900;margin-bottom:12px;}
+.pkg-hero p{font-size:15px;opacity:.88;max-width:600px;margin:0 auto 24px;}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:50px;font-size:13px;font-weight:600;}
+.packages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:28px;margin-bottom:56px;}
+.pkg-card{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);transition:transform .25s;position:relative;}
+.pkg-card:hover{transform:translateY(-6px);}
+.pkg-header{padding:30px 26px 22px;text-align:center;color:#fff;position:relative;}
+.pkg-meta{position:absolute;top:14px;left:14px;font-size:10px;font-weight:900;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,.25);}
+.pkg-icon{font-size:50px;margin-bottom:10px;}
+.pkg-name{font-size:21px;font-weight:900;margin-bottom:3px;}
+.pkg-sub{font-size:12px;opacity:.8;}
+.pkg-price{margin-top:18px;font-size:13px;opacity:.85;}
+.pkg-price strong{display:block;font-size:26px;font-weight:900;}
+.pkg-body{background:#fff;padding:22px 26px;}
+.features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px;}
+.features li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--mid);}
+.feat-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;margin-top:1px;font-weight:900;}
+.features li.off{opacity:.35;text-decoration:line-through;}
+.features li.off .feat-icon{background:#f3f4f6;color:var(--muted);}
+.pkg-btn{width:100%;padding:13px;border-radius:10px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:900;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+/* Bronze */
+.bronze .pkg-header{background:linear-gradient(135deg,#cd7f32,#e8a96a);}
+.bronze .feat-icon{background:#fdf3e7;color:#cd7f32;}
+.bronze .pkg-btn{background:linear-gradient(135deg,#cd7f32,#e8a96a);color:#fff;}
+.bronze .pkg-btn:hover{filter:brightness(.9);}
+/* Silver */
+.silver{border:3px solid #aaa;}
+.silver .pkg-header{background:linear-gradient(135deg,#6e6e6e,#b0b0b0);}
+.silver .feat-icon{background:#f5f5f5;color:#777;}
+.silver .pkg-btn{background:linear-gradient(135deg,#6e6e6e,#b0b0b0);color:#fff;}
+.silver .pkg-btn:hover{filter:brightness(.9);}
+.popular-tag{position:absolute;top:0;right:50%;transform:translateX(50%);background:var(--gold);color:#111;font-size:11px;font-weight:900;padding:4px 18px;border-radius:0 0 10px 10px;}
+/* Gold */
+.gold{border:3px solid var(--gold);box-shadow:0 8px 40px rgba(201,168,76,.3);}
+.gold .pkg-header{background:linear-gradient(135deg,#b8963e,#e0c060);}
+.gold .feat-icon{background:#fdf8e7;color:#b8963e;}
+.gold .pkg-btn{background:linear-gradient(135deg,#b8963e,#e0c060);color:#111;}
+.gold .pkg-btn:hover{filter:brightness(.9);}
+/* compare table */
+.compare-box{background:#fff;border-radius:16px;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow);margin-bottom:48px;}
+.compare-box h3{padding:18px 24px;border-bottom:1px solid var(--border);font-size:17px;font-weight:900;}
+.compare-table{width:100%;border-collapse:collapse;}
+.compare-table th,.compare-table td{padding:13px 18px;text-align:center;border-bottom:1px solid var(--border);font-size:13px;}
+.compare-table th{font-weight:900;font-size:13px;}
+.compare-table td:first-child{text-align:right;font-weight:600;color:var(--mid);}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table tr:hover td{background:var(--bg);}
+.th-br{color:#cd7f32;background:#fdf3e7;}.th-si{color:#777;background:#f5f5f5;}.th-go{color:#b8963e;background:#fdf8e7;}
+.y{color:var(--green);font-size:16px;}.n{color:#ddd;font-size:16px;}
+/* FAQ */
+.faq-wrap{max-width:780px;margin:0 auto 48px;}
+.faq-wrap h2{font-size:20px;font-weight:900;margin-bottom:20px;text-align:center;}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:11px;overflow:hidden;margin-bottom:8px;}
+.faq-q{padding:15px 20px;font-weight:700;font-size:13px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-q:hover{background:var(--green-pale);}
+.faq-arr{font-size:15px;transition:transform .25s;color:var(--green);}
+.faq-a{display:none;padding:0 20px 14px;color:var(--muted);font-size:13px;line-height:1.8;}
+.faq-item.open .faq-a{display:block;}.faq-item.open .faq-arr{transform:rotate(180deg);}
+/* CTA */
+.pkg-cta{background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:16px;padding:44px 28px;text-align:center;color:#fff;}
+.pkg-cta h2{font-size:22px;font-weight:900;margin-bottom:8px;}
+.pkg-cta p{font-size:14px;opacity:.88;margin-bottom:24px;}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+/* SIDEBAR */
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998;opacity:0;pointer-events:none;transition:opacity .3s;}
+.sidebar-overlay.open{opacity:1;pointer-events:all;}
+.sidebar{position:fixed;top:0;right:-360px;width:320px;max-width:90vw;height:100vh;background:#fff;z-index:999;overflow-y:auto;transition:right .3s;box-shadow:-4px 0 32px rgba(0,0,0,.15);display:flex;flex-direction:column;}
+.sidebar.open{right:0;}
+.sidebar-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--green);color:#fff;position:sticky;top:0;z-index:1;}
+.sidebar-head span{font-size:15px;font-weight:700;}
+.sidebar-close{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.sidebar-body{flex:1;padding:8px 0;}
+.sb-item{display:flex;align-items:center;padding:14px 20px;font-size:14px;font-weight:600;color:var(--dark);border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;gap:10px;text-decoration:none;}
+.sb-item:hover{background:var(--green-pale);color:var(--green);}
+.sb-icon{font-size:18px;width:28px;text-align:center;}.sb-label{flex:1;}
+.sb-arrow{color:var(--muted);font-size:12px;transition:transform .2s;margin-right:auto;}
+.sb-item.has-sub.open .sb-arrow{transform:rotate(90deg);}
+.sb-sub{display:none;background:var(--bg);}.sb-sub.open{display:block;}
+.sb-sub a{display:block;padding:11px 20px 11px 40px;font-size:13px;color:var(--mid);border-bottom:1px solid var(--border);text-decoration:none;}
+.sb-sub a:hover{color:var(--green);background:var(--green-pale);}
+.sb-sub a::before{content:"•";margin-left:8px;color:var(--green);}
+.sidebar-footer{padding:16px 20px;border-top:2px solid var(--border);display:flex;flex-direction:column;gap:10px;}
+.sidebar-footer a{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
+.sb-wa{background:#25d366;color:#fff;}.sb-call{background:var(--green-pale);color:var(--green);}
+.wa-float{position:fixed;bottom:28px;left:28px;z-index:997;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,.45);}
+footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
+.footer-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px;}
+.footer-brand strong{color:#fff;font-size:15px;font-weight:900;display:block;margin-bottom:8px;}
+.footer-brand p{font-size:13px;line-height:1.7;}
+.footer-col h4{color:#fff;font-size:13px;font-weight:700;margin-bottom:10px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.footer-col ul a{font-size:12px;}.footer-col ul a:hover{color:var(--gold-light);}
+.footer-bottom{max-width:1280px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;opacity:.5;}
+.social-links{display:flex;gap:8px;margin-top:12px;}
+.social-links a{width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;}
+.social-links a svg{width:15px;height:15px;fill:currentColor;}
+.social-links a.yt:hover{background:#ff0000;}.social-links a.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+.social-links a.fb:hover{background:#1877f2;}.social-links a.li:hover{background:#0a66c2;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}.packages-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;}.header-nav{display:none;}}
+</style>
+</head>
+<body>
+<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a> &nbsp;|&nbsp; <a href="https://wa.me/966559580940">واتساب</a></div>
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo"><img src="logo.jpg" alt="رواق التميز"><div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div></a>
+    <nav class="header-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="business-establishment.html">خدمات الأعمال</a>
+      <a href="packages.html" class="active">باقات الاشتراك</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
+      <a href="cart.html" class="cart-btn">🛒 سلتي<span class="cart-badge">0</span></a>
+    </div>
+  </div>
+</header>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div><a href="index.html">الرئيسية</a><span>›</span><span>باقات اشتراك الأعمال والمؤسسات</span></div>
+    <div class="bc-title">📦 باقات اشتراك الأعمال والمؤسسات</div>
+  </div>
+</div>
+<div class="page-body"><div class="wrap">
+
+  <!-- HERO -->
+  <div class="pkg-hero">
+    <h1>اشترك معنا وانجز معاملاتك بلا انقطاع</h1>
+    <p>باقات اشتراك مخصصة للمؤسسات والشركات — خدمة دائمة بسعر ثابت مع أولوية في الإنجاز.</p>
+    <div class="badges">
+      <span class="badge">✅ أولوية في الإنجاز</span>
+      <span class="badge">📞 دعم مخصص</span>
+      <span class="badge">💰 سعر ثابت</span>
+      <span class="badge">🔄 تجديد تلقائي</span>
+    </div>
+  </div>
+
+  <!-- PACKAGES -->
+  <div class="packages-grid">
+
+    <!-- البرونزية -->
+    <div class="pkg-card bronze">
+      <div class="pkg-header">
+        <span class="pkg-meta">للمبتدئين</span>
+        <div class="pkg-icon">🥉</div>
+        <div class="pkg-name">الباقة البرونزية</div>
+        <div class="pkg-sub">للمنشآت الصغيرة والأفراد</div>
+        <div class="pkg-price"><strong>تواصل للسعر</strong>يُحدد حسب الاحتياج</div>
+      </div>
+      <div class="pkg-body">
+        <ul class="features">
+          <li><span class="feat-icon">✓</span> حتى <strong>5 خدمات شهرياً</strong></li>
+          <li><span class="feat-icon">✓</span> خدمات أبشر والإقامة</li>
+          <li><span class="feat-icon">✓</span> خدمات السجل التجاري</li>
+          <li><span class="feat-icon">✓</span> دعم عبر واتساب</li>
+          <li><span class="feat-icon">✓</span> إنجاز خلال 48 ساعة</li>
+          <li class="off"><span class="feat-icon">✗</span> مدير حساب مخصص</li>
+          <li class="off"><span class="feat-icon">✗</span> أولوية قصوى في الإنجاز</li>
+          <li class="off"><span class="feat-icon">✗</span> تقارير شهرية</li>
+        </ul>
+        <button class="pkg-btn" onclick="orderPkg('البرونزية')">🥉 اشترك في الباقة البرونزية</button>
+      </div>
+    </div>
+
+    <!-- الفضية -->
+    <div class="pkg-card silver">
+      <div class="popular-tag">⭐ الأكثر طلباً</div>
+      <div class="pkg-header">
+        <span class="pkg-meta">للمنشآت المتوسطة</span>
+        <div class="pkg-icon">🥈</div>
+        <div class="pkg-name">الباقة الفضية</div>
+        <div class="pkg-sub">للمنشآت المتوسطة والشركات</div>
+        <div class="pkg-price"><strong>تواصل للسعر</strong>يُحدد حسب الاحتياج</div>
+      </div>
+      <div class="pkg-body">
+        <ul class="features">
+          <li><span class="feat-icon">✓</span> حتى <strong>15 خدمة شهرياً</strong></li>
+          <li><span class="feat-icon">✓</span> جميع خدمات الباقة البرونزية</li>
+          <li><span class="feat-icon">✓</span> خدمات قوى ومدد والعمالة</li>
+          <li><span class="feat-icon">✓</span> خدمات بلدي والتراخيص</li>
+          <li><span class="feat-icon">✓</span> دعم هاتفي وواتساب</li>
+          <li><span class="feat-icon">✓</span> إنجاز خلال 24 ساعة</li>
+          <li><span class="feat-icon">✓</span> مدير حساب مخصص</li>
+          <li class="off"><span class="feat-icon">✗</span> تقارير شهرية مفصّلة</li>
+        </ul>
+        <button class="pkg-btn" onclick="orderPkg('الفضية')">🥈 اشترك في الباقة الفضية</button>
+      </div>
+    </div>
+
+    <!-- الذهبية -->
+    <div class="pkg-card gold">
+      <div class="pkg-header">
+        <span class="pkg-meta">الأشمل والأقوى</span>
+        <div class="pkg-icon">🥇</div>
+        <div class="pkg-name">الباقة الذهبية</div>
+        <div class="pkg-sub">للشركات الكبيرة والمجموعات</div>
+        <div class="pkg-price"><strong>تواصل للسعر</strong>يُحدد حسب الاحتياج</div>
+      </div>
+      <div class="pkg-body">
+        <ul class="features">
+          <li><span class="feat-icon">✓</span> <strong>خدمات غير محدودة</strong></li>
+          <li><span class="feat-icon">✓</span> جميع خدمات الباقة الفضية</li>
+          <li><span class="feat-icon">✓</span> جميع المنصات الحكومية</li>
+          <li><span class="feat-icon">✓</span> إنجاز بأولوية قصوى (فوري)</li>
+          <li><span class="feat-icon">✓</span> مدير حساب VIP مخصص</li>
+          <li><span class="feat-icon">✓</span> دعم على مدار الساعة 24/7</li>
+          <li><span class="feat-icon">✓</span> تقارير شهرية مفصّلة</li>
+          <li><span class="feat-icon">✓</span> اجتماع دوري مع فريق العمل</li>
+        </ul>
+        <button class="pkg-btn" onclick="orderPkg('الذهبية')">🥇 اشترك في الباقة الذهبية</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- مقارنة الباقات -->
+  <div class="compare-box">
+    <h3>📊 مقارنة الباقات</h3>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead><tr>
+          <th style="text-align:right;">المميزات</th>
+          <th class="th-br">🥉 البرونزية</th>
+          <th class="th-si">🥈 الفضية</th>
+          <th class="th-go">🥇 الذهبية</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>عدد الخدمات الشهرية</td><td>حتى 5</td><td>حتى 15</td><td>غير محدود</td></tr>
+          <tr><td>خدمات أبشر والإقامة</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات السجل التجاري</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات قوى ومدد والعمالة</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات بلدي والتراخيص</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>جميع المنصات الحكومية</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>دعم واتساب</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>دعم هاتفي</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>دعم 24/7</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>مدير حساب مخصص</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅ VIP</span></td></tr>
+          <tr><td>وقت الإنجاز</td><td>48 ساعة</td><td>24 ساعة</td><td>فوري</td></tr>
+          <tr><td>تقارير شهرية</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-wrap">
+    <h2>❓ الأسئلة الشائعة عن الباقات</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">كيف أشترك في إحدى الباقات؟ <span class="faq-arr">▼</span></div>
+      <div class="faq-a">اضغط على زر الاشتراك في الباقة المناسبة وسيفتح لك واتساب مباشرة للتواصل مع فريقنا لإتمام الاشتراك.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">هل يمكن الترقية من باقة لأخرى؟ <span class="faq-arr">▼</span></div>
+      <div class="faq-a">نعم، يمكنك الترقية في أي وقت وسيتم احتساب الفرق فقط دون أي رسوم إضافية.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">ما الفرق بين الاشتراك الشهري والسنوي؟ <span class="faq-arr">▼</span></div>
+      <div class="faq-a">الاشتراك السنوي يوفر لك خصماً يصل إلى 20% مقارنة بالدفع الشهري.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">هل الخدمات غير المستخدمة تنتقل للشهر التالي؟ <span class="faq-arr">▼</span></div>
+      <div class="faq-a">نعم، يمكن ترحيل الخدمات غير المستخدمة لمدة شهر واحد في الباقتين الفضية والذهبية.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">كيف يتم الدفع؟ <span class="faq-arr">▼</span></div>
+      <div class="faq-a">يمكن الدفع عبر التحويل البنكي لمصرف الراجحي أو عبر بوابة الدفع الإلكترونية عند تفعيلها.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="pkg-cta">
+    <h2>مستعد تبدأ؟ تواصل معنا الآن</h2>
+    <p>فريقنا جاهز لمساعدتك في اختيار الباقة المناسبة لاحتياجات منشأتك.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن باقات اشتراك الأعمال" style="background:#25d366;color:#fff;padding:12px 26px;border-radius:10px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px;">💬 واتساب مباشر</a>
+      <a href="tel:+966559580940" style="background:#fff;color:var(--green);padding:12px 26px;border-radius:10px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px;">📞 اتصل بنا</a>
+    </div>
+  </div>
+
+</div></div>
+
+<a href="https://wa.me/966559580940" class="wa-float">💬</a>
+
+<!-- SIDEBAR -->
+<div id="sidebar-container"></div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong><img src="logo.jpg" alt="رواق التميز" style="height:36px;width:auto;border-radius:6px;vertical-align:middle;margin-left:8px;"> رواق التميز للخدمات العامة</strong>
+      <p>نخدم المواطن والمقيم وأصحاب المؤسسات من أي مكان في المملكة.</p>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@rowaqaltamiyuz" class="yt"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+        <a href="https://www.instagram.com/rowaqaltamiyuz/" class="ig"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+        <a href="https://www.facebook.com/rowaqaltamiyuz/" class="fb"><svg viewBox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg></a>
+        <a href="https://www.linkedin.com/company/rowaqaltamiyuz" class="li"><svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8v5.4H9.8V9h3.3v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3zM5.3 7.4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1.7 13H3.6V9h3.4v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>الباقات</h4><ul>
+      <li><a href="packages.html">🥉 الباقة البرونزية</a></li>
+      <li><a href="packages.html">🥈 الباقة الفضية</a></li>
+      <li><a href="packages.html">🥇 الباقة الذهبية</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>الشركة</h4><ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html">تواصل معنا</a></li>
+      <li><a href="cart.html">سلة المشتريات</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>تواصل معنا</h4><ul>
+      <li><a href="https://wa.me/966559580940">📲 0559580940</a></li>
+      <li><a href="tel:+966559580940">📞 0559580940</a></li>
+      <li><a href="mailto:info@rowaqco.com">📧 info@rowaqco.com</a></li>
+      <li><a href="#">📍 المدينة المنورة، السعودية</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 شركة رواق التميز الحديثة — جميع الحقوق محفوظة</span>
+    <span>سجل تجاري: 4650288413</span>
+  </div>
+</footer>
+
+<script>
+function orderPkg(name){window.open('https://wa.me/966559580940?text='+encodeURIComponent('مرحباً، أريد الاشتراك في الباقة '+name+' — أرجو التواصل معي.'),'_blank');}
+function toggleFaq(el){var item=el.parentElement;var isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+
+
+}
+document.addEventListener('DOMContentLoaded',function(){if(typeof updateCartBadge==='function')updateCartBadge();});
+</script>
+<script src="sidebar.js"></script>
+</body>
+</html>

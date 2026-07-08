@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="خدمات الطلاب والمعلمين وأولياء الأمور — رواق التميز للخدمات العامة">
+<title>خدمات الطلاب والمعلمين وأولياء الأمور — رواق التميز</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="cart.js"></script>
+<style>
+:root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);direction:rtl;}
+a{text-decoration:none;color:inherit;}
+.topbar{background:var(--green);color:#fff;text-align:center;font-size:13px;padding:8px 20px;}
+.topbar a{color:var(--gold-light);font-weight:700;}
+header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.header-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{height:50px;width:auto;border-radius:8px;}
+.logo-text strong{display:block;font-size:16px;font-weight:900;color:var(--green);}
+.logo-text span{font-size:11px;color:var(--muted);}
+.header-nav{display:flex;gap:6px;}
+.header-nav a{font-size:13px;font-weight:600;padding:7px 14px;border-radius:8px;color:var(--mid);transition:all .2s;}
+.header-nav a:hover,.header-nav a.active{background:var(--green-pale);color:var(--green);}
+.header-cta{display:flex;gap:10px;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
+.btn-green{background:var(--green);color:#fff;}.btn-green:hover{background:var(--green-light);}
+.menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border-radius:10px;cursor:pointer;background:var(--green);border:none;padding:10px;flex-shrink:0;}
+.menu-btn span{display:block;height:2px;background:#fff;border-radius:2px;}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:7px;background:#f3f4f6;border:2px solid #e5e7eb;color:#374151;padding:9px 16px;border-radius:9px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
+.cart-btn:hover{border-color:var(--green);color:var(--green);}
+.cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;}
+.breadcrumb .wrap{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.breadcrumb a{font-size:13px;color:var(--green);font-weight:600;}
+.breadcrumb span{margin:0 5px;color:var(--muted);font-size:13px;}
+.bc-title{font-size:20px;font-weight:900;color:var(--dark);}
+.toolbar{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;}
+.toolbar .wrap{max-width:1280px;margin:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.search-box{display:flex;align-items:center;gap:8px;background:var(--bg);border:1.5px solid var(--border);border-radius:9px;padding:8px 14px;min-width:240px;transition:border-color .2s;}
+.search-box:focus-within{border-color:var(--green);}
+.search-box input{border:none;background:transparent;font-family:'Cairo',sans-serif;font-size:13px;outline:none;width:100%;}
+.sort-select{padding:8px 12px;border-radius:8px;border:1.5px solid var(--border);font-family:'Cairo',sans-serif;font-size:13px;color:var(--mid);background:#fff;outline:none;cursor:pointer;}
+.wrap{max-width:1280px;margin:auto;}
+.page-body{padding:32px 24px 60px;}
+
+/* ── عنوان القسم ── */
+.section-divider{display:flex;align-items:center;gap:14px;margin:40px 0 20px;}
+.section-divider:first-child{margin-top:0;}
+.section-divider-line{flex:1;height:2px;background:var(--border);}
+.section-divider-title{display:flex;align-items:center;gap:10px;background:var(--green);color:#fff;padding:10px 22px;border-radius:30px;font-size:15px;font-weight:900;white-space:nowrap;box-shadow:0 4px 14px rgba(10,92,58,.25);}
+
+/* ── بطاقة الخدمة ── */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:16px;}
+.svc-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s;}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.svc-card::before{content:'';position:absolute;top:0;right:0;left:0;height:5px;background:var(--green);}
+.svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
+.svc-img{height:110px;display:flex;align-items:center;justify-content:center;padding:12px;background:#fff;}
+.icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
+.svc-body{padding:11px 13px 0;flex:1;}
+.svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
+.svc-name{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:34px;}
+.svc-price{font-size:14px;font-weight:900;color:var(--dark);}
+.currency{font-size:12px;font-weight:600;}
+.svc-from{font-size:11px;color:var(--muted);}
+.svc-footer{padding:10px 13px 13px;}
+.btn-cart{width:100%;padding:9px;border-radius:8px;background:var(--green);color:#fff;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:background .2s;}
+.btn-cart:hover{background:var(--green-light);}
+.btn-cart.ask{background:var(--gold);color:#111;}.btn-cart.ask:hover{background:#b8963e;}
+.empty-results{text-align:center;padding:60px 20px;color:var(--muted);display:none;}
+
+/* ── SIDEBAR ── */
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998;opacity:0;pointer-events:none;transition:opacity .3s;}
+.sidebar-overlay.open{opacity:1;pointer-events:all;}
+.sidebar{position:fixed;top:0;right:-360px;width:320px;max-width:90vw;height:100vh;background:#fff;z-index:999;overflow-y:auto;transition:right .3s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 32px rgba(0,0,0,.15);display:flex;flex-direction:column;}
+.sidebar.open{right:0;}
+
+.wa-float{position:fixed;bottom:28px;left:28px;z-index:997;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s;}
+.wa-float:hover{transform:scale(1.1);}
+footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
+.footer-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+.footer-brand strong{color:#fff;font-size:15px;font-weight:900;display:block;margin-bottom:8px;}
+.footer-brand p{font-size:13px;line-height:1.7;}
+.footer-col h4{color:#fff;font-size:13px;font-weight:700;margin-bottom:12px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col ul a{font-size:12px;transition:color .2s;}
+.footer-col ul a:hover{color:var(--gold-light);}
+.footer-bottom{max-width:1280px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;opacity:.5;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}.services-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr));}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;}.header-nav{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a> &nbsp;|&nbsp; <a href="https://wa.me/966559580940">واتساب</a></div>
+
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="رواق التميز">
+      <div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="business-establishment.html">خدمات الأعمال</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
+      <a href="cart.html" class="cart-btn">🛒 سلتي<span class="cart-badge" id="cart-badge">0</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="wrap">
+    <div>
+      <a href="index.html">الرئيسية</a><span>›</span>
+      <span>خدمات الطلاب والمعلمين وأولياء الأمور</span>
+    </div>
+    <div class="bc-title">📚 خدمات الطلاب والمعلمين وأولياء الأمور</div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="search-box">
+      <span style="color:var(--muted);">🔍</span>
+      <input type="text" id="search-input" placeholder="ابحث عن خدمة..." oninput="filterServices()">
+    </div>
+    <select class="sort-select" onchange="sortServices(this.value)">
+      <option value="default">مقترحاتنا</option>
+      <option value="price-asc">السعر: الأقل أولاً</option>
+      <option value="price-desc">السعر: الأعلى أولاً</option>
+      <option value="name">الاسم أبجدياً</option>
+    </select>
+  </div>
+</div>
+
+<div class="page-body">
+  <div class="wrap">
+
+    <!-- ═══════════════════════════════ خدمات الطلاب ═══════════════════════════════ -->
+    <div class="section-divider">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-title">🎓 خدمات الطلاب</div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="services-grid" id="grid-students">
+
+      <div class="svc-card" data-price="50" data-name="نقل طالب من مدرسة إلى مدرسة" data-section="students">
+        <div class="svc-img"><div class="icon-circle">🏫</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">نقل طالب من مدرسة إلى مدرسة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل طالب من مدرسة إلى مدرسة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="75" data-name="تسجيل الطلبة في المرحلة الابتدائية" data-section="students">
+        <div class="svc-img"><div class="icon-circle">📝</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل الطلبة في المرحلة الابتدائية</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="75">75</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل الطلبة في المرحلة الابتدائية')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="49" data-name="التسجيل في الجامعات والكليات والمعاهد السعودية" data-section="students">
+        <div class="svc-img"><div class="icon-circle">🎓</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الطلاب</span>
+          <div class="svc-name">التسجيل في الجامعات والكليات والمعاهد السعودية</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="49">49</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التسجيل في الجامعات والكليات والمعاهد السعودية')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="150" data-name="طلب انسحاب طالب من الجامعة" data-section="students">
+        <div class="svc-img"><div class="icon-circle">🏛️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الطلاب</span>
+          <div class="svc-name">طلب انسحاب طالب من الجامعة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب انسحاب طالب من الجامعة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="تسجيل طالب جديد (أجنبي)" data-section="students">
+        <div class="svc-img"><div class="icon-circle">🌍</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل طالب جديد (أجنبي)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل طالب جديد (أجنبي)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تسجيل طالب في النقل الدراسي (رافد)" data-section="students">
+        <div class="svc-img"><div class="icon-circle">🚌</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل طالب في النقل الدراسي (رافد)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل طالب في النقل الدراسي (رافد)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تسجيل الطالب في الصف الأول الابتدائي" data-section="students">
+        <div class="svc-img"><div class="icon-circle">🏫</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">وزارة التعليم</span>
+          <div class="svc-name">تسجيل الطالب في الصف الأول الابتدائي</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل الطالب في الصف الأول الابتدائي')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="20" data-name="حساب النسبة الموزونة للقبول في الجامعات" data-section="students">
+        <div class="svc-img"><div class="icon-circle">🧮</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الطلاب</span>
+          <div class="svc-name">حساب النسبة الموزونة للقبول في الجامعات</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="20">20</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'حساب النسبة الموزونة للقبول في الجامعات')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="40" data-name="تعديل الجدول الجامعي" data-section="students">
+        <div class="svc-img"><div class="icon-circle">📅</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الطلاب</span>
+          <div class="svc-name">تعديل الجدول الجامعي</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="40">40</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل الجدول الجامعي')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="30" data-name="تحويل الملفات" data-section="students">
+        <div class="svc-img"><div class="icon-circle">📄</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الطلاب</span>
+          <div class="svc-name">تحويل الملفات</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="30">30</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحويل الملفات')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="حل واجب لكل المنصات" data-section="students">
+        <div class="svc-img"><div class="icon-circle">✏️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الطلاب</span>
+          <div class="svc-name">حل واجب لكل المنصات</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'حل واجب لكل المنصات')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تسجيل طالب جديد" data-section="students">
+        <div class="svc-img"><div class="icon-circle">📋</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل طالب جديد</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل طالب جديد')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="20" data-name="الاستعلام عن نتائج الطلاب" data-section="students">
+        <div class="svc-img"><div class="icon-circle">📊</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">الاستعلام عن نتائج الطلاب</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="20">20</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن نتائج الطلاب')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="25" data-name="تعديل المؤهل الدراسي في الأحوال المدنية" data-section="students">
+        <div class="svc-img"><div class="icon-circle">📑</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات المنصات الحكومية</span>
+          <div class="svc-name">تعديل المؤهل الدراسي في الأحوال المدنية</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="25">25</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل المؤهل الدراسي في الأحوال المدنية')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="80" data-name="التسجيل في دورات معهد الإدارة العامة" data-section="students">
+        <div class="svc-img"><div class="icon-circle">🏛️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الطلاب</span>
+          <div class="svc-name">التسجيل في دورات معهد الإدارة العامة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="80">80</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التسجيل في دورات معهد الإدارة العامة')">🛒 أضف للسلة</button></div>
+      </div>
+
+    </div><!-- /grid-students -->
+
+
+    <!-- ═══════════════════════════════ خدمات المعلمين ═══════════════════════════════ -->
+    <div class="section-divider">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-title">👨‍🏫 خدمات المعلمين</div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="services-grid" id="grid-teachers">
+
+      <div class="svc-card" data-price="49" data-name="إصدار الرخصة المهنية للمعلمين" data-section="teachers">
+        <div class="svc-img"><div class="icon-circle">📜</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">هيئة تقويم التعليم والتدريب</span>
+          <div class="svc-name">إصدار الرخصة المهنية للمعلمين</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="49">49</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار الرخصة المهنية للمعلمين')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="30" data-name="حجز موعد لاختبار الرخصة المهنية للمعلمين" data-section="teachers">
+        <div class="svc-img"><div class="icon-circle">📆</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">هيئة تقويم التعليم والتدريب</span>
+          <div class="svc-name">حجز موعد لاختبار الرخصة المهنية للمعلمين</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="30">30</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'حجز موعد لاختبار الرخصة المهنية للمعلمين')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="التسجيل في نظام فارس للمعلمين" data-section="teachers">
+        <div class="svc-img"><div class="icon-circle">🖥️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة فارس (التعليم)</span>
+          <div class="svc-name">التسجيل في نظام فارس للمعلمين</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التسجيل في نظام فارس للمعلمين')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="طلب إجازة للمعلمين والمعلمات" data-section="teachers">
+        <div class="svc-img"><div class="icon-circle">🏖️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة فارس (التعليم)</span>
+          <div class="svc-name">طلب إجازة للمعلمين والمعلمات</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب إجازة للمعلمين والمعلمات')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="طلب تعريف بالراتب للمعلمين والمعلمات" data-section="teachers">
+        <div class="svc-img"><div class="icon-circle">💰</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة فارس (التعليم)</span>
+          <div class="svc-name">طلب تعريف بالراتب للمعلمين والمعلمات</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب تعريف بالراتب للمعلمين والمعلمات')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="200" data-name="تسجيل خطة النشاط في منصة نور (فصل كامل)" data-section="teachers">
+        <div class="svc-img"><div class="icon-circle">📋</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل خطة النشاط في منصة نور (فصل كامل)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="200">200</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل خطة النشاط في منصة نور (فصل كامل)')">🛒 أضف للسلة</button></div>
+      </div>
+
+    </div><!-- /grid-teachers -->
+
+
+    <!-- ═══════════════════════════════ خدمات أولياء الأمور ═══════════════════════════════ -->
+    <div class="section-divider">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-title">👨‍👩‍👧 خدمات أولياء الأمور</div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="services-grid" id="grid-parents">
+
+      <div class="svc-card" data-price="50" data-name="فتح حساب ولي أمر على نور" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">🔑</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">فتح حساب ولي أمر على نور</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح حساب ولي أمر على نور')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تسجيل طالب جديد" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">📝</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل طالب جديد</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل طالب جديد - ولي أمر')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="نقل طالب من مدرسة إلى مدرسة" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">🏫</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">نقل طالب من مدرسة إلى مدرسة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل طالب من مدرسة - ولي أمر')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="75" data-name="تسجيل الطلبة في المرحلة الابتدائية" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">🖊️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل الطلبة في المرحلة الابتدائية</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="75">75</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل الطلبة المرحلة الابتدائية - ولي أمر')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="تسجيل طالب جديد (أجنبي)" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">🌍</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل طالب جديد (أجنبي)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل طالب أجنبي - ولي أمر')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تسجيل طالب في النقل الدراسي (رافد)" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">🚌</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة نور</span>
+          <div class="svc-name">تسجيل طالب في النقل الدراسي (رافد)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'النقل الدراسي رافد - ولي أمر')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="20" data-name="إعداد حساب روضتي" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">🌸</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة روضتي</span>
+          <div class="svc-name">إعداد حساب روضتي</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="20">20</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إعداد حساب روضتي')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="40" data-name="تسجيل الطلاب في رياض الأطفال" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">🧸</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">وزارة التعليم</span>
+          <div class="svc-name">تسجيل الطلاب في رياض الأطفال</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="40">40</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل الطلاب في رياض الأطفال')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تسجيل الطالب في الصف الأول الابتدائي" data-section="parents">
+        <div class="svc-img"><div class="icon-circle">🎒</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">وزارة التعليم</span>
+          <div class="svc-name">تسجيل الطالب في الصف الأول الابتدائي</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل الطالب الصف الأول - ولي أمر')">🛒 أضف للسلة</button></div>
+      </div>
+
+    </div><!-- /grid-parents -->
+
+    <!-- رسالة لا توجد نتائج -->
+    <div class="empty-results" id="empty-msg">
+      <div style="font-size:48px;margin-bottom:12px;">🔍</div>
+      <h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">لا توجد نتائج</h3>
+      <p style="font-size:14px;">جرّب كلمة بحث مختلفة</p>
+    </div>
+
+  </div>
+</div>
+
+<a href="https://wa.me/966559580940" class="wa-float" title="تواصل عبر واتساب">💬</a>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong>رواق التميز للخدمات العامة</strong>
+      <p>نُنجز معاملاتك الحكومية بسهولة وسرعة — خبرة وثقة في خدمة الأفراد والأعمال.</p>
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <ul>
+        <li><a href="individuals.html">خدمات الأفراد</a></li>
+        <li><a href="business-establishment.html">خدمات الأعمال</a></li>
+        <li><a href="general-services.html">الخدمات العامة</a></li>
+        <li><a href="packages.html">الباقات</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+        <li><a href="cart.html">سلة المشتريات</a></li>
+        <li><a href="government-platforms.html">المنصات الحكومية</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <li><a href="https://wa.me/966559580940">واتساب</a></li>
+        <li><a href="tel:+966559580940">0559580940</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 رواق التميز للخدمات العامة — جميع الحقوق محفوظة</span>
+    <span>رقم السجل التجاري: 4650288413</span>
+  </div>
+</footer>
+
+<div id="sidebar-container"></div>
+<script src="sidebar.js"></script>
+
+<script>
+function filterServices() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  let anyVisible = false;
+  document.querySelectorAll('.svc-card').forEach(card => {
+    const name = (card.dataset.name || '').toLowerCase();
+    const cat  = card.querySelector('.svc-cat')?.textContent.toLowerCase() || '';
+    const show = !q || name.includes(q) || cat.includes(q);
+    card.style.display = show ? '' : 'none';
+    if (show) anyVisible = true;
+  });
+  document.getElementById('empty-msg').style.display = anyVisible ? 'none' : 'block';
+}
+
+function sortServices(val) {
+  ['grid-students','grid-teachers','grid-parents'].forEach(gridId => {
+    const grid = document.getElementById(gridId);
+    const cards = Array.from(grid.querySelectorAll('.svc-card'));
+    cards.sort((a, b) => {
+      if (val === 'price-asc')  return (parseInt(a.dataset.price)||0) - (parseInt(b.dataset.price)||0);
+      if (val === 'price-desc') return (parseInt(b.dataset.price)||0) - (parseInt(a.dataset.price)||0);
+      if (val === 'name')       return (a.dataset.name||'').localeCompare(b.dataset.name||'', 'ar');
+      return 0;
+    });
+    cards.forEach(c => grid.appendChild(c));
+  });
+}
+
+function askService(name) {
+  window.open('https://wa.me/966559580940?text=' + encodeURIComponent('مرحباً، أريد الاستفسار عن سعر خدمة:\n📌 ' + name), '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', updateCartBadge);
+</script>
+</body>
+</html>

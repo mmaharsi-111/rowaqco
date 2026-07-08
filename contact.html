@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تواصل معنا — مكتب خدماتك</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── contact layout ── */
+.contact-layout {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start;
+}
+.contact-info h2 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+.contact-info p  { color: var(--muted); font-size: 15px; line-height: 1.75; margin-bottom: 28px; }
+
+.contact-card {
+  display: flex; align-items: flex-start; gap: 16px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 20px;
+  margin-bottom: 14px; transition: border-color .2s;
+}
+.contact-card:hover { border-color: var(--green); }
+.c-icon {
+  width: 46px; height: 46px; flex-shrink: 0;
+  background: var(--green-pale); color: var(--green);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.c-info strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.c-info a, .c-info span { font-size: 13px; color: var(--muted); }
+.c-info a:hover { color: var(--green); }
+
+.hours-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 16px; }
+.hours-table td { padding: 7px 0; border-bottom: 1px solid var(--border); }
+.hours-table td:last-child { text-align: left; color: var(--green); font-weight: 700; }
+.closed { color: var(--muted) !important; font-weight: 400 !important; }
+
+/* ── FORM ── */
+.form-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 36px 32px; box-shadow: var(--shadow-lg);
+}
+.form-card h3 { font-size: 20px; font-weight: 900; margin-bottom: 6px; }
+.form-card .sub { color: var(--muted); font-size: 13px; margin-bottom: 26px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { margin-bottom: 18px; }
+.field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 7px; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 11px 14px; border-radius: 9px;
+  border: 1.5px solid var(--border); font-family: 'Cairo', sans-serif;
+  font-size: 14px; color: var(--dark); background: var(--white);
+  transition: border-color .2s, box-shadow .2s; outline: none;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--green); box-shadow: 0 0 0 3px rgba(10,92,58,.1);
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left 14px center; }
+.required { color: #e53e3e; }
+
+.submit-btn {
+  width: 100%; padding: 14px; border-radius: 10px;
+  background: var(--green); color: var(--white);
+  font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 700;
+  border: none; cursor: pointer; transition: background .2s;
+}
+.submit-btn:hover { background: var(--green-light); }
+
+.success-msg {
+  display: none; background: var(--green-pale); border: 1px solid var(--green);
+  border-radius: 10px; padding: 16px; text-align: center;
+  color: var(--green); font-weight: 700; margin-top: 16px; font-size: 15px;
+}
+
+/* ── BRANCHES ── */
+.branches-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 24px; }
+.branch-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+}
+.branch-top { background: var(--green); padding: 20px; color: var(--white); }
+.branch-top h3 { font-size: 16px; font-weight: 700; }
+.branch-top span { font-size: 12px; opacity: .8; }
+.branch-body { padding: 18px; }
+.branch-row { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; margin-bottom: 12px; color: var(--mid); }
+.branch-row .bi { width: 22px; flex-shrink: 0; color: var(--green); }
+.branch-body .btn { margin-top: 6px; width: 100%; justify-content: center; font-size: 13px; }
+
+/* ── MAP PLACEHOLDER ── */
+.map-placeholder {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius); height: 280px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px; color: var(--muted); font-size: 14px;
+}
+.map-placeholder span { font-size: 40px; }
+
+/* ── WA DIRECT ── */
+.wa-options { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 16px; }
+.wa-option {
+  background: #25d366; color: var(--white); border-radius: var(--radius);
+  padding: 20px 22px; display: flex; align-items: center; gap: 14px;
+  cursor: pointer; transition: opacity .2s;
+}
+.wa-option:hover { opacity: .9; }
+.wa-option .wi { font-size: 28px; }
+.wa-option h4 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.wa-option p  { font-size: 12px; opacity: .85; }
+
+@media(max-width:768px){
+  .contact-layout { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-card { padding: 24px 18px; }
+}
+  /* ===== SIDEBAR ===== */
+  .menu-btn { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; border-radius: 10px; cursor: pointer; background: var(--green); border: none; padding: 10px; flex-shrink: 0; transition: background .2s; }
+  .menu-btn span { display: block; height: 2px; background: #fff; border-radius: 2px; }
+  .menu-btn:hover { background: var(--green-light); }
+  .sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; pointer-events: none; transition: opacity .3s; }
+  .sidebar-overlay.open { opacity: 1; pointer-events: all; }
+  .sidebar { position: fixed; top: 0; right: -360px; width: 320px; max-width: 90vw; height: 100vh; background: var(--white); z-index: 999; overflow-y: auto; transition: right .3s cubic-bezier(.4,0,.2,1); box-shadow: -4px 0 32px rgba(0,0,0,.15); display: flex; flex-direction: column; }
+  .sidebar.open { right: 0; }
+  .sidebar-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); background: var(--green); color: #fff; position: sticky; top: 0; z-index: 1; }
+  .sidebar-head span { font-size: 15px; font-weight: 700; }
+  .sidebar-close { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,.15); border: none; color: #fff; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .sidebar-body { flex: 1; padding: 8px 0; }
+  .sb-item { display: flex; align-items: center;  padding: 14px 20px; font-size: 14px; font-weight: 600; color: var(--dark); border-bottom: 1px solid var(--border); cursor: pointer; transition: background .15s, color .15s; gap: 10px; text-decoration: none; }
+  .sb-item:hover { background: var(--green-pale); color: var(--green); }
+  .sb-icon { font-size: 18px; width: 28px; text-align: center; flex-shrink: 0; }
+  .sb-arrow { color: var(--muted); font-size: 12px; transition: transform .2s; }
+  .sb-item.has-sub.open .sb-arrow { transform: rotate(90deg); }
+  .sb-sub { display: none; background: var(--bg); }
+  .sb-sub.open { display: block; }
+  .sb-sub a { display: block; padding: 11px 20px 11px 40px; font-size: 13px; color: var(--mid); border-bottom: 1px solid var(--border); text-decoration: none; }
+  .sb-sub a:hover { color: var(--green); background: var(--green-pale); }
+  .sb-sub a::before { content: "•"; margin-left: 8px; color: var(--green); }
+  .sidebar-footer { padding: 16px 20px; border-top: 2px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+  .sidebar-footer a { display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 10px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all .2s; }
+  .sb-wa { background: #25d366; color: #fff; }
+  .sb-call { background: var(--green-pale); color: var(--green); }
+</style>
+<script src="cart.js"></script>
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar">
+  🎉 خصم 10% على أول طلب باستخدام كود: <a href="index.html">WELCOME10</a>
+  &nbsp;|&nbsp; للتواصل الفوري: <a href="https://wa.me/966559580940">واتساب</a>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="رواق التميز" style="height:52px;width:auto;border-radius:8px;">
+      <div class="logo-text">
+        <strong>رواق التميز</strong>
+        <span>للخدمات العامة والحكومية</span>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html#services">خدماتنا</a>
+      <a href="index.html#platforms">المنصات</a>
+      <a href="index.html#how">كيف نعمل</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html" class="active">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
+      <a href="cart.html" style="position:relative;display:inline-flex;align-items:center;gap:7px;background:#f3f4f6;border:2px solid #e5e7eb;color:#374151;padding:9px 16px;border-radius:9px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#0a5c3a';this.style.color='#0a5c3a'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">
+        🛒 سلتي
+        <span class="cart-badge" style="position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div id="sidebar-container"></div>
+
+<!-- ===== BREADCRUMB ===== -->
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="index.html">الرئيسية</a><span>›</span> تواصل معنا
+  </div>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <h1>تواصل معنا</h1>
+  <p>نحن هنا لمساعدتك في أي وقت — تواصل معنا الآن وسيرد عليك فريقنا في أقرب وقت.</p>
+</div>
+
+<!-- ===== MAIN CONTACT ===== -->
+<section>
+  <div class="wrap">
+    <div class="contact-layout">
+
+      <!-- INFO SIDE -->
+      <div class="contact-info">
+        <div class="section-label">بيانات التواصل</div>
+        <h2>نحن في خدمتك دائماً</h2>
+        <p>لا تتردد في التواصل معنا عبر أي قناة تناسبك، وسيرد عليك فريقنا المتخصص فور أقرب وقت ممكن.</p>
+
+        <!-- ✏️ غيّر بيانات التواصل -->
+        <div class="contact-card">
+          <div class="c-icon">💬</div>
+          <div class="c-info">
+            <strong>واتساب (الأسرع)</strong>
+            <a href="https://wa.me/966559580940">966559580940+</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="c-icon">📞</div>
+          <div class="c-info">
+            <strong>الهاتف</strong>
+            <a href="tel:+966559580940">966559580940+</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="c-icon">📧</div>
+          <div class="c-info">
+            <strong>البريد الإلكتروني</strong>
+            <a href="mailto:info@rowaqco.com">info@rowaqco.com</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="c-icon">📍</div>
+          <div class="c-info">
+            <strong>العنوان الرئيسي</strong>
+            <!-- ✏️ غيّر العنوان -->
+            <span>الرياض، حي العليا، شارع العروبة</span>
+          </div>
+        </div>
+
+        <!-- ✏️ غيّر أوقات العمل -->
+
+        <table class="hours-table">
+          <tr><td>الأحد — الخميس</td><td>9 صباحاً — 11 مساءً</td></tr>
+          <tr><td>الجمعة</td><td class="closed">مغلق</td></tr>
+          <tr><td>السبت</td><td>10 صباحاً — 8 مساءً</td></tr>
+          <tr><td>واتساب</td><td>24 / 7</td></tr>
+        </table>
+      </div>
+
+      <!-- FORM SIDE -->
+      <div class="form-card">
+        <h3>أرسل لنا رسالة</h3>
+        <p class="sub">سنرد عليك خلال ساعات العمل الرسمية.</p>
+
+        <div class="form-row">
+          <div class="field">
+            <label>الاسم الكامل <span class="required">*</span></label>
+            <input type="text" id="fname" placeholder="اسمك الكامل">
+          </div>
+          <div class="field">
+            <label>رقم الجوال <span class="required">*</span></label>
+            <input type="tel" id="fphone" placeholder="05xxxxxxxx">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>البريد الإلكتروني</label>
+          <input type="email" id="femail" placeholder="example@email.com">
+        </div>
+
+        <div class="field">
+          <!-- ✏️ غيّر الخدمات حسب ما تقدمه -->
+          <label>الخدمة المطلوبة <span class="required">*</span></label>
+          <select id="fservice">
+            <option value="" disabled selected>اختر الخدمة</option>
+            <option>خدمات أبشر</option>
+            <option>تأسيس منشأة / سجل تجاري</option>
+            <option>خدمات قوى</option>
+            <option>خدمات بلدي</option>
+            <option>دعم حساب المواطن</option>
+            <option>خدمات التعليم (نور / فارس)</option>
+            <option>خدمات الزكاة والضريبة</option>
+            <option>خدمة أخرى</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>تفاصيل الطلب</label>
+          <textarea id="fmsg" placeholder="اكتب تفاصيل ما تحتاجه..."></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">إرسال الطلب ✉️</button>
+        <div class="success-msg" id="successMsg">
+          ✅ تم استلام رسالتك بنجاح! سنتواصل معك قريباً.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== زورونا في فرعنا ===== -->
+<section id="branch" style="background:var(--bg);padding:72px 24px;">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">موقعنا</div>
+      <h2 class="section-title">زورونا في فرعنا</h2>
+      <p class="section-sub">يسعدنا استقبالكم في مكتبنا خلال أوقات الدوام الرسمي.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:36px;align-items:start;">
+
+      <!-- معلومات الفرع -->
+      <div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);">
+          <div style="background:var(--green);padding:22px 24px;color:#fff;">
+            <div style="font-size:26px;margin-bottom:6px;">🏢</div>
+            <h3 style="font-size:18px;font-weight:900;">رواق التميز للخدمات العامة</h3>
+            <span style="font-size:13px;opacity:.8;">الفرع الرئيسي — المدينة المنورة</span>
+          </div>
+          <div style="padding:22px 24px;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mid);">
+              <span style="font-size:20px;">📍</span>
+              <div>
+                <strong style="display:block;margin-bottom:2px;color:var(--dark);">العنوان</strong>
+                <!-- ✏️ غيّر العنوان بالموقع الدقيق عند توفره -->
+                <span>سيتم تحديث الموقع الدقيق قريباً — المدينة المنورة</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mid);">
+              <span style="font-size:20px;">⏰</span>
+              <div>
+                <strong style="display:block;margin-bottom:6px;color:var(--dark);">أوقات العمل</strong>
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                  <span>الأحد – الخميس: 9 ص – 11 م</span>
+                  <span>السبت: 10 ص – 8 م</span>
+                  <span style="color:var(--muted);">الجمعة: مغلق</span>
+                  <span style="color:var(--green);font-weight:700;">واتساب: 24/7</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;font-size:14px;color:var(--mid);">
+              <span style="font-size:20px;">📞</span>
+              <div><strong style="display:block;margin-bottom:2px;color:var(--dark);">الهاتف</strong><a href="tel:+966559580940" style="color:var(--green);font-weight:700;">0559580940</a></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;font-size:14px;color:var(--mid);">
+              <span style="font-size:20px;">💬</span>
+              <div><strong style="display:block;margin-bottom:2px;color:var(--dark);">واتساب</strong><a href="https://wa.me/966559580940" style="color:var(--green);font-weight:700;">0559580940</a></div>
+            </div>
+            <a href="https://wa.me/966559580940?text=مرحباً، أريد معرفة كيفية الوصول إلى مكتبكم"
+               style="display:flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#fff;padding:12px;border-radius:10px;font-weight:700;font-size:14px;margin-top:4px;text-decoration:none;">
+              📍 احصل على الاتجاهات عبر واتساب
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- خريطة جوجل — ✏️ استبدل src برابط موقعك الدقيق لاحقاً -->
+      <div style="border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.6555618917073!2d39.61415!3d24.46881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDI4JzA3LjciTiAzOcKwMzYnNTEuMCJF!5e0!3m2!1sar!2ssa!4v1700000000000"
+          width="100%" height="420"
+          style="border:0;display:block;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong><img src="logo.jpg" alt="رواق التميز" style="height:44px;width:auto;border-radius:7px;vertical-align:middle;margin-left:8px;"> رواق التميز للخدمات العامة</strong>
+      <p>نخدم المواطن والمقيم وأصحاب المؤسسات من أي مكان في المملكة.</p>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@rowaqaltamiyuz" target="_blank" title="يوتيوب" class="yt" style="width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/rowaqaltamiyuz/" target="_blank" title="إنستغرام" class="ig" style="width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/rowaqaltamiyuz/" target="_blank" title="فيسبوك" class="fb" style="width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/rowaqaltamiyuz" target="_blank" title="لينكدإن" class="li" style="width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M20.4 20.4h-3.4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8v5.4H9.8V9h3.3v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3zM5.3 7.4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1.7 13H3.6V9h3.4v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+        </a>
+      </div>
+
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <ul>
+        <li><a href="index.html#services">خدمات الأفراد</a></li>
+        <li><a href="index.html#services">خدمات الأعمال</a></li>
+        <li><a href="index.html#platforms">المنصات الحكومية</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>الشركة</h4>
+      <ul>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+        <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <li><a href="https://wa.me/966559580940">📲 0559580940</a></li>
+        <li><a href="mailto:info@rowaqco.com">📧 info@rowaqco.com</a></li>
+        <li><a href="#">📍 المدينة المنورة، السعودية</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 شركة رواق التميز الحديثة — جميع الحقوق محفوظة</span>
+    <span>سجل تجاري: 4650288413</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/966559580940" class="wa-float">💬</a>
+
+<script>
+function submitForm() {
+  const name    = document.getElementById('fname').value.trim();
+  const phone   = document.getElementById('fphone').value.trim();
+  const service = document.getElementById('fservice').value;
+
+  if (!name || !phone || !service) {
+    alert('يرجى تعبئة الحقول المطلوبة: الاسم، الجوال، والخدمة');
+    return;
+  }
+
+  // ✏️ غيّر الرقم هنا
+  const waPhone = '966559580940';
+  const msg = document.getElementById('fmsg').value;
+  const text = encodeURIComponent(
+    `مرحباً، اسمي ${name}\nرقمي: ${phone}\nالخدمة المطلوبة: ${service}\n${msg ? 'التفاصيل: ' + msg : ''}`
+  );
+  window.open(`https://wa.me/${waPhone}?text=${text}`, '_blank');
+
+  document.getElementById('successMsg').style.display = 'block';
+  setTimeout(() => document.getElementById('successMsg').style.display = 'none', 5000);
+}
+</script>
+
+<script>
+  
+  
+  );document.querySelectorAll(".sb-item.has-sub").forEach(function(s){s.classList.remove("open");});if(!isOpen){sub.classList.add("open");el.classList.add("open");}}
+</script>
+<script src="sidebar.js"></script>
+</body>
+</html>

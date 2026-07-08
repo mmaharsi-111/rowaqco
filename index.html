@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رواق التميز للخدمات العامة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== TOKENS ===== */
+  :root {
+    --green:      #0a5c3a;
+    --green-light:#0e7a4e;
+    --green-pale: #e8f5ee;
+    --gold:       #c9a84c;
+    --gold-light: #f0dfa0;
+    --dark:       #111827;
+    --mid:        #374151;
+    --muted:      #6b7280;
+    --border:     #e5e7eb;
+    --bg:         #f9fafb;
+    --white:      #ffffff;
+    --radius:     12px;
+    --shadow:     0 2px 16px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Cairo', sans-serif; background: var(--white); color: var(--dark); direction: rtl; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* ===== SIDEBAR ===== */
+  .menu-btn {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 42px; border-radius: 10px; cursor: pointer;
+    background: var(--green); border: none; padding: 10px;
+    flex-shrink: 0; transition: background .2s;
+  }
+  .menu-btn span {
+    display: block; height: 2px; background: #fff; border-radius: 2px;
+    transition: all .3s;
+  }
+  .menu-btn:hover { background: var(--green-light); }
+
+  .sidebar-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    z-index: 998; opacity: 0; pointer-events: none;
+    transition: opacity .3s;
+  }
+  .sidebar-overlay.open { opacity: 1; pointer-events: all; }
+
+  .sidebar {
+    position: fixed; top: 0; right: -360px; width: 320px; max-width: 90vw;
+    height: 100vh; background: var(--white);
+    z-index: 999; overflow-y: auto;
+    transition: right .3s cubic-bezier(.4,0,.2,1);
+    box-shadow: -4px 0 32px rgba(0,0,0,.15);
+    display: flex; flex-direction: column;
+  }
+  .sidebar.open { right: 0; }
+
+  .sidebar-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+    background: var(--green); color: #fff; position: sticky; top: 0; z-index: 1;
+  }
+  .sidebar-head span { font-size: 15px; font-weight: 700; }
+  .sidebar-close {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: rgba(255,255,255,.15); border: none; color: #fff;
+    font-size: 20px; cursor: pointer; display: flex;
+    align-items: center; justify-content: center; transition: background .2s;
+  }
+  .sidebar-close:hover { background: rgba(255,255,255,.3); }
+
+  .sidebar-body { flex: 1; padding: 8px 0; }
+
+  .sb-item {
+    display: flex; align-items: center;
+    padding: 14px 20px; font-size: 14px; font-weight: 600; color: var(--dark);
+    border-bottom: 1px solid var(--border); cursor: pointer;
+    transition: background .15s, color .15s; gap: 10px;
+    text-decoration: none;
+  }
+  .sb-item:hover { background: var(--green-pale); color: var(--green); }
+  .sb-item .sb-icon { font-size: 18px; width: 28px; text-align: center; flex-shrink: 0; }
+  .sb-item .sb-label { flex: 1; }
+  .sb-item .sb-arrow { color: var(--muted); font-size: 12px; transition: transform .2s; margin-right: auto; }
+  .sb-item.has-sub.open .sb-arrow { transform: rotate(90deg); }
+
+  .sb-sub { display: none; background: var(--bg); }
+  .sb-sub.open { display: block; }
+  .sb-sub a {
+    display: block; padding: 11px 20px 11px 40px;
+    font-size: 13px; color: var(--mid); border-bottom: 1px solid var(--border);
+    transition: color .15s, background .15s; text-decoration: none;
+  }
+  .sb-sub a:hover { color: var(--green); background: var(--green-pale); }
+  .sb-sub a::before { content: '•'; margin-left: 8px; color: var(--green); }
+
+  .sidebar-footer {
+    padding: 16px 20px; border-top: 2px solid var(--border);
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .sidebar-footer a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 16px; border-radius: 10px; font-size: 14px; font-weight: 700;
+    text-decoration: none; transition: all .2s;
+  }
+  .sb-wa { background: #25d366; color: #fff; }
+  .sb-wa:hover { background: #1ebe5d; }
+  .sb-call { background: var(--green-pale); color: var(--green); }
+  .sb-call:hover { background: var(--green); color: #fff; }
+
+  /* ===== TOPBAR ===== */
+  .topbar {
+    background: var(--green);
+    color: var(--white);
+    text-align: center;
+    font-size: 13px;
+    padding: 8px 20px;
+  }
+  .topbar a { color: var(--gold-light); font-weight: 700; }
+
+  /* ===== HEADER ===== */
+  header {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .header-inner {
+    max-width: 1200px; margin: auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; gap: 16px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .logo-text { line-height: 1.2; }
+  .logo-text strong { display: block; font-size: 17px; font-weight: 900; color: var(--green); }
+  .logo-text span { font-size: 12px; color: var(--muted); }
+
+  nav { display: flex; gap: 6px; flex-wrap: wrap; }
+  nav a {
+    font-size: 14px; font-weight: 600; padding: 7px 14px;
+    border-radius: 8px; color: var(--mid);
+    transition: background .2s, color .2s;
+  }
+  nav a:hover { background: var(--green-pale); color: var(--green); }
+
+  .header-cta {
+    display: flex; gap: 10px; align-items: center;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 10px 20px; border-radius: 9px;
+    font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; border: none; transition: all .2s;
+  }
+  .btn-green { background: var(--green); color: var(--white); }
+  .btn-green:hover { background: var(--green-light); }
+  .btn-gold { background: var(--gold); color: var(--dark); }
+  .btn-gold:hover { background: #b8963e; }
+  .btn-outline {
+    background: transparent; border: 2px solid var(--green);
+    color: var(--green);
+  }
+  .btn-outline:hover { background: var(--green-pale); }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--green) 0%, #0e6b44 60%, #145c38 100%);
+    color: var(--white); padding: 80px 24px 90px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { position: relative; max-width: 780px; margin: auto; }
+  .hero-badge {
+    display: inline-block; background: rgba(201,168,76,0.25);
+    border: 1px solid var(--gold); color: var(--gold-light);
+    padding: 5px 16px; border-radius: 50px; font-size: 13px; font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900; line-height: 1.25; margin-bottom: 18px;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero p { font-size: 17px; opacity: .88; margin-bottom: 36px; line-height: 1.7; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 40px;
+    margin-top: 60px; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat strong { display: block; font-size: 32px; font-weight: 900; color: var(--gold-light); }
+  .stat span { font-size: 13px; opacity: .8; }
+
+  /* ===== SECTION BASICS ===== */
+  section { padding: 72px 24px; }
+  .section-label {
+    display: inline-block; background: var(--green-pale);
+    color: var(--green); font-size: 12px; font-weight: 700;
+    padding: 4px 14px; border-radius: 50px; margin-bottom: 12px;
+    letter-spacing: .04em; text-transform: uppercase;
+  }
+  .section-title { font-size: clamp(22px, 3vw, 34px); font-weight: 900; margin-bottom: 10px; }
+  .section-sub { color: var(--muted); font-size: 15px; line-height: 1.7; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .wrap { max-width: 1200px; margin: auto; }
+
+  /* ===== HOW IT WORKS ===== */
+  .how { background: var(--bg); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; }
+  .step {
+    background: var(--white); border-radius: var(--radius);
+    padding: 32px 24px; text-align: center;
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+    position: relative;
+  }
+  .step-num {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--green); color: var(--white);
+    font-size: 20px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .step p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+  /* ===== SERVICES ===== */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .service-card {
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--border); overflow: hidden;
+    box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s;
+    cursor: pointer; display: flex; flex-direction: column;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(10,92,58,.13); }
+  .card-top {
+    background: var(--green); padding: 24px 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .card-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .card-top h3 { color: var(--white); font-size: 15px; font-weight: 700; }
+  .card-top span { color: rgba(255,255,255,.7); font-size: 12px; }
+  .card-body { padding: 20px; flex: 1; }
+  .card-body p { color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
+  .tag {
+    display: inline-block; background: var(--green-pale); color: var(--green);
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin: 3px 2px;
+  }
+  .card-footer {
+    padding: 14px 20px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .price { font-size: 16px; font-weight: 900; color: var(--green); }
+  .price span { font-size: 12px; font-weight: 400; color: var(--muted); }
+  .btn-card {
+    background: var(--green); color: var(--white);
+    font-size: 12px; font-weight: 700; padding: 7px 16px;
+    border-radius: 7px; border: none; cursor: pointer;
+    font-family: 'Cairo', sans-serif; transition: background .2s;
+  }
+  .btn-card:hover { background: var(--green-light); }
+
+  
+
+  /* ===== PLATFORMS SECTION ===== */
+  .platforms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 14px; }
+  .platform-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 12px; text-align: center;
+    font-size: 12px; font-weight: 700; color: var(--mid);
+    box-shadow: var(--shadow); transition: all .2s; cursor: pointer;
+  }
+  .platform-card:hover { border-color: var(--green); color: var(--green); background: var(--green-pale); }
+  .platform-card .picon { font-size: 26px; margin-bottom: 8px; height: 48px; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; }
+
+  /* ===== CONSULTATION BOOKING ===== */
+  .consult-step {
+    flex: 1; padding: 16px 10px; text-align: center;
+    border-left: 1px solid var(--border); cursor: default;
+    color: var(--muted); transition: all .25s; font-size: 12px;
+  }
+  .consult-step:last-child { border-left: none; }
+  .consult-step.active { background: var(--green); color: #fff; }
+  .consult-step.done   { background: var(--green-pale); color: var(--green); }
+
+  .consult-panel { animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  /* أيام التقويم */
+  .cal-dow {
+    text-align: center; font-size: 12px; font-weight: 700;
+    color: var(--muted); padding: 6px 2px;
+  }
+  .cal-day {
+    aspect-ratio: 1; border-radius: 10px; border: 1.5px solid transparent;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    transition: all .18s; background: #fff;
+  }
+  .cal-day.empty       { background: transparent; cursor: default; border: none; }
+  .cal-day.past        { color: #d1d5db; cursor: not-allowed; background: #f9fafb; }
+  .cal-day.friday      { color: #d1d5db; cursor: not-allowed; background: #f9fafb; }
+  .cal-day.available   { border-color: var(--green); color: var(--green); background: var(--green-pale); }
+  .cal-day.available:hover { background: var(--green); color: #fff; transform: scale(1.08); }
+  .cal-day.today       { border-color: var(--green); font-weight: 900; }
+  .cal-day.selected    { background: var(--gold); border-color: var(--gold); color: #111; transform: scale(1.1); box-shadow: 0 4px 14px rgba(201,168,76,.4); }
+
+  /* أزرار الأوقات */
+  .time-slot {
+    padding: 11px 8px; border-radius: 10px;
+    border: 1.5px solid var(--green); color: var(--green);
+    background: var(--green-pale); font-family: Cairo, sans-serif;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    text-align: center; transition: all .18s;
+  }
+  .time-slot:hover   { background: var(--green); color: #fff; transform: translateY(-2px); }
+  .time-slot.booked  { background: #f3f4f6; color: #d1d5db; border-color: #e5e7eb; cursor: not-allowed; text-decoration: line-through; }
+  .time-slot.selected { background: var(--gold); border-color: var(--gold); color: #111; transform: scale(1.05); }
+
+  /* حقول الفورم */
+  .consult-field label {
+    display: block; font-size: 13px; font-weight: 700;
+    margin-bottom: 7px; color: var(--dark);
+  }
+  .consult-field input,
+  .consult-field select,
+  .consult-field textarea {
+    width: 100%; padding: 11px 14px; border-radius: 9px;
+    border: 1.5px solid var(--border); font-family: Cairo, sans-serif;
+    font-size: 14px; color: var(--dark); outline: none;
+    transition: border-color .2s, box-shadow .2s; background: #fff;
+  }
+  .consult-field input:focus,
+  .consult-field select:focus,
+  .consult-field textarea:focus {
+    border-color: var(--green); box-shadow: 0 0 0 3px rgba(10,92,58,.1);
+  }
+  @media(max-width:600px) {
+    .consult-step { padding: 12px 4px; font-size: 10px; }
+    .consult-step div:first-child { font-size: 16px; }
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .reviews { background: var(--bg); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .review-card {
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--border); padding: 24px;
+    box-shadow: var(--shadow);
+  }
+  .review-stars { color: var(--gold); font-size: 16px; margin-bottom: 12px; }
+  .review-text { color: var(--mid); font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .reviewer-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--green); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+  }
+  .reviewer-name { font-weight: 700; font-size: 14px; }
+  .reviewer-city { font-size: 12px; color: var(--muted); }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 800px; margin: auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 24px; font-weight: 700; font-size: 15px;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    user-select: none;
+  }
+  .faq-q:hover { background: var(--green-pale); }
+  .faq-arrow { font-size: 18px; transition: transform .25s; color: var(--green); }
+  .faq-a {
+    display: none; padding: 0 24px 18px; color: var(--muted); font-size: 14px; line-height: 1.8;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+  /* ===== CTA BANNER ===== */
+  .cta-banner {
+    background: linear-gradient(120deg, var(--green) 0%, #0e6b44 100%);
+    color: var(--white); text-align: center; padding: 70px 24px;
+  }
+  .cta-banner h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 900; margin-bottom: 14px; }
+  .cta-banner p { font-size: 16px; opacity: .85; margin-bottom: 32px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: var(--white); color: var(--green); font-weight: 700; }
+  .btn-white:hover { background: #f0f0f0; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,.8);
+    padding: 56px 24px 24px;
+  }
+  .footer-grid {
+    max-width: 1200px; margin: auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand strong { color: var(--white); font-size: 17px; font-weight: 900; display: block; margin-bottom: 10px; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; margin-bottom: 20px; }
+  .footer-col h4 { color: var(--white); font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; transition: color .2s; }
+  .footer-col ul a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    max-width: 1200px; margin: auto;
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 20px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; font-size: 12px; opacity: .6;
+  }
+  .social-links { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .social-links a {
+    width: 38px; height: 38px; border-radius: 9px;
+    background: rgba(255,255,255,.1); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, transform .2s;
+  }
+  .social-links a:hover { transform: translateY(-2px); }
+  .social-links a svg { width: 18px; height: 18px; fill: currentColor; }
+  .social-links a.yt:hover  { background: #ff0000; }
+  .social-links a.ig:hover  { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+  .social-links a.fb:hover  { background: #1877f2; }
+  .social-links a.li:hover  { background: #0a66c2; }
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wa-float {
+    position: fixed; bottom: 28px; left: 28px; z-index: 999;
+    background: #25d366; color: var(--white);
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,.45);
+    transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width: 768px) {
+    .header-inner { flex-wrap: wrap; }
+    nav { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 24px; }
+  }
+  @media(max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<script src="cart.js"></script>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  🎉 خصم 10% على أول طلب باستخدام كود: <a href="#">WELCOME10</a> &nbsp;|&nbsp; للتواصل الفوري: <a href="https://wa.me/966559580940">واتساب</a>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="رواق التميز" style="height:52px;width:auto;border-radius:8px;">
+      <div class="logo-text">
+        <strong>رواق التميز</strong>
+        <span>للخدمات العامة والحكومية</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#services">خدماتنا</a>
+      <a href="#platforms">المنصات</a>
+      <a href="#how">كيف نعمل</a>
+      <a href="#reviews">آراء العملاء</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
+      <a href="cart.html" style="position:relative;display:inline-flex;align-items:center;gap:7px;background:#f3f4f6;border:2px solid #e5e7eb;color:#374151;padding:9px 16px;border-radius:9px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#0a5c3a';this.style.color='#0a5c3a'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">
+        🛒 سلتي
+        <span class="cart-badge" style="position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== SIDEBAR ===== -->
+<div id="sidebar-container"></div>
+<!-- ===== END SIDEBAR ===== -->
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    
+    <!-- ✏️ غيّر العنوان والوصف حسب شركتك -->
+    <h1>أنجز معاملاتك الحكومية<br><span>بسهولة وسرعة من مكانك</span></h1>
+    <p>نقدم لك جميع الخدمات الإلكترونية الحكومية للأفراد والشركات<br>عبر منصة واحدة موثوقة بأسعار مناسبة وخدمة سريعة.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn btn-gold">🔍 استعرض خدماتنا</a>
+      <!-- ✏️ غيّر رقم الواتساب -->
+      <a href="https://wa.me/966559580940" class="btn btn-outline" style="border-color:rgba(255,255,255,.5);color:#fff;display:inline-flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#25d366;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        اطلب الآن عبر واتساب
+      </a>
+    </div>
+    <div class="hero-stats">
+      <!-- ✏️ غيّر الأرقام حسب إنجازاتك -->
+      <div class="stat"><strong>+500</strong><span>عميل راضٍ</span></div>
+      <div class="stat"><strong>+50</strong><span>خدمة متاحة</span></div>
+      <div class="stat"><strong>24 ساعة</strong><span>دعم مستمر</span></div>
+      <div class="stat"><strong>+16</strong><span>سنوات خبرة</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">كيف نعمل</div>
+      <h2 class="section-title">إنجاز خدمتك في 4 خطوات بسيطة</h2>
+      <p class="section-sub">لا تعقيدات، لا مشاوير، كل شيء يتم إلكترونياً من راحة منزلك.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>اختر الخدمة</h3>
+        <p>تصفّح قائمة خدماتنا واختر ما تحتاجه أو تواصل معنا لتحديد الخدمة المناسبة.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>أرسل المتطلبات</h3>
+        <p>نوضح لك المستندات المطلوبة وتُرسلها عبر واتساب أو البريد الإلكتروني.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>ادفع بأمان</h3>
+        <p>ادفع عبر طرق الدفع الإلكترونية المعتمدة بشكل آمن وسريع.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>استلم إنجازك</h3>
+        <p>نُنجز معاملتك ونُرسل لك النتيجة مباشرة أو نُبلّغك بكل خطوة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES NAV ===== -->
+
+<!-- ===== OFFERS ===== -->
+<section style="background:var(--bg);padding:48px 24px;">
+  <div class="wrap">
+    <div class="section-header" style="margin-bottom:32px;">
+      <div class="section-label">عروض خاصة</div>
+      <h2 class="section-title">عروض ومزايا حصرية لعملائنا</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+      <!-- ✏️ غيّر العروض حسب ما تقدمه -->
+      <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:28px;color:#fff;position:relative;overflow:hidden;">
+        <div style="font-size:36px;margin-bottom:10px;">🎁</div>
+        <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">خصم 10% لأول طلب</h3>
+        <p style="font-size:13px;opacity:.85;line-height:1.6;margin-bottom:16px;">سجّل معنا الآن واحصل على خصم فوري على طلبك الأول بأي خدمة.</p>
+        <span style="background:var(--gold);color:#000;font-weight:900;padding:5px 14px;border-radius:20px;font-size:12px;">كود: WELCOME10</span>
+      </div>
+      <div style="background:linear-gradient(135deg,#7a5c0a,#b8963e);border-radius:14px;padding:28px;color:#fff;">
+        <div style="font-size:36px;margin-bottom:10px;">⚡</div>
+        <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">إنجاز سريع خلال 24 ساعة</h3>
+        <p style="font-size:13px;opacity:.85;line-height:1.6;">نضمن تنفيذ معظم الخدمات خلال 24 ساعة عمل من استلام المستندات المطلوبة.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#1e3a5f,#2d5986);border-radius:14px;padding:28px;color:#fff;">
+        <div style="font-size:36px;margin-bottom:10px;">🔄</div>
+        <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">ضمان استرجاع المبلغ</h3>
+        <p style="font-size:13px;opacity:.85;line-height:1.6;">إذا لم نتمكن من إنجاز خدمتك لأسباب فنية، نعيد لك المبلغ كاملاً بدون قيد أو شرط.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">خدماتنا</div>
+      <h2 class="section-title">جميع الخدمات التي تحتاجها في مكان واحد</h2>
+      <p class="section-sub">نغطي مئات الخدمات الحكومية والإلكترونية للأفراد والشركات.</p>
+    </div>
+
+    <!-- ✏️ ======================================================== -->
+    <!-- ✏️  هنا تُعدّل بطاقات الخدمات: غيّر الاسم والوصف والسعر   -->
+    <!-- ✏️ ======================================================== -->
+    <div class="services-grid" id="servicesGrid">
+
+      <!-- بطاقة 1: الخدمات العامة -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">📅</div>
+          <div>
+            <h3>الخدمات العامة</h3>
+            <span>حجز المواعيد والرحلات</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>حجز مواعيد حكومية وخاصة، حجز رحلات وتذاكر سفر، وجميع الخدمات العامة التي تحتاجها يومياً.</p>
+          <div>
+            <span class="tag">حجز مواعيد</span>
+            <span class="tag">حجز رحلات</span>
+            <span class="tag">خدمات عامة</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="general-services.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 2: خدمات الأفراد -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">👤</div>
+          <div>
+            <h3>خدمات الأفراد</h3>
+            <span>أبشر أفراد وأعمال</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>تجديد الإقامة، تأشيرة الخروج والعودة، إصدار وثائق، وجميع خدمات أبشر للأفراد والأعمال.</p>
+          <div>
+            <span class="tag">تجديد إقامة</span>
+            <span class="tag">تأشيرة خروج</span>
+            <span class="tag">هوية وطنية</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="individuals.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 3: خدمات الأعمال -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">🏢</div>
+          <div>
+            <h3>خدمات الأعمال</h3>
+            <span>تأسيس وتطوير المنشآت</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>تأسيس المنشآت والشركات، تجديد السجلات، نقل الملكية، إدارة العمالة وجميع معاملات الأعمال.</p>
+          <div>
+            <span class="tag">سجل تجاري</span>
+            <span class="tag">رخصة بلدي</span>
+            <span class="tag">تأسيس شركة</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="business-establishment.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 4: باقات اشتراك الأعمال -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">📦</div>
+          <div>
+            <h3>باقات اشتراك الأعمال والمؤسسات</h3>
+            <span>باقات شهرية وسنوية</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>باقات اشتراك مخصصة للمؤسسات والشركات تشمل جميع الخدمات الحكومية بسعر ثابت شهري أو سنوي.</p>
+          <div>
+            <span class="tag">باقة شهرية</span>
+            <span class="tag">باقة سنوية</span>
+            <span class="tag">خدمة VIP</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="packages.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الباقات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 5: خدمات المعلمين والطلاب -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">📚</div>
+          <div>
+            <h3>خدمات المعلمين والطلاب وأولياء الأمور</h3>
+            <span>منصة فارس ونور</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>خدمات للطلاب والمعلمين وأولياء الأمور عبر منصات نور وفارس، التسجيل والنقل المدرسي وغيرها.</p>
+          <div>
+            <span class="tag">منصة نور</span>
+            <span class="tag">منصة فارس</span>
+            <span class="tag">تسجيل مدرسي</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="education-services.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 6: خدمات التقديم على وظائف -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">💼</div>
+          <div>
+            <h3>خدمات التقديم على الوظائف</h3>
+            <span>جدارة والتوظيف الحكومي</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>مساعدتك في التقديم على الوظائف الحكومية والخاصة، تحضير السيرة الذاتية وإنشاء حساب جدارة.</p>
+          <div>
+            <span class="tag">منصة جدارة</span>
+            <span class="tag">سيرة ذاتية</span>
+            <span class="tag">وظائف حكومية</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="jobs-services.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 7: خدمات الاستشارات الهندسية -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">🏗️</div>
+          <div>
+            <h3>خدمات الاستشارات الهندسية</h3>
+            <span>تصميم وإشراف وتحكيم</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>استشارات هندسية متخصصة، إشراف فني وإدارة جودة، تصميم داخلي فاخر وإعادة تطوير المباني.</p>
+          <div>
+            <span class="tag">استشارات</span>
+            <span class="tag">إشراف فني</span>
+            <span class="tag">تصميم معماري</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="engineering-consulting.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+    </div>
+    <!-- نهاية الخدمات -->
+
+    <div style="text-align:center; margin-top:40px;">
+      <!-- ✏️ غيّر رقم الواتساب -->
+      <a href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن خدمة" class="btn btn-green" style="font-size:15px;padding:14px 36px;">
+        💬 ما لقيت خدمتك؟ تواصل معنا مباشرة
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLATFORMS ===== -->
+<section id="platforms" style="background:var(--bg);">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">المنصات</div>
+      <h2 class="section-title">نخدمك عبر جميع المنصات الحكومية</h2>
+      <p class="section-sub">نتعامل مع أكثر من 40 منصة حكومية وخدمية سعودية.</p>
+    </div>
+    <!-- ✏️ غيّر أو أضف منصات حسب خدماتك -->
+    <div class="platforms-grid">
+
+      <!-- المنصات الموجودة + اللوقوهات الرسمية -->
+      <a href="absher.html" class="platform-card">
+        <div class="picon"><img src="https://www.absher.sa/wps/themes/html/images/absher-logo.png" onerror="this.outerHTML='🆔'" style="width:48px;height:48px;object-fit:contain;"></div>أبشر
+      </a>
+      <a href="qiwa.html" class="platform-card">
+        <div class="picon"><img src="https://qiwa.sa/assets/images/logo.svg" onerror="this.outerHTML='👷'" style="width:48px;height:48px;object-fit:contain;"></div>قوى
+      </a>
+      <a href="balady.html" class="platform-card">
+        <div class="picon"><img src="https://balady.gov.sa/themes/custom/balady/logo.svg" onerror="this.outerHTML='🏙️'" style="width:48px;height:48px;object-fit:contain;"></div>بلدي
+      </a>
+      <a href="mudad.html" class="platform-card">
+        <div class="picon"><img src="https://mudad.com.sa/assets/images/logo.svg" onerror="this.outerHTML='💵'" style="width:48px;height:48px;object-fit:contain;"></div>مدد
+      </a>
+      <a href="muqeem.html" class="platform-card">
+        <div class="picon"><img src="https://muqeem.sa/assets/images/logo.png" onerror="this.outerHTML='🌍'" style="width:48px;height:48px;object-fit:contain;"></div>مقيم
+      </a>
+      <a href="sbc.html" class="platform-card">
+        <div class="picon"><img src="https://www.mc.gov.sa/ar/PublishingImages/MC_Logo.png" onerror="this.outerHTML='🏢'" style="width:48px;height:48px;object-fit:contain;"></div>المركز السعودي
+      </a>
+      <a href="najiz.html" class="platform-card">
+        <div class="picon"><img src="https://www.moj.gov.sa/assets/images/Logo.png" onerror="this.outerHTML='⚖️'" style="width:48px;height:48px;object-fit:contain;"></div>ناجز
+      </a>
+      <a href="zatca.html" class="platform-card">
+        <div class="picon"><img src="https://zatca.gov.sa/ar/PublishingImages/zatca-logo.png" onerror="this.outerHTML='📊'" style="width:48px;height:48px;object-fit:contain;"></div>الزكاة والضريبة
+      </a>
+      <a href="sakani.html" class="platform-card">
+        <div class="picon"><img src="https://www.housing.gov.sa/assets/images/logo.png" onerror="this.outerHTML='🏠'" style="width:48px;height:48px;object-fit:contain;"></div>سكني
+      </a>
+      <a href="electricity.html" class="platform-card">
+        <div class="picon"><img src="https://www.se.com.sa/ar-sa/PublishingImages/Logo.png" onerror="this.outerHTML='💡'" style="width:48px;height:48px;object-fit:contain;"></div>الكهرباء
+      </a>
+      <a href="water.html" class="platform-card">
+        <div class="picon">💧</div>المياه
+      </a>
+      <a href="noor-faris.html" class="platform-card">
+        <div class="picon"><img src="https://noor.moe.gov.sa/Noor/assets/images/logo.png" onerror="this.outerHTML='📚'" style="width:48px;height:48px;object-fit:contain;"></div>نور وفارس
+      </a>
+      <a href="gosi.html" class="platform-card">
+        <div class="picon"><img src="https://www.gosi.gov.sa/GOSIOnline/assets/images/gosi-logo.png" onerror="this.outerHTML='🤝'" style="width:48px;height:48px;object-fit:contain;"></div>تأمينات اجتماعية
+      </a>
+      <a href="ejar.html" class="platform-card">
+        <div class="picon"><img src="https://ejar.sa/assets/images/ejar-logo.svg" onerror="this.outerHTML='🔑'" style="width:48px;height:48px;object-fit:contain;"></div>إيجار
+      </a>
+      <a href="chamber.html" class="platform-card">
+        <div class="picon">🏛️</div>الغرفة التجارية
+      </a>
+      <a href="monshaat.html" class="platform-card">
+        <div class="picon"><img src="https://monshaat.gov.sa/assets/images/logo.svg" onerror="this.outerHTML='🔧'" style="width:48px;height:48px;object-fit:contain;"></div>منشآت
+      </a>
+
+      <!-- المنصات الجديدة -->
+      <a href="salama.html" class="platform-card">
+        <div class="picon"><img src="https://salama.gov.sa/assets/images/logo.svg" onerror="this.outerHTML='🛡️'" style="width:48px;height:48px;object-fit:contain;"></div>سلامة
+      </a>
+      <a href="saber.html" class="platform-card">
+        <div class="picon"><img src="https://saber.sa/static/img/logo_arb.png" onerror="this.outerHTML='📦'" style="width:48px;height:48px;object-fit:contain;"></div>سابر
+      </a>
+      <a href="discounts.html" class="platform-card">
+        <div class="picon">🏷️</div>نظام التخفيضات
+      </a>
+      <a href="fasah.html" class="platform-card">
+        <div class="picon"><img src="https://fasah.zatca.gov.sa/fasah/assets/img/logo.svg" onerror="this.outerHTML='🚢'" style="width:48px;height:48px;object-fit:contain;"></div>فسح
+      </a>
+      <a href="telecom.html" class="platform-card">
+        <div class="picon">📡</div>شركات الاتصالات
+      </a>
+      <a href="spl.html" class="platform-card">
+        <div class="picon"><img src="https://www.spl.com.sa/ar/PublishingImages/spl-logo.png" onerror="this.outerHTML='📮'" style="width:48px;height:48px;object-fit:contain;"></div>سبل
+      </a>
+      <a href="tam.html" class="platform-card">
+        <div class="picon">🚗</div>تم
+      </a>
+      <a href="ip.html" class="platform-card">
+        <div class="picon"><img src="https://saip.gov.sa/ar/PublishingImages/saip-logo.png" onerror="this.outerHTML='💡'" style="width:48px;height:48px;object-fit:contain;"></div>الملكية الفكرية
+      </a>
+      <a href="taqyees.html" class="platform-card">
+        <div class="picon"><img src="https://www.saso.gov.sa/ar/PublishingImages/saso-logo.png" onerror="this.outerHTML='📐'" style="width:48px;height:48px;object-fit:contain;"></div>تقييس
+      </a>
+      <a href="qawayem.html" class="platform-card">
+        <div class="picon">📊</div>قوائم
+      </a>
+      <a href="seza.html" class="platform-card">
+        <div class="picon"><img src="https://www.seza.gov.sa/assets/images/logo.png" onerror="this.outerHTML='🏙️'" style="width:48px;height:48px;object-fit:contain;"></div>هيئة المدن الاقتصادية
+      </a>
+      <a href="taqat.html" class="platform-card">
+        <div class="picon"><img src="https://www.taqat.sa/Content/images/logo.png" onerror="this.outerHTML='⚡'" style="width:48px;height:48px;object-fit:contain;"></div>طاقات
+      </a>
+      <a href="freelance.html" class="platform-card">
+        <div class="picon"><img src="https://freelancing.sa/assets/img/logo.svg" onerror="this.outerHTML='💼'" style="width:48px;height:48px;object-fit:contain;"></div>العمل الحر
+      </a>
+      <a href="najm.html" class="platform-card">
+        <div class="picon"><img src="https://najm.sa/assets/images/logo.png" onerror="this.outerHTML='⭐'" style="width:48px;height:48px;object-fit:contain;"></div>نجم
+      </a>
+      <a href="simah.html" class="platform-card">
+        <div class="picon"><img src="https://www.simah.com/assets/images/logo.svg" onerror="this.outerHTML='📈'" style="width:48px;height:48px;object-fit:contain;"></div>سمة
+      </a>
+      <a href="musaned.html" class="platform-card">
+        <div class="picon"><img src="https://musaned.com.sa/assets/images/logo.svg" onerror="this.outerHTML='🏠'" style="width:48px;height:48px;object-fit:contain;"></div>مساند
+      </a>
+      <a href="sce.html" class="platform-card">
+        <div class="picon"><img src="https://www.saudieng.sa/images/logo.png" onerror="this.outerHTML='🔧'" style="width:48px;height:48px;object-fit:contain;"></div>الهيئة السعودية للمهندسين
+      </a>
+      <a href="realestate.html" class="platform-card">
+        <div class="picon">🏗️</div>البورصة العقارية
+      </a>
+      <a href="shomoos.html" class="platform-card">
+        <div class="picon"><img src="https://shms.sa/assets/images/logo.png" onerror="this.outerHTML='☀️'" style="width:48px;height:48px;object-fit:contain;"></div>شموس
+      </a>
+      <a href="mumaris.html" class="platform-card">
+        <div class="picon">🏥</div>ممارس بلس
+      </a>
+      <a href="taradhi.html" class="platform-card">
+        <div class="picon"><img src="https://taradhi.com/img/logo.svg" onerror="this.outerHTML='🤝'" style="width:48px;height:48px;object-fit:contain;"></div>تراضي
+      </a>
+      <a href="support-citizen.html" class="platform-card">
+        <div class="picon"><img src="https://www.hea.gov.sa/ar/PublishingImages/hea-logo.png" onerror="this.outerHTML='🏠'" style="width:48px;height:48px;object-fit:contain;"></div>حساب المواطن
+      </a>
+      <a href="support-guarantee.html" class="platform-card">
+        <div class="picon">🤲</div>الضمان المطور
+      </a>
+      <a href="support-hafiz.html" class="platform-card">
+        <div class="picon">💼</div>حافز
+      </a>
+      <a href="support-tamheer.html" class="platform-card">
+        <div class="picon"><img src="https://www.tamheer.com.sa/assets/images/logo.svg" onerror="this.outerHTML='🎓'" style="width:48px;height:48px;object-fit:contain;"></div>تمهير
+      </a>
+      <a href="support-sanad.html" class="platform-card">
+        <div class="picon"><img src="https://www.sand.gov.sa/assets/images/logo.png" onerror="this.outerHTML='🏗️'" style="width:48px;height:48px;object-fit:contain;"></div>ساند
+      </a>
+      <a href="ministry-industry.html" class="platform-card">
+        <div class="picon">⚙️</div>وزارة الصناعة والثروة المعدنية
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">آراء العملاء</div>
+      <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+      <p class="section-sub">ثقة مئات العملاء هي أكبر شهادة على جودة خدماتنا.</p>
+    </div>
+    <!-- ✏️ غيّر التقييمات بتقييمات حقيقية من عملائك -->
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"خدمة ممتازة وسريعة، وفّروا عليّ أكثر من 3 مشاوير لمكاتب مختلفة. تنجز كل شيء بجوالي من البيت."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">م</div>
+          <div>
+            <div class="reviewer-name">محمد العلي</div>
+            <div class="reviewer-city">الرياض</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"أسعار مناسبة جداً مقارنة بالمكاتب الأخرى، والفريق محترف ومتجاوب. أنصح كل شخص يتعامل معهم."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">ن</div>
+          <div>
+            <div class="reviewer-name">نورة الصالح</div>
+            <div class="reviewer-city">جدة</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">"أنجزوا معاملة تجديد السجل التجاري في نفس اليوم. الخدمة ممتازة وسهّلوا عليّ الأمر كثيراً."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">ف</div>
+          <div>
+            <div class="reviewer-name">فهد الزهراني</div>
+            <div class="reviewer-city">الدمام</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== احجز استشارتك المجانية ===== -->
+<section id="consultation" style="background:var(--bg);padding:72px 24px;">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">مجاناً 100%</div>
+      <h2 class="section-title">📅 احجز استشارتك المجانية</h2>
+      <p class="section-sub">اختر التاريخ والوقت المناسب لك وسيتواصل معك أحد متخصصينا مباشرة.</p>
+    </div>
+
+    <div style="max-width:900px;margin:auto;">
+
+      <!-- ── الخطوات ── -->
+      <div style="display:flex;gap:0;margin-bottom:36px;background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow);">
+        <div class="consult-step active" id="step-tab-1">
+          <div style="font-size:22px;margin-bottom:4px;">📅</div>
+          <div style="font-size:13px;font-weight:700;">1. اختر التاريخ</div>
+        </div>
+        <div class="consult-step" id="step-tab-2">
+          <div style="font-size:22px;margin-bottom:4px;">🕐</div>
+          <div style="font-size:13px;font-weight:700;">2. اختر الوقت</div>
+        </div>
+        <div class="consult-step" id="step-tab-3">
+          <div style="font-size:22px;margin-bottom:4px;">📝</div>
+          <div style="font-size:13px;font-weight:700;">3. بياناتك</div>
+        </div>
+        <div class="consult-step" id="step-tab-4">
+          <div style="font-size:22px;margin-bottom:4px;">✅</div>
+          <div style="font-size:13px;font-weight:700;">4. تأكيد الحجز</div>
+        </div>
+      </div>
+
+      <!-- ── STEP 1: التقويم ── -->
+      <div id="consult-step-1" class="consult-panel">
+        <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:28px;box-shadow:var(--shadow);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+            <button onclick="changeMonth(-1)" style="width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s;" onmouseover="this.style.borderColor='#0a5c3a'" onmouseout="this.style.borderColor='#e5e7eb'">❮</button>
+            <h3 id="cal-month-label" style="font-size:17px;font-weight:900;"></h3>
+            <button onclick="changeMonth(1)" style="width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s;" onmouseover="this.style.borderColor='#0a5c3a'" onmouseout="this.style.borderColor='#e5e7eb'">❯</button>
+          </div>
+
+          <!-- أيام الأسبوع -->
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px;">
+            <div class="cal-dow">أح</div><div class="cal-dow">إث</div><div class="cal-dow">ثل</div>
+            <div class="cal-dow">أر</div><div class="cal-dow">خم</div><div class="cal-dow">جم</div><div class="cal-dow">سب</div>
+          </div>
+
+          <!-- شبكة التقويم -->
+          <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;"></div>
+
+          <div style="display:flex;gap:16px;margin-top:16px;font-size:12px;color:var(--muted);flex-wrap:wrap;">
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--green);border-radius:3px;margin-left:4px;"></span>متاح</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:#e5e7eb;border-radius:3px;margin-left:4px;"></span>غير متاح</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--gold);border-radius:3px;margin-left:4px;"></span>اليوم المختار</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 2: الأوقات ── -->
+      <div id="consult-step-2" class="consult-panel" style="display:none;">
+        <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:28px;box-shadow:var(--shadow);">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <button onclick="goStep(1)" style="background:var(--green-pale);color:var(--green);border:none;padding:7px 14px;border-radius:8px;font-family:Cairo,sans-serif;font-weight:700;font-size:13px;cursor:pointer;">← رجوع</button>
+            <h3 id="selected-date-label" style="font-size:16px;font-weight:900;color:var(--green);"></h3>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">المواعيد المتاحة من 9:00 صباحاً حتى 4:00 مساءً — كل 30 دقيقة</p>
+          <div id="time-slots-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;"></div>
+        </div>
+      </div>
+
+      <!-- ── STEP 3: بيانات العميل ── -->
+      <div id="consult-step-3" class="consult-panel" style="display:none;">
+        <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:28px;box-shadow:var(--shadow);">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <button onclick="goStep(2)" style="background:var(--green-pale);color:var(--green);border:none;padding:7px 14px;border-radius:8px;font-family:Cairo,sans-serif;font-weight:700;font-size:13px;cursor:pointer;">← رجوع</button>
+            <div>
+              <h3 style="font-size:16px;font-weight:900;">أدخل بياناتك</h3>
+              <div id="booking-summary-label" style="font-size:13px;color:var(--green);margin-top:2px;font-weight:700;"></div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="consult-field">
+              <label>الاسم الكامل <span style="color:#e53e3e;">*</span></label>
+              <input type="text" id="c-name" placeholder="اكتب اسمك الكامل">
+            </div>
+            <div class="consult-field">
+              <label>رقم الجوال <span style="color:#e53e3e;">*</span></label>
+              <input type="tel" id="c-phone" placeholder="05XXXXXXXX">
+            </div>
+          </div>
+          <div class="consult-field" style="margin-top:14px;">
+            <label>موضوع الاستشارة <span style="color:#e53e3e;">*</span></label>
+            <select id="c-topic">
+              <option value="" disabled selected>اختر موضوع الاستشارة</option>
+              <option>خدمات أبشر والإقامة</option>
+              <option>تأسيس منشأة أو شركة</option>
+              <option>خدمات العمالة والتوظيف</option>
+              <option>الدعم الحكومي (حساب المواطن / ضمان)</option>
+              <option>التمويل والقروض</option>
+              <option>خدمات المرور والمركبات</option>
+              <option>خدمات التعليم</option>
+              <option>استفسار عام</option>
+            </select>
+          </div>
+          <div class="consult-field" style="margin-top:14px;">
+            <label>تفاصيل إضافية (اختياري)</label>
+            <textarea id="c-notes" placeholder="اكتب أي تفاصيل تريد مشاركتها مع المستشار..." style="min-height:90px;resize:vertical;"></textarea>
+          </div>
+
+          <button onclick="submitBooking()" style="width:100%;padding:14px;border-radius:11px;background:var(--green);color:#fff;font-family:Cairo,sans-serif;font-size:16px;font-weight:900;border:none;cursor:pointer;margin-top:20px;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .2s;" onmouseover="this.style.background='#0e7a4e'" onmouseout="this.style.background='#0a5c3a'">
+            ✅ تأكيد حجز الاستشارة المجانية
+          </button>
+        </div>
+      </div>
+
+      <!-- ── STEP 4: تأكيد ── -->
+      <div id="consult-step-4" class="consult-panel" style="display:none;">
+        <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:40px 28px;box-shadow:var(--shadow);text-align:center;">
+          <div style="font-size:64px;margin-bottom:16px;">🎉</div>
+          <h3 style="font-size:22px;font-weight:900;color:var(--green);margin-bottom:8px;">تم حجز استشارتك بنجاح!</h3>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:24px;">سيتواصل معك أحد متخصصينا في الموعد المحدد</p>
+
+          <div style="background:var(--green-pale);border:1.5px solid var(--green);border-radius:12px;padding:20px;margin-bottom:28px;text-align:right;">
+            <div id="confirm-details" style="display:flex;flex-direction:column;gap:10px;font-size:14px;"></div>
+          </div>
+
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a id="confirm-wa-btn" href="#" target="_blank" style="background:#25d366;color:#fff;padding:12px 24px;border-radius:10px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px;">
+              💬 إرسال تأكيد عبر واتساب
+            </a>
+            <button onclick="resetBooking()" style="background:var(--green-pale);color:var(--green);border:2px solid var(--green);padding:12px 24px;border-radius:10px;font-family:Cairo,sans-serif;font-weight:700;font-size:14px;cursor:pointer;">
+              📅 حجز موعد آخر
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /max-width -->
+  </div>
+</section>
+
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">الأسئلة الشائعة</div>
+      <h2 class="section-title">إجابات على أبرز التساؤلات</h2>
+    </div>
+    <!-- ✏️ غيّر الأسئلة والأجوبة حسب طبيعة خدماتك -->
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          كيف أطلب خدمة؟ <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">تواصل معنا عبر واتساب أو اختر الخدمة المطلوبة مباشرة، وسيقوم فريقنا بإرشادك لجميع الخطوات وإبلاغك بالمتطلبات والسعر.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ما هي المستندات المطلوبة لكل خدمة؟ <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">تختلف المستندات حسب نوع الخدمة. بعد تحديد الخدمة المطلوبة سيُرسل لك فريقنا قائمة واضحة بجميع المتطلبات عبر واتساب.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          كم يستغرق تنفيذ الخدمة؟ <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">تتفاوت المدة حسب نوع الخدمة والجهة الحكومية. معظم الخدمات تُنجز خلال 24-48 ساعة، وسيتم إبلاغك بالمدة المتوقعة مسبقاً.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          هل يمكن استرجاع المبلغ إذا لم تُنجز الخدمة؟ <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">نعم، في حال تعذّر إتمام الخدمة لأسباب خارج إرادتنا أو إرادتك يحق لك استرجاع المبلغ وفق سياسة الاسترجاع المعتمدة لدينا.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ما هي طرق الدفع المتاحة؟ <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          نقبل الدفع عبر مدى، بطاقات الائتمان (فيزا وماستركارد)، وآبل باي، والتحويل البنكي المباشر.
+          <div style="margin-top:12px;background:var(--green-pale);border:1px solid var(--green);border-radius:10px;padding:14px 16px;">
+            <strong style="color:var(--green);display:block;margin-bottom:6px;">🏦 رقم الآيبان للتحويل البنكي:</strong>
+            <span style="font-family:monospace;font-size:15px;font-weight:700;letter-spacing:1px;color:var(--dark);">SA9580000333608014653214</span>
+            <span style="display:block;font-size:12px;color:var(--muted);margin-top:4px;">شركة رواق التميز الحديثة المحدودة</span>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          هل أنتم موثّقون رسمياً؟ <span class="faq-arrow">▼</span>
+        </div>
+        <!-- ✏️ غيّر رقم السجل التجاري -->
+        <div class="faq-a">نعم، مكتبنا موثّق في وزارة التجارة السعودية، ونعمل وفق الأنظمة والتشريعات المعمول بها في المملكة. رقم السجل التجاري: <strong>4650288413</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== زورونا في فرعنا ===== -->
+<section id="branch" style="background:var(--bg);padding:72px 24px;">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">موقعنا</div>
+      <h2 class="section-title">زورونا في فرعنا</h2>
+      <p class="section-sub">يسعدنا استقبالكم في مكتبنا خلال أوقات الدوام الرسمي.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:36px;align-items:start;">
+
+      <!-- معلومات الفرع -->
+      <div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);">
+          <div style="background:var(--green);padding:22px 24px;color:#fff;">
+            <div style="font-size:26px;margin-bottom:6px;">🏢</div>
+            <h3 style="font-size:18px;font-weight:900;">رواق التميز للخدمات العامة</h3>
+            <span style="font-size:13px;opacity:.8;">الفرع الرئيسي</span>
+          </div>
+          <div style="padding:22px 24px;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mid);">
+              <span style="font-size:20px;">📍</span>
+              <!-- ✏️ غيّر العنوان بالموقع الدقيق لاحقاً -->
+              <div><strong style="display:block;margin-bottom:2px;color:var(--dark);">العنوان</strong>سيتم تحديث الموقع الدقيق قريباً</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mid);">
+              <span style="font-size:20px;">⏰</span>
+              <div>
+                <strong style="display:block;margin-bottom:6px;color:var(--dark);">أوقات العمل</strong>
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                  <span>الأحد – الخميس: 9 ص – 11 م</span>
+                  <span>السبت: 10 ص – 8 م</span>
+                  <span style="color:var(--muted);">الجمعة: مغلق</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;font-size:14px;color:var(--mid);">
+              <span style="font-size:20px;">📞</span>
+              <div><strong style="display:block;margin-bottom:2px;color:var(--dark);">الهاتف</strong><a href="tel:+966559580940" style="color:var(--green);font-weight:700;">0559580940</a></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;font-size:14px;color:var(--mid);">
+              <span style="font-size:20px;">💬</span>
+              <div><strong style="display:block;margin-bottom:2px;color:var(--dark);">واتساب</strong><a href="https://wa.me/966559580940" style="color:var(--green);font-weight:700;">0559580940</a></div>
+            </div>
+            <a href="https://wa.me/966559580940?text=مرحباً، أريد معرفة كيفية الوصول إلى مكتبكم"
+               style="display:flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#fff;padding:12px;border-radius:10px;font-weight:700;font-size:14px;margin-top:4px;">
+              📍 احصل على الاتجاهات عبر واتساب
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- خريطة جوجل افتراضية -->
+      <div style="border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);">
+        <!-- ✏️ عندما تزودنا بالموقع الدقيق، سنستبدل هذا الـ src بالرابط الصحيح من Google Maps -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.6555618917073!2d36.73515!3d24.68773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQxJzE1LjgiTiAzNsKwNDQnMDYuNiJF!5e0!3m2!1sar!2ssa!4v1700000000000"
+          width="100%" height="420"
+          style="border:0;display:block;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<div class="cta-banner">
+  <h2>جاهز تبدأ؟ تواصل معنا الآن</h2>
+  <p>فريقنا متاح طوال أيام الأسبوع لمساعدتك في جميع معاملاتك الحكومية.</p>
+  <div class="cta-btns">
+    <!-- ✏️ غيّر رقم الواتساب -->
+    <a href="https://wa.me/966559580940" class="btn btn-white" style="font-size:15px;padding:14px 32px;">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#25d366;flex-shrink:0;"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4C7.3 9 6.7 9.6 6.7 10.9s.9 2.7 1.1 2.9c.1.2 1.8 2.7 4.4 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3zM12.1 2C6.5 2 2 6.5 2 12.1c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3 1.2 4.7 1.2 5.6 0 10.2-4.6 10.2-10.2S17.7 2 12.1 2zm0 18.7c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3c-.9-1.4-1.3-2.9-1.3-4.6 0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.9 8.4-8.6 8.4z"/></svg>
+      راسلنا على واتساب
+    </a>
+    <a href="tel:+966559580940" class="btn btn-gold" style="font-size:15px;padding:14px 32px;">📞 اتصل بنا</a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <!-- ✏️ غيّر الاسم والوصف -->
+      <strong><img src="logo.jpg" alt="رواق التميز" style="height:44px;width:auto;border-radius:7px;vertical-align:middle;margin-left:8px;"> رواق التميز للخدمات العامة</strong>
+      <p>نخدم المواطن والمقيم وأصحاب المؤسسات والشركات، وننجز معاملاتهم بطريقة رقمية متطورة من أي مكان.</p>
+      <!-- ✏️ غيّر روابط التواصل الاجتماعي -->
+      <div class="social-links">
+        <!-- يوتيوب -->
+        <a href="https://www.youtube.com/@rowaqaltamiyuz" target="_blank" title="يوتيوب" class="yt">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        </a>
+        <!-- إنستغرام -->
+        <a href="https://www.instagram.com/rowaqaltamiyuz/" target="_blank" title="إنستغرام" class="ig">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+        </a>
+        <!-- فيسبوك -->
+        <a href="https://www.facebook.com/rowaqaltamiyuz/" target="_blank" title="فيسبوك" class="fb">
+          <svg viewBox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg>
+        </a>
+        <!-- لينكدإن -->
+        <a href="https://www.linkedin.com/company/rowaqaltamiyuz" target="_blank" title="لينكدإن" class="li">
+          <svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8v5.4H9.8V9h3.3v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3zM5.3 7.4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1.7 13H3.6V9h3.4v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <ul>
+        <li><a href="individuals.html">خدمات الأفراد</a></li>
+        <li><a href="business-establishment.html">خدمات الأعمال</a></li>
+        <li><a href="government-platforms.html">المنصات الحكومية</a></li>
+        <li><a href="education-services.html">خدمات التعليم</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+        <li><a href="#faq">الأسئلة الشائعة</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <!-- ✏️ غيّر معلومات التواصل -->
+        <li><a href="https://wa.me/966559580940">📲 واتساب: 0559580940</a></li>
+        <li><a href="tel:+966559580940">📞 هاتف: 0559580940</a></li>
+        <li><a href="mailto:info@rowaqco.com">📧 info@rowaqco.com</a></li>
+        <li><a href="#">📍 المدينة المنورة، السعودية</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <!-- ✏️ غيّر الاسم وسنة التأسيس ورقم السجل -->
+    <span>© 2026 شركة رواق التميز الحديثة — جميع الحقوق محفوظة</span>
+    <span>سجل تجاري: 4650288413</span>
+  </div>
+</footer>
+
+<!-- ===== واتساب عائم ===== -->
+<!-- ✏️ غيّر رقم الواتساب -->
+<a href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن خدمة" class="wa-float" title="تواصل عبر واتساب">💬</a>
+
+<script>
+  // ===== SIDEBAR =====
+  
+  
+  
+  }
+
+  // ===== FAQ toggle =====
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ===== طلب خدمة عبر واتساب =====
+  function orderService(name) {
+    const phone = '966559580940';
+    const msg = encodeURIComponent(`مرحباً، أريد الاستفسار عن: ${name}`);
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+  }
+
+  // ============================================================
+  // ===== نظام حجز الاستشارات المجانية =====
+  // ============================================================
+
+  const BOOKINGS_KEY = 'rawaq_bookings';
+  const MONTHS_AR = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+  const DAYS_AR   = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+
+  // حالة الحجز
+  let calCurrentDate = new Date();
+  let selectedDate   = null;   // { year, month, day }
+  let selectedTime   = null;   // '09:00'
+  let currentStep    = 1;
+
+  /* ── قراءة وحفظ الحجوزات ── */
+  function getBookings() {
+    try { return JSON.parse(localStorage.getItem(BOOKINGS_KEY)) || {}; } catch { return {}; }
+  }
+  function saveBooking(dateKey, time, info) {
+    const b = getBookings();
+    if (!b[dateKey]) b[dateKey] = {};
+    b[dateKey][time] = info;
+    try { localStorage.setItem(BOOKINGS_KEY, JSON.stringify(b)); } catch(e) {}
+  }
+  function isBooked(dateKey, time) {
+    const b = getBookings();
+    return !!(b[dateKey] && b[dateKey][time]);
+  }
+
+  /* ── مفتاح التاريخ ── */
+  function dateKey(y, m, d) { return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
+
+  /* ── توليد قائمة المواعيد 9:00 - 16:00 كل 30 دقيقة ── */
+  function generateSlots() {
+    const slots = [];
+    for (let h = 9; h <= 15; h++) {
+      slots.push(`${String(h).padStart(2,'0')}:00`);
+      if (h < 16) slots.push(`${String(h).padStart(2,'0')}:30`);
+    }
+    slots.push('16:00');
+    return slots;
+  }
+
+  /* ── تنسيق الوقت للعرض ── */
+  function formatTime(t) {
+    const [h, m] = t.split(':').map(Number);
+    const suffix = h < 12 ? 'ص' : 'م';
+    const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
+    return `${h12}:${String(m).padStart(2,'0')} ${suffix}`;
+  }
+
+  /* ── رسم التقويم ── */
+  function renderCalendar() {
+    const now   = new Date();
+    const y     = calCurrentDate.getFullYear();
+    const m     = calCurrentDate.getMonth();
+    const first = new Date(y, m, 1).getDay();   // 0=أحد
+    const days  = new Date(y, m + 1, 0).getDate();
+
+    document.getElementById('cal-month-label').textContent = `${MONTHS_AR[m]} ${y}`;
+
+    let html = '';
+    // خلايا فارغة قبل أول يوم
+    for (let i = 0; i < first; i++) html += '<div class="cal-day empty"></div>';
+
+    for (let d = 1; d <= days; d++) {
+      const date    = new Date(y, m, d);
+      const isPast  = date < new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const isFri   = date.getDay() === 5;
+      const isToday = date.toDateString() === now.toDateString();
+      const isSel   = selectedDate && selectedDate.y === y && selectedDate.m === m && selectedDate.d === d;
+
+      let cls = 'cal-day';
+      if (isPast)       cls += ' past';
+      else if (isFri)   cls += ' friday';
+      else              cls += ' available';
+      if (isToday)      cls += ' today';
+      if (isSel)        cls += ' selected';
+
+      const clickable = !isPast && !isFri;
+      html += `<div class="${cls}" ${clickable ? `onclick="selectDate(${y},${m},${d})"` : ''}>${d}</div>`;
+    }
+
+    document.getElementById('cal-grid').innerHTML = html;
+  }
+
+  /* ── تغيير الشهر ── */
+  function changeMonth(dir) {
+    calCurrentDate.setMonth(calCurrentDate.getMonth() + dir);
+    // لا نسمح بالرجوع لشهر سابق
+    const now = new Date();
+    if (calCurrentDate.getFullYear() < now.getFullYear() ||
+       (calCurrentDate.getFullYear() === now.getFullYear() && calCurrentDate.getMonth() < now.getMonth())) {
+      calCurrentDate = new Date(now.getFullYear(), now.getMonth(), 1);
+    }
+    renderCalendar();
+  }
+
+  /* ── اختيار يوم ── */
+  function selectDate(y, m, d) {
+    selectedDate = { y, m, d };
+    selectedTime = null;
+    renderCalendar();
+    renderTimeSlots();
+    goStep(2);
+  }
+
+  /* ── رسم أزرار الأوقات ── */
+  function renderTimeSlots() {
+    if (!selectedDate) return;
+    const { y, m, d } = selectedDate;
+    const dk   = dateKey(y, m, d);
+    const slots = generateSlots();
+    const dayName = DAYS_AR[new Date(y, m, d).getDay()];
+    const label   = `${dayName}  ${d} ${MONTHS_AR[m]} ${y}`;
+
+    document.getElementById('selected-date-label').textContent = '📅 ' + label;
+
+    let html = '';
+    slots.forEach(t => {
+      const booked  = isBooked(dk, t);
+      const isSel   = selectedTime === t;
+      let cls = 'time-slot';
+      if (booked) cls += ' booked';
+      else if (isSel) cls += ' selected';
+
+      html += booked
+        ? `<div class="${cls}">🔒 ${formatTime(t)}<br><span style="font-size:10px;font-weight:400;">محجوز</span></div>`
+        : `<div class="${cls}" onclick="selectTime('${t}')">${formatTime(t)}</div>`;
+    });
+
+    document.getElementById('time-slots-grid').innerHTML = html;
+  }
+
+  /* ── اختيار وقت ── */
+  function selectTime(t) {
+    selectedTime = t;
+    renderTimeSlots();
+    // تأخير بسيط ثم الانتقال للخطوة 3
+    setTimeout(() => {
+      const { y, m, d } = selectedDate;
+      const dayName = DAYS_AR[new Date(y, m, d).getDay()];
+      document.getElementById('booking-summary-label').textContent =
+        `📅 ${dayName} ${d} ${MONTHS_AR[m]} ${y}  ·  🕐 ${formatTime(t)}`;
+      goStep(3);
+    }, 300);
+  }
+
+  /* ── التنقل بين الخطوات ── */
+  function goStep(n) {
+    currentStep = n;
+    [1,2,3,4].forEach(i => {
+      const panel = document.getElementById(`consult-step-${i}`);
+      const tab   = document.getElementById(`step-tab-${i}`);
+      if (panel) panel.style.display = i === n ? 'block' : 'none';
+      if (tab) {
+        tab.classList.remove('active','done');
+        if (i === n)     tab.classList.add('active');
+        else if (i < n)  tab.classList.add('done');
+      }
+    });
+    // تمرير للقسم
+    document.getElementById('consultation').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ── إرسال الحجز ── */
+  function submitBooking() {
+    const name  = document.getElementById('c-name').value.trim();
+    const phone = document.getElementById('c-phone').value.trim();
+    const topic = document.getElementById('c-topic').value;
+    const notes = document.getElementById('c-notes').value.trim();
+
+    if (!name)  { flashField('c-name',  'أدخل اسمك الكامل'); return; }
+    if (!phone) { flashField('c-phone', 'أدخل رقم الجوال');  return; }
+    if (!topic) { flashField('c-topic', 'اختر موضوع الاستشارة'); return; }
+
+    const { y, m, d } = selectedDate;
+    const dk      = dateKey(y, m, d);
+    const dayName = DAYS_AR[new Date(y, m, d).getDay()];
+    const dateStr = `${dayName} ${d} ${MONTHS_AR[m]} ${y}`;
+    const timeStr = formatTime(selectedTime);
+
+    // تحقق مرة أخرى أن الموعد لا يزال متاحاً
+    if (isBooked(dk, selectedTime)) {
+      alert('عذراً! تم حجز هذا الموعد للتو من عميل آخر. يرجى اختيار موعد آخر.');
+      goStep(2);
+      renderTimeSlots();
+      return;
+    }
+
+    // حفظ الحجز
+    saveBooking(dk, selectedTime, { name, phone, topic });
+
+    // عرض التأكيد
+    document.getElementById('confirm-details').innerHTML = `
+      <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">👤</span><div><span style="color:var(--muted);font-size:12px;">الاسم</span><div style="font-weight:700;">${name}</div></div></div>
+      <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">📞</span><div><span style="color:var(--muted);font-size:12px;">الجوال</span><div style="font-weight:700;">${phone}</div></div></div>
+      <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">📅</span><div><span style="color:var(--muted);font-size:12px;">التاريخ</span><div style="font-weight:700;">${dateStr}</div></div></div>
+      <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">🕐</span><div><span style="color:var(--muted);font-size:12px;">الوقت</span><div style="font-weight:700;">${timeStr}</div></div></div>
+      <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">📋</span><div><span style="color:var(--muted);font-size:12px;">الموضوع</span><div style="font-weight:700;">${topic}</div></div></div>
+    `;
+
+    // رابط واتساب للتأكيد
+    const waMsg = encodeURIComponent(
+      `مرحباً 👋 أريد تأكيد حجز استشارتي المجانية:\n\n` +
+      `👤 الاسم: ${name}\n` +
+      `📞 الجوال: ${phone}\n` +
+      `📅 التاريخ: ${dateStr}\n` +
+      `🕐 الوقت: ${timeStr}\n` +
+      `📋 الموضوع: ${topic}` +
+      (notes ? `\n📝 ملاحظات: ${notes}` : '')
+    );
+    document.getElementById('confirm-wa-btn').href = `https://wa.me/966559580940?text=${waMsg}`;
+
+    goStep(4);
+  }
+
+  /* ── تلميع الحقل عند الخطأ ── */
+  function flashField(id, msg) {
+    const el = document.getElementById(id);
+    el.style.borderColor = '#e53e3e';
+    el.style.boxShadow   = '0 0 0 3px rgba(229,62,62,.15)';
+    el.placeholder = msg;
+    el.focus();
+    setTimeout(() => { el.style.borderColor=''; el.style.boxShadow=''; }, 2500);
+  }
+
+  /* ── إعادة تعيين نموذج الحجز ── */
+  function resetBooking() {
+    selectedDate = null;
+    selectedTime = null;
+    document.getElementById('c-name').value  = '';
+    document.getElementById('c-phone').value = '';
+    document.getElementById('c-topic').value = '';
+    document.getElementById('c-notes').value = '';
+    renderCalendar();
+    goStep(1);
+  }
+
+  /* ── تهيئة عند تحميل الصفحة ── */
+  document.addEventListener('DOMContentLoaded', function() {
+    renderCalendar();
+    updateCartBadge();
+  });
+</script>
+<script src="sidebar.js"></script>
+</body>
+</html>

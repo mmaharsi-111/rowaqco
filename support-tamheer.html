@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="تمهير من رواق التميز — التسجيل في برنامج تمهير عبر منصة طاقات — ندعمك في التقديم والحصول على الدعم بكل سهولة.">
+<title>تمهير — رواق التميز</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="cart.js"></script>
+<style>
+:root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);direction:rtl;}
+a{text-decoration:none;color:inherit;}
+.topbar{background:var(--green);color:#fff;text-align:center;font-size:13px;padding:8px 20px;}
+.topbar a{color:var(--gold-light);font-weight:700;}
+header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.header-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{height:50px;width:auto;border-radius:8px;}
+.logo-text strong{display:block;font-size:16px;font-weight:900;color:var(--green);}
+.logo-text span{font-size:11px;color:var(--muted);}
+.header-nav{display:flex;gap:6px;}
+.header-nav a{font-size:13px;font-weight:600;padding:7px 14px;border-radius:8px;color:var(--mid);transition:all .2s;}
+.header-nav a:hover,.header-nav a.active{background:var(--green-pale);color:var(--green);}
+.header-cta{display:flex;gap:10px;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
+.btn-green{background:var(--green);color:#fff;}.btn-green:hover{background:var(--green-light);}
+.menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border-radius:10px;cursor:pointer;background:var(--green);border:none;padding:10px;flex-shrink:0;}
+.menu-btn span{display:block;height:2px;background:#fff;border-radius:2px;}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:7px;background:#f3f4f6;border:2px solid #e5e7eb;color:#374151;padding:9px 16px;border-radius:9px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
+.cart-btn:hover{border-color:var(--green);color:var(--green);}
+.cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;}
+.breadcrumb .wrap{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.breadcrumb a{font-size:13px;color:var(--green);font-weight:600;}
+.breadcrumb span{margin:0 5px;color:var(--muted);font-size:13px;}
+.bc-title{font-size:20px;font-weight:900;color:var(--dark);}
+.wrap{max-width:1280px;margin:auto;}
+.page-body{padding:28px 24px 60px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;}
+.svc-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s;}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.svc-card::before{content:'';position:absolute;top:0;right:0;left:0;height:5px;background:var(--green);}
+.svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
+.svc-img{height:130px;display:flex;align-items:center;justify-content:center;padding:14px;background:#fff;}
+.svc-img img{max-height:90px;max-width:140px;object-fit:contain;}
+.svc-body{padding:11px 13px 0;flex:1;}
+.svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;}
+.svc-name{font-size:13px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:36px;}
+.svc-price{font-size:15px;font-weight:900;color:var(--dark);}
+.currency{font-size:12px;font-weight:600;}
+.svc-footer{padding:10px 13px 13px;}
+.add-btn{width:100%;padding:9px;border-radius:9px;background:var(--green);color:#fff;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.add-btn:hover{background:var(--green-light);}
+.add-btn.added{background:#16a34a;}
+.wa-float{position:fixed;bottom:28px;left:28px;z-index:997;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s;text-decoration:none;}
+.wa-float:hover{transform:scale(1.1);}
+footer{background:var(--dark);color:#fff;padding:40px 24px 20px;}
+.footer-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+.footer-brand strong{display:block;font-size:15px;font-weight:900;margin-bottom:8px;}
+.footer-brand p{font-size:13px;opacity:.6;line-height:1.7;}
+.footer-col h4{font-size:13px;font-weight:700;margin-bottom:14px;color:var(--gold);}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:8px;}
+.footer-col a{font-size:12px;opacity:.6;transition:opacity .2s;}
+.footer-col a:hover{opacity:1;}
+.footer-bottom{max-width:1280px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;opacity:.5;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}.services-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;}.header-nav{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  🎉 خصم 10% على أول طلب باستخدام كود: <a href="#">WELCOME10</a> &nbsp;|&nbsp; للتواصل الفوري: <a href="https://wa.me/966559580940">واتساب</a>
+</div>
+
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()" aria-label="القائمة"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="شعار رواق التميز للخدمات العامة">
+      <div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="government-platforms.html">المنصات الحكومية</a>
+      <a href="packages.html">الباقات</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="cart.html" class="cart-btn">🛒 السلة<span class="cart-badge" id="cart-badge">0</span></a>
+    </div>
+  </div>
+</header>
+
+<div id="sidebar-container"></div>
+
+<div class="breadcrumb">
+  <div class="wrap">
+    <div>
+      <a href="index.html">الرئيسية</a>
+      <span>›</span>
+      <a href="#">خدمات الوزارات الحكومية</a>
+      <span>›</span>
+      <span>تمهير</span>
+    </div>
+    <div class="bc-title">🎓 تمهير</div>
+  </div>
+</div>
+
+<div class="page-body">
+  <div class="wrap">
+
+    <!-- شريط أخضر -->
+    <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:28px;color:#fff;display:flex;align-items:center;gap:18px;">
+      <img src="https://www.tamheer.com.sa/assets/images/logo.svg" alt="شعار تمهير" onerror="this.outerHTML='<div style=font-size:48px>🏛️</div>'" style="height:60px;object-fit:contain;background:#fff;border-radius:10px;padding:6px;">
+      <div>
+        <h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">تمهير</h2>
+        <p style="font-size:13px;opacity:.88;line-height:1.6;">التسجيل في برنامج تمهير عبر منصة طاقات — ندعمك في التقديم والحصول على الدعم بكل سهولة.</p>
+      </div>
+    </div>
+
+    <!-- عدد الخدمات -->
+    <div style="margin-bottom:20px;">
+      <span style="font-size:13px;color:var(--muted);font-weight:600;">خدمة واحدة</span>
+    </div>
+
+    <!-- البطاقات -->
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="svc-img">
+          <img src="https://www.taqat.sa/Content/images/logo.png" alt="شعار منصة طاقات" onerror="this.outerHTML='<div style=font-size:48px>🎓</div>'" style="max-height:80px;object-fit:contain;">
+        </div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
+          <div class="svc-name">تسجيل في تمهير</div>
+          <div class="svc-price">100 <span class="currency">ريال</span></div>
+        </div>
+        <div class="svc-footer">
+          <button class="add-btn" onclick="addToCart(this,'تسجيل في تمهير',100,'تمهير')">
+            🛒 أضف للسلة
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/966559580940" class="wa-float">💬</a>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong>رواق التميز للخدمات العامة</strong>
+      <p>نخدم المواطن والمقيم وأصحاب المؤسسات من أي مكان في المملكة.</p>
+    </div>
+    <div class="footer-col"><h4>خدمات الأعمال</h4><ul>
+      <li><a href="business-establishment.html">معاملات التأسيس</a></li>
+      <li><a href="business-transfer.html">التعديل أو النقل</a></li>
+      <li><a href="business-renewal.html">تجديد دورية ومتكررة</a></li>
+      <li><a href="business-closure.html">انهاء مشروع</a></li>
+      <li><a href="business-employees.html">الموظفين والعمال</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>الشركة</h4><ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html">تواصل معنا</a></li>
+      <li><a href="cart.html">سلة المشتريات</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>تواصل معنا</h4><ul>
+      <li><a href="https://wa.me/966559580940">📲 0559580940</a></li>
+      <li><a href="tel:+966559580940">📞 0559580940</a></li>
+      <li><a href="mailto:info@rowaqco.com">📧 info@rowaqco.com</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 رواق التميز للخدمات العامة — جميع الحقوق محفوظة</span>
+    <span>سجل تجاري: 4650288413</span>
+  </div>
+</footer>
+
+<script src="sidebar.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() { updateCartBadge(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="خدمات المنصات الحكومية من رواق التميز — نخدمك عبر أكثر من 40 منصة حكومية وخدمية سعودية.">
+<title>خدمات المنصات الحكومية — رواق التميز</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="cart.js"></script>
+<style>
+:root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);direction:rtl;}
+a{text-decoration:none;color:inherit;}
+
+/* TOPBAR */
+.topbar{background:var(--green);color:#fff;text-align:center;font-size:13px;padding:8px 20px;}
+.topbar a{color:var(--gold-light);font-weight:700;}
+
+/* HEADER */
+header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.header-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{height:50px;width:auto;border-radius:8px;}
+.logo-text strong{display:block;font-size:16px;font-weight:900;color:var(--green);}
+.logo-text span{font-size:11px;color:var(--muted);}
+.header-nav{display:flex;gap:6px;}
+.header-nav a{font-size:13px;font-weight:600;padding:7px 14px;border-radius:8px;color:var(--mid);transition:all .2s;}
+.header-nav a:hover,.header-nav a.active{background:var(--green-pale);color:var(--green);}
+.header-cta{display:flex;gap:10px;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
+.btn-green{background:var(--green);color:#fff;}.btn-green:hover{background:var(--green-light);}
+.menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border-radius:10px;cursor:pointer;background:var(--green);border:none;padding:10px;flex-shrink:0;}
+.menu-btn span{display:block;height:2px;background:#fff;border-radius:2px;}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:7px;background:#f3f4f6;border:2px solid #e5e7eb;color:#374151;padding:9px 16px;border-radius:9px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
+.cart-btn:hover{border-color:var(--green);color:var(--green);}
+.cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}
+
+/* SIDEBAR */
+.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;opacity:0;pointer-events:none;transition:opacity .3s;}
+.sidebar-overlay.open{opacity:1;pointer-events:all;}
+.sidebar{position:fixed;top:0;right:-360px;width:320px;max-width:90vw;height:100vh;background:var(--white);z-index:999;overflow-y:auto;transition:right .3s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 32px rgba(0,0,0,.15);display:flex;flex-direction:column;}
+.sidebar.open{right:0;}
+.sidebar-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--green);color:#fff;position:sticky;top:0;z-index:1;}
+.sidebar-head span{font-size:15px;font-weight:700;}
+.sidebar-close{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.sidebar-close:hover{background:rgba(255,255,255,.3);}
+.sidebar-body{flex:1;padding:8px 0;}
+.sb-item{display:flex;align-items:center;padding:14px 20px;font-size:14px;font-weight:600;color:var(--dark);border-bottom:1px solid var(--border);cursor:pointer;}
+.sb-item:hover{background:var(--green-pale);color:var(--green);}
+.sb-icon{font-size:18px;width:28px;text-align:center;flex-shrink:0;}
+.sb-label{flex:1;}
+.sb-arrow{color:var(--muted);font-size:12px;transition:transform .2s;margin-right:auto;}
+.sb-item.has-sub.open .sb-arrow{transform:rotate(90deg);}
+.sb-sub{display:none;background:var(--bg);}
+.sb-sub a{display:block;padding:10px 20px 10px 32px;font-size:13px;color:var(--mid);border-bottom:1px solid var(--border);transition:all .2s;}
+.sb-sub a:hover{color:var(--green);background:var(--green-pale);}
+.sidebar-footer{padding:16px 20px;border-top:2px solid var(--border);display:flex;flex-direction:column;gap:10px;}
+.sidebar-footer a{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
+.sb-wa{background:#25d366;color:#fff;}.sb-wa:hover{background:#1ebe5d;}
+.sb-call{background:var(--green-pale);color:var(--green);}.sb-call:hover{background:var(--green);color:#fff;}
+
+/* BREADCRUMB */
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;}
+.breadcrumb .wrap{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.breadcrumb a{font-size:13px;color:var(--green);font-weight:600;}
+.breadcrumb span{margin:0 5px;color:var(--muted);font-size:13px;}
+.bc-title{font-size:20px;font-weight:900;}
+
+.wrap{max-width:1280px;margin:auto;}
+.page-body{padding:28px 24px 60px;}
+
+/* BANNER */
+.page-banner{background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:28px;color:#fff;display:flex;align-items:center;gap:18px;}
+.page-banner .banner-icon{font-size:48px;}
+.page-banner h2{font-size:20px;font-weight:900;margin-bottom:4px;}
+.page-banner p{font-size:13px;opacity:.88;line-height:1.6;}
+
+/* SEARCH */
+.search-bar{background:#fff;border:2px solid var(--border);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:12px;margin-bottom:28px;transition:border-color .2s;}
+.search-bar:focus-within{border-color:var(--green);}
+.search-bar input{flex:1;border:none;outline:none;font-family:'Cairo',sans-serif;font-size:15px;color:var(--dark);background:transparent;}
+.search-bar input::placeholder{color:var(--muted);}
+.search-bar .search-icon{font-size:20px;color:var(--muted);}
+
+/* RESULTS COUNT */
+.results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.results-count{font-size:13px;color:var(--muted);font-weight:600;}
+
+/* PLATFORMS GRID */
+.platforms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;}
+
+/* PLATFORM CARD */
+.platform-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:24px 16px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;transition:all .25s;cursor:pointer;}
+.platform-card:hover{border-color:var(--green);box-shadow:var(--shadow-lg);transform:translateY(-4px);}
+.platform-logo{width:64px;height:64px;object-fit:contain;border-radius:10px;}
+.platform-emoji{font-size:48px;line-height:1;}
+.platform-name{font-size:14px;font-weight:900;color:var(--dark);}
+.platform-btn{margin-top:4px;width:100%;padding:9px;border-radius:9px;background:var(--green);color:#fff;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.platform-btn:hover{background:var(--green-light);}
+
+/* NO RESULTS */
+.no-results{text-align:center;padding:60px 20px;color:var(--muted);}
+.no-results .icon{font-size:48px;margin-bottom:12px;}
+.no-results p{font-size:15px;}
+
+/* FOOTER */
+footer{background:var(--dark);color:#fff;padding:40px 24px 20px;}
+.footer-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+.footer-brand strong{display:block;font-size:16px;font-weight:900;color:#fff;margin-bottom:8px;}
+.footer-brand p{font-size:13px;opacity:.6;line-height:1.7;}
+.footer-col h4{font-size:13px;font-weight:700;margin-bottom:14px;color:var(--gold);}
+.footer-col a{display:block;font-size:12px;opacity:.6;margin-bottom:8px;transition:opacity .2s;}
+.footer-col a:hover{opacity:1;}
+.footer-bottom{max-width:1280px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;opacity:.5;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .header-nav{display:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr;}
+  .platforms-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  🎉 خصم 10% على أول طلب باستخدام كود: <a href="#">WELCOME10</a> &nbsp;|&nbsp; للتواصل الفوري: <a href="https://wa.me/966559580940">واتساب</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="شعار رواق التميز للخدمات العامة">
+      <div class="logo-text">
+        <strong>رواق التميز</strong>
+        <span>للخدمات العامة والحكومية</span>
+      </div>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="government-platforms.html" class="active">المنصات الحكومية</a>
+      <a href="packages.html">الباقات</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="cart.html" class="cart-btn">
+        🛒 السلة
+        <span class="cart-badge" id="cart-badge">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<div id="sidebar-container"></div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="wrap">
+    <div>
+      <a href="index.html">الرئيسية</a>
+      <span>›</span>
+      <span>خدمات المنصات الحكومية</span>
+    </div>
+    <div class="bc-title">🖥️ خدمات المنصات الحكومية</div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+  <div class="wrap">
+
+    <!-- BANNER -->
+    <div class="page-banner">
+      <div class="banner-icon">🖥️</div>
+      <div>
+        <h2>خدمات المنصات الحكومية</h2>
+        <p>نخدمك عبر أكثر من 40 منصة حكومية وخدمية سعودية — ابحث عن المنصة التي تحتاجها واستعرض خدماتها.</p>
+      </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="platform-search" placeholder="ابحث عن منصة... مثال: أبشر، قوى، بلدي" oninput="filterPlatforms()">
+    </div>
+
+    <!-- RESULTS COUNT -->
+    <div class="results-bar">
+      <span class="results-count" id="results-count">43 منصة</span>
+    </div>
+
+    <!-- PLATFORMS GRID -->
+    <div class="platforms-grid" id="platforms-grid">
+
+      <!-- يتم إنشاء البطاقات بواسطة JS -->
+
+    </div>
+
+    <!-- NO RESULTS -->
+    <div class="no-results" id="no-results" style="display:none;">
+      <div class="icon">🔍</div>
+      <p>لا توجد نتائج للبحث — جرّب كلمة أخرى</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong>رواق التميز للخدمات العامة</strong>
+      <p>نقدم خدمات متكاملة للأفراد والأعمال عبر جميع المنصات الحكومية السعودية.</p>
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="business-establishment.html">خدمات الأعمال</a>
+      <a href="government-platforms.html">المنصات الحكومية</a>
+      <a href="packages.html">الباقات</a>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="cart.html">السلة</a>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <a href="https://wa.me/966559580940">واتساب</a>
+      <a href="tel:+966559580940">0559580940</a>
+      <a href="mailto:info@rowaqco.com">info@rowaqco.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 رواق التميز للخدمات العامة. جميع الحقوق محفوظة.</span>
+  </div>
+</footer>
+
+<!-- واتساب عائم -->
+<a href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن خدمة" style="position:fixed;bottom:24px;left:24px;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 16px rgba(37,211,102,.4);z-index:997;text-decoration:none;transition:transform .2s;" title="تواصل عبر واتساب">💬</a>
+
+<script src="sidebar.js"></script>
+<script>
+// ===== بيانات المنصات =====
+const platforms = [
+  { name: 'أبشر', logo: 'https://www.absher.sa/wps/themes/html/images/absher-logo.png', fallback: '🆔', url: 'absher.html' },
+  { name: 'قوى', logo: 'https://qiwa.sa/assets/images/logo.svg', fallback: '👷', url: 'qiwa.html' },
+  { name: 'بلدي', logo: 'https://balady.gov.sa/themes/custom/balady/logo.svg', fallback: '🏙️', url: 'balady.html' },
+  { name: 'مدد', logo: 'https://mudad.com.sa/assets/images/logo.svg', fallback: '💵', url: 'mudad.html' },
+  { name: 'مقيم', logo: 'https://muqeem.sa/assets/images/logo.png', fallback: '🌍', url: 'muqeem.html' },
+  { name: 'المركز السعودي', logo: 'https://www.mc.gov.sa/ar/PublishingImages/MC_Logo.png', fallback: '🏢', url: 'sbc.html' },
+  { name: 'ناجز', logo: 'https://www.moj.gov.sa/assets/images/Logo.png', fallback: '⚖️', url: 'najiz.html' },
+  { name: 'الزكاة والضريبة', logo: 'https://zatca.gov.sa/ar/PublishingImages/zatca-logo.png', fallback: '📊', url: 'zatca.html' },
+  { name: 'سكني', logo: 'https://www.housing.gov.sa/assets/images/logo.png', fallback: '🏠', url: 'sakani.html' },
+  { name: 'الكهرباء', logo: 'https://www.se.com.sa/ar-sa/PublishingImages/Logo.png', fallback: '💡', url: 'electricity.html' },
+  { name: 'المياه', logo: '', fallback: '💧', url: 'water.html' },
+  { name: 'نور وفارس', logo: 'https://noor.moe.gov.sa/Noor/assets/images/logo.png', fallback: '📚', url: 'noor-faris.html' },
+  { name: 'تأمينات اجتماعية', logo: 'https://www.gosi.gov.sa/GOSIOnline/assets/images/gosi-logo.png', fallback: '🤝', url: 'gosi.html' },
+  { name: 'إيجار', logo: 'https://ejar.sa/assets/images/ejar-logo.svg', fallback: '🔑', url: 'ejar.html' },
+  { name: 'الغرفة التجارية', logo: '', fallback: '🏛️', url: 'chamber.html' },
+  { name: 'منشآت', logo: 'https://monshaat.gov.sa/assets/images/logo.svg', fallback: '🔧', url: 'monshaat.html' },
+  { name: 'سلامة', logo: 'https://salama.gov.sa/assets/images/logo.svg', fallback: '🛡️', url: 'salama.html' },
+  { name: 'سابر', logo: 'https://saber.sa/static/img/logo_arb.png', fallback: '📦', url: 'saber.html' },
+  { name: 'نظام التخفيضات', logo: '', fallback: '🏷️', url: 'discounts.html' },
+  { name: 'فسح', logo: 'https://fasah.zatca.gov.sa/fasah/assets/img/logo.svg', fallback: '🚢', url: 'fasah.html' },
+  { name: 'شركات الاتصالات', logo: '', fallback: '📡', url: 'telecom.html' },
+  { name: 'سبل', logo: 'https://www.spl.com.sa/ar/PublishingImages/spl-logo.png', fallback: '📮', url: 'spl.html' },
+  { name: 'تم', logo: '', fallback: '🚗', url: 'tam.html' },
+  { name: 'الملكية الفكرية', logo: 'https://saip.gov.sa/ar/PublishingImages/saip-logo.png', fallback: '💡', url: 'ip.html' },
+  { name: 'تقييس', logo: 'https://www.saso.gov.sa/ar/PublishingImages/saso-logo.png', fallback: '📐', url: 'taqyees.html' },
+  { name: 'قوائم', logo: '', fallback: '📊', url: 'qawayem.html' },
+  { name: 'هيئة المدن الاقتصادية', logo: 'https://www.seza.gov.sa/assets/images/logo.png', fallback: '🏙️', url: 'seza.html' },
+  { name: 'طاقات', logo: 'https://www.taqat.sa/Content/images/logo.png', fallback: '⚡', url: 'taqat.html' },
+  { name: 'العمل الحر', logo: 'https://freelancing.sa/assets/img/logo.svg', fallback: '💼', url: 'freelance.html' },
+  { name: 'نجم', logo: 'https://najm.sa/assets/images/logo.png', fallback: '⭐', url: 'najm.html' },
+  { name: 'سمة', logo: 'https://www.simah.com/assets/images/logo.svg', fallback: '📈', url: 'simah.html' },
+  { name: 'مساند', logo: 'https://musaned.com.sa/assets/images/logo.svg', fallback: '🏠', url: 'musaned.html' },
+  { name: 'الهيئة السعودية للمهندسين', logo: 'https://www.saudieng.sa/images/logo.png', fallback: '🔧', url: 'sce.html' },
+  { name: 'البورصة العقارية', logo: '', fallback: '🏗️', url: 'realestate.html' },
+  { name: 'شموس', logo: 'https://shms.sa/assets/images/logo.png', fallback: '☀️', url: 'shomoos.html' },
+  { name: 'ممارس بلس', logo: '', fallback: '🏥', url: 'mumaris.html' },
+  { name: 'تراضي', logo: 'https://taradhi.com/img/logo.svg', fallback: '🤝', url: 'taradhi.html' },
+  { name: 'حساب المواطن', logo: 'https://www.hea.gov.sa/ar/PublishingImages/hea-logo.png', fallback: '🏠', url: 'support-citizen.html' },
+  { name: 'الضمان المطور', logo: '', fallback: '🤲', url: 'support-guarantee.html' },
+  { name: 'حافز', logo: '', fallback: '💼', url: 'support-hafiz.html' },
+  { name: 'تمهير', logo: 'https://www.tamheer.com.sa/assets/images/logo.svg', fallback: '🎓', url: 'support-tamheer.html' },
+  { name: 'ساند', logo: 'https://www.sand.gov.sa/assets/images/logo.png', fallback: '🏗️', url: 'support-sanad.html' },
+];
+
+// ===== بناء البطاقات =====
+function buildCard(p) {
+  const imgHTML = p.logo
+    ? `<img src="${p.logo}" alt="شعار ${p.name}" class="platform-logo" onerror="this.outerHTML='<div class=\\'platform-emoji\\'>${p.fallback}</div>'">`
+    : `<div class="platform-emoji">${p.fallback}</div>`;
+  const btnHTML = p.url
+    ? `<a href="${p.url}" class="platform-btn">🔍 استعرض الخدمات</a>`
+    : `<button class="platform-btn" onclick="viewServices('${p.name}')">🔍 استعرض الخدمات</button>`;
+  return `
+    <div class="platform-card" data-name="${p.name}">
+      ${imgHTML}
+      <div class="platform-name">${p.name}</div>
+      ${btnHTML}
+    </div>`;
+}
+
+function renderPlatforms(list) {
+  const grid = document.getElementById('platforms-grid');
+  const noResults = document.getElementById('no-results');
+  const count = document.getElementById('results-count');
+  if (list.length === 0) {
+    grid.innerHTML = '';
+    noResults.style.display = 'block';
+    count.textContent = 'لا توجد نتائج';
+  } else {
+    grid.innerHTML = list.map(buildCard).join('');
+    noResults.style.display = 'none';
+    count.textContent = `${list.length} منصة`;
+  }
+}
+
+// ===== البحث =====
+function filterPlatforms() {
+  const q = document.getElementById('platform-search').value.trim().toLowerCase();
+  if (!q) { renderPlatforms(platforms); return; }
+  const filtered = platforms.filter(p => p.name.toLowerCase().includes(q));
+  renderPlatforms(filtered);
+}
+
+// ===== استعرض الخدمات =====
+function viewServices(name) {
+  const msg = `مرحباً، أريد الاستفسار عن خدمات منصة ${name}`;
+  window.open(`https://wa.me/966559580940?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ===== تحديث عداد السلة =====
+document.addEventListener('DOMContentLoaded', function() {
+  renderPlatforms(platforms);
+  updateCartBadge();
+});
+</script>
+</body>
+</html>
