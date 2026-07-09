@@ -154,7 +154,7 @@ function askService(name) {
  
 /* ── إرسال الطلب لأودو عبر Google Apps Script (GET) ── */
 async function sendToOdoo(cart, customerInfo) {
-  const PROXY_URL = 'https://script.google.com/macros/s/AKfycbyLaPtiRzLHKOTjOJmhbQZh9Jq0gAPzXGwGPGGYAYkp8z-Zx5WXhNOATF9bYH1am9iM/exec';
+  const PROXY_URL = 'https://script.google.com/macros/s/AKfycbyzTHDGzy4Kqitq3U0q4z5fhxlsMwMDLUpZj5Ptd6G0nqp_3pFj67cEz66FhHUXROuc/exec';
  
   try {
     const params = new URLSearchParams({
