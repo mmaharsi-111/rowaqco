@@ -547,10 +547,14 @@ async function checkoutWhatsapp(){
   try {
     const cartParam = encodeURIComponent(JSON.stringify(cart));
     const params = new URLSearchParams({
-      name:  user.name,
-      phone: user.phone,
-      email: user.email || '',
-      cart:  cartParam
+      name:    user.name,
+      phone:   user.phone,
+      email:   user.email   || '',
+      invoice: user.invoice ? 'true' : 'false',
+      company: user.company || '',
+      vat:     user.vat     || '',
+      cr:      user.cr      || '',
+      cart:    cartParam
     });
 
     const res  = await fetch(`${GAS_URL}?${params}`);
