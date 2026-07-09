@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول / إنشاء حساب — رواق التميز</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="cart.js"></script>
+<style>
+/* ===== AUTH PAGE ===== */
+.auth-wrapper {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-hero {
+  background: linear-gradient(135deg, var(--green) 0%, #0e6b44 100%);
+  padding: 48px 24px 80px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.auth-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.auth-hero-content { position: relative; }
+.auth-hero h1 { font-size: clamp(22px, 4vw, 36px); font-weight: 900; margin-bottom: 8px; }
+.auth-hero p  { font-size: 15px; opacity: .85; }
+
+.auth-card-wrap {
+  max-width: 560px; margin: -48px auto 48px;
+  padding: 0 16px; position: relative; z-index: 10;
+  width: 100%;
+}
+
+.auth-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.12);
+  overflow: hidden;
+}
+
+/* ===== TABS ===== */
+.auth-tabs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid var(--border);
+}
+.auth-tab {
+  padding: 18px; text-align: center;
+  font-size: 15px; font-weight: 700;
+  color: var(--muted); cursor: pointer;
+  transition: color .2s, background .2s;
+  border: none; background: transparent;
+  font-family: 'Cairo', sans-serif;
+}
+.auth-tab.active {
+  color: var(--green);
+  border-bottom: 3px solid var(--green);
+  background: var(--green-pale);
+  margin-bottom: -2px;
+}
+
+/* ===== FORM ===== */
+.auth-body { padding: 32px; }
+
+.auth-panel { display: none; }
+.auth-panel.active { display: block; }
+
+.auth-title { font-size: 20px; font-weight: 900; margin-bottom: 6px; color: var(--dark); }
+.auth-sub   { font-size: 13px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+
+.field { margin-bottom: 18px; }
+.field label {
+  display: block; font-size: 13px; font-weight: 700;
+  margin-bottom: 7px; color: var(--dark);
+}
+.field label .req { color: #e53e3e; margin-right: 2px; }
+.field label .opt { color: var(--muted); font-weight: 400; font-size: 12px; }
+
+.field input, .field select {
+  width: 100%; padding: 12px 14px; border-radius: 10px;
+  border: 1.5px solid var(--border);
+  font-family: 'Cairo', sans-serif; font-size: 14px;
+  color: var(--dark); background: var(--white);
+  transition: border-color .2s, box-shadow .2s; outline: none;
+}
+.field input:focus, .field select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(10,92,58,.1);
+}
+.field input.error { border-color: #e53e3e; box-shadow: 0 0 0 3px rgba(229,62,62,.1); }
+
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.pass-wrap { position: relative; }
+.pass-wrap input { padding-left: 46px; }
+.pass-toggle {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); font-size: 18px; padding: 4px;
+  line-height: 1;
+}
+
+/* ===== INVOICE TOGGLE ===== */
+.invoice-toggle {
+  background: var(--green-pale);
+  border: 1.5px solid var(--green);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer;
+}
+.invoice-toggle input[type="checkbox"] {
+  width: 20px; height: 20px; accent-color: var(--green);
+  cursor: pointer; flex-shrink: 0;
+}
+.invoice-toggle-label {
+  font-size: 14px; font-weight: 700; color: var(--green);
+  cursor: pointer;
+}
+.invoice-toggle-label span { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+
+.invoice-fields {
+  display: none;
+  background: #f8fbf9;
+  border: 1px dashed var(--green);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+  animation: slideDown .25s ease;
+}
+.invoice-fields.show { display: block; }
+@keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+.invoice-fields-title {
+  font-size: 13px; font-weight: 700; color: var(--green);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+}
+
+/* ===== SUBMIT ===== */
+.auth-submit {
+  width: 100%; padding: 14px;
+  background: var(--green); color: #fff;
+  border: none; border-radius: 12px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px; font-weight: 700;
+  cursor: pointer; transition: background .2s, transform .1s;
+  margin-top: 8px;
+}
+.auth-submit:hover { background: var(--green-light); }
+.auth-submit:active { transform: scale(.98); }
+.auth-submit:disabled { background: var(--muted); cursor: not-allowed; }
+
+.auth-divider {
+  text-align: center; margin: 20px 0;
+  color: var(--muted); font-size: 13px;
+  display: flex; align-items: center; gap: 12px;
+}
+.auth-divider::before, .auth-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+.auth-wa-btn {
+  width: 100%; padding: 13px;
+  background: #25d366; color: #fff;
+  border: none; border-radius: 12px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: background .2s;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.auth-wa-btn:hover { background: #1ebe5d; }
+
+.auth-switch {
+  text-align: center; margin-top: 20px;
+  font-size: 13px; color: var(--muted);
+}
+.auth-switch a { color: var(--green); font-weight: 700; cursor: pointer; }
+.auth-switch a:hover { text-decoration: underline; }
+
+/* ===== FORGOT PASSWORD ===== */
+.forgot-link {
+  display: block; text-align: left;
+  font-size: 12px; color: var(--green);
+  margin-top: 6px; cursor: pointer;
+}
+.forgot-link:hover { text-decoration: underline; }
+
+/* ===== SUCCESS STATE ===== */
+.auth-success {
+  display: none;
+  text-align: center; padding: 40px 32px;
+}
+.auth-success .success-icon {
+  font-size: 64px; margin-bottom: 16px;
+}
+.auth-success h2 { font-size: 22px; font-weight: 900; margin-bottom: 8px; color: var(--green); }
+.auth-success p  { color: var(--muted); font-size: 14px; margin-bottom: 24px; line-height: 1.7; }
+
+/* ===== STRENGTH METER ===== */
+.pass-strength { margin-top: 6px; }
+.strength-bar {
+  height: 4px; border-radius: 2px;
+  background: var(--border); overflow: hidden; margin-bottom: 4px;
+}
+.strength-fill { height: 100%; border-radius: 2px; transition: width .3s, background .3s; width: 0; }
+.strength-label { font-size: 11px; color: var(--muted); }
+
+/* ===== LOADING ===== */
+.spinner {
+  display: inline-block; width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,.4);
+  border-top-color: #fff; border-radius: 50%;
+  animation: spin .7s linear infinite; vertical-align: middle;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== ERROR MSG ===== */
+.field-error {
+  font-size: 11px; color: #e53e3e;
+  margin-top: 4px; display: none;
+}
+.field-error.show { display: block; }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 500px) {
+  .auth-body { padding: 24px 18px; }
+  .field-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body class="auth-wrapper">
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="رواق التميز" style="height:52px;width:auto;border-radius:8px;">
+      <div class="logo-text">
+        <strong>رواق التميز</strong>
+        <span>للخدمات العامة والحكومية</span>
+      </div>
+    </a>
+    <div class="header-cta">
+      <a href="cart.html" class="btn btn-outline" style="position:relative;">
+        🛒 سلتي
+        <span class="cart-badge" style="display:none;position:absolute;top:-8px;left:-8px;background:var(--gold);color:var(--dark);border-radius:50%;width:20px;height:20px;font-size:11px;font-weight:900;align-items:center;justify-content:center;">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="auth-hero">
+  <div class="auth-hero-content">
+    <p style="font-size:28px;margin-bottom:8px;">👤</p>
+    <h1>حسابك في رواق التميز</h1>
+    <p>سجّل دخولك أو أنشئ حساباً جديداً لإتمام طلباتك بسهولة</p>
+  </div>
+</div>
+
+<!-- ===== AUTH CARD ===== -->
+<div class="auth-card-wrap">
+  <div class="auth-card" id="auth-card">
+
+    <!-- TABS -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="switchTab('login')">تسجيل الدخول</button>
+      <button class="auth-tab" onclick="switchTab('register')">حساب جديد</button>
+    </div>
+
+    <div class="auth-body">
+
+      <!-- ===== LOGIN PANEL ===== -->
+      <div class="auth-panel active" id="panel-login">
+        <div class="auth-title">مرحباً بعودتك 👋</div>
+        <div class="auth-sub">أدخل بيانات حسابك للمتابعة</div>
+
+        <div class="field">
+          <label>البريد الإلكتروني أو رقم الجوال <span class="req">*</span></label>
+          <input type="text" id="login-id" placeholder="example@email.com أو 05xxxxxxxx">
+          <div class="field-error" id="login-id-err">يرجى إدخال البريد الإلكتروني أو رقم الجوال</div>
+        </div>
+
+        <div class="field">
+          <label>كلمة المرور <span class="req">*</span></label>
+          <div class="pass-wrap">
+            <input type="password" id="login-pass" placeholder="••••••••">
+            <button class="pass-toggle" onclick="togglePass('login-pass', this)" type="button">👁</button>
+          </div>
+          <div class="field-error" id="login-pass-err">يرجى إدخال كلمة المرور</div>
+          <a class="forgot-link" onclick="showForgot()">نسيت كلمة المرور؟</a>
+        </div>
+
+        <button class="auth-submit" onclick="doLogin()" id="login-btn">تسجيل الدخول</button>
+
+        <div class="auth-divider">أو</div>
+
+        <button class="auth-wa-btn" onclick="loginViaWhatsapp()">
+          💬 تواصل عبر واتساب للمساعدة
+        </button>
+
+        <div class="auth-switch">
+          ليس لديك حساب؟ <a onclick="switchTab('register')">إنشاء حساب جديد</a>
+        </div>
+      </div>
+
+      <!-- ===== REGISTER PANEL ===== -->
+      <div class="auth-panel" id="panel-register">
+        <div class="auth-title">إنشاء حساب جديد ✨</div>
+        <div class="auth-sub">أنشئ حسابك مجاناً وابدأ طلب خدماتك الحكومية بسهولة</div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>الاسم الكامل <span class="req">*</span></label>
+            <input type="text" id="reg-name" placeholder="محمد أحمد">
+            <div class="field-error" id="reg-name-err">يرجى إدخال الاسم الكامل</div>
+          </div>
+          <div class="field">
+            <label>رقم الجوال <span class="req">*</span></label>
+            <input type="tel" id="reg-phone" placeholder="05xxxxxxxx" maxlength="10">
+            <div class="field-error" id="reg-phone-err">يرجى إدخال رقم جوال صحيح</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>البريد الإلكتروني <span class="req">*</span></label>
+          <input type="email" id="reg-email" placeholder="example@email.com">
+          <div class="field-error" id="reg-email-err">يرجى إدخال بريد إلكتروني صحيح</div>
+        </div>
+
+        <div class="field">
+          <label>كلمة المرور <span class="req">*</span></label>
+          <div class="pass-wrap">
+            <input type="password" id="reg-pass" placeholder="8 أحرف على الأقل" oninput="checkStrength(this.value)">
+            <button class="pass-toggle" onclick="togglePass('reg-pass', this)" type="button">👁</button>
+          </div>
+          <div class="pass-strength">
+            <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+            <div class="strength-label" id="strength-label"></div>
+          </div>
+          <div class="field-error" id="reg-pass-err">كلمة المرور يجب أن تكون 8 أحرف على الأقل</div>
+        </div>
+
+        <!-- INVOICE TOGGLE -->
+        <label class="invoice-toggle" for="need-invoice">
+          <input type="checkbox" id="need-invoice" onchange="toggleInvoice(this.checked)">
+          <div class="invoice-toggle-label">
+            هل تحتاج فاتورة ضريبية؟
+            <span>للشركات والمنشآت التجارية</span>
+          </div>
+        </label>
+
+        <!-- INVOICE FIELDS -->
+        <div class="invoice-fields" id="invoice-fields">
+          <div class="invoice-fields-title">🏢 بيانات الفاتورة الضريبية</div>
+          <div class="field">
+            <label>اسم الشركة / المنشأة <span class="opt">(اختياري)</span></label>
+            <input type="text" id="reg-company" placeholder="شركة ... المحدودة">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>الرقم الموحد <span class="opt">(اختياري)</span></label>
+              <input type="text" id="reg-cr" placeholder="10 أرقام" maxlength="10">
+            </div>
+            <div class="field">
+              <label>الرقم الضريبي <span class="opt">(اختياري)</span></label>
+              <input type="text" id="reg-vat" placeholder="15 رقماً" maxlength="15">
+            </div>
+          </div>
+        </div>
+
+        <button class="auth-submit" onclick="doRegister()" id="register-btn">إنشاء الحساب</button>
+
+        <div class="auth-switch">
+          لديك حساب بالفعل؟ <a onclick="switchTab('login')">تسجيل الدخول</a>
+        </div>
+      </div>
+
+    </div><!-- /auth-body -->
+
+    <!-- SUCCESS STATE -->
+    <div class="auth-success" id="auth-success">
+      <div class="success-icon">🎉</div>
+      <h2 id="success-title">تم إنشاء حسابك بنجاح!</h2>
+      <p id="success-msg">مرحباً بك في رواق التميز. يمكنك الآن إتمام طلباتك بسهولة.</p>
+      <a href="cart.html" class="btn btn-green" style="display:inline-flex;gap:8px;">
+        🛒 إتمام الطلب
+      </a>
+      <br><br>
+      <a href="index.html" style="font-size:13px;color:var(--muted);">العودة للرئيسية</a>
+    </div>
+
+  </div><!-- /auth-card -->
+
+  <!-- BENEFITS -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;">
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;">
+      <div style="font-size:24px;margin-bottom:6px;">🔒</div>
+      <div style="font-size:12px;font-weight:700;color:var(--dark);">بيانات آمنة</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:3px;">محمية بالكامل</div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;">
+      <div style="font-size:24px;margin-bottom:6px;">📋</div>
+      <div style="font-size:12px;font-weight:700;color:var(--dark);">تتبع طلباتك</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:3px;">في أي وقت</div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;">
+      <div style="font-size:24px;margin-bottom:6px;">⚡</div>
+      <div style="font-size:12px;font-weight:700;color:var(--dark);">طلب أسرع</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:3px;">بدون تكرار البيانات</div>
+    </div>
+  </div>
+
+</div><!-- /auth-card-wrap -->
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/966559580940" class="wa-float" title="تواصل عبر واتساب">💬</a>
+
+<!-- SIDEBAR -->
+<div id="sidebar-container"></div>
+
+<script src="sidebar.js"></script>
+<script>
+
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyzTHDGzy4Kqitq3U0q4z5fhxlsMwMDLUpZj5Ptd6G0nqp_3pFj67cEz66FhHUXROuc/exec';
+
+/* ===== TABS ===== */
+function switchTab(tab) {
+  document.querySelectorAll('.auth-tab').forEach((t,i) => {
+    t.classList.toggle('active', (tab==='login' && i===0) || (tab==='register' && i===1));
+  });
+  document.getElementById('panel-login').classList.toggle('active', tab==='login');
+  document.getElementById('panel-register').classList.toggle('active', tab==='register');
+  document.getElementById('auth-success').style.display = 'none';
+  document.querySelector('.auth-tabs').style.display = 'grid';
+  document.querySelector('.auth-body').style.display = 'block';
+}
+
+/* ===== SHOW/HIDE PASSWORD ===== */
+function togglePass(id, btn) {
+  const inp = document.getElementById(id);
+  if (inp.type === 'password') { inp.type = 'text'; btn.textContent = '🙈'; }
+  else { inp.type = 'password'; btn.textContent = '👁'; }
+}
+
+/* ===== PASSWORD STRENGTH ===== */
+function checkStrength(val) {
+  const fill  = document.getElementById('strength-fill');
+  const label = document.getElementById('strength-label');
+  let score = 0;
+  if (val.length >= 8)  score++;
+  if (/[A-Z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+  const levels = [
+    { w:'0%',   bg:'transparent', txt:'' },
+    { w:'25%',  bg:'#e53e3e',     txt:'ضعيفة' },
+    { w:'50%',  bg:'#f6ad55',     txt:'مقبولة' },
+    { w:'75%',  bg:'#68d391',     txt:'جيدة' },
+    { w:'100%', bg:'var(--green)',txt:'قوية ✅' },
+  ];
+  const l = levels[score];
+  fill.style.width = l.w;
+  fill.style.background = l.bg;
+  label.textContent = l.txt;
+  label.style.color = l.bg;
+}
+
+/* ===== INVOICE TOGGLE ===== */
+function toggleInvoice(checked) {
+  const f = document.getElementById('invoice-fields');
+  f.classList.toggle('show', checked);
+}
+
+/* ===== VALIDATION ===== */
+function showErr(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('show', show);
+}
+function markField(id, hasErr) {
+  const inp = document.getElementById(id);
+  if (inp) inp.classList.toggle('error', hasErr);
+}
+
+/* ===== LOGIN ===== */
+function doLogin() {
+  const id   = document.getElementById('login-id').value.trim();
+  const pass = document.getElementById('login-pass').value;
+  let valid  = true;
+
+  if (!id)   { showErr('login-id-err', true);   markField('login-id', true);   valid = false; }
+  else       { showErr('login-id-err', false);   markField('login-id', false); }
+
+  if (!pass) { showErr('login-pass-err', true);  markField('login-pass', true); valid = false; }
+  else       { showErr('login-pass-err', false); markField('login-pass', false); }
+
+  if (!valid) return;
+
+  // تحقق من localStorage
+  const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
+  const user  = users.find(u => (u.email === id || u.phone === id) && u.password === pass);
+
+  if (!user) {
+    showErr('login-pass-err', true);
+    document.getElementById('login-pass-err').textContent = 'بيانات الدخول غير صحيحة';
+    markField('login-pass', true);
+    return;
+  }
+
+  // حفظ الجلسة
+  localStorage.setItem('rawaq_session', JSON.stringify(user));
+  showSuccess('login', user.name);
+}
+
+/* ===== REGISTER ===== */
+async function doRegister() {
+  const name    = document.getElementById('reg-name').value.trim();
+  const phone   = document.getElementById('reg-phone').value.trim();
+  const email   = document.getElementById('reg-email').value.trim();
+  const pass    = document.getElementById('reg-pass').value;
+  const invoice = document.getElementById('need-invoice').checked;
+  const company = document.getElementById('reg-company').value.trim();
+  const cr      = document.getElementById('reg-cr').value.trim();
+  const vat     = document.getElementById('reg-vat').value.trim();
+
+  let valid = true;
+
+  if (!name)  { showErr('reg-name-err', true);  markField('reg-name', true);  valid = false; }
+  else        { showErr('reg-name-err', false);  markField('reg-name', false); }
+
+  if (!phone || !/^05\d{8}$/.test(phone)) {
+    showErr('reg-phone-err', true); markField('reg-phone', true); valid = false;
+  } else { showErr('reg-phone-err', false); markField('reg-phone', false); }
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showErr('reg-email-err', true); markField('reg-email', true); valid = false;
+  } else { showErr('reg-email-err', false); markField('reg-email', false); }
+
+  if (!pass || pass.length < 8) {
+    showErr('reg-pass-err', true); markField('reg-pass', true); valid = false;
+  } else { showErr('reg-pass-err', false); markField('reg-pass', false); }
+
+  if (!valid) return;
+
+  // تحقق من عدم التكرار
+  const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
+  if (users.find(u => u.email === email || u.phone === phone)) {
+    showErr('reg-email-err', true);
+    document.getElementById('reg-email-err').textContent = 'هذا البريد أو الجوال مسجل مسبقاً';
+    markField('reg-email', true);
+    return;
+  }
+
+  // بناء كائن المستخدم
+  const newUser = {
+    id: Date.now(),
+    name, phone, email, password: pass,
+    invoice, company, cr, vat,
+    createdAt: new Date().toISOString()
+  };
+
+  // حفظ في localStorage
+  users.push(newUser);
+  localStorage.setItem('rawaq_users', JSON.stringify(users));
+  localStorage.setItem('rawaq_session', JSON.stringify(newUser));
+
+  // إرسال لأودو عبر GAS
+  const btn = document.getElementById('register-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> جارٍ الحفظ...';
+
+  try {
+    const params = new URLSearchParams({
+      action: 'create_partner',
+      name, phone, email,
+      company: company || '',
+      vat: vat || ''
+    });
+    await fetch(`${GAS_URL}?${params}`);
+  } catch(e) {
+    console.warn('تعذّر الإرسال لأودو، تم الحفظ محلياً');
+  }
+
+  showSuccess('register', name);
+}
+
+/* ===== SHOW SUCCESS ===== */
+function showSuccess(type, name) {
+  document.querySelector('.auth-tabs').style.display = 'none';
+  document.querySelector('.auth-body').style.display = 'none';
+  const s = document.getElementById('auth-success');
+  s.style.display = 'block';
+
+  if (type === 'register') {
+    document.getElementById('success-title').textContent = `مرحباً ${name}! 🎉`;
+    document.getElementById('success-msg').textContent = 'تم إنشاء حسابك بنجاح. يمكنك الآن إتمام طلباتك بسهولة دون الحاجة لإدخال بياناتك مرة أخرى.';
+  } else {
+    document.getElementById('success-title').textContent = `أهلاً بعودتك ${name}! 👋`;
+    document.getElementById('success-msg').textContent = 'تم تسجيل دخولك بنجاح.';
+  }
+
+  // إذا كان هناك سلة انتظار → اذهب للسلة
+  const cart = getCart();
+  if (cart.length > 0) {
+    setTimeout(() => { window.location.href = 'cart.html'; }, 1800);
+  }
+}
+
+/* ===== FORGOT PASSWORD ===== */
+function showForgot() {
+  const phone = prompt('أدخل رقم جوالك المسجل لإرسال كلمة المرور عبر واتساب:');
+  if (!phone) return;
+  const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
+  const user  = users.find(u => u.phone === phone);
+  if (!user) { alert('لم يتم العثور على حساب بهذا الرقم.'); return; }
+  const msg = encodeURIComponent(`مرحباً ${user.name}،\nكلمة المرور الخاصة بك: ${user.password}\nرواق التميز للخدمات العامة`);
+  window.open(`https://wa.me/966559580940?text=${msg}`, '_blank');
+}
+
+/* ===== WHATSAPP LOGIN ===== */
+function loginViaWhatsapp() {
+  const msg = encodeURIComponent('مرحباً، أريد المساعدة في تسجيل الدخول لحسابي في رواق التميز.');
+  window.open(`https://wa.me/966559580940?text=${msg}`, '_blank');
+}
+
+/* ===== AUTO LOGIN CHECK ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartBadge();
+  const session = localStorage.getItem('rawaq_session');
+  if (session) {
+    const user = JSON.parse(session);
+    // إذا كان مسجل دخول، اعرض رسالة ترحيب مع خيار الخروج
+    const card = document.getElementById('auth-card');
+    const welcomeBar = document.createElement('div');
+    welcomeBar.style.cssText = 'background:var(--green-pale);border-bottom:1px solid var(--green);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;font-size:13px;';
+    welcomeBar.innerHTML = `
+      <span>👤 مرحباً <strong style="color:var(--green)">${user.name}</strong></span>
+      <button onclick="doLogout()" style="background:none;border:none;color:#e53e3e;font-size:12px;cursor:pointer;font-family:Cairo,sans-serif;font-weight:700;">تسجيل الخروج</button>
+    `;
+    card.insertBefore(welcomeBar, card.firstChild);
+  }
+});
+
+/* ===== LOGOUT ===== */
+function doLogout() {
+  localStorage.removeItem('rawaq_session');
+  location.reload();
+}
+
+</script>
+</body>
+</html>
