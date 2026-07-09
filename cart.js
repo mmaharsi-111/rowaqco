@@ -152,22 +152,27 @@ function askService(name) {
   window.open('https://wa.me/966559580940?text=' + msg, '_blank');
 }
  
-/* ── إرسال الطلب لأودو عبر Google Apps Script (no-cors) ── */
+/* ── إرسال الطلب لأودو عبر Google Apps Script (GET) ── */
 async function sendToOdoo(cart, customerInfo) {
   const PROXY_URL = 'https://script.google.com/macros/s/AKfycbyLaPtiRzLHKOTjOJmhbQZh9Jq0gAPzXGwGPGGYAYkp8z-Zx5WXhNOATF9bYH1am9iM/exec';
  
   try {
-    await fetch(PROXY_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cart, customerInfo: customerInfo || {} })
+    const params = new URLSearchParams({
+      cart: encodeURIComponent(JSON.stringify(cart)),
+      name: customerInfo?.name || '',
+      phone: customerInfo?.phone || ''
     });
-    // no-cors لا يعيد response — نفترض النجاح
-    console.log('✅ تم إرسال الطلب');
-    return { success: true };
+ 
+    const res = await fetch(`${PROXY_URL}?${params.toString()}`);
+    const data = await res.json();
+ 
+    if (data?.success) {
+      console.log('✅ تم إرسال الطلب لأودو — رقم الطلب:', data.orderId);
+      return { success: true, orderId: data.orderId };
+    }
+    throw new Error(data?.error || 'فشل الإرسال');
   } catch (err) {
-    console.error('❌ خطأ:', err.message);
+    console.error('❌ خطأ في إرسال الطلب:', err.message);
     return { success: false, error: err.message };
   }
 }
