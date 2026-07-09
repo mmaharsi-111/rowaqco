@@ -168,5 +168,69 @@ function askService(name) {
   window.open('https://wa.me/966559580940?text=' + msg, '_blank');
 }
 
+/* ── إرسال الطلب لأودو 19 عبر JSON-RPC + API Key ── */
+async function sendToOdoo(cart, customerInfo) {
+  const ODOO_URL  = 'https://rowaqco.odoo.com';
+  const ODOO_DB   = 'rowaqco';
+  const API_KEY   = '48b1e3bc9f3f862fce0ab00a95bde9bfc2f489a9';
+
+  async function rpc(model, method, args, kwargs) {
+    const res = await fetch(`${ODOO_URL}/web/dataset/call_kw`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({
+        jsonrpc: '2.0', method: 'call', id: Date.now(),
+        params: { model, method, args, kwargs: kwargs || {} }
+      })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.data?.message || data.error.message);
+    return data.result;
+  }
+
+  try {
+    let partner_id = 3;
+
+    if (customerInfo?.phone) {
+      const found = await rpc('res.partner', 'search_read',
+        [[['mobile', '=', customerInfo.phone]]],
+        { fields: ['id'], limit: 1 }
+      );
+      if (found?.length) {
+        partner_id = found[0].id;
+      } else {
+        partner_id = await rpc('res.partner', 'create', [{
+          name:   customerInfo.name  || 'عميل جديد',
+          mobile: customerInfo.phone || '',
+          lang:   'ar_001',
+          customer_rank: 1
+        }], {});
+      }
+    }
+
+    const lines = cart.map(item => [0, 0, {
+      name:             item.name,
+      product_uom_qty:  item.qty || 1,
+      price_unit:       parseFloat(item.price) || 0,
+    }]);
+
+    const orderId = await rpc('sale.order', 'create', [{
+      partner_id,
+      order_line: lines,
+      note: `طلب من الموقع الإلكتروني\nالتاريخ: ${new Date().toLocaleString('ar-SA')}`
+    }], {});
+
+    console.log('✅ تم إرسال الطلب لأودو — رقم الطلب:', orderId);
+    return { success: true, orderId };
+
+  } catch (err) {
+    console.error('❌ خطأ في إرسال الطلب لأودو:', err.message);
+    return { success: false, error: err.message };
+  }
+}
+
 /* ── تشغيل العداد عند تحميل الصفحة ── */
 document.addEventListener('DOMContentLoaded', updateCartBadge);
