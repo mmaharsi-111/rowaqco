@@ -2,17 +2,17 @@
    cart.js — نظام السلة المشتركة لجميع صفحات رواق التميز
    يدعم localStorage وفي حال عدم توفره يستخدم متغير عالمي
    ============================================================ */
-
+ 
 const CART_KEY = 'rawaq_cart';
-
+ 
 /* ── مخزن احتياطي عالمي إذا تعذّر localStorage ── */
 window._rawaqCartFallback = window._rawaqCartFallback || [];
-
+ 
 function storageAvailable() {
   try { localStorage.setItem('_t','1'); localStorage.removeItem('_t'); return true; }
   catch(e) { return false; }
 }
-
+ 
 /* ── قراءة السلة ── */
 function getCart() {
   if (storageAvailable()) {
@@ -21,7 +21,7 @@ function getCart() {
   }
   return window._rawaqCartFallback;
 }
-
+ 
 /* ── حفظ السلة ── */
 function saveCart(cart) {
   if (storageAvailable()) {
@@ -31,7 +31,7 @@ function saveCart(cart) {
   }
   updateCartBadge();
 }
-
+ 
 /* ── إضافة خدمة للسلة ── */
 function addToCart(btn, name, price, category) {
   const cart = getCart();
@@ -47,14 +47,14 @@ function addToCart(btn, name, price, category) {
   showToast('✅ تمت الإضافة إلى السلة!');
   animateBtn(btn);
 }
-
+ 
 /* ── cartAdd: تُستدعى من زر البطاقة وتقرأ السعر والفئة تلقائياً ── */
 function cartAdd(btn, name) {
   const price = getPriceFromCard(btn);
   const category = getCategoryFromCard(btn);
   addToCart(btn, name, price, category);
 }
-
+ 
 /* ── إضافة سريعة بسعر وفئة صريحين ── */
 function quickAddToCart(name, price, category) {
   const cart = getCart();
@@ -64,12 +64,12 @@ function quickAddToCart(name, price, category) {
   saveCart(cart);
   showToast('✅ تمت إضافة: ' + name);
 }
-
+ 
 /* ── حذف عنصر من السلة ── */
 function removeFromCart(id) {
   saveCart(getCart().filter(i => i.id != id));
 }
-
+ 
 /* ── تغيير الكمية ── */
 function updateQty(id, delta) {
   const cart = getCart();
@@ -78,14 +78,14 @@ function updateQty(id, delta) {
   item.qty = Math.max(1, (item.qty||1) + delta);
   saveCart(cart);
 }
-
+ 
 /* ── إفراغ السلة ── */
 function clearCart() {
   if (storageAvailable()) localStorage.removeItem(CART_KEY);
   window._rawaqCartFallback = [];
   updateCartBadge();
 }
-
+ 
 /* ── عداد السلة في الهيدر ── */
 function updateCartBadge() {
   const cart = getCart();
@@ -95,7 +95,7 @@ function updateCartBadge() {
     el.style.display = total > 0 ? 'flex' : 'none';
   });
 }
-
+ 
 /* ── Toast إشعار ── */
 function showToast(msg) {
   let t = document.getElementById('cart-toast');
@@ -127,7 +127,7 @@ function showToast(msg) {
     t.style.transform = 'translateX(-50%) translateY(20px)';
   }, 4000);
 }
-
+ 
 /* ── تأثير الزر عند الإضافة ── */
 function animateBtn(btn) {
   if (!btn) return;
@@ -142,7 +142,7 @@ function animateBtn(btn) {
     btn.disabled = false;
   }, 1800);
 }
-
+ 
 /* ── استخراج السعر من البطاقة ── */
 function getPriceFromCard(btn) {
   const card = btn.closest('.svc-card');
@@ -153,7 +153,7 @@ function getPriceFromCard(btn) {
   if (priceVal) return parseFloat(priceVal.dataset.price || priceVal.textContent) || 0;
   return 0;
 }
-
+ 
 /* ── استخراج الفئة من البطاقة ── */
 function getCategoryFromCard(btn) {
   const card = btn.closest('.svc-card');
@@ -161,76 +161,34 @@ function getCategoryFromCard(btn) {
   const cat = card.querySelector('.svc-cat');
   return cat ? cat.textContent.trim() : 'خدمة';
 }
-
+ 
 /* ── استفسار عن السعر عبر واتساب ── */
 function askService(name) {
   const msg = encodeURIComponent('مرحباً، أريد الاستفسار عن سعر خدمة:\n📌 ' + name);
   window.open('https://wa.me/966559580940?text=' + msg, '_blank');
 }
-
-/* ── إرسال الطلب لأودو 19 عبر JSON-RPC + API Key ── */
+ 
+/* ── إرسال الطلب لأودو عبر Google Apps Script ── */
 async function sendToOdoo(cart, customerInfo) {
-  const ODOO_URL  = 'https://rowaqco.odoo.com';
-  const ODOO_DB   = 'rowaqco';
-  const API_KEY   = '48b1e3bc9f3f862fce0ab00a95bde9bfc2f489a9';
-
-  async function rpc(model, method, args, kwargs) {
-    const res = await fetch(`${ODOO_URL}/web/dataset/call_kw`, {
+  const PROXY_URL = 'https://script.google.com/macros/s/AKfycbyLaPtiRzLHKOTjOJmhbQZh9Jq0gAPzXGwGPGGYAYkp8z-Zx5WXhNOATF9bYH1am9iM/exec';
+ 
+  try {
+    const res = await fetch(PROXY_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        jsonrpc: '2.0', method: 'call', id: Date.now(),
-        params: { model, method, args, kwargs: kwargs || {} }
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cart, customerInfo: customerInfo || {} })
     });
     const data = await res.json();
-    if (data.error) throw new Error(data.error.data?.message || data.error.message);
-    return data.result;
-  }
-
-  try {
-    let partner_id = 3;
-
-    if (customerInfo?.phone) {
-      const found = await rpc('res.partner', 'search_read',
-        [[['mobile', '=', customerInfo.phone]]],
-        { fields: ['id'], limit: 1 }
-      );
-      if (found?.length) {
-        partner_id = found[0].id;
-      } else {
-        partner_id = await rpc('res.partner', 'create', [{
-          name:   customerInfo.name  || 'عميل جديد',
-          mobile: customerInfo.phone || '',
-          lang:   'ar_001',
-          customer_rank: 1
-        }], {});
-      }
+    if (data?.success) {
+      console.log('✅ تم إرسال الطلب لأودو — رقم الطلب:', data.orderId);
+      return { success: true, orderId: data.orderId };
     }
-
-    const lines = cart.map(item => [0, 0, {
-      name:             item.name,
-      product_uom_qty:  item.qty || 1,
-      price_unit:       parseFloat(item.price) || 0,
-    }]);
-
-    const orderId = await rpc('sale.order', 'create', [{
-      partner_id,
-      order_line: lines,
-      note: `طلب من الموقع الإلكتروني\nالتاريخ: ${new Date().toLocaleString('ar-SA')}`
-    }], {});
-
-    console.log('✅ تم إرسال الطلب لأودو — رقم الطلب:', orderId);
-    return { success: true, orderId };
-
+    throw new Error(data?.error || 'فشل الإرسال');
   } catch (err) {
-    console.error('❌ خطأ في إرسال الطلب لأودو:', err.message);
+    console.error('❌ خطأ في إرسال الطلب:', err.message);
     return { success: false, error: err.message };
   }
 }
-
+ 
 /* ── تشغيل العداد عند تحميل الصفحة ── */
 document.addEventListener('DOMContentLoaded', updateCartBadge);
