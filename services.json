@@ -1,0 +1,3992 @@
+{
+  "discounts": [
+    {
+      "id": 1049,
+      "name": "إدارة الرصيد السنوي للتخفيضات",
+      "price": 130,
+      "category": "خدمات حكومية / التخفيضات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1048,
+      "name": "إصدار ترخيص تخفيضات",
+      "price": 200,
+      "category": "خدمات حكومية / التخفيضات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1046,
+      "name": "إعداد وتدقيق قوائم المنتجات",
+      "price": 150,
+      "category": "خدمات حكومية / التخفيضات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1047,
+      "name": "التقديم على التخفيضات الموسمية",
+      "price": 120,
+      "category": "خدمات حكومية / التخفيضات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1045,
+      "name": "تسجيل فرع جديد في نظام التخفيضات",
+      "price": 100,
+      "category": "خدمات حكومية / التخفيضات",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "salama": [
+    {
+      "id": 1268,
+      "name": "إدارة عقود الصيانة السنوية وشهادة الفحص",
+      "price": 300,
+      "category": "خدمات حكومية / سلامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1266,
+      "name": "إصدار تراخيص سلامة مؤقتة",
+      "price": 100,
+      "category": "خدمات حكومية / سلامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1263,
+      "name": "إصدار ترخيص الدفاع المدني",
+      "price": 200,
+      "category": "خدمات حكومية / سلامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1264,
+      "name": "إصدار رخصة سلامة جديدة",
+      "price": 250,
+      "category": "خدمات حكومية / سلامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1262,
+      "name": "إصدار شهادة تركيب أدوات السلامة",
+      "price": 150,
+      "category": "خدمات حكومية / سلامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1267,
+      "name": "الاستعلام عن التراخيص وتتبع الطلبات",
+      "price": 50,
+      "category": "خدمات حكومية / سلامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1265,
+      "name": "تجديد رخصة سلامة",
+      "price": 150,
+      "category": "خدمات حكومية / سلامة",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "business-employees": [
+    {
+      "id": 965,
+      "name": "إصدار / تجديد إقامة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 977,
+      "name": "إصدار / تجديد رخصة عمل",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 964,
+      "name": "إصدار / تمديد / تأشيرة الخروج والعودة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 963,
+      "name": "إصدار تأشيرة الخروج النهائي",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 967,
+      "name": "إصدار تأشيرة دائمة أو مؤقتة",
+      "price": 99,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 980,
+      "name": "إصدار شهادة السعودة",
+      "price": 35,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 972,
+      "name": "إضافة موظفين على مدد",
+      "price": 99,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 974,
+      "name": "إلغاء التأشيرات للعمال",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 982,
+      "name": "إلغاء تأشيرة الخروج النهائي",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 983,
+      "name": "إلغاء تأشيرة الخروج والعودة",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 961,
+      "name": "استخراج تأشيرة العمالة الزراعية",
+      "price": 149,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 976,
+      "name": "استخراج وتجديد الشهادات الصحية للعمالة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 975,
+      "name": "بلاغ إقطاع عن العمال (بلاغ الهروب)",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 985,
+      "name": "بلاغ تغيب عن العمل",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 966,
+      "name": "تأمين طبي",
+      "price": 0,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 981,
+      "name": "تحديث معلومات الجواز للمقيمين",
+      "price": 100,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 984,
+      "name": "تصحيح المهنة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 973,
+      "name": "تعديل المهنة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 978,
+      "name": "تعديل المهنة في أبشر أفراد/أعمال",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 971,
+      "name": "توليق عقد الموظفين",
+      "price": 99,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 979,
+      "name": "طلب تقرير مقيم",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 962,
+      "name": "نقل الكفالة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 969,
+      "name": "نقل تابع للمنشأة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 968,
+      "name": "نقل عامل بين الفروع",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 970,
+      "name": "نقل كفالة عامل للمنشأة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "absher": [
+    {
+      "id": 915,
+      "name": "إصدار / تجديد إقامة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 914,
+      "name": "إصدار / تمديد تأشيرة الخروج والعودة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 913,
+      "name": "إصدار تأشيرة الخروج النهائي",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 933,
+      "name": "إصدار جواز سفر سعودي جديد",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 911,
+      "name": "اشتراك أو تجديد أبشر أعمال",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 925,
+      "name": "الاستعلام عن المخالفات المرورية",
+      "price": 15,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 934,
+      "name": "الاعتراض على المخالفات المرورية",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 924,
+      "name": "التسجيل في أبشر أفراد/أعمال",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 918,
+      "name": "الغاء تأشيرة الخروج النهائي",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 910,
+      "name": "الغاء تأشيرة الخروج والعودة",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 916,
+      "name": "بلاغ تغيب عن العمل",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 921,
+      "name": "تجديد استمارات السيارات",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 922,
+      "name": "تجديد الهوية الوطنية",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 932,
+      "name": "تجديد جواز السفر السعودي",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 929,
+      "name": "تجديد رخصة القيادة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 931,
+      "name": "تحديث البيانات على منصة أبشر",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 919,
+      "name": "تحديث معلومات الجواز للمقيمين",
+      "price": 100,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 935,
+      "name": "تسجيل المواليد",
+      "price": 150,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 923,
+      "name": "تعديل المؤهل الدراسي في الأحوال المدنية",
+      "price": 25,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 928,
+      "name": "تعديل المهنة في أبشر أفراد/أعمال",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 920,
+      "name": "تقديم طلب تواصل",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 917,
+      "name": "طلب تقرير مقيم",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 930,
+      "name": "طلب هوية وطنية بدل فاقد",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 912,
+      "name": "نقل الكفالة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 926,
+      "name": "نقل ملكية المركبة بين أفراد الأسرة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 927,
+      "name": "نقل ملكية المركبة فوري",
+      "price": 99,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "qiwa": [
+    {
+      "id": 1236,
+      "name": "إصدار / تجديد رخصة عمل",
+      "price": 50,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1237,
+      "name": "إصدار تأشيرة عمل دائمة أو مؤقتة",
+      "price": 99,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1230,
+      "name": "إصدار شهادة الالتزام بالنظام وحماية الأجور",
+      "price": 49,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1239,
+      "name": "إصدار شهادة السعودة",
+      "price": 35,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1240,
+      "name": "إضافة مفوض إلكتروني",
+      "price": 35,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1245,
+      "name": "إغلاق المنشأة",
+      "price": 100,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1234,
+      "name": "إلغاء التأشيرات للعمال",
+      "price": 50,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1235,
+      "name": "بلاغ انقطاع عن العمل (بلاغ الهروب)",
+      "price": 49,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1228,
+      "name": "تسجيل نظام أجير",
+      "price": 50,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1243,
+      "name": "تصحيح المهنة",
+      "price": 50,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1233,
+      "name": "تعديل المهنة",
+      "price": 50,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1242,
+      "name": "تعديل بيانات منشأة",
+      "price": 100,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1241,
+      "name": "تغيير نشاط منشأة",
+      "price": 100,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1231,
+      "name": "توثيق عقد الموظفين",
+      "price": 99,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1232,
+      "name": "فتح حساب وتفعيل منصة قوى",
+      "price": 100,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1244,
+      "name": "فتح ملف منشأة (السجلات التجارية والزراعية)",
+      "price": 100,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1227,
+      "name": "نقل تابع للمنشأة",
+      "price": 50,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1238,
+      "name": "نقل عامل بين الفروع",
+      "price": 50,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1229,
+      "name": "نقل كفالة عامل للمنشأة",
+      "price": 50,
+      "category": "خدمات حكومية / قوى",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "musaned": [
+    {
+      "id": 1176,
+      "name": "إصدار التأشيرات المنزلية",
+      "price": 99,
+      "category": "خدمات حكومية / مساند",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1175,
+      "name": "استخراج تأشيرات ذوي الإعاقة",
+      "price": 99,
+      "category": "خدمات حكومية / مساند",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1177,
+      "name": "استخراج تأشيرة العمالة الزراعية",
+      "price": 149,
+      "category": "خدمات حكومية / مساند",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1178,
+      "name": "تجديد عقد العمالة المنزلية",
+      "price": 50,
+      "category": "خدمات حكومية / مساند",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1180,
+      "name": "تقديم بلاغ هروب عامل منزلي",
+      "price": 60,
+      "category": "خدمات حكومية / مساند",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1179,
+      "name": "نقل كفالة عامل منزلي",
+      "price": 80,
+      "category": "خدمات حكومية / مساند",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ministry-industry": [
+    {
+      "id": 1142,
+      "name": "إصدار الترخيص الصناعي",
+      "price": 250,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1149,
+      "name": "إصدار رخص استغلال المحاجر",
+      "price": 350,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1146,
+      "name": "إصدار شهادة المنشأ",
+      "price": 80,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1148,
+      "name": "إصدار وتجديد رخص الكشف التعديني",
+      "price": 300,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1145,
+      "name": "تأييد العمالة الوافدة",
+      "price": 100,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1143,
+      "name": "تجديد الترخيص الصناعي",
+      "price": 150,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1150,
+      "name": "تحويل الرخص التعدينية",
+      "price": 200,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1144,
+      "name": "ترقية الترخيص الصناعي",
+      "price": 200,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1147,
+      "name": "فسح استيراد المواد الكيميائية",
+      "price": 180,
+      "category": "الوزارات / الصناعة",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "qawayem": [
+    {
+      "id": 1226,
+      "name": "إصدار التقارير المالية والاقتصادية",
+      "price": 120,
+      "category": "خدمات حكومية / قوائم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1224,
+      "name": "إيداع القوائم المالية المدققة",
+      "price": 200,
+      "category": "خدمات حكومية / قوائم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1225,
+      "name": "استعراض القوائم المالية",
+      "price": 50,
+      "category": "خدمات حكومية / قوائم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1223,
+      "name": "تسجيل المنشآت ومكاتب المراجعة في قوائم",
+      "price": 150,
+      "category": "خدمات حكومية / قوائم",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "education-services": [
+    {
+      "id": 1059,
+      "name": "إصدار الرخصة المهنية للمعلمين",
+      "price": 49,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1071,
+      "name": "إعداد حساب روضتي",
+      "price": 20,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1056,
+      "name": "الاستعلام عن نتائج الطلاب",
+      "price": 20,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1050,
+      "name": "التسجيل في الجامعات والكليات والمعاهد السعودية",
+      "price": 49,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1058,
+      "name": "التسجيل في دورات معهد الإدارة العامة",
+      "price": 80,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1061,
+      "name": "التسجيل في نظام فارس للمعلمين",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1054,
+      "name": "تحويل الملفات",
+      "price": 30,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1073,
+      "name": "تسجيل الطالب في الصف الأول الابتدائي",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1072,
+      "name": "تسجيل الطلاب في رياض الأطفال",
+      "price": 40,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1068,
+      "name": "تسجيل الطلبة في المرحلة الابتدائية",
+      "price": 75,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1064,
+      "name": "تسجيل خطة النشاط في منصة نور (فصل كامل)",
+      "price": 200,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1066,
+      "name": "تسجيل طالب جديد",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1069,
+      "name": "تسجيل طالب جديد (أجنبي)",
+      "price": 100,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1070,
+      "name": "تسجيل طالب في النقل الدراسي (رافد)",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1053,
+      "name": "تعديل الجدول الجامعي",
+      "price": 40,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1057,
+      "name": "تعديل المؤهل الدراسي في الأحوال المدنية",
+      "price": 25,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1060,
+      "name": "حجز موعد لاختبار الرخصة المهنية للمعلمين",
+      "price": 30,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1052,
+      "name": "حساب النسبة الموزونة للقبول في الجامعات",
+      "price": 20,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1055,
+      "name": "حل واجب لكل المنصات",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1062,
+      "name": "طلب إجازة للمعلمين والمعلمات",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1051,
+      "name": "طلب انسحاب طالب من الجامعة",
+      "price": 150,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1063,
+      "name": "طلب تعريف بالراتب للمعلمين والمعلمات",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1065,
+      "name": "فتح حساب ولي أمر على نور",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1067,
+      "name": "نقل طالب من مدرسة إلى مدرسة",
+      "price": 50,
+      "category": "خدمات الأفراد / التعليم",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "sbc": [
+    {
+      "id": 1271,
+      "name": "إصدار السجل التجاري للمؤسسات",
+      "price": 100,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1283,
+      "name": "إفادة بعدم وجود سجل تجاري",
+      "price": 20,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1279,
+      "name": "الاستعلام عن السجلات التجارية على اسمك",
+      "price": 20,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1285,
+      "name": "الاستعلام عن الطلبات المقدمة",
+      "price": 20,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1281,
+      "name": "التسجيل في تاي أو تمارا",
+      "price": 75,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1273,
+      "name": "تجديد السجل التجاري للمؤسسات",
+      "price": 50,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1274,
+      "name": "تحويل مؤسسة إلى شركة",
+      "price": 750,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1270,
+      "name": "تعديل السجل التجاري للمؤسسات",
+      "price": 100,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1277,
+      "name": "تقديم على جهاز نقاط البيع",
+      "price": 100,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1272,
+      "name": "حجز / تمديد / إلغاء اسم تجاري",
+      "price": 30,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1280,
+      "name": "شطب السجل التجاري للمؤسسات",
+      "price": 50,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1278,
+      "name": "شطب سجل تجاري (شركة ذات شخص واحد)",
+      "price": 400,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1284,
+      "name": "شهادة توثيق التجارة الإلكترونية",
+      "price": 100,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1276,
+      "name": "طباعة سجل تجاري",
+      "price": 20,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1275,
+      "name": "طباعة شهادة شطب سجل تجاري",
+      "price": 20,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1282,
+      "name": "فتح حساب بنكي تجاري",
+      "price": 100,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1269,
+      "name": "نقل السجل التجاري للمؤسسات",
+      "price": 100,
+      "category": "خدمات حكومية / المركز السعودي للأعمال",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "muqeem": [
+    {
+      "id": 1173,
+      "name": "إصدار تأشيرة خروج نهائي",
+      "price": 50,
+      "category": "خدمات حكومية / مقيم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1172,
+      "name": "إصدار تأشيرة خروج وعودة",
+      "price": 50,
+      "category": "خدمات حكومية / مقيم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1169,
+      "name": "تجديد إقامة",
+      "price": 50,
+      "category": "خدمات حكومية / مقيم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1170,
+      "name": "تحديث معلومات جواز السفر",
+      "price": 60,
+      "category": "خدمات حكومية / مقيم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1171,
+      "name": "تصدير كشف بالموظفين المقيمين",
+      "price": 75,
+      "category": "خدمات حكومية / مقيم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1174,
+      "name": "طباعة تقرير مقيم",
+      "price": 49,
+      "category": "خدمات حكومية / مقيم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1168,
+      "name": "نقل كفالة",
+      "price": 50,
+      "category": "خدمات حكومية / مقيم",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "balady": [
+    {
+      "id": 941,
+      "name": "إصدار ترخيص 24 ساعة محل تجاري",
+      "price": 99,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 944,
+      "name": "إصدار ترخيص سلامة (الدفاع المدني)",
+      "price": 199,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 938,
+      "name": "إصدار رخصة بلدية (تجارية)",
+      "price": 199,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 939,
+      "name": "إصدار رخصة عربة متنقلة (فود تراك)",
+      "price": 150,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 940,
+      "name": "إصدار وتجديد رخصة سكن جماعي",
+      "price": 150,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 945,
+      "name": "إلغاء رخصة بلدي",
+      "price": 49,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 950,
+      "name": "استخراج ملصق رايك بفرق",
+      "price": 35,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 951,
+      "name": "استخراج وتجديد الشهادات الصحية للعمالة",
+      "price": 50,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 949,
+      "name": "اعتراض على مخالفة الرقابة",
+      "price": 35,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 937,
+      "name": "تجديد رخصة بلدية (تجارية)",
+      "price": 99,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 943,
+      "name": "تجديد رخصة سلامة (الدفاع المدني)",
+      "price": 160,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 936,
+      "name": "تعديل رخصة بلدية (تجارية)",
+      "price": 99,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 948,
+      "name": "تقديم إفصاح عن إيراد رسوم مرافق الإيواء",
+      "price": 99,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 954,
+      "name": "تقديم على جهاز نقاط البيع",
+      "price": 100,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 953,
+      "name": "تقرير في غير فوري (سلامة)",
+      "price": 699,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 952,
+      "name": "تقرير في فوري (سلامة)",
+      "price": 549,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 942,
+      "name": "شهادة تركيب أدوات الوقاية من الحريق (سلامة)",
+      "price": 249,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 946,
+      "name": "قبول ملكية نقل رخصة بلدية (تجارية)",
+      "price": 49,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 947,
+      "name": "نقل ملكية رخصة بلدية (تجارية)",
+      "price": 199,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "business-renewal": [
+    {
+      "id": 1021,
+      "name": "إصدار ترخيص 24 ساعة محل تجاري",
+      "price": 99,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1019,
+      "name": "إصدار رخصة غرفة متنقلة (فود تراك)",
+      "price": 150,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1026,
+      "name": "إصدار شهادة الالتزام بالنظام وحماية الأجور",
+      "price": 49,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1020,
+      "name": "إصدار وتجديد رخصة سكن جماعي",
+      "price": 150,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1024,
+      "name": "اشتراك او تجديد ابشر أعمال",
+      "price": 49,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1023,
+      "name": "تجديد السجل التجاري للمؤسسات",
+      "price": 50,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1018,
+      "name": "تجديد رخصة بلدية (تجارية)",
+      "price": 99,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1025,
+      "name": "تجديد رخصة سلامة (الدفاع المدني)",
+      "price": 160,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1022,
+      "name": "تقديم الإقرارات الضريبية",
+      "price": 100,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1029,
+      "name": "رفع مسير رواتب الموظفين الشهرية في مدد",
+      "price": 100,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1031,
+      "name": "شهادة تركيب أدوات الوقاية من الحريق (سلامة)",
+      "price": 249,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1030,
+      "name": "طباعة تقارير إدارة الرواتب",
+      "price": 50,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1028,
+      "name": "طباعة تقرير حماية الأجور",
+      "price": 50,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1027,
+      "name": "فتح حساب وتفعيل منصة قوى",
+      "price": 100,
+      "category": "خدمات الأعمال / تجديد",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "business-establishment": [
+    {
+      "id": 986,
+      "name": "إصدار ترخيص 24 ساعة محل تجاري",
+      "price": 99,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 996,
+      "name": "إصدار رخصة غرفة متنقلة (فود تراك)",
+      "price": 150,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 997,
+      "name": "إصدار وتجديد رخصة سكن جماعي",
+      "price": 150,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1006,
+      "name": "إضافة مفوض إلكتروني",
+      "price": 35,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1009,
+      "name": "استخراج ملصق رايك بفرق",
+      "price": 35,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1003,
+      "name": "اشتراك أو تجديد ابشر أعمال",
+      "price": 49,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 987,
+      "name": "اصدار السجل التجاري للمؤسسات",
+      "price": 100,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 995,
+      "name": "اصدار ترخيص بلدية (تجارية)",
+      "price": 199,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 992,
+      "name": "اصدار ترخيص سلامة (الدفاع المدني)",
+      "price": 199,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1008,
+      "name": "اعتراض على مخالفة الرقابة",
+      "price": 35,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1011,
+      "name": "الاستعلام عن الطلبات المقدمة",
+      "price": 20,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1016,
+      "name": "التسجيل في تابي أو تمارا",
+      "price": 75,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 991,
+      "name": "التقديم على حاضنات الأعمال",
+      "price": 150,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 988,
+      "name": "تسجيل عنوان وطني للمنشآت",
+      "price": 60,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 990,
+      "name": "تسجيل منشأة في ضريبة القيمة المضافة / رقم ضريبي جديد",
+      "price": 85,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1004,
+      "name": "تسجيل منشأة في مدد",
+      "price": 100,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1007,
+      "name": "تقديم افصاح عن ابراد رسوم مرافق الفواء",
+      "price": 99,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1005,
+      "name": "تقديم على جهاز نقاط البيع",
+      "price": 100,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1000,
+      "name": "تقرير في غير فوري (سلامة)",
+      "price": 699,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 999,
+      "name": "تقرير في فوري (سلامة)",
+      "price": 549,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 989,
+      "name": "حجز/تمديد/الغاء اسم تجاري",
+      "price": 30,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1015,
+      "name": "ربط الحساب البنكي للمؤسسة مع مدد",
+      "price": 49,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1002,
+      "name": "شهادة تركيب أدوات الوقاية من الحريق (سلامة)",
+      "price": 249,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1010,
+      "name": "شهادة توثيق التجارة الالكترونية",
+      "price": 100,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1001,
+      "name": "طباعة تقارير إدارة الرواتب",
+      "price": 50,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1013,
+      "name": "طباعة سجل تجاري",
+      "price": 20,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1012,
+      "name": "طباعة شهادة شطب سجل تجاري",
+      "price": 20,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1017,
+      "name": "فتح حساب بنكي تجاري",
+      "price": 100,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1014,
+      "name": "فتح حساب بنكي للمؤسسة في STC Bank وربطه مع مدد",
+      "price": 199,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 993,
+      "name": "فتح حساب وتفعيل منصة قوى",
+      "price": 100,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 998,
+      "name": "فتح ملف منشأة (السجلات التجارية والزراعية)",
+      "price": 100,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 994,
+      "name": "قبول ملكية نقل رخصة بلدية (تجارية)",
+      "price": 49,
+      "category": "خدمات الأعمال / تأسيس",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "seza": [
+    {
+      "id": 1295,
+      "name": "إصدار ترخيص تأهيل واعتماد المطورين",
+      "price": 500,
+      "category": "خدمات حكومية / سيزا",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1293,
+      "name": "إصدار تصريح أشغال",
+      "price": 250,
+      "category": "خدمات حكومية / سيزا",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1292,
+      "name": "تجديد تصريح التشغيل",
+      "price": 150,
+      "category": "خدمات حكومية / سيزا",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1290,
+      "name": "تسجيل رخصة استثمارية",
+      "price": 350,
+      "category": "خدمات حكومية / سيزا",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1294,
+      "name": "تصريح أشغال الهياكل المؤقتة",
+      "price": 180,
+      "category": "خدمات حكومية / سيزا",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1291,
+      "name": "تقديم طلب تصريح تشغيل",
+      "price": 200,
+      "category": "خدمات حكومية / سيزا",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ministry-investment": [
+    {
+      "id": 1452,
+      "name": "إصدار ترخيص وزارة الاستثمار",
+      "price": 625,
+      "category": "الوزارات / الاستثمار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1457,
+      "name": "إلغاء ترخيص الاستثمار",
+      "price": 200,
+      "category": "الوزارات / الاستثمار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1453,
+      "name": "خدمة تجديد ترخيص وزارة الاستثمار",
+      "price": 135,
+      "category": "الوزارات / الاستثمار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1454,
+      "name": "خدمة تعديل ترخيص وزارة الاستثمار",
+      "price": 250,
+      "category": "الوزارات / الاستثمار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1455,
+      "name": "متابعة طلبات الاستثمار",
+      "price": 100,
+      "category": "الوزارات / الاستثمار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1456,
+      "name": "مراجعة متطلبات النشاطات قبل التقديم",
+      "price": 150,
+      "category": "الوزارات / الاستثمار",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "tam": [
+    {
+      "id": 1313,
+      "name": "إصدار تفويض خارجي",
+      "price": 100,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1312,
+      "name": "إصدار تفويض داخلي",
+      "price": 70,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1308,
+      "name": "إصدار رخصة سير مركبة",
+      "price": 80,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1311,
+      "name": "إصدار لوحات مركبة",
+      "price": 100,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1315,
+      "name": "إضافة مستخدم فعلي للمركبة",
+      "price": 60,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1314,
+      "name": "إلغاء تفويض مركبة",
+      "price": 50,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1318,
+      "name": "الاستعلام عن الفحص الدوري",
+      "price": 35,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1319,
+      "name": "الاستعلام عن تفاصيل المركبة",
+      "price": 35,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1316,
+      "name": "الاستعلام عن مخالفات المركبة",
+      "price": 35,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1317,
+      "name": "الاستعلام عن وثائق التأمين",
+      "price": 35,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1309,
+      "name": "تجديد رخصة سير مركبة",
+      "price": 60,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1320,
+      "name": "تحديث بيانات التأمين",
+      "price": 50,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1310,
+      "name": "نقل ملكية مركبة",
+      "price": 150,
+      "category": "خدمات حكومية / تام",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "monshaat": [
+    {
+      "id": 1152,
+      "name": "إصدار رخص حاضنات الأعمال",
+      "price": 300,
+      "category": "خدمات حكومية / منشآت",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1151,
+      "name": "إصدار شهادة حجم المنشأة (منشآت)",
+      "price": 135,
+      "category": "خدمات حكومية / منشآت",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1154,
+      "name": "التقديم على برامج دعم المنشآت",
+      "price": 100,
+      "category": "خدمات حكومية / منشآت",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1153,
+      "name": "التقديم على حاضنات الأعمال",
+      "price": 150,
+      "category": "خدمات حكومية / منشآت",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1156,
+      "name": "تجديد شهادة حجم المنشأة",
+      "price": 135,
+      "category": "خدمات حكومية / منشآت",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1155,
+      "name": "تسجيل المنشأة في منصة منشآت",
+      "price": 100,
+      "category": "خدمات حكومية / منشآت",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "freelance": [
+    {
+      "id": 1107,
+      "name": "إصدار رخصة عربة متنقلة (فود تراك)",
+      "price": 150,
+      "category": "خدمات الأعمال / العمل الحر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1103,
+      "name": "التسجيل في تابي أو تمارة",
+      "price": 75,
+      "category": "خدمات الأعمال / العمل الحر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1106,
+      "name": "تقديم على جهاز نقاط البيع",
+      "price": 100,
+      "category": "خدمات الأعمال / العمل الحر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1105,
+      "name": "شهادة توثيق التجارة الإلكترونية",
+      "price": 100,
+      "category": "خدمات الأعمال / العمل الحر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1104,
+      "name": "فتح حساب بنكي تجاري",
+      "price": 100,
+      "category": "خدمات الأعمال / العمل الحر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1108,
+      "name": "وثيقة عمل حر",
+      "price": 35,
+      "category": "خدمات الأعمال / العمل الحر",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "saber": [
+    {
+      "id": 1256,
+      "name": "إصدار شهادات الإعفاء",
+      "price": 175,
+      "category": "خدمات حكومية / سابر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1255,
+      "name": "إصدار شهادات مطابقة للمنتجات المحلية",
+      "price": 300,
+      "category": "خدمات حكومية / سابر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1253,
+      "name": "إصدار شهادة مطابقة إرسالية",
+      "price": 200,
+      "category": "خدمات حكومية / سابر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1252,
+      "name": "إصدار شهادة مطابقة منتج",
+      "price": 250,
+      "category": "خدمات حكومية / سابر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1254,
+      "name": "تسجيل المنتجات الغير خاضعة للوائح",
+      "price": 120,
+      "category": "خدمات حكومية / سابر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1250,
+      "name": "تسجيل المنشأة وتحديث البيانات",
+      "price": 100,
+      "category": "خدمات حكومية / سابر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1251,
+      "name": "تصنيف المنتجات جمركياً",
+      "price": 150,
+      "category": "خدمات حكومية / سابر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1257,
+      "name": "دراسة متطلبات المنتج قبل الشراء",
+      "price": 200,
+      "category": "خدمات حكومية / سابر",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "sakani": [
+    {
+      "id": 1259,
+      "name": "إصدار شهادة إعفاء من ضريبة المسكن الأول",
+      "price": 50,
+      "category": "خدمات حكومية / سكني",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1258,
+      "name": "الاستعلام عن حالة الأهلية",
+      "price": 50,
+      "category": "خدمات حكومية / سكني",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1260,
+      "name": "التقديم على حجز أرض مجانية في سكني",
+      "price": 99,
+      "category": "خدمات حكومية / سكني",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1261,
+      "name": "تسجيل في مستشارك العقاري",
+      "price": 100,
+      "category": "خدمات حكومية / سكني",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "gosi": [
+    {
+      "id": 1122,
+      "name": "إصدار شهادة التزام",
+      "price": 35,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1119,
+      "name": "إصدار شهادة التزام التأمينات الاجتماعية للمنشأة",
+      "price": 45,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1120,
+      "name": "إصدار شهادة الراتب لموظف",
+      "price": 50,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1109,
+      "name": "إصدار شهادة مدد الأجور",
+      "price": 35,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1123,
+      "name": "إضافة أو استبعاد مشترك سعودي",
+      "price": 99,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1125,
+      "name": "إضافة أو استبعاد موظف غير سعودي",
+      "price": 99,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1110,
+      "name": "التحقق من الاشتراك في التأمينات",
+      "price": 50,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1124,
+      "name": "تبليغ عن إصابة عمل",
+      "price": 75,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1113,
+      "name": "تحديث الحساب البنكي للمستفيد في التأمينات",
+      "price": 35,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1118,
+      "name": "تعديل راتب الموظف",
+      "price": 35,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1117,
+      "name": "تقديم بلاغ عجز مهني",
+      "price": 80,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1121,
+      "name": "توثيق عقود المشتركين",
+      "price": 50,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1111,
+      "name": "صرف مستحقات العجز غير المهني",
+      "price": 50,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1116,
+      "name": "طباعة شهادة تأمينات",
+      "price": 35,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1115,
+      "name": "طباعة مشهد راتب متقاعد",
+      "price": 50,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1114,
+      "name": "طلب إضافة فرد غير مسجل في التأمينات الاجتماعية",
+      "price": 50,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1112,
+      "name": "طلب صرف الراتب التقاعدي للورثة",
+      "price": 85,
+      "category": "خدمات حكومية / التأمينات",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "business-transfer": [
+    {
+      "id": 1038,
+      "name": "إصدار شهادة السعودة",
+      "price": 35,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1039,
+      "name": "إضافة مفوض إلكتروني",
+      "price": 35,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1037,
+      "name": "تعديل السجل التجاري للمؤسسات",
+      "price": 100,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1032,
+      "name": "تعديل بيانات منشأة",
+      "price": 100,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1035,
+      "name": "تعديل رخصة بلدية (تجارية)",
+      "price": 99,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1040,
+      "name": "تغيير نشاط منشأة",
+      "price": 100,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1033,
+      "name": "قبول ملكية نقل رخصة بلدية (تجارية)",
+      "price": 49,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1036,
+      "name": "نقل السجل التجاري للمؤسسات",
+      "price": 100,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1034,
+      "name": "نقل ملكية رخصة بلدية (تجارية)",
+      "price": 199,
+      "category": "خدمات الأعمال / تعديل ونقل",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "najiz": [
+    {
+      "id": 1184,
+      "name": "إصدار شهادة وفاة لمواطن",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1183,
+      "name": "إصدار صك ولاية على قاصر",
+      "price": 100,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1190,
+      "name": "إصدار وكالة",
+      "price": 30,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1187,
+      "name": "إمهال تأجيل السداد",
+      "price": 100,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1205,
+      "name": "إنشاء أو إلغاء سند لأمر",
+      "price": 130,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1204,
+      "name": "إنشاء أو فسخ وكالة إلكترونية",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1192,
+      "name": "إنشاء عقد زواج",
+      "price": 150,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1201,
+      "name": "استخراج صك حصر ورثة",
+      "price": 120,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1199,
+      "name": "استخراج صك حضانة",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1208,
+      "name": "استخراج صك ولاية على قاصر سنا أو عقلا",
+      "price": 100,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1206,
+      "name": "الإفراغ العقاري الإلكتروني",
+      "price": 100,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1189,
+      "name": "الرد على جميع القضايا",
+      "price": 300,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1207,
+      "name": "تحديث الصكوك العقارية",
+      "price": 150,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1203,
+      "name": "تقديم طلب تنفيذ",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1181,
+      "name": "توثيق حضانة",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1186,
+      "name": "توثيق طلاق",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1200,
+      "name": "توثيق عقد زواج أو طلاق",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1182,
+      "name": "حصر ورثة",
+      "price": 100,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1197,
+      "name": "رفع إيقاف خدمات في حال السداد",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1191,
+      "name": "رفع طلب تنفيذ",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1198,
+      "name": "رفع طلب للتواصل العدل",
+      "price": 100,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1195,
+      "name": "صحيفة دعوى (حق خاص)",
+      "price": 200,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1185,
+      "name": "صحيفة دعوى (فسخ عقد النكاح)",
+      "price": 430,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1194,
+      "name": "صحيفة دعوى (قضايا أخرى)",
+      "price": 200,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1193,
+      "name": "صحيفة دعوى (قضايا أسرية)",
+      "price": 200,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1196,
+      "name": "صحيفة دعوى (مرورية)",
+      "price": 200,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1188,
+      "name": "طباعة واستخراج الوثائق والصكوك",
+      "price": 100,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1202,
+      "name": "طلب انهاء تنفيذ أو إمهال",
+      "price": 50,
+      "category": "خدمات حكومية / ناجز",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "sce": [
+    {
+      "id": 1286,
+      "name": "إصدار عضوية الهيئة السعودية للمهندسين",
+      "price": 100,
+      "category": "خدمات حكومية / هيئة المهندسين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1288,
+      "name": "الاستعلام عن الترخيص المهني",
+      "price": 50,
+      "category": "خدمات حكومية / هيئة المهندسين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1287,
+      "name": "تجديد عضوية الهيئة السعودية للمهندسين",
+      "price": 100,
+      "category": "خدمات حكومية / هيئة المهندسين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1289,
+      "name": "تحديث البيانات المهنية",
+      "price": 60,
+      "category": "خدمات حكومية / هيئة المهندسين",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ministry-justice": [
+    {
+      "id": 1459,
+      "name": "إصدار والغاء الوكالات الشرعية",
+      "price": 50,
+      "category": "الوزارات / العدل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1463,
+      "name": "تقديم دعوى زيارة - تنظيم حقوق زيارة الأبناء",
+      "price": 320,
+      "category": "الوزارات / العدل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1460,
+      "name": "تقديم دعوى مالية",
+      "price": 150,
+      "category": "الوزارات / العدل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1462,
+      "name": "حجز المواعيد في المحكمة",
+      "price": 50,
+      "category": "الوزارات / العدل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1458,
+      "name": "خدمة الاستعلام عن طلبات التنفيذ",
+      "price": 30,
+      "category": "الوزارات / العدل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1461,
+      "name": "دعوى محكمة عالمية",
+      "price": 150,
+      "category": "الوزارات / العدل",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "fasah": [
+    {
+      "id": 1100,
+      "name": "إصدار وتجديد التفاويض الإلكترونية",
+      "price": 180,
+      "category": "خدمات حكومية / فسح",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1099,
+      "name": "إنشاء وتفعيل حساب المنشأة",
+      "price": 100,
+      "category": "خدمات حكومية / فسح",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1102,
+      "name": "تصدير بيانات الصادرات والواردات",
+      "price": 200,
+      "category": "خدمات حكومية / فسح",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1101,
+      "name": "تقديم خطابات التعديل الإلكترونية",
+      "price": 150,
+      "category": "خدمات حكومية / فسح",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "realestate": [
+    {
+      "id": 1247,
+      "name": "إضافة أو رفع تقرير مساحي للأرض لغرض إصدار صك إلكتروني",
+      "price": 150,
+      "category": "خدمات حكومية / العقارات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1246,
+      "name": "استخراج صك إلكتروني",
+      "price": 100,
+      "category": "خدمات حكومية / العقارات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1248,
+      "name": "الاستعلام عن صك عقاري",
+      "price": 50,
+      "category": "خدمات حكومية / العقارات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1249,
+      "name": "تسجيل عقار في البورصة العقارية",
+      "price": 120,
+      "category": "خدمات حكومية / العقارات",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "mudad": [
+    {
+      "id": 1162,
+      "name": "إضافة موظفين في مدد",
+      "price": 99,
+      "category": "خدمات حكومية / مدد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1158,
+      "name": "تسجيل منشأة في مدد",
+      "price": 100,
+      "category": "خدمات حكومية / مدد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1157,
+      "name": "ربط الحساب البنكي للمؤسسة مع مدد",
+      "price": 49,
+      "category": "خدمات حكومية / مدد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1161,
+      "name": "رفع مسير رواتب الموظفين الشهرية في مدد",
+      "price": 100,
+      "category": "خدمات حكومية / مدد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1159,
+      "name": "طباعة تقارير إدارة الرواتب",
+      "price": 50,
+      "category": "خدمات حكومية / مدد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1160,
+      "name": "طباعة تقرير حماية الأجور",
+      "price": 50,
+      "category": "خدمات حكومية / مدد",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1163,
+      "name": "فتح حساب بنكي للمؤسسة في STC Bank وربطه مع مدد",
+      "price": 199,
+      "category": "خدمات حكومية / مدد",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "engineering-consulting": [
+    {
+      "id": 1098,
+      "name": "إعادة تطوير المباني القائمة",
+      "price": 1500,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1095,
+      "name": "إعداد جداول الكميات والمواصفات",
+      "price": 550,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1092,
+      "name": "استشارات ترشيد تكاليف البناء",
+      "price": 600,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1090,
+      "name": "استشارات دراسة وتدقيق المخططات",
+      "price": 500,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1096,
+      "name": "اعتماد المخططات والامتثال",
+      "price": 650,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1093,
+      "name": "الإشراف الفني العالي (زيارات ميدانية)",
+      "price": 700,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1091,
+      "name": "التحكيم وفض النزاعات الهندسية",
+      "price": 800,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1097,
+      "name": "التصميم الداخلي المعماري",
+      "price": 1200,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1094,
+      "name": "فحص واستلام العقار",
+      "price": 450,
+      "category": "خدمات متخصصة / استشارات هندسية",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "business-closure": [
+    {
+      "id": 957,
+      "name": "إغلاق المنشأة",
+      "price": 100,
+      "category": "خدمات الأعمال / إغلاق",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 960,
+      "name": "إلغاء الرقم المميز",
+      "price": 99,
+      "category": "خدمات الأعمال / إغلاق",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 955,
+      "name": "افادة بعدم وجود سجل تجاري",
+      "price": 20,
+      "category": "خدمات الأعمال / إغلاق",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 958,
+      "name": "الغاء رخصة بلدي",
+      "price": 99,
+      "category": "خدمات الأعمال / إغلاق",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 959,
+      "name": "شطب السجل التجاري للمؤسسات",
+      "price": 50,
+      "category": "خدمات الأعمال / إغلاق",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 956,
+      "name": "طباعة شهادة شطب سجل تجاري",
+      "price": 20,
+      "category": "خدمات الأعمال / إغلاق",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "zatca": [
+    {
+      "id": 1351,
+      "name": "إلغاء الرقم المميز",
+      "price": 99,
+      "category": "خدمات حكومية / زكاة وضريبة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1350,
+      "name": "تسجيل منشأة في ضريبة القيمة المضافة / رقم ضريبي جديد",
+      "price": 85,
+      "category": "خدمات حكومية / زكاة وضريبة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1349,
+      "name": "تقديم الإقرارات الضريبية",
+      "price": 100,
+      "category": "خدمات حكومية / زكاة وضريبة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1352,
+      "name": "طباعة الشهادة الضريبية وشهادة الزكاة والدخل",
+      "price": 49,
+      "category": "خدمات حكومية / زكاة وضريبة",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "water": [
+    {
+      "id": 1348,
+      "name": "إلغاء حساب شركة المياه",
+      "price": 50,
+      "category": "خدمات حكومية / المياه",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1347,
+      "name": "توثيق حساب عداد المياه",
+      "price": 50,
+      "category": "خدمات حكومية / المياه",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1346,
+      "name": "نقل ملكية عداد المياه",
+      "price": 50,
+      "category": "خدمات حكومية / المياه",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-citizen": [
+    {
+      "id": 1468,
+      "name": "إنشاء عقد إيجار سكني",
+      "price": 300,
+      "category": "برامج الدعم / مواطن",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-guarantee": [
+    {
+      "id": 1469,
+      "name": "إنشاء عقد إيجار سكني",
+      "price": 300,
+      "category": "برامج الدعم / ضمان",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ejar": [
+    {
+      "id": 1074,
+      "name": "إنشاء عقد إيجار سكني",
+      "price": 300,
+      "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1075,
+      "name": "إنشاء عقد إيجار سكني مع إحضار صك ملكية ومؤجر",
+      "price": 300,
+      "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1078,
+      "name": "إنهاء عقد تجاري أو سكني",
+      "price": 50,
+      "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1079,
+      "name": "استخراج رخصة مسوق عقاري",
+      "price": 50,
+      "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1080,
+      "name": "تجديد / تعديل عقد الإيجار",
+      "price": 50,
+      "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1081,
+      "name": "طباعة عقد الإيجار",
+      "price": 50,
+      "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1076,
+      "name": "عمل عقد أيجار تجاري",
+      "price": 400,
+      "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1077,
+      "name": "عمل عقد أيجار تجاري من الباطن",
+      "price": 400,
+      "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ip": [
+    {
+      "id": 1126,
+      "name": "إيداع طلب براءة اختراع",
+      "price": 300,
+      "category": "خدمات متخصصة / الملكية الفكرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1130,
+      "name": "إيداع طلب تصميم صناعي",
+      "price": 250,
+      "category": "خدمات متخصصة / الملكية الفكرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1128,
+      "name": "تجديد العلامة التجارية",
+      "price": 150,
+      "category": "خدمات متخصصة / الملكية الفكرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1132,
+      "name": "ترخيص وكيل الملكية الفكرية",
+      "price": 400,
+      "category": "خدمات متخصصة / الملكية الفكرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1131,
+      "name": "تسجيل التصاميم التخطيطية للدارات المتكاملة",
+      "price": 350,
+      "category": "خدمات متخصصة / الملكية الفكرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1127,
+      "name": "تسجيل علامة تجارية",
+      "price": 250,
+      "category": "خدمات متخصصة / الملكية الفكرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1129,
+      "name": "تسجيل مصنفات حقوق المؤلف",
+      "price": 200,
+      "category": "خدمات متخصصة / الملكية الفكرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1133,
+      "name": "تقديم شكوى انتهاك حقوق الملكية الفكرية",
+      "price": 150,
+      "category": "خدمات متخصصة / الملكية الفكرية",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "shomoos": [
+    {
+      "id": 1299,
+      "name": "استخراج تقرير الحضور والغياب",
+      "price": 80,
+      "category": "خدمات حكومية / شموس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1298,
+      "name": "تحديث بيانات المنشأة في شموس",
+      "price": 60,
+      "category": "خدمات حكومية / شموس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1296,
+      "name": "تسجيل في نظام شموس (منشأة/فرع)",
+      "price": 100,
+      "category": "خدمات حكومية / شموس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1297,
+      "name": "نظام شموس إدارة المستخدمين (إضافة/حذف)",
+      "price": 50,
+      "category": "خدمات حكومية / شموس",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "mumaris": [
+    {
+      "id": 1165,
+      "name": "استخراج رخصة التسجيل المهني",
+      "price": 49,
+      "category": "خدمات حكومية / ممارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1167,
+      "name": "التسجيل في اختبار الهيئة",
+      "price": 49,
+      "category": "خدمات حكومية / ممارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1164,
+      "name": "التسجيل في ممارس بلس",
+      "price": 49,
+      "category": "خدمات حكومية / ممارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1166,
+      "name": "تجديد رخصة التسجيل المهني",
+      "price": 49,
+      "category": "خدمات حكومية / ممارس",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "chamber": [
+    {
+      "id": 1044,
+      "name": "استخراج شهادة عضوية الغرفة التجارية",
+      "price": 80,
+      "category": "خدمات حكومية / الغرفة التجارية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1041,
+      "name": "التسجيل في الغرفة التجارية",
+      "price": 80,
+      "category": "خدمات حكومية / الغرفة التجارية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1043,
+      "name": "تجديد العضوية في الغرفة التجارية",
+      "price": 80,
+      "category": "خدمات حكومية / الغرفة التجارية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1042,
+      "name": "تصديق الوثائق في الغرفة التجارية",
+      "price": 80,
+      "category": "خدمات حكومية / الغرفة التجارية",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ministry-hr": [
+    {
+      "id": 1448,
+      "name": "استخراج نسخة إلكترونية لشهادة من وزارة الموارد البشرية - اعمال",
+      "price": 49,
+      "category": "الوزارات / الموارد البشرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1450,
+      "name": "تسجيل في دعم توطين",
+      "price": 150,
+      "category": "الوزارات / الموارد البشرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1451,
+      "name": "رفع دعوى بالتسوية الودية (شكوى عمالية)",
+      "price": 150,
+      "category": "الوزارات / الموارد البشرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1449,
+      "name": "فتح حساب على برنامج العمل عن بعد التابع لوزارة الموارد البشرية والتنمية",
+      "price": 49,
+      "category": "الوزارات / الموارد البشرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1447,
+      "name": "فتح حساب مستخدم منشأة على وزارة الموارد",
+      "price": 100,
+      "category": "الوزارات / الموارد البشرية",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-sanad": [
+    {
+      "id": 1471,
+      "name": "استعلام استحقاقك دعم ساند",
+      "price": 30,
+      "category": "برامج الدعم / ساند",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1472,
+      "name": "التسجيل في دعم ساند",
+      "price": 200,
+      "category": "برامج الدعم / ساند",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ministry-foreign": [
+    {
+      "id": 1443,
+      "name": "استعلام عن طلب زيارة",
+      "price": 30,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1442,
+      "name": "تصديق الوكالات الخارجية",
+      "price": 100,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1445,
+      "name": "تفويض تأشيرات العمل",
+      "price": 150,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1444,
+      "name": "تفويض تأشيرات عمل",
+      "price": 100,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1441,
+      "name": "تقديم طلب زيارة شخصية للمواطنين",
+      "price": 150,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1440,
+      "name": "تقديم طلب زيارة عائلية للمقيمين",
+      "price": 50,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1439,
+      "name": "طلب زيارة عائلية",
+      "price": 150,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1446,
+      "name": "طلب زيارة عمل",
+      "price": 150,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "najm": [
+    {
+      "id": 1210,
+      "name": "استعلام عن مطالبة",
+      "price": 30,
+      "category": "خدمات حكومية / نجم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1209,
+      "name": "تقديم مطالبات نجم",
+      "price": 100,
+      "category": "خدمات حكومية / نجم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1211,
+      "name": "مطالبة شركات التأمين بالحوادث",
+      "price": 99,
+      "category": "خدمات حكومية / نجم",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "taqat": [
+    {
+      "id": 1323,
+      "name": "اعتراض على دفعة ناقصة أو لم تسلم",
+      "price": 50,
+      "category": "خدمات حكومية / طاقات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1326,
+      "name": "التسجيل في وظائف طاقات",
+      "price": 40,
+      "category": "خدمات حكومية / طاقات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1322,
+      "name": "تسجيل حساب في طاقات",
+      "price": 100,
+      "category": "خدمات حكومية / طاقات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1324,
+      "name": "تسجيل في إعانة البحث عن عمل",
+      "price": 150,
+      "category": "خدمات حكومية / طاقات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1328,
+      "name": "تسجيل في تمهير",
+      "price": 100,
+      "category": "خدمات حكومية / طاقات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1325,
+      "name": "تسجيل في دعم توطين",
+      "price": 150,
+      "category": "خدمات حكومية / طاقات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1327,
+      "name": "تسجيل في دعم حافز",
+      "price": 100,
+      "category": "خدمات حكومية / طاقات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1321,
+      "name": "تقديم دعم المنشآت",
+      "price": 50,
+      "category": "خدمات حكومية / طاقات",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ministry-labor": [
+    {
+      "id": 1464,
+      "name": "اعتراض على غرامة تفتيش",
+      "price": 100,
+      "category": "الوزارات / العمل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1467,
+      "name": "خدمة تحديث بيانات العمالة",
+      "price": 50,
+      "category": "الوزارات / العمل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1466,
+      "name": "شطب ملفات مكتب العمل",
+      "price": 50,
+      "category": "الوزارات / العمل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1465,
+      "name": "نقل ملكية ملفات مكتب العمل",
+      "price": 100,
+      "category": "الوزارات / العمل",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "simah": [
+    {
+      "id": 1302,
+      "name": "اعتراض على منتج متعثر",
+      "price": 99,
+      "category": "خدمات حكومية / سمة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1300,
+      "name": "طلب تقرير سمة",
+      "price": 99,
+      "category": "خدمات حكومية / سمة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1301,
+      "name": "طلب رفع تعثر",
+      "price": 99,
+      "category": "خدمات حكومية / سمة",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "taqyees": [
+    {
+      "id": 1336,
+      "name": "الاستعلام عن حالة طلب تقييس",
+      "price": 35,
+      "category": "خدمات حكومية / تقييس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1329,
+      "name": "تسجيل حساب منشأة في تقييس",
+      "price": 100,
+      "category": "خدمات حكومية / تقييس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1335,
+      "name": "طلب إذن صيانة",
+      "price": 120,
+      "category": "خدمات حكومية / تقييس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1331,
+      "name": "طلب التحقق الأولي",
+      "price": 200,
+      "category": "خدمات حكومية / تقييس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1330,
+      "name": "طلب التحقق الدوري",
+      "price": 150,
+      "category": "خدمات حكومية / تقييس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1332,
+      "name": "طلب التحقق بعد الصيانة",
+      "price": 150,
+      "category": "خدمات حكومية / تقييس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1334,
+      "name": "طلب تأهيل جهة التحقق",
+      "price": 400,
+      "category": "خدمات حكومية / تقييس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1333,
+      "name": "طلب شهادة اعتماد الطراز",
+      "price": 300,
+      "category": "خدمات حكومية / تقييس",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "taradhi": [
+    {
+      "id": 1340,
+      "name": "الاستعلام عن طلب تراضي",
+      "price": 20,
+      "category": "خدمات حكومية / تراضي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1337,
+      "name": "تقديم طلب صلح",
+      "price": 50,
+      "category": "خدمات حكومية / تراضي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1338,
+      "name": "طباعة وثيقة صلح",
+      "price": 20,
+      "category": "خدمات حكومية / تراضي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1339,
+      "name": "متابعة طلب صلح",
+      "price": 30,
+      "category": "خدمات حكومية / تراضي",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "noor-faris": [
+    {
+      "id": 1218,
+      "name": "الاستعلام عن نتائج الطلاب",
+      "price": 20,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1220,
+      "name": "التسجيل في نظام فارس للمعلمين",
+      "price": 50,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1219,
+      "name": "تسجيل الطلاب في رياض الأطفال",
+      "price": 40,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1214,
+      "name": "تسجيل الطلبة في المرحلة الابتدائية",
+      "price": 75,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1217,
+      "name": "تسجيل خطة النشاط في منصة نور (فصل كامل)",
+      "price": 200,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1212,
+      "name": "تسجيل طالب جديد",
+      "price": 50,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1215,
+      "name": "تسجيل طالب جديد (أجنبي)",
+      "price": 100,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1216,
+      "name": "تسجيل طالب في النقل الدراسي (رافد)",
+      "price": 50,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1221,
+      "name": "طلب إجازة للمعلمين والمعلمات",
+      "price": 50,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1222,
+      "name": "طلب تعريف بالراتب للمعلمين والمعلمات",
+      "price": 50,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1213,
+      "name": "نقل طالب من مدرسة إلى مدرسة",
+      "price": 50,
+      "category": "خدمات حكومية / نور وفارس",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "jobs-services": [
+    {
+      "id": 1138,
+      "name": "التسجيل في وظائف طاقات",
+      "price": 40,
+      "category": "خدمات الأفراد / الوظائف",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1137,
+      "name": "التقديم على الوظائف الحكومية (جدارات)",
+      "price": 40,
+      "category": "خدمات الأفراد / الوظائف",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1139,
+      "name": "التقديم على الوظائف العسكرية",
+      "price": 40,
+      "category": "خدمات الأفراد / الوظائف",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1140,
+      "name": "التقديم على وظائف تطبيق أسعى",
+      "price": 40,
+      "category": "خدمات الأفراد / الوظائف",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1134,
+      "name": "التقديم على وظائف منصة بيت كوم",
+      "price": 40,
+      "category": "خدمات الأفراد / الوظائف",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1135,
+      "name": "التقديم على وظائف منصة صبار",
+      "price": 40,
+      "category": "خدمات الأفراد / الوظائف",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1136,
+      "name": "التقديم على وظائف منصة مرن",
+      "price": 40,
+      "category": "خدمات الأفراد / الوظائف",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1141,
+      "name": "تصميم سيرة ذاتية احترافية (CV) عربي وإنجليزي",
+      "price": 40,
+      "category": "خدمات الأفراد / الوظائف",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-women": [
+    {
+      "id": 1475,
+      "name": "التقديم على دعم المرأة العاملة في برنامج قرة",
+      "price": 49,
+      "category": "برامج الدعم / المرأة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1474,
+      "name": "التقديم على دعم نقل المرأة العاملة وصول",
+      "price": 49,
+      "category": "برامج الدعم / المرأة",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "telecom": [
+    {
+      "id": 1342,
+      "name": "تأسيس خط إنترنت للمنشآت",
+      "price": 100,
+      "category": "خدمات حكومية / الاتصالات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1343,
+      "name": "تأسيس خط هاتف أرضي",
+      "price": 80,
+      "category": "خدمات حكومية / الاتصالات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1341,
+      "name": "تأسيس شريحة اتصال (SIM)",
+      "price": 80,
+      "category": "خدمات حكومية / الاتصالات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1344,
+      "name": "تقديم اعتراض على فاتورة",
+      "price": 60,
+      "category": "خدمات حكومية / الاتصالات",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1345,
+      "name": "دراسة احتياجات المؤسسة من خدمات الاتصال والإنترنت",
+      "price": 150,
+      "category": "خدمات حكومية / الاتصالات",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "spl": [
+    {
+      "id": 1306,
+      "name": "تحديث العنوان الوطني",
+      "price": 35,
+      "category": "خدمات حكومية / سبل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1305,
+      "name": "تسجيل عنوان تابع قاصر",
+      "price": 50,
+      "category": "خدمات حكومية / سبل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1303,
+      "name": "تسجيل عنوان وطني للأفراد",
+      "price": 50,
+      "category": "خدمات حكومية / سبل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1304,
+      "name": "تسجيل عنوان وطني للمنشآت",
+      "price": 60,
+      "category": "خدمات حكومية / سبل",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1307,
+      "name": "طباعة العنوان الوطني",
+      "price": 35,
+      "category": "خدمات حكومية / سبل",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ministry-education": [
+    {
+      "id": 1436,
+      "name": "تسجيل الطالب في الصف الأول الابتدائي",
+      "price": 50,
+      "category": "الوزارات / التعليم",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1435,
+      "name": "تسجيل الطالب في رياض الأطفال",
+      "price": 40,
+      "category": "الوزارات / التعليم",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-tamheer": [
+    {
+      "id": 1473,
+      "name": "تسجيل في تمهير",
+      "price": 100,
+      "category": "برامج الدعم / تمهير",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-hafiz": [
+    {
+      "id": 1470,
+      "name": "تسجيل في دعم حافز",
+      "price": 100,
+      "category": "برامج الدعم / حافز",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "electricity": [
+    {
+      "id": 1087,
+      "name": "دفع فاتورة الكهرباء",
+      "price": 20,
+      "category": "خدمات حكومية / الكهرباء",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1084,
+      "name": "طلب (تغيير / إزالة) عداد",
+      "price": 49,
+      "category": "خدمات حكومية / الكهرباء",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1088,
+      "name": "طلب إزالة معدة",
+      "price": 35,
+      "category": "خدمات حكومية / الكهرباء",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1086,
+      "name": "طلب توثيق عداد",
+      "price": 49,
+      "category": "خدمات حكومية / الكهرباء",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1089,
+      "name": "طلب عداد إضافي",
+      "price": 49,
+      "category": "خدمات حكومية / الكهرباء",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1083,
+      "name": "طلب عداد كهرباء",
+      "price": 49,
+      "category": "خدمات حكومية / الكهرباء",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1085,
+      "name": "طلب نقل عداد",
+      "price": 49,
+      "category": "خدمات حكومية / الكهرباء",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1082,
+      "name": "نقل ملكية عداد كهرباء",
+      "price": 49,
+      "category": "خدمات حكومية / الكهرباء",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "ministry-environment": [
+    {
+      "id": 1437,
+      "name": "طلب تفعيل بطاقة صحية",
+      "price": 50,
+      "category": "الوزارات / البيئة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1438,
+      "name": "طلب فتح بطاقة صحية",
+      "price": 50,
+      "category": "الوزارات / البيئة",
+      "active": true,
+      "sale_ok": true
+    }
+  ]
+}
