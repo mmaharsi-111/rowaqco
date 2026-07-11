@@ -494,7 +494,7 @@ function markField(id, hasErr) {
 }
 
 /* ===== LOGIN ===== */
-function doLogin() {
+async function doLogin() {
   const id   = document.getElementById('login-id').value.trim();
   const pass = document.getElementById('login-pass').value;
   let valid  = true;
@@ -507,20 +507,57 @@ function doLogin() {
 
   if (!valid) return;
 
-  // تحقق من localStorage
-  const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
-  const user  = users.find(u => (u.email === id || u.phone === id) && u.password === pass);
+  const btn = document.getElementById('login-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> جارٍ التحقق...';
 
-  if (!user) {
-    showErr('login-pass-err', true);
-    document.getElementById('login-pass-err').textContent = 'بيانات الدخول غير صحيحة';
-    markField('login-pass', true);
+  // 1. تحقق من localStorage أولاً (للعمل بدون إنترنت)
+  const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
+  const localUser = users.find(u => (u.email === id || u.phone === id) && u.password === pass);
+
+  if (localUser) {
+    localStorage.setItem('rawaq_session', JSON.stringify(localUser));
+    showSuccess('login', localUser.name);
+    btn.disabled = false;
+    btn.innerHTML = 'تسجيل الدخول';
     return;
   }
 
-  // حفظ الجلسة
-  localStorage.setItem('rawaq_session', JSON.stringify(user));
-  showSuccess('login', user.name);
+  // 2. تحقق من أودو عبر GAS
+  try {
+    const isEmail = id.includes('@');
+    const params = new URLSearchParams({
+      action: 'login',
+      password: pass,
+      ...(isEmail ? { email: id } : { phone: id })
+    });
+    const res  = await fetch(`${GAS_URL}?${params}`);
+    const data = await res.json();
+
+    if (data.success && data.user) {
+      const user = data.user;
+      // احفظ محلياً للمرات القادمة
+      const users2 = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
+      const exists = users2.find(u => u.email === user.email || u.phone === user.phone);
+      if (!exists) {
+        users2.push({ ...user, password: pass });
+        localStorage.setItem('rawaq_users', JSON.stringify(users2));
+      }
+      localStorage.setItem('rawaq_session', JSON.stringify({ ...user, password: pass }));
+      showSuccess('login', user.name);
+    } else {
+      showErr('login-pass-err', true);
+      document.getElementById('login-pass-err').textContent = data.message || 'بيانات الدخول غير صحيحة';
+      markField('login-pass', true);
+    }
+  } catch(e) {
+    showErr('login-pass-err', true);
+    document.getElementById('login-pass-err').textContent = 'تعذّر الاتصال، حاول مرة أخرى';
+    markField('login-pass', true);
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'تسجيل الدخول';
 }
 
 /* ===== REGISTER ===== */
@@ -584,6 +621,7 @@ async function doRegister() {
     const params = new URLSearchParams({
       action: 'create_partner',
       name, phone, email,
+      password: pass,
       company: company || '',
       vat: vat || ''
     });
