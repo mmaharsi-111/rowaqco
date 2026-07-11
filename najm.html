@@ -158,5 +158,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 function filterServices(){const q=document.getElementById('search-input').value.trim().toLowerCase();let any=false;document.querySelectorAll('.svc-card').forEach(c=>{const show=!q||(c.dataset.name||'').toLowerCase().includes(q);c.style.display=show?'':'none';if(show)any=true;});document.getElementById('empty-msg').style.display=any?'none':'block';}
 function sortServices(val){const grid=document.getElementById('services-grid');const cards=[...grid.querySelectorAll('.svc-card')];cards.sort((a,b)=>{if(val==='price-asc')return+a.dataset.price-+b.dataset.price;if(val==='price-desc')return+b.dataset.price-+a.dataset.price;if(val==='name')return(a.dataset.name||'').localeCompare(b.dataset.name||'','ar');return 0;});cards.forEach(c=>grid.appendChild(c));}
 </script>
+<script src="services-loader.js"></script>
 </body>
 </html>
