@@ -32,11 +32,14 @@ function addToCart(btn, name, price, category) {
   const cart = getCart();
   price = parseFloat(price) || 0;
   category = category || 'خدمة';
-  const existing = cart.find(i => i.name === name);
+  // جلب product_id من data-id على الكارت
+  const card = btn ? btn.closest('[data-id]') || btn.closest('.svc-card') : null;
+  const productId = card ? parseInt(card.dataset.id) || null : null;
+  const existing = cart.find(i => i.name === name && i.productId === productId);
   if (existing) {
     existing.qty = (existing.qty || 1) + 1;
   } else {
-    cart.push({ id: Date.now(), name, price, category, qty: 1 });
+    cart.push({ id: Date.now(), productId, name, price, category, qty: 1 });
   }
   saveCart(cart);
   showToast('✅ تمت الإضافة إلى السلة!');
@@ -49,11 +52,12 @@ function cartAdd(btn, name) {
   addToCart(btn, name, price, category);
 }
  
-function quickAddToCart(name, price, category) {
+function quickAddToCart(name, price, category, productId) {
   const cart = getCart();
-  const existing = cart.find(i => i.name === name);
+  productId = productId ? parseInt(productId) : null;
+  const existing = cart.find(i => i.name === name && i.productId === productId);
   if (existing) { existing.qty = (existing.qty||1)+1; }
-  else { cart.push({ id: Date.now(), name, price: parseFloat(price)||0, category: category||'خدمة', qty: 1 }); }
+  else { cart.push({ id: Date.now(), productId, name, price: parseFloat(price)||0, category: category||'خدمة', qty: 1 }); }
   saveCart(cart);
   showToast('✅ تمت إضافة: ' + name);
 }
@@ -157,8 +161,13 @@ async function sendToOdoo(cart, customerInfo) {
   const PROXY_URL = 'https://script.google.com/macros/s/AKfycbyzTHDGzy4Kqitq3U0q4z5fhxlsMwMDLUpZj5Ptd6G0nqp_3pFj67cEz66FhHUXROuc/exec';
  
   try {
+    // إضافة productId لكل منتج في السلة قبل الإرسال
+    const cartWithIds = cart.map(item => ({
+      ...item,
+      product_id: item.productId || null
+    }));
     const params = new URLSearchParams({
-      cart: encodeURIComponent(JSON.stringify(cart)),
+      cart: encodeURIComponent(JSON.stringify(cartWithIds)),
       name: customerInfo?.name || '',
       phone: customerInfo?.phone || ''
     });

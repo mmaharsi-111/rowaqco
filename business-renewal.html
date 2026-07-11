@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>خدمات تجديد دورية ومتكررة — رواق التميز</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
 <script src="cart.js"></script>
 <style>
 :root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
@@ -85,228 +86,227 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 </style>
 </head>
 <body>
-<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a> &nbsp;|&nbsp; <a href="https://wa.me/966559580940">واتساب</a></div>
+<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a>  |  <a href="https://wa.me/966559580940">واتساب</a></div>
 <header>
-  <div class="header-inner">
-    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
-    <a href="index.html" class="logo">
-      <img src="logo.jpg" alt="رواق التميز">
-      <div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
-    </a>
-    <nav class="header-nav">
-      <a href="index.html">الرئيسية</a>
-      <a href="individuals.html">خدمات الأفراد</a>
-      <a href="business-renewal.html" class="active">خدمات الأعمال</a>
-      <a href="about.html">من نحن</a>
-      <a href="contact.html">تواصل معنا</a>
-    </nav>
-    <div class="header-cta">
-      <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
-      <a href="cart.html" class="cart-btn">🛒 سلتي<span class="cart-badge">0</span></a>
-    </div>
-  </div>
+<div class="header-inner">
+<button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+<a class="logo" href="index.html">
+<img alt="رواق التميز" src="logo.jpg"/>
+<div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
+</a>
+<nav class="header-nav">
+<a href="index.html">الرئيسية</a>
+<a href="individuals.html">خدمات الأفراد</a>
+<a class="active" href="business-renewal.html">خدمات الأعمال</a>
+<a href="about.html">من نحن</a>
+<a href="contact.html">تواصل معنا</a>
+</nav>
+<div class="header-cta">
+<a class="btn btn-green" href="https://wa.me/966559580940">📲 تواصل معنا</a>
+<a class="cart-btn" href="cart.html">🛒 سلتي<span class="cart-badge">0</span></a>
+</div>
+</div>
 </header>
 <div class="breadcrumb">
-  <div class="wrap">
-    <div><a href="index.html">الرئيسية</a><span>›</span><a href="#">خدمات الأعمال</a><span>›</span><span>خدمات تجديد دورية ومتكررة</span></div>
-    <div class="bc-title">🔄 خدمات تجديد دورية ومتكررة</div>
-  </div>
+<div class="wrap">
+<div><a href="index.html">الرئيسية</a><span>›</span><a href="#">خدمات الأعمال</a><span>›</span><span>خدمات تجديد دورية ومتكررة</span></div>
+<div class="bc-title">🔄 خدمات تجديد دورية ومتكررة</div>
+</div>
 </div>
 <div class="toolbar">
-  <div class="wrap">
-    <div class="search-box">
-      <span style="color:var(--muted);">🔍</span>
-      <input type="text" id="search-input" placeholder="ابحث عن خدمة..." oninput="filterServices()">
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <span style="font-size:13px;color:var(--muted);">ترتيب حسب:</span>
-      <select class="sort-select" onchange="sortServices(this.value)">
-        <option value="default">مقترحاتنا</option>
-        <option value="price-asc">السعر: الأقل أولاً</option>
-        <option value="price-desc">السعر: الأعلى أولاً</option>
-        <option value="name">الاسم أبجدياً</option>
-      </select>
-    </div>
-  </div>
+<div class="wrap">
+<div class="search-box">
+<span style="color:var(--muted);">🔍</span>
+<input id="search-input" oninput="filterServices()" placeholder="ابحث عن خدمة..." type="text"/>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span style="font-size:13px;color:var(--muted);">ترتيب حسب:</span>
+<select class="sort-select" onchange="sortServices(this.value)">
+<option value="default">مقترحاتنا</option>
+<option value="price-asc">السعر: الأقل أولاً</option>
+<option value="price-desc">السعر: الأعلى أولاً</option>
+<option value="name">الاسم أبجدياً</option>
+</select>
+</div>
+</div>
 </div>
 <div class="page-body">
-  <div class="wrap">
-    <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;display:flex;align-items:center;gap:18px;">
-      <div style="font-size:48px;">🔄</div>
-      <div><h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">خدمات تجديد دورية ومتكررة</h2><p style="font-size:13px;opacity:.88;line-height:1.6;">تجديد التراخيص والسجلات التجارية والاشتراكات الدورية في جميع المنصات الحكومية.</p></div>
-    </div>
-    <div style="margin-bottom:16px;"><span id="results-count" style="font-size:13px;color:var(--muted);font-weight:600;"></span></div>
-    <div class="services-grid" id="services-grid">
-
-      <div class="svc-card" data-price="99" data-name="تجديد رخصة بلدية (تجارية)">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
-          <div class="svc-name">تجديد رخصة بلدية (تجارية)</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="99">99</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد رخصة بلدية (تجارية)')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="150" data-name="إصدار رخصة غرفة متنقلة (فود تراك)">
-        <div class="svc-img"><div class="icon-circle">🚚</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
-          <div class="svc-name">إصدار رخصة غرفة متنقلة (فود تراك)</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار رخصة غرفة متنقلة (فود تراك)')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="150" data-name="إصدار وتجديد رخصة سكن جماعي">
-        <div class="svc-img"><div class="icon-circle">🏘️</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات الأعمال</span>
-          <div class="svc-name">إصدار وتجديد رخصة سكن جماعي</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار وتجديد رخصة سكن جماعي')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="99" data-name="إصدار ترخيص 24 ساعة محل تجاري">
-        <div class="svc-img"><div class="icon-circle">🏪</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات الأعمال</span>
-          <div class="svc-name">إصدار ترخيص 24 ساعة محل تجاري</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="99">99</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار ترخيص 24 ساعة محل تجاري')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="100" data-name="تقديم الإقرارات الضريبية">
-        <div class="svc-img"><div class="icon-circle">💹</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">الزكاة والضريبة والجمارك</span>
-          <div class="svc-name">تقديم الإقرارات الضريبية</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم الإقرارات الضريبية')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="50" data-name="تجديد السجل التجاري للمؤسسات">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
-          <div class="svc-name">تجديد السجل التجاري للمؤسسات</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد السجل التجاري للمؤسسات')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="49" data-name="اشتراك او تجديد ابشر أعمال">
-        <div class="svc-img"><div class="icon-circle">🆔</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات المنصات الحكومية</span>
-          <div class="svc-name">اشتراك او تجديد ابشر أعمال</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="49">49</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'اشتراك او تجديد ابشر أعمال')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="160" data-name="تجديد رخصة سلامة (الدفاع المدني)">
-        <div class="svc-img"><div class="icon-circle">🛡️</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات الأعمال</span>
-          <div class="svc-name">تجديد رخصة سلامة (الدفاع المدني)</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="160">160</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد رخصة سلامة (الدفاع المدني)')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="49" data-name="إصدار شهادة الالتزام بالنظام وحماية الأجور">
-        <div class="svc-img"><div class="icon-circle">📜</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
-          <div class="svc-name">إصدار شهادة الالتزام بالنظام وحماية الأجور</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="49">49</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة الالتزام بالنظام وحماية الأجور')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="100" data-name="فتح حساب وتفعيل منصة قوى">
-        <div class="svc-img"><div class="icon-circle">👷</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات الأعمال</span>
-          <div class="svc-name">فتح حساب وتفعيل منصة قوى</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح حساب وتفعيل منصة قوى')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="50" data-name="طباعة تقرير حماية الأجور">
-        <div class="svc-img"><div class="icon-circle">💰</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">منصة مدد (الرواتب)</span>
-          <div class="svc-name">طباعة تقرير حماية الأجور</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة تقرير حماية الأجور')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="100" data-name="رفع مسير رواتب الموظفين الشهرية في مدد">
-        <div class="svc-img"><div class="icon-circle">📊</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
-          <div class="svc-name">رفع مسير رواتب الموظفين الشهرية في مدد</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع مسير رواتب الموظفين الشهرية في مدد')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="50" data-name="طباعة تقارير إدارة الرواتب">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات معاملات التأسيس</span>
-          <div class="svc-name">طباعة تقارير إدارة الرواتب</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة تقارير إدارة الرواتب')">🛒 أضف للسلة</button></div>
-      </div>
-      <div class="svc-card" data-price="249" data-name="شهادة تركيب أدوات الوقاية من الحريق (سلامة)">
-        <div class="svc-img"><div class="icon-circle">🧯</div></div>
-        <div class="svc-body">
-          <span class="svc-cat">خدمات معاملات التأسيس</span>
-          <div class="svc-name">شهادة تركيب أدوات الوقاية من الحريق (سلامة)</div>
-          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="249">249</span></div>
-        </div>
-        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'شهادة تركيب أدوات الوقاية من الحريق (سلامة)')">🛒 أضف للسلة</button></div>
-      </div>
-    </div>
-    <div class="empty-results" id="empty-results"><div style="font-size:48px;margin-bottom:12px;">🔍</div><p>لم يتم العثور على خدمات تطابق بحثك</p></div>
-    <div style="text-align:center;margin-top:40px;padding:28px;background:#fff;border-radius:14px;border:1px solid var(--border);">
-      <div style="font-size:32px;margin-bottom:10px;">💬</div>
-      <h3 style="font-size:17px;font-weight:900;margin-bottom:6px;">ما لقيت خدمتك؟</h3>
-      <p style="color:var(--muted);font-size:14px;margin-bottom:18px;">تواصل معنا وسنساعدك في إنجاز أي معاملة</p>
-      <a href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن خدمة من خدمات التجديد الدورية" class="btn btn-green" style="font-size:14px;padding:12px 28px;">📲 تواصل عبر واتساب</a>
-    </div>
-  </div>
+<div class="wrap">
+<div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;display:flex;align-items:center;gap:18px;">
+<div style="font-size:48px;">🔄</div>
+<div><h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">خدمات تجديد دورية ومتكررة</h2><p style="font-size:13px;opacity:.88;line-height:1.6;">تجديد التراخيص والسجلات التجارية والاشتراكات الدورية في جميع المنصات الحكومية.</p></div>
 </div>
-<a href="https://wa.me/966559580940" class="wa-float">💬</a>
-  <div id="sidebar-container"></div>
+<div style="margin-bottom:16px;"><span id="results-count" style="font-size:13px;color:var(--muted);font-weight:600;"></span></div>
+<div class="services-grid" id="services-grid">
+<div class="svc-card" data-id="1017" data-name="تجديد رخصة بلدية (تجارية)" data-price="99">
+<div class="svc-img"><div class="icon-circle">🔄</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
+<div class="svc-name">تجديد رخصة بلدية (تجارية)</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="99">99</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد رخصة بلدية (تجارية)')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1018" data-name="إصدار رخصة غرفة متنقلة (فود تراك)" data-price="150">
+<div class="svc-img"><div class="icon-circle">🚚</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
+<div class="svc-name">إصدار رخصة غرفة متنقلة (فود تراك)</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار رخصة غرفة متنقلة (فود تراك)')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1019" data-name="إصدار وتجديد رخصة سكن جماعي" data-price="150">
+<div class="svc-img"><div class="icon-circle">🏘️</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات الأعمال</span>
+<div class="svc-name">إصدار وتجديد رخصة سكن جماعي</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار وتجديد رخصة سكن جماعي')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1020" data-name="إصدار ترخيص 24 ساعة محل تجاري" data-price="99">
+<div class="svc-img"><div class="icon-circle">🏪</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات الأعمال</span>
+<div class="svc-name">إصدار ترخيص 24 ساعة محل تجاري</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="99">99</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار ترخيص 24 ساعة محل تجاري')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1021" data-name="تقديم الإقرارات الضريبية" data-price="100">
+<div class="svc-img"><div class="icon-circle">💹</div></div>
+<div class="svc-body">
+<span class="svc-cat">الزكاة والضريبة والجمارك</span>
+<div class="svc-name">تقديم الإقرارات الضريبية</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم الإقرارات الضريبية')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1022" data-name="تجديد السجل التجاري للمؤسسات" data-price="50">
+<div class="svc-img"><div class="icon-circle">📋</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
+<div class="svc-name">تجديد السجل التجاري للمؤسسات</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد السجل التجاري للمؤسسات')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1023" data-name="اشتراك او تجديد ابشر أعمال" data-price="49">
+<div class="svc-img"><div class="icon-circle">🆔</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات المنصات الحكومية</span>
+<div class="svc-name">اشتراك او تجديد ابشر أعمال</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="49">49</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'اشتراك او تجديد ابشر أعمال')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1024" data-name="تجديد رخصة سلامة (الدفاع المدني)" data-price="160">
+<div class="svc-img"><div class="icon-circle">🛡️</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات الأعمال</span>
+<div class="svc-name">تجديد رخصة سلامة (الدفاع المدني)</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="160">160</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد رخصة سلامة (الدفاع المدني)')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1025" data-name="إصدار شهادة الالتزام بالنظام وحماية الأجور" data-price="49">
+<div class="svc-img"><div class="icon-circle">📜</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
+<div class="svc-name">إصدار شهادة الالتزام بالنظام وحماية الأجور</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="49">49</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة الالتزام بالنظام وحماية الأجور')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1026" data-name="فتح حساب وتفعيل منصة قوى" data-price="100">
+<div class="svc-img"><div class="icon-circle">👷</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات الأعمال</span>
+<div class="svc-name">فتح حساب وتفعيل منصة قوى</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح حساب وتفعيل منصة قوى')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1027" data-name="طباعة تقرير حماية الأجور" data-price="50">
+<div class="svc-img"><div class="icon-circle">💰</div></div>
+<div class="svc-body">
+<span class="svc-cat">منصة مدد (الرواتب)</span>
+<div class="svc-name">طباعة تقرير حماية الأجور</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة تقرير حماية الأجور')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1028" data-name="رفع مسير رواتب الموظفين الشهرية في مدد" data-price="100">
+<div class="svc-img"><div class="icon-circle">📊</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
+<div class="svc-name">رفع مسير رواتب الموظفين الشهرية في مدد</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع مسير رواتب الموظفين الشهرية في مدد')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1029" data-name="طباعة تقارير إدارة الرواتب" data-price="50">
+<div class="svc-img"><div class="icon-circle">🖨️</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات معاملات التأسيس</span>
+<div class="svc-name">طباعة تقارير إدارة الرواتب</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة تقارير إدارة الرواتب')">🛒 أضف للسلة</button></div>
+</div>
+<div class="svc-card" data-id="1030" data-name="شهادة تركيب أدوات الوقاية من الحريق (سلامة)" data-price="249">
+<div class="svc-img"><div class="icon-circle">🧯</div></div>
+<div class="svc-body">
+<span class="svc-cat">خدمات معاملات التأسيس</span>
+<div class="svc-name">شهادة تركيب أدوات الوقاية من الحريق (سلامة)</div>
+<div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="249">249</span></div>
+</div>
+<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'شهادة تركيب أدوات الوقاية من الحريق (سلامة)')">🛒 أضف للسلة</button></div>
+</div>
+</div>
+<div class="empty-results" id="empty-results"><div style="font-size:48px;margin-bottom:12px;">🔍</div><p>لم يتم العثور على خدمات تطابق بحثك</p></div>
+<div style="text-align:center;margin-top:40px;padding:28px;background:#fff;border-radius:14px;border:1px solid var(--border);">
+<div style="font-size:32px;margin-bottom:10px;">💬</div>
+<h3 style="font-size:17px;font-weight:900;margin-bottom:6px;">ما لقيت خدمتك؟</h3>
+<p style="color:var(--muted);font-size:14px;margin-bottom:18px;">تواصل معنا وسنساعدك في إنجاز أي معاملة</p>
+<a class="btn btn-green" href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن خدمة من خدمات التجديد الدورية" style="font-size:14px;padding:12px 28px;">📲 تواصل عبر واتساب</a>
+</div>
+</div>
+</div>
+<a class="wa-float" href="https://wa.me/966559580940">💬</a>
+<div id="sidebar-container"></div>
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <strong><img src="logo.jpg" alt="رواق التميز" style="height:38px;width:auto;border-radius:6px;vertical-align:middle;margin-left:8px;"> رواق التميز للخدمات العامة</strong>
-      <p>نخدم المواطن والمقيم وأصحاب المؤسسات من أي مكان في المملكة.</p>
-      <div class="social-links"><a href="https://www.youtube.com/@rowaqaltamiyuz" target="_blank" class="yt"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
-        <a href="https://www.instagram.com/rowaqaltamiyuz/" target="_blank" class="ig"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
-        <a href="https://www.facebook.com/rowaqaltamiyuz/" target="_blank" class="fb"><svg viewBox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg></a>
-        <a href="https://www.linkedin.com/company/rowaqaltamiyuz" target="_blank" class="li"><svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8v5.4H9.8V9h3.3v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3zM5.3 7.4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1.7 13H3.6V9h3.4v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a></div>
-    </div>
-    <div class="footer-col"><h4>خدمات الأعمال</h4><ul>
-      <li><a href="business-establishment.html">معاملات التأسيس</a></li>
-      <li><a href="business-transfer.html">التعديل أو النقل</a></li>
-      <li><a href="business-renewal.html">تجديد دورية ومتكررة</a></li>
-      <li><a href="business-closure.html">انهاء مشروع</a></li>
-      <li><a href="business-employees.html">الموظفين والعمال</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>الشركة</h4><ul>
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="about.html">من نحن</a></li>
-      <li><a href="contact.html">تواصل معنا</a></li>
-      <li><a href="cart.html">سلة المشتريات</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>تواصل معنا</h4><ul>
-      <li><a href="https://wa.me/966559580940">📲 0559580940</a></li>
-      <li><a href="tel:+966559580940">📞 0559580940</a></li>
-      <li><a href="mailto:info@rowaqco.com">📧 info@rowaqco.com</a></li>
-      <li><a href="#">📍 المدينة المنورة، السعودية</a></li>
-    </ul></div>
-  </div>
-  <div class="footer-bottom"><span>© 2026 شركة رواق التميز الحديثة — جميع الحقوق محفوظة</span><span>سجل تجاري: 4650288413</span></div>
+<div class="footer-grid">
+<div class="footer-brand">
+<strong><img alt="رواق التميز" src="logo.jpg" style="height:38px;width:auto;border-radius:6px;vertical-align:middle;margin-left:8px;"/> رواق التميز للخدمات العامة</strong>
+<p>نخدم المواطن والمقيم وأصحاب المؤسسات من أي مكان في المملكة.</p>
+<div class="social-links"><a class="yt" href="https://www.youtube.com/@rowaqaltamiyuz" target="_blank"><svg viewbox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"></path></svg></a>
+<a class="ig" href="https://www.instagram.com/rowaqaltamiyuz/" target="_blank"><svg viewbox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"></path></svg></a>
+<a class="fb" href="https://www.facebook.com/rowaqaltamiyuz/" target="_blank"><svg viewbox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"></path></svg></a>
+<a class="li" href="https://www.linkedin.com/company/rowaqaltamiyuz" target="_blank"><svg viewbox="0 0 24 24"><path d="M20.4 20.4h-3.4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8v5.4H9.8V9h3.3v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3zM5.3 7.4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1.7 13H3.6V9h3.4v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"></path></svg></a></div>
+</div>
+<div class="footer-col"><h4>خدمات الأعمال</h4><ul>
+<li><a href="business-establishment.html">معاملات التأسيس</a></li>
+<li><a href="business-transfer.html">التعديل أو النقل</a></li>
+<li><a href="business-renewal.html">تجديد دورية ومتكررة</a></li>
+<li><a href="business-closure.html">انهاء مشروع</a></li>
+<li><a href="business-employees.html">الموظفين والعمال</a></li>
+</ul></div>
+<div class="footer-col"><h4>الشركة</h4><ul>
+<li><a href="index.html">الرئيسية</a></li>
+<li><a href="about.html">من نحن</a></li>
+<li><a href="contact.html">تواصل معنا</a></li>
+<li><a href="cart.html">سلة المشتريات</a></li>
+</ul></div>
+<div class="footer-col"><h4>تواصل معنا</h4><ul>
+<li><a href="https://wa.me/966559580940">📲 0559580940</a></li>
+<li><a href="tel:+966559580940">📞 0559580940</a></li>
+<li><a href="mailto:info@rowaqco.com">📧 info@rowaqco.com</a></li>
+<li><a href="#">📍 المدينة المنورة، السعودية</a></li>
+</ul></div>
+</div>
+<div class="footer-bottom"><span>© 2026 شركة رواق التميز الحديثة — جميع الحقوق محفوظة</span><span>سجل تجاري: 4650288413</span></div>
 </footer>
 <script>function askService(n){window.open('https://wa.me/966559580940?text='+encodeURIComponent('مرحباً، أريد الاستفسار عن سعر خدمة: '+n),'_blank');}</script>
 <script>
