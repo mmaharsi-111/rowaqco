@@ -240,9 +240,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 <script>
 function filterServices(){const q=document.getElementById('search-input').value.trim();const cards=document.querySelectorAll('.svc-card');let v=0;cards.forEach(c=>{const n=c.dataset.name||'';const show=!q||n.includes(q);c.style.display=show?'flex':'none';if(show)v++;});document.getElementById('results-count').textContent=v+' خدمة';document.getElementById('empty-results').style.display=v===0?'block':'none';}
 function sortServices(val){const grid=document.getElementById('services-grid');const cards=Array.from(grid.querySelectorAll('.svc-card'));cards.sort((a,b)=>{if(val==='price-asc')return(parseInt(a.dataset.price)||0)-(parseInt(b.dataset.price)||0);if(val==='price-desc')return(parseInt(b.dataset.price)||0)-(parseInt(a.dataset.price)||0);if(val==='name')return(a.dataset.name||'').localeCompare(b.dataset.name||'','ar');return 0;});cards.forEach(c=>grid.appendChild(c));}
-
-
-}
 document.addEventListener('DOMContentLoaded',function(){updateCartBadge();document.getElementById('results-count').textContent=document.querySelectorAll('.svc-card').length+' خدمة';});
 </script>
 <script src="sidebar.js"></script>
