@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="خدمات منصة قوى (العمالة) — رواق التميز للخدمات العامة" name="description"/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-09C3QPQGJV');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="خدمات منصة قوى (العمالة) — رواق التميز للخدمات العامة">
 <title>خدمات منصة قوى — رواق التميز</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <script src="cart.js"></script>
 <style>
 :root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
@@ -78,279 +85,311 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 </style>
 </head>
 <body>
-<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a>  |  <a href="https://wa.me/966559580940">واتساب</a></div>
+
+<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a> &nbsp;|&nbsp; <a href="https://wa.me/966559580940">واتساب</a></div>
+
 <header>
-<div class="header-inner">
-<button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
-<a class="logo" href="index.html">
-<img alt="رواق التميز" src="logo.jpg"/>
-<div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
-</a>
-<nav class="header-nav">
-<a href="index.html">الرئيسية</a>
-<a href="individuals.html">خدمات الأفراد</a>
-<a href="business-establishment.html">خدمات الأعمال</a>
-<a class="active" href="government-platforms.html">المنصات الحكومية</a>
-<a href="about.html">من نحن</a>
-<a href="contact.html">تواصل معنا</a>
-</nav>
-<div class="header-cta">
-<a class="btn btn-green" href="https://wa.me/966559580940">📲 تواصل معنا</a>
-<a class="cart-btn" href="cart.html">🛒 سلتي<span class="cart-badge" id="cart-badge">0</span></a>
-</div>
-</div>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="رواق التميز">
+      <div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="business-establishment.html">خدمات الأعمال</a>
+      <a href="government-platforms.html" class="active">المنصات الحكومية</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
+      <a href="cart.html" class="cart-btn">🛒 سلتي<span class="cart-badge" id="cart-badge">0</span></a>
+    </div>
+  </div>
 </header>
+
 <div class="breadcrumb">
-<div class="wrap">
-<div>
-<a href="index.html">الرئيسية</a><span>›</span>
-<a href="government-platforms.html">خدمات المنصات الحكومية</a><span>›</span>
-<span>منصة قوى</span>
+  <div class="wrap">
+    <div>
+      <a href="index.html">الرئيسية</a><span>›</span>
+      <a href="government-platforms.html">خدمات المنصات الحكومية</a><span>›</span>
+      <span>منصة قوى</span>
+    </div>
+    <div class="bc-title">👷 منصة قوى (العمالة)</div>
+  </div>
 </div>
-<div class="bc-title">👷 منصة قوى (العمالة)</div>
-</div>
-</div>
+
 <div class="toolbar">
-<div class="wrap">
-<div class="search-box">
-<span style="color:var(--muted);">🔍</span>
-<input id="search-input" oninput="filterServices()" placeholder="ابحث عن خدمة..." type="text"/>
+  <div class="wrap">
+    <div class="search-box">
+      <span style="color:var(--muted);">🔍</span>
+      <input type="text" id="search-input" placeholder="ابحث عن خدمة..." oninput="filterServices()">
+    </div>
+    <select class="sort-select" onchange="sortServices(this.value)">
+      <option value="default">مقترحاتنا</option>
+      <option value="price-asc">السعر: الأقل أولاً</option>
+      <option value="price-desc">السعر: الأعلى أولاً</option>
+      <option value="name">الاسم أبجدياً</option>
+    </select>
+  </div>
 </div>
-<select class="sort-select" onchange="sortServices(this.value)">
-<option value="default">مقترحاتنا</option>
-<option value="price-asc">السعر: الأقل أولاً</option>
-<option value="price-desc">السعر: الأعلى أولاً</option>
-<option value="name">الاسم أبجدياً</option>
-</select>
-</div>
-</div>
+
 <div class="page-body">
-<div class="wrap">
-<div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;display:flex;align-items:center;gap:18px;">
-<div style="font-size:48px;">👷</div>
-<div>
-<h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">خدمات منصة قوى (العمالة)</h2>
-<p style="font-size:13px;opacity:.88;line-height:1.6;">جميع خدمات منصة قوى — تسجيل المنشآت وإدارة العمالة والتأشيرات ونقل الكفالة وحماية الأجور وغيرها.</p>
+  <div class="wrap">
+
+    <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;display:flex;align-items:center;gap:18px;">
+      <div style="font-size:48px;">👷</div>
+      <div>
+        <h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">خدمات منصة قوى (العمالة)</h2>
+        <p style="font-size:13px;opacity:.88;line-height:1.6;">جميع خدمات منصة قوى — تسجيل المنشآت وإدارة العمالة والتأشيرات ونقل الكفالة وحماية الأجور وغيرها.</p>
+      </div>
+    </div>
+
+    <div class="services-grid" id="services-grid">
+
+      <div class="svc-card" data-price="50" data-name="نقل تابع للمنشأة">
+        <div class="svc-img"><div class="icon-circle">🔀</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة قوى (العمالة)</span>
+          <div class="svc-name">نقل تابع للمنشأة</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل تابع للمنشأة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تسجيل نظام أجير">
+        <div class="svc-img"><div class="icon-circle">📋</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة قوى (العمالة)</span>
+          <div class="svc-name">تسجيل نظام أجير</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل نظام أجير')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="نقل كفالة عامل للمنشأة">
+        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الموظفين والعمال</span>
+          <div class="svc-name">نقل كفالة عامل للمنشأة</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل كفالة عامل للمنشأة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="49" data-name="إصدار شهادة الالتزام بالنظام وحماية الأجور">
+        <div class="svc-img"><div class="icon-circle">📜</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
+          <div class="svc-name">إصدار شهادة الالتزام بالنظام وحماية الأجور</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">49</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة الالتزام بالنظام وحماية الأجور')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="99" data-name="توثيق عقد الموظفين">
+        <div class="svc-img"><div class="icon-circle">📝</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الاعمال</span>
+          <div class="svc-name">توثيق عقد الموظفين</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">99</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق عقد الموظفين')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="فتح حساب وتفعيل منصة قوى">
+        <div class="svc-img"><div class="icon-circle">🖥️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الاعمال</span>
+          <div class="svc-name">فتح حساب وتفعيل منصة قوى</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح حساب وتفعيل منصة قوى')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تعديل المهنة">
+        <div class="svc-img"><div class="icon-circle">✏️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الاعمال</span>
+          <div class="svc-name">تعديل المهنة</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل المهنة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="إلغاء التأشيرات للعمال">
+        <div class="svc-img"><div class="icon-circle">❌</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الموظفين والعمال</span>
+          <div class="svc-name">إلغاء التأشيرات للعمال</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إلغاء التأشيرات للعمال')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="49" data-name="بلاغ انقطاع عن العمل (بلاغ الهروب)">
+        <div class="svc-img"><div class="icon-circle">🚨</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الموظفين والعمال</span>
+          <div class="svc-name">بلاغ انقطاع عن العمل (بلاغ الهروب)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">49</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'بلاغ انقطاع عن العمل (بلاغ الهروب)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="إصدار / تجديد رخصة عمل">
+        <div class="svc-img"><div class="icon-circle">📄</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الاعمال</span>
+          <div class="svc-name">إصدار / تجديد رخصة عمل</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار / تجديد رخصة عمل')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="99" data-name="إصدار تأشيرة عمل دائمة أو مؤقتة">
+        <div class="svc-img"><div class="icon-circle">🛂</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الموظفين والعمال</span>
+          <div class="svc-name">إصدار تأشيرة عمل دائمة أو مؤقتة</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">99</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار تأشيرة عمل دائمة أو مؤقتة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="نقل عامل بين الفروع">
+        <div class="svc-img"><div class="icon-circle">🏭</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة قوى (العمالة)</span>
+          <div class="svc-name">نقل عامل بين الفروع</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل عامل بين الفروع')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="35" data-name="إصدار شهادة السعودة">
+        <div class="svc-img"><div class="icon-circle">🏅</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات معاملات التعديل أو النقل</span>
+          <div class="svc-name">إصدار شهادة السعودة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">35</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة السعودة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="35" data-name="إضافة مفوض إلكتروني">
+        <div class="svc-img"><div class="icon-circle">👤</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الاعمال</span>
+          <div class="svc-name">إضافة مفوض إلكتروني</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">35</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إضافة مفوض إلكتروني')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="تغيير نشاط منشأة">
+        <div class="svc-img"><div class="icon-circle">🔃</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات معاملات التعديل أو النقل</span>
+          <div class="svc-name">تغيير نشاط منشأة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تغيير نشاط منشأة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="تعديل بيانات منشأة">
+        <div class="svc-img"><div class="icon-circle">📊</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة قوى (العمالة)</span>
+          <div class="svc-name">تعديل بيانات منشأة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل بيانات منشأة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تصحيح المهنة">
+        <div class="svc-img"><div class="icon-circle">🔧</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات الموظفين والعمال</span>
+          <div class="svc-name">تصحيح المهنة</div>
+          <div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تصحيح المهنة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="فتح ملف منشأة (السجلات التجارية والزراعية)">
+        <div class="svc-img"><div class="icon-circle">🗂️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات المنصات الحكومية</span>
+          <div class="svc-name">فتح ملف منشأة (السجلات التجارية والزراعية)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح ملف منشأة (السجلات التجارية والزراعية)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="إغلاق المنشأة">
+        <div class="svc-img"><div class="icon-circle">🔒</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">خدمات معاملات انهاء مشروع</span>
+          <div class="svc-name">إغلاق المنشأة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إغلاق المنشأة')">🛒 أضف للسلة</button></div>
+      </div>
+
+    </div><!-- /services-grid -->
+
+    <div class="empty-results" id="empty-msg">
+      <div style="font-size:48px;margin-bottom:12px;">🔍</div>
+      <h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">لا توجد نتائج</h3>
+      <p style="font-size:14px;">جرّب كلمة بحث مختلفة</p>
+    </div>
+
+  </div>
 </div>
-</div>
-<div class="services-grid" id="services-grid">
-<div class="svc-card" data-id="968" data-name="نقل تابع للمنشأة" data-price="50">
-<div class="svc-img"><div class="icon-circle">🔀</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة قوى (العمالة)</span>
-<div class="svc-name">نقل تابع للمنشأة</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل تابع للمنشأة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1227" data-name="تسجيل نظام أجير" data-price="50">
-<div class="svc-img"><div class="icon-circle">📋</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة قوى (العمالة)</span>
-<div class="svc-name">تسجيل نظام أجير</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل نظام أجير')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="969" data-name="نقل كفالة عامل للمنشأة" data-price="50">
-<div class="svc-img"><div class="icon-circle">🔄</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الموظفين والعمال</span>
-<div class="svc-name">نقل كفالة عامل للمنشأة</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل كفالة عامل للمنشأة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1025" data-name="إصدار شهادة الالتزام بالنظام وحماية الأجور" data-price="49">
-<div class="svc-img"><div class="icon-circle">📜</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
-<div class="svc-name">إصدار شهادة الالتزام بالنظام وحماية الأجور</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">49</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة الالتزام بالنظام وحماية الأجور')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1230" data-name="توثيق عقد الموظفين" data-price="99">
-<div class="svc-img"><div class="icon-circle">📝</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الاعمال</span>
-<div class="svc-name">توثيق عقد الموظفين</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">99</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق عقد الموظفين')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="992" data-name="فتح حساب وتفعيل منصة قوى" data-price="100">
-<div class="svc-img"><div class="icon-circle">🖥️</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الاعمال</span>
-<div class="svc-name">فتح حساب وتفعيل منصة قوى</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح حساب وتفعيل منصة قوى')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="972" data-name="تعديل المهنة" data-price="50">
-<div class="svc-img"><div class="icon-circle">✏️</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الاعمال</span>
-<div class="svc-name">تعديل المهنة</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل المهنة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="973" data-name="إلغاء التأشيرات للعمال" data-price="50">
-<div class="svc-img"><div class="icon-circle">❌</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الموظفين والعمال</span>
-<div class="svc-name">إلغاء التأشيرات للعمال</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إلغاء التأشيرات للعمال')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1234" data-name="بلاغ انقطاع عن العمل (بلاغ الهروب)" data-price="49">
-<div class="svc-img"><div class="icon-circle">🚨</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الموظفين والعمال</span>
-<div class="svc-name">بلاغ انقطاع عن العمل (بلاغ الهروب)</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">49</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'بلاغ انقطاع عن العمل (بلاغ الهروب)')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="976" data-name="إصدار / تجديد رخصة عمل" data-price="50">
-<div class="svc-img"><div class="icon-circle">📄</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الاعمال</span>
-<div class="svc-name">إصدار / تجديد رخصة عمل</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار / تجديد رخصة عمل')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1236" data-name="إصدار تأشيرة عمل دائمة أو مؤقتة" data-price="99">
-<div class="svc-img"><div class="icon-circle">🛂</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الموظفين والعمال</span>
-<div class="svc-name">إصدار تأشيرة عمل دائمة أو مؤقتة</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">99</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار تأشيرة عمل دائمة أو مؤقتة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="967" data-name="نقل عامل بين الفروع" data-price="50">
-<div class="svc-img"><div class="icon-circle">🏭</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة قوى (العمالة)</span>
-<div class="svc-name">نقل عامل بين الفروع</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل عامل بين الفروع')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="979" data-name="إصدار شهادة السعودة" data-price="35">
-<div class="svc-img"><div class="icon-circle">🏅</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات معاملات التعديل أو النقل</span>
-<div class="svc-name">إصدار شهادة السعودة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">35</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة السعودة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1005" data-name="إضافة مفوض إلكتروني" data-price="35">
-<div class="svc-img"><div class="icon-circle">👤</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الاعمال</span>
-<div class="svc-name">إضافة مفوض إلكتروني</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">35</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إضافة مفوض إلكتروني')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1039" data-name="تغيير نشاط منشأة" data-price="100">
-<div class="svc-img"><div class="icon-circle">🔃</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات معاملات التعديل أو النقل</span>
-<div class="svc-name">تغيير نشاط منشأة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تغيير نشاط منشأة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1031" data-name="تعديل بيانات منشأة" data-price="100">
-<div class="svc-img"><div class="icon-circle">📊</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة قوى (العمالة)</span>
-<div class="svc-name">تعديل بيانات منشأة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل بيانات منشأة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="983" data-name="تصحيح المهنة" data-price="50">
-<div class="svc-img"><div class="icon-circle">🔧</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات الموظفين والعمال</span>
-<div class="svc-name">تصحيح المهنة</div>
-<div class="svc-price"><span class="svc-from">يبدأ من </span><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تصحيح المهنة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="997" data-name="فتح ملف منشأة (السجلات التجارية والزراعية)" data-price="100">
-<div class="svc-img"><div class="icon-circle">🗂️</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات المنصات الحكومية</span>
-<div class="svc-name">فتح ملف منشأة (السجلات التجارية والزراعية)</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح ملف منشأة (السجلات التجارية والزراعية)')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="956" data-name="إغلاق المنشأة" data-price="100">
-<div class="svc-img"><div class="icon-circle">🔒</div></div>
-<div class="svc-body">
-<span class="svc-cat">خدمات معاملات انهاء مشروع</span>
-<div class="svc-name">إغلاق المنشأة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إغلاق المنشأة')">🛒 أضف للسلة</button></div>
-</div>
-</div><!-- /services-grid -->
-<div class="empty-results" id="empty-msg">
-<div style="font-size:48px;margin-bottom:12px;">🔍</div>
-<h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">لا توجد نتائج</h3>
-<p style="font-size:14px;">جرّب كلمة بحث مختلفة</p>
-</div>
-</div>
-</div>
-<a class="wa-float" href="https://wa.me/966559580940" title="تواصل عبر واتساب">💬</a>
+
+<a href="https://wa.me/966559580940" class="wa-float" title="تواصل عبر واتساب">💬</a>
+
 <footer>
-<div class="footer-grid">
-<div class="footer-brand">
-<strong>رواق التميز للخدمات العامة</strong>
-<p>نُنجز معاملاتك الحكومية بسهولة وسرعة — خبرة وثقة في خدمة الأفراد والأعمال.</p>
-</div>
-<div class="footer-col">
-<h4>خدماتنا</h4>
-<ul>
-<li><a href="individuals.html">خدمات الأفراد</a></li>
-<li><a href="business-establishment.html">خدمات الأعمال</a></li>
-<li><a href="general-services.html">الخدمات العامة</a></li>
-<li><a href="packages.html">الباقات</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>روابط سريعة</h4>
-<ul>
-<li><a href="about.html">من نحن</a></li>
-<li><a href="contact.html">تواصل معنا</a></li>
-<li><a href="cart.html">سلة المشتريات</a></li>
-<li><a href="government-platforms.html">المنصات الحكومية</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>تواصل معنا</h4>
-<ul>
-<li><a href="https://wa.me/966559580940">واتساب</a></li>
-<li><a href="tel:+966559580940">0559580940</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<span>© 2026 رواق التميز للخدمات العامة — جميع الحقوق محفوظة</span>
-<span>رقم السجل التجاري: 4650288413</span>
-</div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong>رواق التميز للخدمات العامة</strong>
+      <p>نُنجز معاملاتك الحكومية بسهولة وسرعة — خبرة وثقة في خدمة الأفراد والأعمال.</p>
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <ul>
+        <li><a href="individuals.html">خدمات الأفراد</a></li>
+        <li><a href="business-establishment.html">خدمات الأعمال</a></li>
+        <li><a href="general-services.html">الخدمات العامة</a></li>
+        <li><a href="packages.html">الباقات</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+        <li><a href="cart.html">سلة المشتريات</a></li>
+        <li><a href="government-platforms.html">المنصات الحكومية</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <li><a href="https://wa.me/966559580940">واتساب</a></li>
+        <li><a href="tel:+966559580940">0559580940</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 رواق التميز للخدمات العامة — جميع الحقوق محفوظة</span>
+    <span>رقم السجل التجاري: 4650288413</span>
+  </div>
 </footer>
+
 <div id="sidebar-container"></div>
 <script src="sidebar.js"></script>
 <script>
@@ -380,6 +419,5 @@ function sortServices(val) {
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
 </script>
-<script src="services-loader.js"></script>
 </body>
 </html>

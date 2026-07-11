@@ -18,14 +18,12 @@
     const services = allServices[pageName];
     if (!services || services.length === 0) return;
 
-    // بناء lookup: id -> service
+    // lookup: id -> service
     const lookup = {};
     services.forEach(s => { lookup[s.id] = s; });
 
-    // تحديث كل كارت في الصفحة
     const cards = document.querySelectorAll('.svc-card[data-id]');
-    let updated = 0;
-    let hidden = 0;
+    let updated = 0, hidden = 0;
 
     cards.forEach(card => {
       const cardId = parseInt(card.dataset.id);
@@ -34,29 +32,27 @@
       const svc = lookup[cardId];
 
       if (!svc) {
-        // المنتج محذوف أو غير نشط في أودو — أخفِ الكارت
+        // منتج محذوف أو غير نشط — أخفِ الكارت
         card.style.display = 'none';
         hidden++;
         return;
       }
 
-      // حدّث السعر في data-price
+      // حدّث data-price
       card.dataset.price = svc.price;
 
-      // حدّث كل العناصر التي تحتوي السعر
-      card.querySelectorAll('*').forEach(el => {
-        const text = el.childNodes;
-        text.forEach(node => {
-          if (node.nodeType === 3) { // text node
-            // ابحث عن نمط "XX ريال" أو "يبدأ من XX"
-            if (/\d+\s*ريال/.test(node.textContent) || /يبدأ من\s*\d+/.test(node.textContent)) {
-              node.textContent = node.textContent
-                .replace(/\d+(\.\d+)?\s*ريال/, svc.price + ' ريال')
-                .replace(/يبدأ من\s*\d+(\.\d+)?/, 'يبدأ من ' + svc.price);
-            }
-          }
-        });
-      });
+      // حدّث السعر في .price-val
+      const priceVal = card.querySelector('.price-val');
+      if (priceVal) {
+        priceVal.textContent = svc.price;
+      }
+
+      // حدّث الاسم في data-name وفي .svc-name
+      if (svc.name) {
+        card.dataset.name = svc.name;
+        const nameEl = card.querySelector('.svc-name');
+        if (nameEl) nameEl.textContent = svc.name;
+      }
 
       updated++;
     });

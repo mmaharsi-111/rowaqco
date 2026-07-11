@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="خدمات منصة ناجز — رواق التميز للخدمات العامة" name="description"/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-09C3QPQGJV');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="خدمات منصة ناجز — رواق التميز للخدمات العامة">
 <title>خدمات منصة ناجز — رواق التميز</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <script src="cart.js"></script>
 <style>
 :root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
@@ -78,360 +85,401 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 </style>
 </head>
 <body>
-<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a>  |  <a href="https://wa.me/966559580940">واتساب</a></div>
+
+<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a> &nbsp;|&nbsp; <a href="https://wa.me/966559580940">واتساب</a></div>
+
 <header>
-<div class="header-inner">
-<button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
-<a class="logo" href="index.html">
-<img alt="رواق التميز" src="logo.jpg"/>
-<div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
-</a>
-<nav class="header-nav">
-<a href="index.html">الرئيسية</a>
-<a href="individuals.html">خدمات الأفراد</a>
-<a href="business-establishment.html">خدمات الأعمال</a>
-<a class="active" href="government-platforms.html">المنصات الحكومية</a>
-<a href="about.html">من نحن</a>
-<a href="contact.html">تواصل معنا</a>
-</nav>
-<div class="header-cta">
-<a class="btn btn-green" href="https://wa.me/966559580940">📲 تواصل معنا</a>
-<a class="cart-btn" href="cart.html">🛒 سلتي<span class="cart-badge" id="cart-badge">0</span></a>
-</div>
-</div>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="رواق التميز">
+      <div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="business-establishment.html">خدمات الأعمال</a>
+      <a href="government-platforms.html" class="active">المنصات الحكومية</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
+      <a href="cart.html" class="cart-btn">🛒 سلتي<span class="cart-badge" id="cart-badge">0</span></a>
+    </div>
+  </div>
 </header>
+
 <div class="breadcrumb">
-<div class="wrap">
-<div>
-<a href="index.html">الرئيسية</a><span>›</span>
-<a href="government-platforms.html">خدمات المنصات الحكومية</a><span>›</span>
-<span>منصة ناجز</span>
+  <div class="wrap">
+    <div>
+      <a href="index.html">الرئيسية</a><span>›</span>
+      <a href="government-platforms.html">خدمات المنصات الحكومية</a><span>›</span>
+      <span>منصة ناجز</span>
+    </div>
+    <div class="bc-title">⚖️ منصة ناجز</div>
+  </div>
 </div>
-<div class="bc-title">⚖️ منصة ناجز</div>
-</div>
-</div>
+
 <div class="toolbar">
-<div class="wrap">
-<div class="search-box">
-<span style="color:var(--muted);">🔍</span>
-<input id="search-input" oninput="filterServices()" placeholder="ابحث عن خدمة..." type="text"/>
+  <div class="wrap">
+    <div class="search-box">
+      <span style="color:var(--muted);">🔍</span>
+      <input type="text" id="search-input" placeholder="ابحث عن خدمة..." oninput="filterServices()">
+    </div>
+    <select class="sort-select" onchange="sortServices(this.value)">
+      <option value="default">مقترحاتنا</option>
+      <option value="price-asc">السعر: الأقل أولاً</option>
+      <option value="price-desc">السعر: الأعلى أولاً</option>
+      <option value="name">الاسم أبجدياً</option>
+    </select>
+  </div>
 </div>
-<select class="sort-select" onchange="sortServices(this.value)">
-<option value="default">مقترحاتنا</option>
-<option value="price-asc">السعر: الأقل أولاً</option>
-<option value="price-desc">السعر: الأعلى أولاً</option>
-<option value="name">الاسم أبجدياً</option>
-</select>
-</div>
-</div>
+
 <div class="page-body">
-<div class="wrap">
-<div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;display:flex;align-items:center;gap:18px;">
-<div style="font-size:48px;">⚖️</div>
-<div>
-<h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">خدمات منصة ناجز</h2>
-<p style="font-size:13px;opacity:.88;line-height:1.6;">جميع الخدمات القضائية والتوثيقية — الوكالات والدعاوى وعقود الزواج والإفراغ العقاري والصكوك وغيرها.</p>
+  <div class="wrap">
+
+    <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;display:flex;align-items:center;gap:18px;">
+      <div style="font-size:48px;">⚖️</div>
+      <div>
+        <h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">خدمات منصة ناجز</h2>
+        <p style="font-size:13px;opacity:.88;line-height:1.6;">جميع الخدمات القضائية والتوثيقية — الوكالات والدعاوى وعقود الزواج والإفراغ العقاري والصكوك وغيرها.</p>
+      </div>
+    </div>
+
+    <div class="services-grid" id="services-grid">
+
+      <div class="svc-card" data-price="50" data-name="توثيق حضانة">
+        <div class="svc-img"><div class="icon-circle">👶</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">توثيق حضانة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق حضانة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="حصر ورثة">
+        <div class="svc-img"><div class="icon-circle">📜</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">حصر ورثة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'حصر ورثة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="إصدار صك ولاية على قاصر">
+        <div class="svc-img"><div class="icon-circle">🔏</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">إصدار صك ولاية على قاصر</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار صك ولاية على قاصر')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="إصدار شهادة وفاة لمواطن">
+        <div class="svc-img"><div class="icon-circle">📋</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">إصدار شهادة وفاة لمواطن</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة وفاة لمواطن')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="430" data-name="صحيفة دعوى (فسخ عقد النكاح)">
+        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">صحيفة دعوى (فسخ عقد النكاح)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">430</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (فسخ عقد النكاح)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="توثيق طلاق">
+        <div class="svc-img"><div class="icon-circle">📄</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">توثيق طلاق</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق طلاق')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="إمهال تأجيل السداد">
+        <div class="svc-img"><div class="icon-circle">⏳</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">إمهال تأجيل السداد</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إمهال تأجيل السداد')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="طباعة واستخراج الوثائق والصكوك">
+        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">طباعة واستخراج الوثائق والصكوك</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة واستخراج الوثائق والصكوك')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="300" data-name="الرد على جميع القضايا">
+        <div class="svc-img"><div class="icon-circle">📝</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">الرد على جميع القضايا</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">300</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الرد على جميع القضايا')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="30" data-name="إصدار وكالة">
+        <div class="svc-img"><div class="icon-circle">📃</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">إصدار وكالة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">30</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار وكالة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="رفع طلب تنفيذ">
+        <div class="svc-img"><div class="icon-circle">🏛️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">رفع طلب تنفيذ</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع طلب تنفيذ')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="150" data-name="إنشاء عقد زواج">
+        <div class="svc-img"><div class="icon-circle">💍</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">إنشاء عقد زواج</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">150</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء عقد زواج')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="200" data-name="صحيفة دعوى (قضايا أسرية)">
+        <div class="svc-img"><div class="icon-circle">👨‍👩‍👧</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">صحيفة دعوى (قضايا أسرية)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">200</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (قضايا أسرية)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="200" data-name="صحيفة دعوى (قضايا أخرى)">
+        <div class="svc-img"><div class="icon-circle">📁</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">صحيفة دعوى (قضايا أخرى)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">200</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (قضايا أخرى)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="200" data-name="صحيفة دعوى (حق خاص)">
+        <div class="svc-img"><div class="icon-circle">🔐</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">صحيفة دعوى (حق خاص)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">200</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (حق خاص)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="200" data-name="صحيفة دعوى (مرورية)">
+        <div class="svc-img"><div class="icon-circle">🚗</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">صحيفة دعوى (مرورية)</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">200</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (مرورية)')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="رفع إيقاف خدمات في حال السداد">
+        <div class="svc-img"><div class="icon-circle">✅</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">رفع إيقاف خدمات في حال السداد</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع إيقاف خدمات في حال السداد')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="رفع طلب للتواصل العدل">
+        <div class="svc-img"><div class="icon-circle">📞</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">رفع طلب للتواصل العدل</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع طلب للتواصل العدل')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="استخراج صك حضانة">
+        <div class="svc-img"><div class="icon-circle">📄</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">استخراج صك حضانة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج صك حضانة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="توثيق عقد زواج أو طلاق">
+        <div class="svc-img"><div class="icon-circle">📝</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">توثيق عقد زواج أو طلاق</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق عقد زواج أو طلاق')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="120" data-name="استخراج صك حصر ورثة">
+        <div class="svc-img"><div class="icon-circle">📑</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">استخراج صك حصر ورثة</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">120</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج صك حصر ورثة')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="طلب انهاء تنفيذ أو إمهال">
+        <div class="svc-img"><div class="icon-circle">🔚</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">طلب انهاء تنفيذ أو إمهال</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب انهاء تنفيذ أو إمهال')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="تقديم طلب تنفيذ">
+        <div class="svc-img"><div class="icon-circle">⚡</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">تقديم طلب تنفيذ</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم طلب تنفيذ')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="50" data-name="إنشاء أو فسخ وكالة إلكترونية">
+        <div class="svc-img"><div class="icon-circle">🖥️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">إنشاء أو فسخ وكالة إلكترونية</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء أو فسخ وكالة إلكترونية')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="130" data-name="إنشاء أو إلغاء سند لأمر">
+        <div class="svc-img"><div class="icon-circle">📜</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">إنشاء أو إلغاء سند لأمر</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">130</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء أو إلغاء سند لأمر')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="الإفراغ العقاري الإلكتروني">
+        <div class="svc-img"><div class="icon-circle">🏠</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">الإفراغ العقاري الإلكتروني</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الإفراغ العقاري الإلكتروني')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="150" data-name="تحديث الصكوك العقارية">
+        <div class="svc-img"><div class="icon-circle">🏗️</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">تحديث الصكوك العقارية</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">150</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحديث الصكوك العقارية')">🛒 أضف للسلة</button></div>
+      </div>
+
+      <div class="svc-card" data-price="100" data-name="استخراج صك ولاية على قاصر سنا أو عقلا">
+        <div class="svc-img"><div class="icon-circle">👨‍👧</div></div>
+        <div class="svc-body">
+          <span class="svc-cat">منصة ناجز</span>
+          <div class="svc-name">استخراج صك ولاية على قاصر سنا أو عقلا</div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
+        </div>
+        <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج صك ولاية على قاصر سنا أو عقلا')">🛒 أضف للسلة</button></div>
+      </div>
+
+    </div><!-- /services-grid -->
+
+    <div class="empty-results" id="empty-msg">
+      <div style="font-size:48px;margin-bottom:12px;">🔍</div>
+      <h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">لا توجد نتائج</h3>
+      <p style="font-size:14px;">جرّب كلمة بحث مختلفة</p>
+    </div>
+
+  </div>
 </div>
-</div>
-<div class="services-grid" id="services-grid">
-<div class="svc-card" data-id="1180" data-name="توثيق حضانة" data-price="50">
-<div class="svc-img"><div class="icon-circle">👶</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">توثيق حضانة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق حضانة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1181" data-name="حصر ورثة" data-price="100">
-<div class="svc-img"><div class="icon-circle">📜</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">حصر ورثة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'حصر ورثة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1182" data-name="إصدار صك ولاية على قاصر" data-price="100">
-<div class="svc-img"><div class="icon-circle">🔏</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">إصدار صك ولاية على قاصر</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار صك ولاية على قاصر')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1183" data-name="إصدار شهادة وفاة لمواطن" data-price="50">
-<div class="svc-img"><div class="icon-circle">📋</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">إصدار شهادة وفاة لمواطن</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة وفاة لمواطن')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1184" data-name="صحيفة دعوى (فسخ عقد النكاح)" data-price="430">
-<div class="svc-img"><div class="icon-circle">⚖️</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">صحيفة دعوى (فسخ عقد النكاح)</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">430</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (فسخ عقد النكاح)')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1185" data-name="توثيق طلاق" data-price="50">
-<div class="svc-img"><div class="icon-circle">📄</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">توثيق طلاق</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق طلاق')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1186" data-name="إمهال تأجيل السداد" data-price="100">
-<div class="svc-img"><div class="icon-circle">⏳</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">إمهال تأجيل السداد</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إمهال تأجيل السداد')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1187" data-name="طباعة واستخراج الوثائق والصكوك" data-price="100">
-<div class="svc-img"><div class="icon-circle">🖨️</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">طباعة واستخراج الوثائق والصكوك</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة واستخراج الوثائق والصكوك')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1188" data-name="الرد على جميع القضايا" data-price="300">
-<div class="svc-img"><div class="icon-circle">📝</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">الرد على جميع القضايا</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">300</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الرد على جميع القضايا')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1189" data-name="إصدار وكالة" data-price="30">
-<div class="svc-img"><div class="icon-circle">📃</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">إصدار وكالة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">30</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار وكالة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1190" data-name="رفع طلب تنفيذ" data-price="50">
-<div class="svc-img"><div class="icon-circle">🏛️</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">رفع طلب تنفيذ</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع طلب تنفيذ')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1191" data-name="إنشاء عقد زواج" data-price="150">
-<div class="svc-img"><div class="icon-circle">💍</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">إنشاء عقد زواج</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">150</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء عقد زواج')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1192" data-name="صحيفة دعوى (قضايا أسرية)" data-price="200">
-<div class="svc-img"><div class="icon-circle">👨‍👩‍👧</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">صحيفة دعوى (قضايا أسرية)</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">200</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (قضايا أسرية)')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1193" data-name="صحيفة دعوى (قضايا أخرى)" data-price="200">
-<div class="svc-img"><div class="icon-circle">📁</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">صحيفة دعوى (قضايا أخرى)</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">200</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (قضايا أخرى)')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1194" data-name="صحيفة دعوى (حق خاص)" data-price="200">
-<div class="svc-img"><div class="icon-circle">🔐</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">صحيفة دعوى (حق خاص)</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">200</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (حق خاص)')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1195" data-name="صحيفة دعوى (مرورية)" data-price="200">
-<div class="svc-img"><div class="icon-circle">🚗</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">صحيفة دعوى (مرورية)</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">200</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (مرورية)')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1196" data-name="رفع إيقاف خدمات في حال السداد" data-price="50">
-<div class="svc-img"><div class="icon-circle">✅</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">رفع إيقاف خدمات في حال السداد</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع إيقاف خدمات في حال السداد')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1197" data-name="رفع طلب للتواصل العدل" data-price="100">
-<div class="svc-img"><div class="icon-circle">📞</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">رفع طلب للتواصل العدل</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع طلب للتواصل العدل')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1198" data-name="استخراج صك حضانة" data-price="50">
-<div class="svc-img"><div class="icon-circle">📄</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">استخراج صك حضانة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج صك حضانة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1199" data-name="توثيق عقد زواج أو طلاق" data-price="50">
-<div class="svc-img"><div class="icon-circle">📝</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">توثيق عقد زواج أو طلاق</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق عقد زواج أو طلاق')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1200" data-name="استخراج صك حصر ورثة" data-price="120">
-<div class="svc-img"><div class="icon-circle">📑</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">استخراج صك حصر ورثة</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">120</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج صك حصر ورثة')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1201" data-name="طلب انهاء تنفيذ أو إمهال" data-price="50">
-<div class="svc-img"><div class="icon-circle">🔚</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">طلب انهاء تنفيذ أو إمهال</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب انهاء تنفيذ أو إمهال')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1202" data-name="تقديم طلب تنفيذ" data-price="50">
-<div class="svc-img"><div class="icon-circle">⚡</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">تقديم طلب تنفيذ</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم طلب تنفيذ')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1203" data-name="إنشاء أو فسخ وكالة إلكترونية" data-price="50">
-<div class="svc-img"><div class="icon-circle">🖥️</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">إنشاء أو فسخ وكالة إلكترونية</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء أو فسخ وكالة إلكترونية')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1204" data-name="إنشاء أو إلغاء سند لأمر" data-price="130">
-<div class="svc-img"><div class="icon-circle">📜</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">إنشاء أو إلغاء سند لأمر</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">130</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء أو إلغاء سند لأمر')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1205" data-name="الإفراغ العقاري الإلكتروني" data-price="100">
-<div class="svc-img"><div class="icon-circle">🏠</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">الإفراغ العقاري الإلكتروني</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الإفراغ العقاري الإلكتروني')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1206" data-name="تحديث الصكوك العقارية" data-price="150">
-<div class="svc-img"><div class="icon-circle">🏗️</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">تحديث الصكوك العقارية</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">150</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحديث الصكوك العقارية')">🛒 أضف للسلة</button></div>
-</div>
-<div class="svc-card" data-id="1207" data-name="استخراج صك ولاية على قاصر سنا أو عقلا" data-price="100">
-<div class="svc-img"><div class="icon-circle">👨‍👧</div></div>
-<div class="svc-body">
-<span class="svc-cat">منصة ناجز</span>
-<div class="svc-name">استخراج صك ولاية على قاصر سنا أو عقلا</div>
-<div class="svc-price"><span class="currency">﷼</span> <span class="price-val">100</span></div>
-</div>
-<div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج صك ولاية على قاصر سنا أو عقلا')">🛒 أضف للسلة</button></div>
-</div>
-</div><!-- /services-grid -->
-<div class="empty-results" id="empty-msg">
-<div style="font-size:48px;margin-bottom:12px;">🔍</div>
-<h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">لا توجد نتائج</h3>
-<p style="font-size:14px;">جرّب كلمة بحث مختلفة</p>
-</div>
-</div>
-</div>
-<a class="wa-float" href="https://wa.me/966559580940" title="تواصل عبر واتساب">💬</a>
+
+<a href="https://wa.me/966559580940" class="wa-float" title="تواصل عبر واتساب">💬</a>
+
 <footer>
-<div class="footer-grid">
-<div class="footer-brand">
-<strong>رواق التميز للخدمات العامة</strong>
-<p>نُنجز معاملاتك الحكومية بسهولة وسرعة — خبرة وثقة في خدمة الأفراد والأعمال.</p>
-</div>
-<div class="footer-col">
-<h4>خدماتنا</h4>
-<ul>
-<li><a href="individuals.html">خدمات الأفراد</a></li>
-<li><a href="business-establishment.html">خدمات الأعمال</a></li>
-<li><a href="general-services.html">الخدمات العامة</a></li>
-<li><a href="packages.html">الباقات</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>روابط سريعة</h4>
-<ul>
-<li><a href="about.html">من نحن</a></li>
-<li><a href="contact.html">تواصل معنا</a></li>
-<li><a href="cart.html">سلة المشتريات</a></li>
-<li><a href="government-platforms.html">المنصات الحكومية</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>تواصل معنا</h4>
-<ul>
-<li><a href="https://wa.me/966559580940">واتساب</a></li>
-<li><a href="tel:+966559580940">0559580940</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<span>© 2026 رواق التميز للخدمات العامة — جميع الحقوق محفوظة</span>
-<span>رقم السجل التجاري: 4650288413</span>
-</div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong>رواق التميز للخدمات العامة</strong>
+      <p>نُنجز معاملاتك الحكومية بسهولة وسرعة — خبرة وثقة في خدمة الأفراد والأعمال.</p>
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <ul>
+        <li><a href="individuals.html">خدمات الأفراد</a></li>
+        <li><a href="business-establishment.html">خدمات الأعمال</a></li>
+        <li><a href="general-services.html">الخدمات العامة</a></li>
+        <li><a href="packages.html">الباقات</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+        <li><a href="cart.html">سلة المشتريات</a></li>
+        <li><a href="government-platforms.html">المنصات الحكومية</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <li><a href="https://wa.me/966559580940">واتساب</a></li>
+        <li><a href="tel:+966559580940">0559580940</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 رواق التميز للخدمات العامة — جميع الحقوق محفوظة</span>
+    <span>رقم السجل التجاري: 4650288413</span>
+  </div>
 </footer>
+
 <div id="sidebar-container"></div>
 <script src="sidebar.js"></script>
 <script>
@@ -460,6 +508,5 @@ function sortServices(val) {
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
 </script>
-<script src="services-loader.js"></script>
 </body>
 </html>
