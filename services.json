@@ -99,6 +99,216 @@
       "sale_ok": true
     }
   ],
+  "absher": [
+    {
+      "id": 915,
+      "name": "إصدار / تجديد إقامة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 914,
+      "name": "إصدار / تمديد تأشيرة الخروج والعودة",
+      "price": 22,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 913,
+      "name": "إصدار تأشيرة الخروج النهائي",
+      "price": 33,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 933,
+      "name": "إصدار جواز سفر سعودي جديد",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 911,
+      "name": "اشتراك أو تجديد أبشر أعمال",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 925,
+      "name": "الاستعلام عن المخالفات المرورية",
+      "price": 15,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 934,
+      "name": "الاعتراض على المخالفات المرورية",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 924,
+      "name": "التسجيل في أبشر أفراد/أعمال",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 918,
+      "name": "الغاء تأشيرة الخروج النهائي",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 910,
+      "name": "الغاء تأشيرة الخروج والعودة",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 916,
+      "name": "بلاغ تغيب عن العمل",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 921,
+      "name": "تجديد استمارات السيارات",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 922,
+      "name": "تجديد الهوية الوطنية",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 932,
+      "name": "تجديد جواز السفر السعودي",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 929,
+      "name": "تجديد رخصة القيادة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 931,
+      "name": "تحديث البيانات على منصة أبشر",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 919,
+      "name": "تحديث معلومات الجواز للمقيمين",
+      "price": 100,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 935,
+      "name": "تسجيل المواليد",
+      "price": 150,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 923,
+      "name": "تعديل المؤهل الدراسي في الأحوال المدنية",
+      "price": 25,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 928,
+      "name": "تعديل المهنة في أبشر أفراد/أعمال",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 920,
+      "name": "تقديم طلب تواصل",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 917,
+      "name": "طلب تقرير مقيم",
+      "price": 49,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 930,
+      "name": "طلب هوية وطنية بدل فاقد",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 912,
+      "name": "نقل الكفالة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 926,
+      "name": "نقل ملكية المركبة بين أفراد الأسرة",
+      "price": 50,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 927,
+      "name": "نقل ملكية المركبة فوري",
+      "price": 99,
+      "category": "خدمات حكومية / أبشر",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
   "business-employees": [
     {
       "id": 965,
@@ -297,216 +507,6 @@
       "name": "نقل كفالة عامل للمنشأة",
       "price": 50,
       "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    }
-  ],
-  "absher": [
-    {
-      "id": 915,
-      "name": "إصدار / تجديد إقامة",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 914,
-      "name": "إصدار / تمديد تأشيرة الخروج والعودة",
-      "price": 22,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 913,
-      "name": "إصدار تأشيرة الخروج النهائي",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 933,
-      "name": "إصدار جواز سفر سعودي جديد",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 911,
-      "name": "اشتراك أو تجديد أبشر أعمال",
-      "price": 49,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 925,
-      "name": "الاستعلام عن المخالفات المرورية",
-      "price": 15,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 934,
-      "name": "الاعتراض على المخالفات المرورية",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 924,
-      "name": "التسجيل في أبشر أفراد/أعمال",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 918,
-      "name": "الغاء تأشيرة الخروج النهائي",
-      "price": 49,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 910,
-      "name": "الغاء تأشيرة الخروج والعودة",
-      "price": 49,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 916,
-      "name": "بلاغ تغيب عن العمل",
-      "price": 49,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 921,
-      "name": "تجديد استمارات السيارات",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 922,
-      "name": "تجديد الهوية الوطنية",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 932,
-      "name": "تجديد جواز السفر السعودي",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 929,
-      "name": "تجديد رخصة القيادة",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 931,
-      "name": "تحديث البيانات على منصة أبشر",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 919,
-      "name": "تحديث معلومات الجواز للمقيمين",
-      "price": 100,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 935,
-      "name": "تسجيل المواليد",
-      "price": 150,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 923,
-      "name": "تعديل المؤهل الدراسي في الأحوال المدنية",
-      "price": 25,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 928,
-      "name": "تعديل المهنة في أبشر أفراد/أعمال",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 920,
-      "name": "تقديم طلب تواصل",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 917,
-      "name": "طلب تقرير مقيم",
-      "price": 49,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 930,
-      "name": "طلب هوية وطنية بدل فاقد",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 912,
-      "name": "نقل الكفالة",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 926,
-      "name": "نقل ملكية المركبة بين أفراد الأسرة",
-      "price": 50,
-      "category": "خدمات حكومية / أبشر",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 927,
-      "name": "نقل ملكية المركبة فوري",
-      "price": 99,
-      "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
     }
@@ -3345,17 +3345,17 @@
   ],
   "ministry-hr": [
     {
-      "id": 1602,
+      "id": 1448,
       "name": "استخراج نسخة إلكترونية لشهادة من وزارة الموارد البشرية - اعمال",
-      "price": 0,
+      "price": 49,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
     },
     {
-      "id": 1448,
+      "id": 1602,
       "name": "استخراج نسخة إلكترونية لشهادة من وزارة الموارد البشرية - اعمال",
-      "price": 49,
+      "price": 0,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
