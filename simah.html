@@ -130,19 +130,19 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
     </div>
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-price="99" data-name="طلب تقرير سمة">
+      <div class="svc-card" data-id="1300" data-price="99" data-name="طلب تقرير سمة">
         <div class="svc-img"><div class="icon-circle">📊</div></div>
         <div class="svc-body"><span class="svc-cat">سمة</span><div class="svc-name">طلب تقرير سمة</div><div class="svc-price"><span class="currency">﷼</span> <span class="price-val">99</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب تقرير سمة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-price="99" data-name="طلب رفع تعثر">
+      <div class="svc-card" data-id="1301" data-price="99" data-name="طلب رفع تعثر">
         <div class="svc-img"><div class="icon-circle">✅</div></div>
         <div class="svc-body"><span class="svc-cat">سمة</span><div class="svc-name">طلب رفع تعثر</div><div class="svc-price"><span class="currency">﷼</span> <span class="price-val">99</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب رفع تعثر')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-price="99" data-name="اعتراض على منتج متعثر">
+      <div class="svc-card" data-id="1302" data-price="99" data-name="اعتراض على منتج متعثر">
         <div class="svc-img"><div class="icon-circle">⚠️</div></div>
         <div class="svc-body"><span class="svc-cat">سمة</span><div class="svc-name">اعتراض على منتج متعثر</div><div class="svc-price"><span class="currency">﷼</span> <span class="price-val">99</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'اعتراض على منتج متعثر')">🛒 أضف للسلة</button></div>
@@ -168,5 +168,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 function filterServices(){const q=document.getElementById('search-input').value.trim().toLowerCase();let any=false;document.querySelectorAll('.svc-card').forEach(c=>{const show=!q||(c.dataset.name||'').toLowerCase().includes(q);c.style.display=show?'':'none';if(show)any=true;});document.getElementById('empty-msg').style.display=any?'none':'block';}
 function sortServices(val){const grid=document.getElementById('services-grid');const cards=[...grid.querySelectorAll('.svc-card')];cards.sort((a,b)=>{if(val==='price-asc')return+a.dataset.price-+b.dataset.price;if(val==='price-desc')return+b.dataset.price-+a.dataset.price;if(val==='name')return(a.dataset.name||'').localeCompare(b.dataset.name||'','ar');return 0;});cards.forEach(c=>grid.appendChild(c));}
 </script>
+<script src="services-loader.js"></script>
 </body>
 </html>

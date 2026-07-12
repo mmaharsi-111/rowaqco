@@ -130,22 +130,22 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
       </div>
     </div>
     <div class="services-grid" id="services-grid">
-      <div class="svc-card" data-price="50" data-name="تقديم طلب صلح">
+      <div class="svc-card" data-id="1337" data-price="50" data-name="تقديم طلب صلح">
         <div class="svc-img"><div class="icon-circle">🤝</div></div>
         <div class="svc-body"><span class="svc-cat">منصة تراضي</span><div class="svc-name">تقديم طلب صلح</div><div class="svc-price"><span class="currency">﷼</span> <span class="price-val">50</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم طلب صلح')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-price="20" data-name="طباعة وثيقة صلح">
+      <div class="svc-card" data-id="1338" data-price="20" data-name="طباعة وثيقة صلح">
         <div class="svc-img"><div class="icon-circle">🖨️</div></div>
         <div class="svc-body"><span class="svc-cat">منصة تراضي</span><div class="svc-name">طباعة وثيقة صلح</div><div class="svc-price"><span class="currency">﷼</span> <span class="price-val">20</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة وثيقة صلح')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-price="30" data-name="متابعة طلب صلح">
+      <div class="svc-card" data-id="1339" data-price="30" data-name="متابعة طلب صلح">
         <div class="svc-img"><div class="icon-circle">🔍</div></div>
         <div class="svc-body"><span class="svc-cat">منصة تراضي</span><div class="svc-name">متابعة طلب صلح</div><div class="svc-price"><span class="currency">﷼</span> <span class="price-val">30</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'متابعة طلب صلح')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-price="20" data-name="الاستعلام عن طلب تراضي">
+      <div class="svc-card" data-id="1340" data-price="20" data-name="الاستعلام عن طلب تراضي">
         <div class="svc-img"><div class="icon-circle">📋</div></div>
         <div class="svc-body"><span class="svc-cat">منصة تراضي</span><div class="svc-name">الاستعلام عن طلب تراضي</div><div class="svc-price"><span class="currency">﷼</span> <span class="price-val">20</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن طلب تراضي')">🛒 أضف للسلة</button></div>
@@ -170,5 +170,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 function filterServices(){const q=document.getElementById("search-input").value.trim().toLowerCase();let any=false;document.querySelectorAll(".svc-card").forEach(c=>{const show=!q||(c.dataset.name||"").toLowerCase().includes(q);c.style.display=show?"":"none";if(show)any=true;});document.getElementById("empty-msg").style.display=any?"none":"block";}
 function sortServices(val){const grid=document.getElementById("services-grid");const cards=[...grid.querySelectorAll(".svc-card")];cards.sort((a,b)=>{if(val==="price-asc")return+a.dataset.price-+b.dataset.price;if(val==="price-desc")return+b.dataset.price-+a.dataset.price;if(val==="name")return(a.dataset.name||"").localeCompare(b.dataset.name||"","ar");return 0;});cards.forEach(c=>grid.appendChild(c));}
 </script>
+<script src="services-loader.js"></script>
 </body>
 </html>

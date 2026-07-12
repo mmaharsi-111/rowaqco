@@ -146,7 +146,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
     <div style="margin-bottom:16px;"><span id="results-count" style="font-size:13px;color:var(--muted);font-weight:600;"></span></div>
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-price="20" data-name="افادة بعدم وجود سجل تجاري">
+      <div class="svc-card" data-id="955" data-price="20" data-name="افادة بعدم وجود سجل تجاري">
         <div class="svc-img"><div class="icon-circle">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات انهاء مشروع</span>
@@ -155,7 +155,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'افادة بعدم وجود سجل تجاري')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-price="20" data-name="طباعة شهادة شطب سجل تجاري">
+      <div class="svc-card" data-id="956" data-price="20" data-name="طباعة شهادة شطب سجل تجاري">
         <div class="svc-img"><div class="icon-circle">🖨️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
@@ -164,7 +164,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة شهادة شطب سجل تجاري')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-price="100" data-name="إغلاق المنشأة">
+      <div class="svc-card" data-id="957" data-price="100" data-name="إغلاق المنشأة">
         <div class="svc-img"><div class="icon-circle">🔚</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات انهاء مشروع</span>
@@ -173,7 +173,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إغلاق المنشأة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-price="99" data-name="الغاء رخصة بلدي">
+      <div class="svc-card" data-id="958" data-price="99" data-name="الغاء رخصة بلدي">
         <div class="svc-img"><div class="icon-circle">❌</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
@@ -182,7 +182,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الغاء رخصة بلدي')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-price="50" data-name="شطب السجل التجاري للمؤسسات">
+      <div class="svc-card" data-id="959" data-price="50" data-name="شطب السجل التجاري للمؤسسات">
         <div class="svc-img"><div class="icon-circle">🗑️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
@@ -191,7 +191,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'شطب السجل التجاري للمؤسسات')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-price="99" data-name="إلغاء الرقم المميز">
+      <div class="svc-card" data-id="1351" data-price="99" data-name="إلغاء الرقم المميز">
         <div class="svc-img"><div class="icon-circle">🔢</div></div>
         <div class="svc-body">
           <span class="svc-cat">الزكاة والضريبة والجمارك</span>
@@ -251,5 +251,6 @@ function sortServices(val){const grid=document.getElementById('services-grid');c
 document.addEventListener('DOMContentLoaded',function(){updateCartBadge();document.getElementById('results-count').textContent=document.querySelectorAll('.svc-card').length+' خدمة';});
 </script>
 <script src="sidebar.js"></script>
+<script src="services-loader.js"></script>
 </body>
 </html>
