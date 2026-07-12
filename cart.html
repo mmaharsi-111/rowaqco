@@ -10,6 +10,7 @@
   gtag('config', 'G-09C3QPQGJV');
 </script>
 <meta charset="UTF-8">
+<meta name="description" content="سلة المشتريات — أكمل طلبك في رواق التميز للخدمات العامة وأنجز معاملاتك الحكومية بكل سهولة.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>سلة المشتريات — رواق التميز</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -181,6 +182,16 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 @media(max-width:900px){.cart-layout{grid-template-columns:1fr;}.summary-box{position:static;}}
 @media(max-width:600px){.header-nav{display:none;}.cart-item{flex-wrap:wrap;}}
 </style>
+<link rel="canonical" href="https://www.rowaqco.com/cart.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rowaqco.com/cart.html">
+<meta property="og:title" content="سلة المشتريات — رواق التميز">
+<meta property="og:description" content="سلة المشتريات — أكمل طلبك في رواق التميز للخدمات العامة وأنجز معاملاتك الحكومية بكل سهولة.">
+<meta property="og:image" content="https://www.rowaqco.com/images/og-image.jpg">
+<meta property="og:locale" content="ar_SA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="سلة المشتريات — رواق التميز">
+<meta name="twitter:description" content="سلة المشتريات — أكمل طلبك في رواق التميز للخدمات العامة وأنجز معاملاتك الحكومية بكل سهولة.">
 </head>
 <body>
 
@@ -215,7 +226,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 <div class="breadcrumb">
   <div class="wrap">
     <div><a href="index.html">الرئيسية</a><span>›</span><span>سلة المشتريات</span></div>
-    <div class="bc-title">🛒 سلة المشتريات</div>
+    <h1 class="bc-title">🛒 سلة المشتريات</h1>
   </div>
 </div>
 
@@ -569,6 +580,19 @@ async function checkoutWhatsapp(){
     const data = await res.json();
 
     if(data?.success){
+      // حفظ الطلب في localStorage
+      const session = getSession();
+      const orderRecord = {
+        orderId:   data.orderId,
+        date:      new Date().toLocaleString('ar-SA'),
+        items:     cart.map(i => ({ name: i.name, qty: i.qty || 1, price: i.price })),
+        total:     cart.reduce((s, i) => s + (i.price * (i.qty || 1)), 0),
+        status:    'جديد'
+      };
+      const orders = JSON.parse(localStorage.getItem('rawaq_orders') || '[]');
+      orders.unshift(orderRecord);
+      localStorage.setItem('rawaq_orders', JSON.stringify(orders));
+
       clearCart();
       btn.textContent = '✅ تم إرسال طلبك بنجاح!';
       btn.style.background = '#0a5c3a';

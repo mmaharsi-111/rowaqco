@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-09C3QPQGJV');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="طلباتي — رواق التميز للخدمات العامة">
+<title>طلباتي — رواق التميز</title>
+<link rel="canonical" href="https://www.rowaqco.com/my-orders.html">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="cart.js"></script>
+<style>
+:root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);direction:rtl;}
+a{text-decoration:none;color:inherit;}
+.topbar{background:var(--green);color:#fff;text-align:center;font-size:13px;padding:8px 20px;}
+.topbar a{color:var(--gold-light);font-weight:700;}
+header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.header-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{height:50px;width:auto;border-radius:8px;}
+.logo-text strong{display:block;font-size:16px;font-weight:900;color:var(--green);}
+.logo-text span{font-size:11px;color:var(--muted);}
+.header-nav{display:flex;align-items:center;gap:4px;}
+.header-nav a{font-size:13px;font-weight:600;padding:7px 14px;border-radius:8px;color:var(--mid);transition:all .2s;}
+.header-nav a:hover,.header-nav a.active{background:var(--green-pale);color:var(--green);}
+.header-cta{display:flex;align-items:center;gap:10px;}
+.cart-btn{position:relative;display:flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
+.cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;border:2px solid #fff;}
+.menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border-radius:10px;cursor:pointer;background:var(--green);border:none;padding:10px;flex-shrink:0;}
+.menu-btn span{display:block;height:2px;background:#fff;border-radius:2px;}
+
+/* BREADCRUMB */
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;font-size:13px;color:var(--muted);}
+.breadcrumb a{color:var(--green);}
+.bc-title{font-size:20px;font-weight:900;color:var(--dark);margin-top:6px;}
+
+/* PAGE BODY */
+.page-body{max-width:960px;margin:32px auto;padding:0 24px;}
+
+/* NOT LOGGED IN */
+.login-prompt{background:#fff;border-radius:var(--radius);border:1px solid var(--border);padding:60px 24px;text-align:center;box-shadow:var(--shadow);}
+.login-prompt .icon{font-size:56px;margin-bottom:16px;}
+.login-prompt h2{font-size:20px;font-weight:900;margin-bottom:8px;}
+.login-prompt p{font-size:14px;color:var(--muted);margin-bottom:24px;}
+.login-prompt a{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:12px 28px;border-radius:10px;font-weight:700;font-size:14px;}
+
+/* ORDERS */
+.orders-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.orders-header h2{font-size:20px;font-weight:900;}
+.orders-count{font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--border);padding:5px 14px;border-radius:20px;}
+
+.order-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden;}
+.order-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--green-pale);}
+.order-id{font-size:13px;font-weight:700;color:var(--green);}
+.order-date{font-size:12px;color:var(--muted);}
+.order-status{font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.status-new{background:#fef9c3;color:#854d0e;}
+.status-progress{background:#dbeafe;color:#1e40af;}
+.status-done{background:#dcfce7;color:#166534;}
+
+.order-items{padding:16px 20px;}
+.order-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border);}
+.order-item:last-child{border-bottom:none;}
+.item-name{font-size:13px;font-weight:600;}
+.item-qty{font-size:12px;color:var(--muted);margin-top:2px;}
+.item-price{font-size:13px;font-weight:700;color:var(--green);white-space:nowrap;}
+
+.order-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-top:2px solid var(--border);}
+.order-total-label{font-size:13px;color:var(--muted);}
+.order-total-val{font-size:18px;font-weight:900;color:var(--dark);}
+
+/* EMPTY */
+.empty-orders{background:#fff;border-radius:var(--radius);border:1px solid var(--border);padding:60px 24px;text-align:center;box-shadow:var(--shadow);}
+.empty-orders .icon{font-size:56px;margin-bottom:16px;}
+.empty-orders h2{font-size:18px;font-weight:900;margin-bottom:8px;}
+.empty-orders p{font-size:14px;color:var(--muted);margin-bottom:24px;}
+.empty-orders a{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:12px 28px;border-radius:10px;font-weight:700;font-size:14px;}
+
+/* FOOTER */
+footer{background:var(--dark);color:#fff;padding:40px 24px 20px;}
+.footer-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+.footer-brand strong{display:block;font-size:16px;font-weight:900;color:#fff;margin-bottom:8px;}
+.footer-brand p{font-size:13px;opacity:.6;line-height:1.7;}
+.footer-col h4{font-size:13px;font-weight:700;margin-bottom:14px;color:var(--gold);}
+.footer-col a{display:block;font-size:12px;opacity:.6;margin-bottom:8px;transition:opacity .2s;}
+.footer-col a:hover{opacity:1;}
+.footer-bottom{max-width:1280px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;opacity:.5;}
+
+@media(max-width:768px){
+  .header-nav{display:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .order-head{flex-wrap:wrap;gap:8px;}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  🎉 خصم 10% على أول طلب باستخدام كود: <a href="#">WELCOME10</a> &nbsp;|&nbsp; للتواصل الفوري: <a href="https://wa.me/966559580940">واتساب</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" alt="شعار رواق التميز للخدمات العامة">
+      <div class="logo-text">
+        <strong>رواق التميز</strong>
+        <span>للخدمات العامة والحكومية</span>
+      </div>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="government-platforms.html">المنصات الحكومية</a>
+      <a href="packages.html">الباقات</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="cart.html" class="cart-btn">
+        🛒 السلة
+        <span class="cart-badge" id="cart-badge">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<div id="sidebar-container"></div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div>
+    <a href="index.html">الرئيسية</a>
+    <span>›</span>
+    <span>طلباتي</span>
+  </div>
+  <h1 class="bc-title">📋 طلباتي</h1>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body" id="page-body">
+  <!-- يتم حقن المحتوى بواسطة JS -->
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong>رواق التميز للخدمات العامة</strong>
+      <p>نقدم خدمات متكاملة للأفراد والأعمال عبر جميع المنصات الحكومية السعودية.</p>
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="business-establishment.html">خدمات الأعمال</a>
+      <a href="government-platforms.html">المنصات الحكومية</a>
+      <a href="packages.html">الباقات</a>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="cart.html">السلة</a>
+      <a href="my-orders.html">طلباتي</a>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <a href="https://wa.me/966559580940">واتساب</a>
+      <a href="tel:+966559580940">0559580940</a>
+      <a href="mailto:info@rowaqco.com">info@rowaqco.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 رواق التميز للخدمات العامة. جميع الحقوق محفوظة.</span>
+    <span>السجل التجاري: 4650288413</span>
+  </div>
+</footer>
+
+<!-- واتساب عائم -->
+<a href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن خدمة" style="position:fixed;bottom:24px;left:24px;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 16px rgba(37,211,102,.4);z-index:997;text-decoration:none;" title="تواصل عبر واتساب">💬</a>
+
+<script src="sidebar.js"></script>
+<script>
+function getSession() {
+  try { return JSON.parse(localStorage.getItem('rawaq_session')); } catch { return null; }
+}
+
+function getOrders() {
+  try { return JSON.parse(localStorage.getItem('rawaq_orders') || '[]'); } catch { return []; }
+}
+
+function statusLabel(s) {
+  if (s === 'done' || s === 'مكتمل')    return '<span class="order-status status-done">✅ مكتمل</span>';
+  if (s === 'progress' || s === 'قيد التنفيذ') return '<span class="order-status status-progress">⏳ قيد التنفيذ</span>';
+  return '<span class="order-status status-new">🆕 جديد</span>';
+}
+
+function renderOrders() {
+  const body = document.getElementById('page-body');
+  const session = getSession();
+
+  // غير مسجل دخول
+  if (!session) {
+    body.innerHTML = `
+      <div class="login-prompt">
+        <div class="icon">🔐</div>
+        <h2>يرجى تسجيل الدخول</h2>
+        <p>سجّل دخولك لعرض طلباتك السابقة</p>
+        <a href="register.html">تسجيل الدخول</a>
+      </div>`;
+    return;
+  }
+
+  const orders = getOrders();
+
+  // لا توجد طلبات
+  if (orders.length === 0) {
+    body.innerHTML = `
+      <div class="empty-orders">
+        <div class="icon">📭</div>
+        <h2>لا توجد طلبات بعد</h2>
+        <p>لم تقم بأي طلب حتى الآن — تصفح خدماتنا وأضف ما تحتاجه</p>
+        <a href="individuals.html">🔍 تصفح الخدمات</a>
+      </div>`;
+    return;
+  }
+
+  // عرض الطلبات
+  let html = `
+    <div class="orders-header">
+      <h2>مرحباً، ${session.name} 👋</h2>
+      <span class="orders-count">${orders.length} طلب</span>
+    </div>`;
+
+  orders.forEach(order => {
+    const itemsHtml = order.items.map(i => `
+      <div class="order-item">
+        <div>
+          <div class="item-name">${i.name}</div>
+          <div class="item-qty">الكمية: ${i.qty}</div>
+        </div>
+        <div class="item-price">${(i.price * i.qty).toFixed(0)} ﷼</div>
+      </div>`).join('');
+
+    html += `
+      <div class="order-card">
+        <div class="order-head">
+          <div>
+            <div class="order-id">طلب رقم #${order.orderId}</div>
+            <div class="order-date">📅 ${order.date}</div>
+          </div>
+          ${statusLabel(order.status)}
+        </div>
+        <div class="order-items">${itemsHtml}</div>
+        <div class="order-foot">
+          <span class="order-total-label">الإجمالي شامل الضريبة</span>
+          <span class="order-total-val">${order.total.toFixed(0)} ﷼</span>
+        </div>
+      </div>`;
+  });
+
+  body.innerHTML = html;
+}
+
+document.addEventListener('DOMContentLoaded', renderOrders);
+</script>
+</body>
+</html>
