@@ -513,7 +513,7 @@ function markField(id, hasErr) {
 }
 
 /* ===== LOGIN ===== */
-function doLogin() {
+async function doLogin() {
   const id   = document.getElementById('login-id').value.trim();
   const pass = document.getElementById('login-pass').value;
   let valid  = true;
@@ -526,20 +526,57 @@ function doLogin() {
 
   if (!valid) return;
 
-  // تحقق من localStorage
+  // تحقق من localStorage أولاً
   const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
-  const user  = users.find(u => (u.email === id || u.phone === id) && u.password === pass);
+  const localUser = users.find(u => (u.email === id || u.phone === id) && u.password === pass);
 
-  if (!user) {
-    showErr('login-pass-err', true);
-    document.getElementById('login-pass-err').textContent = 'بيانات الدخول غير صحيحة';
-    markField('login-pass', true);
+  if (localUser) {
+    localStorage.setItem('rawaq_session', JSON.stringify(localUser));
+    showSuccess('login', localUser.name);
     return;
   }
 
-  // حفظ الجلسة
-  localStorage.setItem('rawaq_session', JSON.stringify(user));
-  showSuccess('login', user.name);
+  // إذا لم يوجد محلياً — ابحث في أودو عبر GAS
+  const btn = document.getElementById('login-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ جارٍ التحقق...';
+
+  try {
+    const isEmail = id.includes('@');
+    const params = new URLSearchParams({
+      action: 'login',
+      email: isEmail ? id : '',
+      phone: isEmail ? '' : id,
+      password: pass
+    });
+
+    const res  = await fetch(`${GAS_URL}?${params}`);
+    const data = await res.json();
+
+    if (data?.success && data?.user) {
+      const sessionUser = {
+        name:    data.user.name,
+        phone:   data.user.phone || id,
+        email:   data.user.email || '',
+        odooId:  data.user.odooId,
+        password: pass
+      };
+      localStorage.setItem('rawaq_session', JSON.stringify(sessionUser));
+      showSuccess('login', sessionUser.name);
+    } else {
+      showErr('login-pass-err', true);
+      document.getElementById('login-pass-err').textContent = data?.message || 'بيانات الدخول غير صحيحة';
+      markField('login-pass', true);
+      btn.disabled = false;
+      btn.textContent = 'تسجيل الدخول';
+    }
+  } catch(err) {
+    showErr('login-pass-err', true);
+    document.getElementById('login-pass-err').textContent = 'خطأ في الاتصال، حاولي مجدداً';
+    markField('login-pass', true);
+    btn.disabled = false;
+    btn.textContent = 'تسجيل الدخول';
+  }
 }
 
 /* ===== REGISTER ===== */
