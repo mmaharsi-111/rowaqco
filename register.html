@@ -10,6 +10,7 @@
   gtag('config', 'G-09C3QPQGJV');
 </script>
 <meta charset="UTF-8">
+<meta name="description" content="سجّل حسابك في رواق التميز للخدمات العامة واستمتع بإنجاز معاملاتك الحكومية والتجارية بسهولة ويسر.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تسجيل الدخول / إنشاء حساب — رواق التميز</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -243,6 +244,16 @@
   .field-row { grid-template-columns: 1fr; }
 }
 </style>
+<link rel="canonical" href="https://www.rowaqco.com/register.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rowaqco.com/register.html">
+<meta property="og:title" content="تسجيل الدخول / إنشاء حساب — رواق التميز">
+<meta property="og:description" content="سجّل حسابك في رواق التميز للخدمات العامة واستمتع بإنجاز معاملاتك الحكومية والتجارية بسهولة ويسر.">
+<meta property="og:image" content="https://www.rowaqco.com/images/og-image.jpg">
+<meta property="og:locale" content="ar_SA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="تسجيل الدخول / إنشاء حساب — رواق التميز">
+<meta name="twitter:description" content="سجّل حسابك في رواق التميز للخدمات العامة واستمتع بإنجاز معاملاتك الحكومية والتجارية بسهولة ويسر.">
 </head>
 <body class="auth-wrapper">
 
@@ -592,6 +603,7 @@ async function doRegister() {
     const params = new URLSearchParams({
       action: 'create_partner',
       name, phone, email,
+      password: pass,
       company: company || '',
       vat: vat || ''
     });
