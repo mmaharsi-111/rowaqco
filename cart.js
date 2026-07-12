@@ -32,11 +32,14 @@ function addToCart(btn, name, price, category) {
   const cart = getCart();
   price = parseFloat(price) || 0;
   category = category || 'خدمة';
+  // جلب product_id من data-id في الكارت
+  const card = btn ? btn.closest('[data-id]') : null;
+  const productId = card ? parseInt(card.dataset.id) || 22 : 22;
   const existing = cart.find(i => i.name === name);
   if (existing) {
     existing.qty = (existing.qty || 1) + 1;
   } else {
-    cart.push({ id: Date.now(), name, price, category, qty: 1 });
+    cart.push({ id: Date.now(), name, price, category, qty: 1, product_id: productId, productId });
   }
   saveCart(cart);
   showToast('✅ تمت الإضافة إلى السلة!');
