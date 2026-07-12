@@ -1327,6 +1327,160 @@
       "sale_ok": true
     }
   ],
+  "balady": [
+    {
+      "id": 941,
+      "name": "إصدار ترخيص 24 ساعة محل تجاري",
+      "price": 99,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 944,
+      "name": "إصدار ترخيص سلامة (الدفاع المدني)",
+      "price": 199,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 938,
+      "name": "إصدار رخصة بلدية (تجارية)",
+      "price": 199,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 939,
+      "name": "إصدار رخصة عربة متنقلة (فود تراك)",
+      "price": 150,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 940,
+      "name": "إصدار وتجديد رخصة سكن جماعي",
+      "price": 150,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 945,
+      "name": "إلغاء رخصة بلدي",
+      "price": 49,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 950,
+      "name": "استخراج ملصق رايك بفرق",
+      "price": 35,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 951,
+      "name": "استخراج وتجديد الشهادات الصحية للعمالة",
+      "price": 50,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 949,
+      "name": "اعتراض على مخالفة الرقابة",
+      "price": 35,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 937,
+      "name": "تجديد رخصة بلدية (تجارية)",
+      "price": 99,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 943,
+      "name": "تجديد رخصة سلامة (الدفاع المدني)",
+      "price": 160,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 936,
+      "name": "تعديل رخصة بلدية (تجارية)",
+      "price": 99,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 948,
+      "name": "تقديم إفصاح عن إيراد رسوم مرافق الإيواء",
+      "price": 99,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 954,
+      "name": "تقديم على جهاز نقاط البيع",
+      "price": 100,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 953,
+      "name": "تقرير في غير فوري (سلامة)",
+      "price": 699,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 952,
+      "name": "تقرير في فوري (سلامة)",
+      "price": 549,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 942,
+      "name": "شهادة تركيب أدوات الوقاية من الحريق (سلامة)",
+      "price": 249,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 946,
+      "name": "قبول ملكية نقل رخصة بلدية (تجارية)",
+      "price": 49,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 947,
+      "name": "نقل ملكية رخصة بلدية (تجارية)",
+      "price": 199,
+      "category": "خدمات حكومية / بلدي",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
   "business-establishment": [
     {
       "id": 986,
@@ -1585,160 +1739,6 @@
       "sale_ok": true
     }
   ],
-  "balady": [
-    {
-      "id": 941,
-      "name": "إصدار ترخيص 24 ساعة محل تجاري",
-      "price": 99,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 944,
-      "name": "إصدار ترخيص سلامة (الدفاع المدني)",
-      "price": 199,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 938,
-      "name": "إصدار رخصة بلدية (تجارية)",
-      "price": 199,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 939,
-      "name": "إصدار رخصة عربة متنقلة (فود تراك)",
-      "price": 150,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 940,
-      "name": "إصدار وتجديد رخصة سكن جماعي",
-      "price": 150,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 945,
-      "name": "إلغاء رخصة بلدي",
-      "price": 49,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 950,
-      "name": "استخراج ملصق رايك بفرق",
-      "price": 35,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 951,
-      "name": "استخراج وتجديد الشهادات الصحية للعمالة",
-      "price": 50,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 949,
-      "name": "اعتراض على مخالفة الرقابة",
-      "price": 35,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 937,
-      "name": "تجديد رخصة بلدية (تجارية)",
-      "price": 99,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 943,
-      "name": "تجديد رخصة سلامة (الدفاع المدني)",
-      "price": 160,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 936,
-      "name": "تعديل رخصة بلدية (تجارية)",
-      "price": 99,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 948,
-      "name": "تقديم إفصاح عن إيراد رسوم مرافق الإيواء",
-      "price": 99,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 954,
-      "name": "تقديم على جهاز نقاط البيع",
-      "price": 100,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 953,
-      "name": "تقرير في غير فوري (سلامة)",
-      "price": 699,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 952,
-      "name": "تقرير في فوري (سلامة)",
-      "price": 549,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 942,
-      "name": "شهادة تركيب أدوات الوقاية من الحريق (سلامة)",
-      "price": 249,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 946,
-      "name": "قبول ملكية نقل رخصة بلدية (تجارية)",
-      "price": 49,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 947,
-      "name": "نقل ملكية رخصة بلدية (تجارية)",
-      "price": 199,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    }
-  ],
   "seza": [
     {
       "id": 1295,
@@ -1815,14 +1815,6 @@
       "sale_ok": true
     },
     {
-      "id": 1453,
-      "name": "خدمة تجديد ترخيص وزارة الاستثمار",
-      "price": 135,
-      "category": "الوزارات / الاستثمار",
-      "active": true,
-      "sale_ok": true
-    },
-    {
       "id": 1606,
       "name": "خدمة تجديد ترخيص وزارة الاستثمار",
       "price": 0,
@@ -1831,9 +1823,9 @@
       "sale_ok": true
     },
     {
-      "id": 1607,
-      "name": "خدمة تعديل ترخيص وزارة الاستثمار",
-      "price": 0,
+      "id": 1453,
+      "name": "خدمة تجديد ترخيص وزارة الاستثمار",
+      "price": 135,
       "category": "الوزارات / الاستثمار",
       "active": true,
       "sale_ok": true
@@ -1842,6 +1834,14 @@
       "id": 1454,
       "name": "خدمة تعديل ترخيص وزارة الاستثمار",
       "price": 250,
+      "category": "الوزارات / الاستثمار",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1607,
+      "name": "خدمة تعديل ترخيص وزارة الاستثمار",
+      "price": 0,
       "category": "الوزارات / الاستثمار",
       "active": true,
       "sale_ok": true
@@ -2691,17 +2691,17 @@
       "sale_ok": true
     },
     {
-      "id": 1460,
+      "id": 1612,
       "name": "تقديم دعوى مالية",
-      "price": 150,
+      "price": 0,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
     },
     {
-      "id": 1612,
+      "id": 1460,
       "name": "تقديم دعوى مالية",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
@@ -2731,17 +2731,17 @@
       "sale_ok": true
     },
     {
-      "id": 1461,
+      "id": 1613,
       "name": "دعوى محكمة عالمية",
-      "price": 150,
+      "price": 0,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
     },
     {
-      "id": 1613,
+      "id": 1461,
       "name": "دعوى محكمة عالمية",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
@@ -3123,22 +3123,22 @@
       "sale_ok": true
     }
   ],
-  "support-guarantee": [
-    {
-      "id": 1469,
-      "name": "إنشاء عقد إيجار سكني",
-      "price": 300,
-      "category": "برامج الدعم / ضمان",
-      "active": true,
-      "sale_ok": true
-    }
-  ],
   "support-citizen": [
     {
       "id": 1468,
       "name": "إنشاء عقد إيجار سكني",
       "price": 300,
       "category": "برامج الدعم / مواطن",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-guarantee": [
+    {
+      "id": 1469,
+      "name": "إنشاء عقد إيجار سكني",
+      "price": 300,
+      "category": "برامج الدعم / ضمان",
       "active": true,
       "sale_ok": true
     }
@@ -3345,14 +3345,6 @@
       "sale_ok": true
     },
     {
-      "id": 1605,
-      "name": "رفع دعوى بالتسوية الودية (شكوى عمالية)",
-      "price": 0,
-      "category": "الوزارات / الموارد البشرية",
-      "active": true,
-      "sale_ok": true
-    },
-    {
       "id": 1451,
       "name": "رفع دعوى بالتسوية الودية (شكوى عمالية)",
       "price": 150,
@@ -3361,9 +3353,9 @@
       "sale_ok": true
     },
     {
-      "id": 1449,
-      "name": "فتح حساب على برنامج العمل عن بعد التابع لوزارة الموارد البشرية والتنمية",
-      "price": 49,
+      "id": 1605,
+      "name": "رفع دعوى بالتسوية الودية (شكوى عمالية)",
+      "price": 0,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
@@ -3372,6 +3364,14 @@
       "id": 1603,
       "name": "فتح حساب على برنامج العمل عن بعد التابع لوزارة الموارد البشرية والتنمية",
       "price": 0,
+      "category": "الوزارات / الموارد البشرية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1449,
+      "name": "فتح حساب على برنامج العمل عن بعد التابع لوزارة الموارد البشرية والتنمية",
+      "price": 49,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
@@ -3395,17 +3395,17 @@
       "sale_ok": true
     },
     {
-      "id": 1472,
+      "id": 1621,
       "name": "التسجيل في دعم ساند",
-      "price": 200,
+      "price": 0,
       "category": "برامج الدعم / ساند",
       "active": true,
       "sale_ok": true
     },
     {
-      "id": 1621,
+      "id": 1472,
       "name": "التسجيل في دعم ساند",
-      "price": 0,
+      "price": 200,
       "category": "برامج الدعم / ساند",
       "active": true,
       "sale_ok": true
@@ -3429,14 +3429,6 @@
       "sale_ok": true
     },
     {
-      "id": 1442,
-      "name": "تصديق الوكالات الخارجية",
-      "price": 100,
-      "category": "الوزارات / الخارجية",
-      "active": true,
-      "sale_ok": true
-    },
-    {
       "id": 1597,
       "name": "تصديق الوكالات الخارجية",
       "price": 0,
@@ -3445,9 +3437,9 @@
       "sale_ok": true
     },
     {
-      "id": 1600,
-      "name": "تفويض تأشيرات العمل",
-      "price": 0,
+      "id": 1442,
+      "name": "تصديق الوكالات الخارجية",
+      "price": 100,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3461,9 +3453,9 @@
       "sale_ok": true
     },
     {
-      "id": 1444,
-      "name": "تفويض تأشيرات عمل",
-      "price": 100,
+      "id": 1600,
+      "name": "تفويض تأشيرات العمل",
+      "price": 0,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3477,9 +3469,9 @@
       "sale_ok": true
     },
     {
-      "id": 1596,
-      "name": "تقديم طلب زيارة شخصية للمواطنين",
-      "price": 0,
+      "id": 1444,
+      "name": "تفويض تأشيرات عمل",
+      "price": 100,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3488,6 +3480,14 @@
       "id": 1441,
       "name": "تقديم طلب زيارة شخصية للمواطنين",
       "price": 150,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1596,
+      "name": "تقديم طلب زيارة شخصية للمواطنين",
+      "price": 0,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
