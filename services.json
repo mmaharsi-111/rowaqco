@@ -99,208 +99,6 @@
       "sale_ok": true
     }
   ],
-  "business-employees": [
-    {
-      "id": 965,
-      "name": "إصدار / تجديد إقامة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 977,
-      "name": "إصدار / تجديد رخصة عمل",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 964,
-      "name": "إصدار / تمديد / تأشيرة الخروج والعودة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 963,
-      "name": "إصدار تأشيرة الخروج النهائي",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 967,
-      "name": "إصدار تأشيرة دائمة أو مؤقتة",
-      "price": 99,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 980,
-      "name": "إصدار شهادة السعودة",
-      "price": 35,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 972,
-      "name": "إضافة موظفين على مدد",
-      "price": 99,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 974,
-      "name": "إلغاء التأشيرات للعمال",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 982,
-      "name": "إلغاء تأشيرة الخروج النهائي",
-      "price": 49,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 983,
-      "name": "إلغاء تأشيرة الخروج والعودة",
-      "price": 49,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 961,
-      "name": "استخراج تأشيرة العمالة الزراعية",
-      "price": 149,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 976,
-      "name": "استخراج وتجديد الشهادات الصحية للعمالة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 975,
-      "name": "بلاغ إقطاع عن العمال (بلاغ الهروب)",
-      "price": 49,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 985,
-      "name": "بلاغ تغيب عن العمل",
-      "price": 49,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 966,
-      "name": "تأمين طبي",
-      "price": 0,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 981,
-      "name": "تحديث معلومات الجواز للمقيمين",
-      "price": 100,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 984,
-      "name": "تصحيح المهنة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 973,
-      "name": "تعديل المهنة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 978,
-      "name": "تعديل المهنة في أبشر أفراد/أعمال",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 971,
-      "name": "توليق عقد الموظفين",
-      "price": 99,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 979,
-      "name": "طلب تقرير مقيم",
-      "price": 49,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 962,
-      "name": "نقل الكفالة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 969,
-      "name": "نقل تابع للمنشأة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 968,
-      "name": "نقل عامل بين الفروع",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 970,
-      "name": "نقل كفالة عامل للمنشأة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    }
-  ],
   "absher": [
     {
       "id": 915,
@@ -511,11 +309,213 @@
       "sale_ok": true
     }
   ],
+  "business-employees": [
+    {
+      "id": 965,
+      "name": "إصدار / تجديد إقامة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 977,
+      "name": "إصدار / تجديد رخصة عمل",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 964,
+      "name": "إصدار / تمديد / تأشيرة الخروج والعودة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 963,
+      "name": "إصدار تأشيرة الخروج النهائي",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 967,
+      "name": "إصدار تأشيرة دائمة أو مؤقتة",
+      "price": 99,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 980,
+      "name": "إصدار شهادة السعودة",
+      "price": 35,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 972,
+      "name": "إضافة موظفين على مدد",
+      "price": 99,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 974,
+      "name": "إلغاء التأشيرات للعمال",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 982,
+      "name": "إلغاء تأشيرة الخروج النهائي",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 983,
+      "name": "إلغاء تأشيرة الخروج والعودة",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 961,
+      "name": "استخراج تأشيرة العمالة الزراعية",
+      "price": 149,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 976,
+      "name": "استخراج وتجديد الشهادات الصحية للعمالة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 975,
+      "name": "بلاغ إقطاع عن العمال (بلاغ الهروب)",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 985,
+      "name": "بلاغ تغيب عن العمل",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 966,
+      "name": "تأمين طبي",
+      "price": 0,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 981,
+      "name": "تحديث معلومات الجواز للمقيمين",
+      "price": 100,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 984,
+      "name": "تصحيح المهنة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 973,
+      "name": "تعديل المهنة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 978,
+      "name": "تعديل المهنة في أبشر أفراد/أعمال",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 971,
+      "name": "توليق عقد الموظفين",
+      "price": 99,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 979,
+      "name": "طلب تقرير مقيم",
+      "price": 49,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 962,
+      "name": "نقل الكفالة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 969,
+      "name": "نقل تابع للمنشأة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 968,
+      "name": "نقل عامل بين الفروع",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 970,
+      "name": "نقل كفالة عامل للمنشأة",
+      "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
   "qiwa": [
     {
       "id": 1236,
       "name": "إصدار / تجديد رخصة عمل",
-      "price": 50,
+      "price": 43,
       "category": "خدمات حكومية / قوى",
       "active": true,
       "sale_ok": true
@@ -2977,26 +2977,6 @@
       "sale_ok": true
     }
   ],
-  "support-citizen": [
-    {
-      "id": 1468,
-      "name": "إنشاء عقد إيجار سكني",
-      "price": 300,
-      "category": "برامج الدعم / مواطن",
-      "active": true,
-      "sale_ok": true
-    }
-  ],
-  "support-guarantee": [
-    {
-      "id": 1469,
-      "name": "إنشاء عقد إيجار سكني",
-      "price": 300,
-      "category": "برامج الدعم / ضمان",
-      "active": true,
-      "sale_ok": true
-    }
-  ],
   "ejar": [
     {
       "id": 1074,
@@ -3059,6 +3039,26 @@
       "name": "عمل عقد أيجار تجاري من الباطن",
       "price": 400,
       "category": "خدمات حكومية / إيجار",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-guarantee": [
+    {
+      "id": 1469,
+      "name": "إنشاء عقد إيجار سكني",
+      "price": 300,
+      "category": "برامج الدعم / ضمان",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
+  "support-citizen": [
+    {
+      "id": 1468,
+      "name": "إنشاء عقد إيجار سكني",
+      "price": 300,
+      "category": "برامج الدعم / مواطن",
       "active": true,
       "sale_ok": true
     }
