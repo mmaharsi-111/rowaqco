@@ -191,7 +191,7 @@
     {
       "id": 921,
       "name": "تجديد استمارات السيارات",
-      "price": 50,
+      "price": 11,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -3693,31 +3693,23 @@
       "sale_ok": true
     },
     {
-      "id": 1621,
-      "name": "التسجيل في دعم ساند",
-      "price": 0,
-      "category": "برامج الدعم / ساند",
-      "active": true,
-      "sale_ok": true
-    },
-    {
       "id": 1472,
       "name": "التسجيل في دعم ساند",
       "price": 200,
       "category": "برامج الدعم / ساند",
       "active": true,
       "sale_ok": true
+    },
+    {
+      "id": 1621,
+      "name": "التسجيل في دعم ساند",
+      "price": 0,
+      "category": "برامج الدعم / ساند",
+      "active": true,
+      "sale_ok": true
     }
   ],
   "ministry-foreign": [
-    {
-      "id": 1598,
-      "name": "استعلام عن طلب زيارة",
-      "price": 0,
-      "category": "الوزارات / الخارجية",
-      "active": true,
-      "sale_ok": true
-    },
     {
       "id": 1443,
       "name": "استعلام عن طلب زيارة",
@@ -3727,8 +3719,8 @@
       "sale_ok": true
     },
     {
-      "id": 1597,
-      "name": "تصديق الوكالات الخارجية",
+      "id": 1598,
+      "name": "استعلام عن طلب زيارة",
       "price": 0,
       "category": "الوزارات / الخارجية",
       "active": true,
@@ -3738,6 +3730,14 @@
       "id": 1442,
       "name": "تصديق الوكالات الخارجية",
       "price": 100,
+      "category": "الوزارات / الخارجية",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 1597,
+      "name": "تصديق الوكالات الخارجية",
+      "price": 0,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
