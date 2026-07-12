@@ -101,6 +101,10 @@
       <span class="sb-icon">🛒</span><span class="sb-label">سلة المشتريات</span>
     </a>
 
+    <a href="my-orders.html" class="sb-item">
+      <span class="sb-icon">📋</span><span class="sb-label">طلباتي</span>
+    </a>
+
     <div class="sb-item has-sub" onclick="toggleSub(this)">
       <span><span class="sb-icon">💰</span> خدمات منصات الدعم الغير مسترد</span>
       <span class="sb-arrow">❯</span>
