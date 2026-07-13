@@ -15,12 +15,11 @@
     if (!res.ok) return;
     const allServices = await res.json();
     
-    const services = allServices[pageName];
-    if (!services || services.length === 0) return;
-
-    // lookup: id -> service
+    // بناء lookup شامل من كل الصفحات بالـ ID
     const lookup = {};
-    services.forEach(s => { lookup[s.id] = s; });
+    Object.values(allServices).forEach(pageServices => {
+      pageServices.forEach(s => { lookup[s.id] = s; });
+    });
 
     const cards = document.querySelectorAll('.svc-card[data-id]');
     let updated = 0, hidden = 0;
