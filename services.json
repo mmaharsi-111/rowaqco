@@ -3351,7 +3351,7 @@
     {
       "id": 2849,
       "name": "تسجيل في دعم حافز",
-      "price": 0,
+      "price": 100,
       "category": "برامج الدعم / حافز",
       "active": true,
       "sale_ok": true
