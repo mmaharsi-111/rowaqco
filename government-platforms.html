@@ -107,6 +107,13 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .breadcrumb a{font-size:13px;color:var(--green);font-weight:600;}
 .breadcrumb span.sep{margin:0 5px;color:var(--muted);}
 .bc-title{font-size:20px;font-weight:900;color:var(--dark);}
+.search-bar{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:10px 16px;margin-bottom:16px;transition:border-color .2s;}
+.search-bar:focus-within{border-color:var(--green);}
+.search-icon{font-size:18px;color:var(--muted);}
+.search-bar input{border:none;background:transparent;font-family:'Cairo',sans-serif;font-size:14px;outline:none;width:100%;}
+.results-bar{margin-bottom:16px;}
+.results-count{font-size:13px;color:var(--muted);}
+.no-results{text-align:center;padding:60px 20px;color:var(--muted);}
 .hero-banner{background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;display:flex;align-items:center;gap:18px;}
 .hero-banner .hero-icon{font-size:52px;}
 .hero-banner h2{font-size:20px;font-weight:900;margin-bottom:4px;}
@@ -196,8 +203,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   <div class="wrap">
 
     <!-- BANNER -->
-    <div class="page-banner">
-      <div class="banner-icon">🖥️</div>
+    <div class="hero-banner">
+      <div class="hero-icon">🖥️</div>
       <div>
         <h2>خدمات المنصات الحكومية</h2>
         <p>نخدمك عبر أكثر من 40 منصة حكومية وخدمية سعودية — ابحث عن المنصة التي تحتاجها واستعرض خدماتها.</p>
