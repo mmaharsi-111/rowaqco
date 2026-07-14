@@ -350,8 +350,8 @@ const platforms = [
 // ===== بناء البطاقات =====
 function buildCard(p) {
   const imgHTML = p.logo
-    ? `<img src="${p.logo}" alt="شعار ${p.name}" class="platform-logo" onerror="this.outerHTML='<div class=\\'platform-emoji\\'>${p.fallback}</div>'">`
-    : `<div class="platform-emoji">${p.fallback}</div>`;
+    ? `<div class="platform-logo-wrap"><img src="${p.logo}" alt="شعار ${p.name}" class="platform-logo" onerror="this.outerHTML='<div class=\\'platform-emoji\\'>${p.fallback}</div>'"></div>`
+    : `<div class="platform-logo-wrap"><div class="platform-emoji">${p.fallback}</div></div>`;
   const btnHTML = p.url
     ? `<a href="${p.url}" class="platform-btn">🔍 استعرض الخدمات</a>`
     : `<button class="platform-btn" onclick="viewServices('${p.name}')">🔍 استعرض الخدمات</button>`;
