@@ -113,21 +113,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .checkout-call{width:100%;padding:12px;border-radius:11px;background:#fff;color:var(--mid);font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;border:1.5px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;}
 .checkout-call:hover{border-color:var(--green);color:var(--green);}
 
-/* IBAN MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
-.modal-overlay.open{display:flex;}
-.modal{background:#fff;border-radius:20px;padding:32px 28px;max-width:480px;width:100%;box-shadow:var(--shadow-lg);text-align:center;}
-.modal h3{font-size:20px;font-weight:900;margin-bottom:6px;}
-.modal p{color:var(--muted);font-size:13px;margin-bottom:20px;}
-.iban-box{background:var(--green-pale);border:2px solid var(--green);border-radius:12px;padding:16px;margin-bottom:20px;}
-.iban-box .label{font-size:12px;color:var(--green);font-weight:700;margin-bottom:6px;}
-.iban-num{font-family:monospace;font-size:18px;font-weight:900;letter-spacing:1.5px;color:var(--dark);}
-.iban-name{font-size:12px;color:var(--muted);margin-top:4px;}
-.copy-btn{background:var(--green);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-family:'Cairo',sans-serif;font-weight:700;font-size:13px;cursor:pointer;margin-bottom:16px;transition:background .2s;}
-.copy-btn:hover{background:var(--green-light);}
-.modal-steps{text-align:right;font-size:13px;color:var(--mid);line-height:2;margin-bottom:20px;}
-.modal-steps li{display:flex;align-items:flex-start;gap:8px;margin-bottom:4px;}
-.modal-close{width:100%;padding:11px;border-radius:10px;background:var(--bg);color:var(--mid);font-family:'Cairo',sans-serif;font-weight:700;font-size:14px;border:1.5px solid var(--border);cursor:pointer;}
+
 
 /* PROMO CODE */
 .promo-box{display:flex;gap:8px;margin-bottom:18px;}
@@ -247,43 +233,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
           </div>
         </div>
 
-        <!-- خدمات قد تعجبك -->
-        <div class="upsell" id="upsell-section">
+        <!-- خدمات قد تعجبك - ذكية -->
+        <div class="upsell" id="upsell-section" style="display:none;">
           <h3>🌟 خدمات قد تحتاجها أيضاً</h3>
-          <div class="upsell-grid">
-            <div class="upsell-card">
-              <div class="upsell-icon">🪪</div>
-              <div>
-                <div class="upsell-name">تجديد الإقامة</div>
-                <div class="upsell-price">﷼ 50</div>
-              </div>
-              <button class="upsell-add" onclick="quickAdd('تجديد الإقامة',50,'الإقامة')">+ أضف</button>
-            </div>
-            <div class="upsell-card">
-              <div class="upsell-icon">🚗</div>
-              <div>
-                <div class="upsell-name">تجديد رخصة القيادة</div>
-                <div class="upsell-price">﷼ 30</div>
-              </div>
-              <button class="upsell-add" onclick="quickAdd('تجديد رخصة القيادة',30,'المرور')">+ أضف</button>
-            </div>
-            <div class="upsell-card">
-              <div class="upsell-icon">📄</div>
-              <div>
-                <div class="upsell-name">تصميم سيرة ذاتية</div>
-                <div class="upsell-price">﷼ 40</div>
-              </div>
-              <button class="upsell-add" onclick="quickAdd('تصميم سيرة ذاتية',40,'خدمات عامة')">+ أضف</button>
-            </div>
-            <div class="upsell-card">
-              <div class="upsell-icon">🏦</div>
-              <div>
-                <div class="upsell-name">فتح حساب بنكي</div>
-                <div class="upsell-price">﷼ 50</div>
-              </div>
-              <button class="upsell-add" onclick="quickAdd('فتح حساب بنكي',50,'خدمات عامة')">+ أضف</button>
-            </div>
-          </div>
+          <div class="upsell-grid" id="upsell-grid"></div>
         </div>
       </div>
 
@@ -308,17 +261,11 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 
             <div class="summary-note">
               <strong>⚡ كيف تتم العملية؟</strong>
-              اضغط "اطلب عبر واتساب" وسيتواصل معك فريقنا لتأكيد الطلب وإتمام الدفع.
+              اضغط "اطلب الآن" وسيُرسل طلبك مباشرة لفريقنا وسنتواصل معك لإتمام الدفع.
             </div>
 
-            <button class="checkout-wa" onclick="checkoutWhatsapp()">
-              💬 اطلب عبر واتساب
-            </button>
-            <button class="checkout-iban" onclick="showIbanModal()">
-              🏦 الدفع بالتحويل البنكي
-            </button>
-            <button class="checkout-call" onclick="window.location.href='tel:+966559580940'">
-              📞 اتصل بنا لإتمام الطلب
+            <button class="checkout-wa" id="checkout-btn" onclick="checkoutWhatsapp()">
+              🚀 اطلب الآن
             </button>
           </div>
         </div>
@@ -328,37 +275,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
   </div>
 </div>
 
-<!-- IBAN MODAL -->
-<div class="modal-overlay" id="iban-modal" onclick="closeIban(event)">
-  <div class="modal">
-    <div style="font-size:40px;margin-bottom:12px;">🏦</div>
-    <h3>الدفع بالتحويل البنكي</h3>
-    <p>حوّل المبلغ على الحساب التالي ثم أرسل إيصال التحويل عبر واتساب</p>
 
-    <div class="iban-box">
-      <div class="label">رقم الآيبان</div>
-      <div class="iban-num" id="iban-display">SA9580000333608014653214</div>
-      <div class="iban-name">شركة رواق التميز الحديثة المحدودة</div>
-    </div>
-
-    <button class="copy-btn" onclick="copyIban()">📋 نسخ رقم الآيبان</button>
-
-    <div style="text-align:right;font-size:13px;color:var(--mid);margin-bottom:20px;">
-      <div style="font-weight:700;margin-bottom:8px;">خطوات الدفع:</div>
-      <div style="display:flex;flex-direction:column;gap:6px;">
-        <span>1️⃣ حوّل المبلغ الإجمالي: <strong id="modal-total" style="color:var(--green);">﷼ 0</strong></span>
-        <span>2️⃣ احفظ إيصال التحويل (صورة)</span>
-        <span>3️⃣ أرسل الإيصال عبر واتساب</span>
-        <span>4️⃣ سنبدأ بإنجاز خدماتك فور التأكيد</span>
-      </div>
-    </div>
-
-    <button class="checkout-wa" style="margin-bottom:10px;" onclick="sendReceiptWa()">
-      💬 أرسل الإيصال عبر واتساب
-    </button>
-    <button class="modal-close" onclick="closeIbanDirect()">إغلاق</button>
-  </div>
-</div>
 
 <!-- WA FLOAT -->
 <a href="https://wa.me/966559580940" class="wa-float">💬</a>
@@ -369,7 +286,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
 <footer>
   <div class="footer-bottom">
     <span>© 2026 شركة رواق التميز الحديثة — جميع الحقوق محفوظة</span>
-    <span>📧 <a href="mailto:info@rowaqco.com" style="color:rgba(255,255,255,.6);">info@rowaqco.com</a> &nbsp;|&nbsp; 📍 المدينة المنورة، السعودية &nbsp;|&nbsp; سجل تجاري: 4650288413</span>
+    <span>📧 <a href="mailto:info@rowaqco.com" style="color:rgba(255,255,255,.6);">info@rowaqco.com</a> &nbsp;|&nbsp; 📍 المدينة المنورة، السعودية &nbsp;|&nbsp; 💬 <a href="https://wa.me/966559580940" style="color:rgba(255,255,255,.6);">واتساب</a> &nbsp;|&nbsp; سجل تجاري: 4650288413</span>
   </div>
 </footer>
 
@@ -480,13 +397,14 @@ function confirmClear(){
 }
 
 /* ── إضافة سريعة من Upsell ── */
-function quickAdd(name, price, category){
+function quickAdd(name, price, category, productId){
   const cart = getCart();
   const ex = cart.find(i=>i.name===name);
   if(ex){ ex.qty=(ex.qty||1)+1; }
-  else { cart.push({id:Date.now(),name,price,category,qty:1}); }
+  else { cart.push({id:Date.now(),productId:productId||0,product_id:productId||0,name,price,category,qty:1}); }
   saveCart(cart);
   showMiniToast('✅ تمت الإضافة: '+name);
+  loadSmartUpsell();
 }
 
 /* ── كود الخصم ── */
@@ -554,7 +472,7 @@ async function checkoutWhatsapp(){
     return;
   }
 
-  const btn = document.querySelector('.checkout-wa');
+  const btn = document.getElementById('checkout-btn');
   btn.disabled = true;
   btn.textContent = '⏳ جاري إرسال الطلب...';
 
@@ -602,7 +520,7 @@ async function checkoutWhatsapp(){
     }
   } catch(err) {
     btn.disabled = false;
-    btn.textContent = '💬 اطلب عبر واتساب';
+    btn.textContent = '🚀 اطلب الآن';
     // Fallback لواتساب
     const items = cart.map(i=>`• ${i.name} (${i.qty||1}x) — ${(i.price*(i.qty||1)).toFixed(0)} ﷼`).join('\n');
     const msg = encodeURIComponent(`مرحباً، أريد تأكيد طلبي:\n\n👤 ${user.name}\n📞 ${user.phone}\n\n${items}`);
@@ -611,21 +529,65 @@ async function checkoutWhatsapp(){
   }
 }
 
-/* ── IBAN Modal ── */
-function showIbanModal(){
+/* ── Upsell ذكي من services.json ── */
+async function loadSmartUpsell(){
   const cart = getCart();
-  if(cart.length===0){ alert('السلة فارغة!'); return; }
-  document.getElementById('iban-modal').classList.add('open');
-}
-function closeIban(e){ if(e.target===document.getElementById('iban-modal')) closeIbanDirect(); }
-function closeIbanDirect(){ document.getElementById('iban-modal').classList.remove('open'); }
-function copyIban(){
-  navigator.clipboard.writeText('SA9580000333608014653214').then(()=>showMiniToast('✅ تم نسخ رقم الآيبان!')).catch(()=>showMiniToast('انسخ الرقم يدوياً'));
-}
-function sendReceiptWa(){
-  const total = document.getElementById('modal-total').textContent;
-  const msg = `مرحباً، قمت بالتحويل البنكي بمبلغ ${total}\nأرسل الإيصال معلق على هذه الرسالة.`;
-  window.open(`https://wa.me/966559580940?text=${encodeURIComponent(msg)}`,'_blank');
+  const upsellSection = document.getElementById('upsell-section');
+  const upsellGrid = document.getElementById('upsell-grid');
+  if(!upsellSection || !upsellGrid) return;
+
+  try {
+    const res = await fetch('services.json?v=' + Date.now());
+    const data = await res.json();
+
+    // جمع فئات المنتجات في السلة
+    const cartNames = new Set(cart.map(i => i.name));
+    const cartPages = new Set();
+    cart.forEach(item => {
+      if(item.category) {
+        // استخراج اسم الصفحة من الفئة (مثال: "خدمات حكومية / أبشر" → "absher")
+        const parts = item.category.split('/');
+        if(parts.length > 1) cartPages.add(parts[parts.length-1].trim());
+      }
+    });
+
+    // جمع كل الخدمات من نفس الصفحات
+    let suggestions = [];
+    for(const [page, services] of Object.entries(data)){
+      const pageLabel = page.replace('.html','');
+      const isRelated = cartPages.size === 0 || [...cartPages].some(p =>
+        pageLabel.includes(p) || p.includes(pageLabel)
+      );
+      if(isRelated || cartPages.size === 0){
+        services.forEach(svc => {
+          if(!cartNames.has(svc.name) && svc.price > 0){
+            suggestions.push({...svc, page});
+          }
+        });
+      }
+    }
+
+    // خلط وأخذ 4 فقط
+    suggestions = suggestions.sort(()=>Math.random()-0.5).slice(0,4);
+
+    if(suggestions.length === 0){ upsellSection.style.display='none'; return; }
+
+    upsellGrid.innerHTML = suggestions.map(svc => `
+      <div class="upsell-card">
+        <div class="upsell-icon">⚙️</div>
+        <div>
+          <div class="upsell-name">${svc.name}</div>
+          <div class="upsell-price">﷼ ${svc.price}</div>
+        </div>
+        <button class="upsell-add" onclick="quickAdd('${svc.name.replace(/'/g,"\\'")}',${svc.price},'${(svc.category||'خدمات').replace(/'/g,"\\'")}',${svc.id||0})">+ أضف</button>
+      </div>
+    `).join('');
+
+    upsellSection.style.display = 'block';
+  } catch(e) {
+    console.warn('Upsell load failed:', e);
+    upsellSection.style.display = 'none';
+  }
 }
 
 /* ── Toast صغير ── */
@@ -640,6 +602,7 @@ function showMiniToast(msg){
 document.addEventListener('DOMContentLoaded', () => {
   renderCart();
   showUserBar();
+  loadSmartUpsell();
 });
 </script>
 <script src="sidebar.js"></script>
