@@ -1602,7 +1602,7 @@
   /* ── تهيئة عند تحميل الصفحة ── */
   document.addEventListener('DOMContentLoaded', function() {
     renderCalendar();
-    if (typeof updateCartBadge === 'function') updateCartBadge();
+    if (typeof updateCartBadge === 'function') if (typeof updateCartBadge === "function") updateCartBadge();
   });
 </script>
 <script src="sidebar.js"></script>
