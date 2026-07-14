@@ -52,16 +52,16 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::before{content:'';position:absolute;top:0;right:0;left:0;height:5px;background:var(--green);}
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:130px;display:flex;align-items:center;justify-content:center;padding:14px;background:#fff;}
-.svc-img img{max-height:90px;max-width:140px;object-fit:contain;}
+.icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;}
 .svc-name{font-size:13px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:36px;}
 .svc-price{font-size:15px;font-weight:900;color:var(--dark);}
 .currency{font-size:12px;font-weight:600;}
 .svc-footer{padding:10px 13px 13px;}
-.add-btn{width:100%;padding:9px;border-radius:9px;background:var(--green);color:#fff;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
-.add-btn:hover{background:var(--green-light);}
-.add-btn.added{background:#16a34a;}
+.btn-cart{width:100%;padding:9px;border-radius:8px;background:var(--green);color:#fff;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:background .2s;}
+.btn-cart:hover{background:var(--green-light);}
+
 .wa-float{position:fixed;bottom:28px;left:28px;z-index:997;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s;text-decoration:none;}
 .wa-float:hover{transform:scale(1.1);}
 footer{background:var(--dark);color:#fff;padding:40px 24px 20px;}
@@ -151,130 +151,114 @@ footer{background:var(--dark);color:#fff;padding:40px 24px 20px;}
     <div class="services-grid">
 
       <div class="svc-card" data-id="2699">
-        <div class="svc-img">
-          🌍🌐</div>'">
+        <div class="svc-img"><div class="icon-circle">🌐</div></div>
         </div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">طلب زيارة عائلية</div>
-          <div class="svc-price">150 <span class="currency">ريال</span></div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
         </div>
         <div class="svc-footer">
-          <button class="add-btn" onclick="addToCart(this,'طلب زيارة عائلية',150,'وزارة الخارجية')">
-            🛒 أضف للسلة
-          </button>
+          <button class="btn-cart" onclick="cartAdd(this,'طلب زيارة عائلية')">
+            🛒 أضف للسلة</button>
         </div>
       </div>
 
       <div class="svc-card" data-id="2700">
-        <div class="svc-img">
-          🌍🌐</div>'">
+        <div class="svc-img"><div class="icon-circle">🌐</div></div>
         </div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تقديم طلب زيارة عائلية للمقيمين</div>
-          <div class="svc-price">50 <span class="currency">ريال</span></div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="50">50</span></div>
         </div>
         <div class="svc-footer">
-          <button class="add-btn" onclick="addToCart(this,'تقديم طلب زيارة عائلية للمقيمين',50,'وزارة الخارجية')">
-            🛒 أضف للسلة
-          </button>
+          <button class="btn-cart" onclick="cartAdd(this,'تقديم طلب زيارة عائلية للمقيمين')">
+            🛒 أضف للسلة</button>
         </div>
       </div>
 
       <div class="svc-card" data-id="2701">
-        <div class="svc-img">
-          🌍🌐</div>'">
+        <div class="svc-img"><div class="icon-circle">🌐</div></div>
         </div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تقديم طلب زيارة شخصية للمواطنين</div>
-          <div class="svc-price">150 <span class="currency">ريال</span></div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
         </div>
         <div class="svc-footer">
-          <button class="add-btn" onclick="addToCart(this,'تقديم طلب زيارة شخصية للمواطنين',150,'وزارة الخارجية')">
-            🛒 أضف للسلة
-          </button>
+          <button class="btn-cart" onclick="cartAdd(this,'تقديم طلب زيارة شخصية للمواطنين')">
+            🛒 أضف للسلة</button>
         </div>
       </div>
 
       <div class="svc-card" data-id="2702">
-        <div class="svc-img">
-          🌍🌐</div>'">
+        <div class="svc-img"><div class="icon-circle">🌐</div></div>
         </div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تصديق الوكالات الخارجية</div>
-          <div class="svc-price">100 <span class="currency">ريال</span></div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
         </div>
         <div class="svc-footer">
-          <button class="add-btn" onclick="addToCart(this,'تصديق الوكالات الخارجية',100,'وزارة الخارجية')">
-            🛒 أضف للسلة
-          </button>
+          <button class="btn-cart" onclick="cartAdd(this,'تصديق الوكالات الخارجية')">
+            🛒 أضف للسلة</button>
         </div>
       </div>
 
       <div class="svc-card" data-id="2703">
-        <div class="svc-img">
-          🌍🌐</div>'">
+        <div class="svc-img"><div class="icon-circle">🌐</div></div>
         </div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">استعلام عن طلب زيارة</div>
-          <div class="svc-price">30 <span class="currency">ريال</span></div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="30">30</span></div>
         </div>
         <div class="svc-footer">
-          <button class="add-btn" onclick="addToCart(this,'استعلام عن طلب زيارة',30,'وزارة الخارجية')">
-            🛒 أضف للسلة
-          </button>
+          <button class="btn-cart" onclick="cartAdd(this,'استعلام عن طلب زيارة')">
+            🛒 أضف للسلة</button>
         </div>
       </div>
 
       <div class="svc-card" data-id="2704">
-        <div class="svc-img">
-          🌍🌐</div>'">
+        <div class="svc-img"><div class="icon-circle">🌐</div></div>
         </div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تفويض تأشيرات عمل</div>
-          <div class="svc-price">100 <span class="currency">ريال</span></div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="100">100</span></div>
         </div>
         <div class="svc-footer">
-          <button class="add-btn" onclick="addToCart(this,'تفويض تأشيرات عمل',100,'وزارة الخارجية')">
-            🛒 أضف للسلة
-          </button>
+          <button class="btn-cart" onclick="cartAdd(this,'تفويض تأشيرات عمل')">
+            🛒 أضف للسلة</button>
         </div>
       </div>
 
       <div class="svc-card" data-id="2705">
-        <div class="svc-img">
-          🌍🌐</div>'">
+        <div class="svc-img"><div class="icon-circle">🌐</div></div>
         </div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تفويض تأشيرات العمل</div>
-          <div class="svc-price">150 <span class="currency">ريال</span></div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
         </div>
         <div class="svc-footer">
-          <button class="add-btn" onclick="addToCart(this,'تفويض تأشيرات العمل',150,'وزارة الخارجية')">
-            🛒 أضف للسلة
-          </button>
+          <button class="btn-cart" onclick="cartAdd(this,'تفويض تأشيرات العمل')">
+            🛒 أضف للسلة</button>
         </div>
       </div>
 
       <div class="svc-card" data-id="2706">
-        <div class="svc-img">
-          🌍🌐</div>'">
+        <div class="svc-img"><div class="icon-circle">🌐</div></div>
         </div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">طلب زيارة عمل</div>
-          <div class="svc-price">150 <span class="currency">ريال</span></div>
+          <div class="svc-price"><span class="currency">﷼</span> <span class="price-val" data-price="150">150</span></div>
         </div>
         <div class="svc-footer">
-          <button class="add-btn" onclick="addToCart(this,'طلب زيارة عمل',150,'وزارة الخارجية')">
-            🛒 أضف للسلة
-          </button>
+          <button class="btn-cart" onclick="cartAdd(this,'طلب زيارة عمل')">
+            🛒 أضف للسلة</button>
         </div>
       </div>
 
