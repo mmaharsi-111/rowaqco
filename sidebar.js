@@ -42,15 +42,9 @@
   </div>
   <div class="sidebar-body">
 
-    <div class="sb-item has-sub" onclick="toggleSub(this)">
-      <span><span class="sb-icon">📅</span> الخدمات العامة وحجز المواعيد والرحلات</span>
-      <span class="sb-arrow">❯</span>
-    </div>
-    <div class="sb-sub">
-      <a href="general-services.html#appointments">حجز مواعيد حكومية</a>
-      <a href="general-services.html#trips">حجز تذاكر رحلات</a>
-      <a href="general-services.html#appointments">مواعيد الجوازات</a>
-    </div>
+    <a href="general-services.html" class="sb-item">
+      <span class="sb-icon">📅</span><span class="sb-label">الخدمات العامة وحجز المواعيد والرحلات</span>
+    </a>
 
     <a href="individuals.html" class="sb-item">
       <span class="sb-icon">👤</span><span class="sb-label">خدمات الأفراد</span>
