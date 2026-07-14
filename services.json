@@ -1895,7 +1895,7 @@
     {
       "id": 2751,
       "name": "إصدار تأشيرة خروج وعودة",
-      "price": 33,
+      "price": 50,
       "category": "خدمات حكومية / مقيم",
       "active": true,
       "sale_ok": true
@@ -3361,7 +3361,7 @@
     {
       "id": 2850,
       "name": "استعلام استحقاقك دعم ساند",
-      "price": 0,
+      "price": 30,
       "category": "برامج الدعم / ساند",
       "active": true,
       "sale_ok": true
@@ -3369,7 +3369,7 @@
     {
       "id": 2851,
       "name": "التسجيل في دعم ساند",
-      "price": 0,
+      "price": 200,
       "category": "برامج الدعم / ساند",
       "active": true,
       "sale_ok": true
