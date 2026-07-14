@@ -2853,7 +2853,7 @@
     {
       "id": 2710,
       "name": "تسجيل في دعم توطين",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
@@ -2861,7 +2861,7 @@
     {
       "id": 2707,
       "name": "فتح حساب مستخدم منشأة على وزارة الموارد",
-      "price": 0,
+      "price": 100,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
@@ -2869,7 +2869,7 @@
     {
       "id": 2708,
       "name": "استخراج نسخة إلكترونية لشهادة من وزارة الموارد البشرية - اعمال",
-      "price": 0,
+      "price": 49,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
@@ -2877,7 +2877,7 @@
     {
       "id": 2709,
       "name": "فتح حساب على برنامج العمل عن بعد التابع لوزارة الموارد البشرية والتنمية",
-      "price": 0,
+      "price": 49,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
@@ -2885,7 +2885,7 @@
     {
       "id": 2711,
       "name": "رفع دعوى بالتسوية الودية (شكوى عمالية)",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / الموارد البشرية",
       "active": true,
       "sale_ok": true
@@ -3123,7 +3123,7 @@
     {
       "id": 2696,
       "name": "تسجيل الطالب في رياض الأطفال",
-      "price": 0,
+      "price": 40,
       "category": "الوزارات / التعليم",
       "active": true,
       "sale_ok": true
@@ -3133,7 +3133,7 @@
     {
       "id": 2697,
       "name": "طلب تفعيل بطاقة صحية",
-      "price": 0,
+      "price": 50,
       "category": "الوزارات / البيئة",
       "active": true,
       "sale_ok": true
@@ -3141,7 +3141,7 @@
     {
       "id": 2698,
       "name": "طلب فتح بطاقة صحية",
-      "price": 0,
+      "price": 50,
       "category": "الوزارات / البيئة",
       "active": true,
       "sale_ok": true
@@ -3151,7 +3151,7 @@
     {
       "id": 2699,
       "name": "طلب زيارة عائلية",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3159,7 +3159,7 @@
     {
       "id": 2702,
       "name": "تصديق الوكالات الخارجية",
-      "price": 0,
+      "price": 100,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3167,7 +3167,7 @@
     {
       "id": 2703,
       "name": "استعلام عن طلب زيارة",
-      "price": 0,
+      "price": 30,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3175,7 +3175,7 @@
     {
       "id": 2704,
       "name": "تفويض تأشيرات عمل",
-      "price": 0,
+      "price": 100,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3183,7 +3183,7 @@
     {
       "id": 2700,
       "name": "تقديم طلب زيارة عائلية للمقيمين",
-      "price": 0,
+      "price": 50,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3191,7 +3191,7 @@
     {
       "id": 2701,
       "name": "تقديم طلب زيارة شخصية للمواطنين",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3199,7 +3199,7 @@
     {
       "id": 2705,
       "name": "تفويض تأشيرات العمل",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3207,7 +3207,7 @@
     {
       "id": 2706,
       "name": "طلب زيارة عمل",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / الخارجية",
       "active": true,
       "sale_ok": true
@@ -3217,7 +3217,7 @@
     {
       "id": 2721,
       "name": "إصدار ترخيص وزارة الاستثمار",
-      "price": 0,
+      "price": 625,
       "category": "الوزارات / الاستثمار",
       "active": true,
       "sale_ok": true
@@ -3225,7 +3225,7 @@
     {
       "id": 2722,
       "name": "خدمة تجديد ترخيص وزارة الاستثمار",
-      "price": 0,
+      "price": 135,
       "category": "الوزارات / الاستثمار",
       "active": true,
       "sale_ok": true
@@ -3233,7 +3233,7 @@
     {
       "id": 2724,
       "name": "متابعة طلبات الاستثمار",
-      "price": 0,
+      "price": 100,
       "category": "الوزارات / الاستثمار",
       "active": true,
       "sale_ok": true
@@ -3241,7 +3241,7 @@
     {
       "id": 2726,
       "name": "إلغاء ترخيص الاستثمار",
-      "price": 0,
+      "price": 200,
       "category": "الوزارات / الاستثمار",
       "active": true,
       "sale_ok": true
@@ -3249,7 +3249,7 @@
     {
       "id": 2723,
       "name": "خدمة تعديل ترخيص وزارة الاستثمار",
-      "price": 0,
+      "price": 250,
       "category": "الوزارات / الاستثمار",
       "active": true,
       "sale_ok": true
@@ -3257,7 +3257,7 @@
     {
       "id": 2725,
       "name": "مراجعة متطلبات النشاطات قبل التقديم",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / الاستثمار",
       "active": true,
       "sale_ok": true
@@ -3267,7 +3267,7 @@
     {
       "id": 2727,
       "name": "خدمة الاستعلام عن طلبات التنفيذ",
-      "price": 0,
+      "price": 30,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
@@ -3275,7 +3275,7 @@
     {
       "id": 2729,
       "name": "تقديم دعوى مالية",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
@@ -3283,7 +3283,7 @@
     {
       "id": 2730,
       "name": "دعوى محكمة عالمية",
-      "price": 0,
+      "price": 150,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
@@ -3291,7 +3291,7 @@
     {
       "id": 2731,
       "name": "حجز المواعيد في المحكمة",
-      "price": 0,
+      "price": 50,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
@@ -3299,7 +3299,7 @@
     {
       "id": 2732,
       "name": "تقديم دعوى زيارة - تنظيم حقوق زيارة الأبناء",
-      "price": 0,
+      "price": 320,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
@@ -3307,7 +3307,7 @@
     {
       "id": 2728,
       "name": "إصدار والغاء الوكالات الشرعية",
-      "price": 0,
+      "price": 50,
       "category": "الوزارات / العدل",
       "active": true,
       "sale_ok": true
@@ -3317,7 +3317,7 @@
     {
       "id": 2733,
       "name": "اعتراض على غرامة تفتيش",
-      "price": 0,
+      "price": 100,
       "category": "الوزارات / العمل",
       "active": true,
       "sale_ok": true
@@ -3325,7 +3325,7 @@
     {
       "id": 2734,
       "name": "نقل ملكية ملفات مكتب العمل",
-      "price": 0,
+      "price": 100,
       "category": "الوزارات / العمل",
       "active": true,
       "sale_ok": true
@@ -3333,7 +3333,7 @@
     {
       "id": 2735,
       "name": "شطب ملفات مكتب العمل",
-      "price": 0,
+      "price": 50,
       "category": "الوزارات / العمل",
       "active": true,
       "sale_ok": true
@@ -3341,7 +3341,7 @@
     {
       "id": 2736,
       "name": "خدمة تحديث بيانات العمالة",
-      "price": 0,
+      "price": 50,
       "category": "الوزارات / العمل",
       "active": true,
       "sale_ok": true
