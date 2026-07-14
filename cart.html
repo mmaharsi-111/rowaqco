@@ -153,16 +153,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .sb-sub a{display:block;padding:11px 20px 11px 40px;font-size:13px;color:var(--mid);border-bottom:1px solid var(--border);text-decoration:none;}
 .sb-sub a:hover{color:var(--green);background:var(--green-pale);}
 .sb-sub a::before{content:"•";margin-left:8px;color:var(--green);}
-.sidebar-footer{padding:16px 20px;border-top:2px solid var(--border);display:flex;flex-direction:column;gap:10px;}
-.sidebar-footer a{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
-.sb-wa{background:#25d366;color:#fff;}.sb-call{background:var(--green-pale);color:var(--green);}
-
-/* WA FLOAT */
-.wa-float{position:fixed;bottom:28px;left:28px;z-index:997;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s;}
-.wa-float:hover{transform:scale(1.1);}
-
-/* FOOTER */
-footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
+.sidebar-footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .footer-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
 .footer-brand strong{color:#fff;font-size:17px;font-weight:900;display:block;margin-bottom:10px;}
 .footer-brand p{font-size:13px;line-height:1.7;margin-bottom:20px;}
@@ -171,6 +162,16 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .footer-col ul a{font-size:13px;transition:color .2s;color:rgba(255,255,255,.8);}
 .footer-col ul a:hover{color:#f0dfa0;}
 .footer-bottom{max-width:1200px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;opacity:.6;}
+.social-links{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+.social-links a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;}
+.social-links a:hover{transform:translateY(-2px);}
+.social-links a svg{width:18px;height:18px;fill:currentColor;}
+.social-links a.yt:hover{background:#ff0000;}
+.social-links a.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+.social-links a.fb:hover{background:#1877f2;}
+.social-links a.li:hover{background:#0a66c2;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
 .social-links{display:flex;gap:10px;}
 .social-links a{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .social-links a svg{width:18px;height:18px;fill:#fff;}
@@ -301,7 +302,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     <div class="footer-brand">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
         <img src="logo.jpg" alt="رواق التميز" style="height:60px;width:auto;flex-shrink:0;">
-        <strong>رواق التميز للخدمات العامة</strong>
+        <strong style="font-size:17px;">رواق التميز للخدمات العامة</strong>
       </div>
       <p>نخدم المواطن والمقيم وأصحاب المؤسسات والشركات، وننجز معاملاتهم بطريقة رقمية متطورة من أي مكان.</p>
       <div class="social-links">
@@ -334,6 +335,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <li><a href="about.html">من نحن</a></li>
         <li><a href="contact.html">تواصل معنا</a></li>
         <li><a href="packages.html">الباقات</a></li>
+        <li><a href="cart.html">سلة المشتريات</a></li>
       </ul>
     </div>
     <div class="footer-col">
