@@ -291,16 +291,16 @@
   
 
   /* ===== PLATFORMS SECTION ===== */
-  .platforms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 14px; }
+  .platforms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
   .platform-card {
     background: var(--white); border: 1px solid var(--border);
-    border-radius: 10px; padding: 16px 12px; text-align: center;
+    border-radius: 10px; padding: 20px 14px 14px; text-align: center;
     font-size: 12px; font-weight: 700; color: var(--mid);
     box-shadow: var(--shadow); transition: all .2s; cursor: pointer;
   }
   .platform-card:hover { border-color: var(--green); color: var(--green); background: var(--green-pale); }
-  .platform-card .picon { font-size: 32px; margin-bottom: 8px; height: 60px; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; }
-  .platform-card .picon img { width: 80px; height: 56px; object-fit: contain; }
+  .platform-card .picon { font-size: 26px; margin-bottom: 10px; height: 52px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
+  .platform-card .picon img { width: 100%; max-width: 130px; height: 52px; object-fit: contain; display: block; }
 
   /* ===== CONSULTATION BOOKING ===== */
   .consult-step {
