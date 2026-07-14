@@ -291,16 +291,16 @@
   
 
   /* ===== PLATFORMS SECTION ===== */
-  .platforms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
+  .platforms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 14px; }
   .platform-card {
     background: var(--white); border: 1px solid var(--border);
-    border-radius: 10px; padding: 20px 14px 14px; text-align: center;
+    border-radius: 10px; padding: 16px 12px; text-align: center;
     font-size: 12px; font-weight: 700; color: var(--mid);
     box-shadow: var(--shadow); transition: all .2s; cursor: pointer;
   }
   .platform-card:hover { border-color: var(--green); color: var(--green); background: var(--green-pale); }
-  .platform-card .picon { font-size: 26px; margin-bottom: 10px; height: 52px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; }
-  .platform-card .picon img { width: 100%; max-width: 130px; height: 52px; object-fit: contain; display: block; }
+  .platform-card .picon { font-size: 26px; margin-bottom: 8px; height: 48px; width: 100%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; overflow: hidden; }
+  .platform-card .picon img { max-height: 44px; max-width: 110px; width: auto; height: auto; object-fit: contain; }
 
   /* ===== CONSULTATION BOOKING ===== */
   .consult-step {
@@ -812,133 +812,133 @@
     <div class="platforms-grid">
 
       <!-- المنصات الموجودة + اللوقوهات الرسمية -->
-      <a href="absher.html">
-        <div class="picon"><img src="absher.svg" alt="absher"></div>أبشر
+      <a href="absher.html" class="platform-card">
+        <div class="picon"><img src="absher.svg" alt="أبشر" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>أبشر
       </a>
-      <a href="qiwa.html">
-        <div class="picon"><img src="qiwa.svg" alt="qiwa"></div>قوى
+      <a href="qiwa.html" class="platform-card">
+        <div class="picon"><img src="qiwa.svg" alt="قوى" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>قوى
       </a>
-      <a href="balady.html">
-        <div class="picon"><img src="balady.svg" alt="balady"></div>بلدي
+      <a href="balady.html" class="platform-card">
+        <div class="picon"><img src="balady.svg" alt="بلدي" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>بلدي
       </a>
-      <a href="mudad.html">
-        <div class="picon"><img src="mudad.svg" alt="mudad"></div>مدد
+      <a href="mudad.html" class="platform-card">
+        <div class="picon"><img src="mudad.svg" alt="مدد" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>مدد
       </a>
-      <a href="muqeem.html">
-        <div class="picon"><img src="muqeem.webp" alt="muqeem"></div>مقيم
+      <a href="muqeem.html" class="platform-card">
+        <div class="picon"><img src="muqeem.webp" alt="مقيم" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>مقيم
       </a>
-      <a href="sbc.html">
-        <div class="picon"><img src="sbc.svg" alt="sbc"></div>المركز السعودي
+      <a href="sbc.html" class="platform-card">
+        <div class="picon"><img src="sbc.svg" alt="المركز السعودي" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>المركز السعودي
       </a>
-      <a href="najiz.html">
-        <div class="picon"><img src="najiz.svg" alt="najiz"></div>ناجز
+      <a href="najiz.html" class="platform-card">
+        <div class="picon"><img src="najiz.svg" alt="ناجز" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>ناجز
       </a>
-      <a href="zatca.html">
-        <div class="picon"><img src="zatca.svg" alt="zatca"></div>الزكاة والضريبة
+      <a href="zatca.html" class="platform-card">
+        <div class="picon"><img src="zatca.svg" alt="الزكاة والضريبة" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>الزكاة والضريبة
       </a>
-      <a href="sakani.html">
-        <div class="picon"><img src="sakani.svg" alt="sakani"></div>سكني
+      <a href="sakani.html" class="platform-card">
+        <div class="picon"><img src="sakani.svg" alt="سكني" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>سكني
       </a>
-      <a href="electricity.html">
-        <div class="picon"><img src="electricity.svg" alt="electricity"></div>الكهرباء
+      <a href="electricity.html" class="platform-card">
+        <div class="picon"><img src="electricity.svg" alt="الكهرباء" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>الكهرباء
       </a>
-      <a href="water.html">
-        <div class="picon"><img src="water.svg" alt="water"></div>المياه
+      <a href="water.html" class="platform-card">
+        <div class="picon"><img src="water.svg" alt="المياه" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>المياه
       </a>
-      <a href="noor-faris.html">
-        <div class="picon"><img src="noor-faris.webp" alt="noor-faris"></div>نور وفارس
+      <a href="noor-faris.html" class="platform-card">
+        <div class="picon"><img src="noor-faris.webp" alt="نور وفارس" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>نور وفارس
       </a>
-      <a href="gosi.html">
-        <div class="picon"><img src="gosi.svg" alt="gosi"></div>تأمينات اجتماعية
+      <a href="gosi.html" class="platform-card">
+        <div class="picon"><img src="gosi.svg" alt="تأمينات اجتماعية" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>تأمينات اجتماعية
       </a>
-      <a href="ejar.html">
-        <div class="picon"><img src="ejar.svg" alt="ejar"></div>إيجار
+      <a href="ejar.html" class="platform-card">
+        <div class="picon"><img src="ejar.svg" alt="إيجار" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>إيجار
       </a>
-      <a href="chamber.html">
-        <div class="picon"><img src="chamber.webp" alt="chamber"></div>الغرفة التجارية
+      <a href="chamber.html" class="platform-card">
+        <div class="picon"><img src="chamber.webp" alt="الغرفة التجارية" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>الغرفة التجارية
       </a>
-      <a href="monshaat.html">
-        <div class="picon"><img src="monshaat.svg" alt="monshaat"></div>منشآت
+      <a href="monshaat.html" class="platform-card">
+        <div class="picon"><img src="monshaat.svg" alt="منشآت" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>منشآت
       </a>
 
       <!-- المنصات الجديدة -->
-      <a href="salama.html">
-        <div class="picon"><img src="salama.webp" alt="salama"></div>سلامة
+      <a href="salama.html" class="platform-card">
+        <div class="picon"><img src="salama.webp" alt="سلامة" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>سلامة
       </a>
-      <a href="saber.html">
-        <div class="picon"><img src="saber.webp" alt="saber"></div>سابر
+      <a href="saber.html" class="platform-card">
+        <div class="picon"><img src="saber.webp" alt="سابر" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>سابر
       </a>
-      <a href="discounts.html">
-        <div class="picon"><img src="discounts.svg" alt="discounts"></div>نظام التخفيضات
+      <a href="discounts.html" class="platform-card">
+        <div class="picon"><img src="discounts.svg" alt="نظام التخفيضات" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>نظام التخفيضات
       </a>
-      <a href="fasah.html">
-        <div class="picon"><img src="fasah.svg" alt="fasah"></div>فسح
+      <a href="fasah.html" class="platform-card">
+        <div class="picon"><img src="fasah.svg" alt="فسح" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>فسح
       </a>
-      <a href="telecom.html">
-        <div class="picon"><img src="telecom.svg" alt="telecom"></div>شركات الاتصالات
+      <a href="telecom.html" class="platform-card">
+        <div class="picon"><img src="telecom.svg" alt="شركات الاتصالات" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>شركات الاتصالات
       </a>
-      <a href="spl.html">
-        <div class="picon"><img src="spl.svg" alt="spl"></div>سبل
+      <a href="spl.html" class="platform-card">
+        <div class="picon"><img src="spl.svg" alt="سبل" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>سبل
       </a>
-      <a href="tam.html">
-        <div class="picon"><img src="tam.webp" alt="tam"></div>تم
+      <a href="tam.html" class="platform-card">
+        <div class="picon"><img src="tam.webp" alt="تم" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>تم
       </a>
-      <a href="ip.html">
-        <div class="picon"><img src="ip.svg" alt="ip"></div>الملكية الفكرية
+      <a href="ip.html" class="platform-card">
+        <div class="picon"><img src="ip.svg" alt="الملكية الفكرية" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>الملكية الفكرية
       </a>
-      <a href="taqyees.html">
-        <div class="picon"><img src="taqyees.webp" alt="taqyees"></div>تقييس
+      <a href="taqyees.html" class="platform-card">
+        <div class="picon"><img src="taqyees.webp" alt="تقييس" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>تقييس
       </a>
-      <a href="qawayem.html">
-        <div class="picon"><img src="qawayem.webp" alt="qawayem"></div>قوائم
+      <a href="qawayem.html" class="platform-card">
+        <div class="picon"><img src="qawayem.webp" alt="قوائم" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>قوائم
       </a>
-      <a href="seza.html">
-        <div class="picon"><img src="seza.svg" alt="seza"></div>هيئة المدن الاقتصادية
+      <a href="seza.html" class="platform-card">
+        <div class="picon"><img src="seza.svg" alt="هيئة المدن الاقتصادية" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>هيئة المدن الاقتصادية
       </a>
-      <a href="taqat.html">
-        <div class="picon"><img src="taqat.jpg" alt="taqat"></div>طاقات
+      <a href="taqat.html" class="platform-card">
+        <div class="picon"><img src="taqat.jpg" alt="طاقات" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>طاقات
       </a>
-      <a href="freelance.html">
-        <div class="picon"><img src="freelance.webp" alt="freelance"></div>العمل الحر
+      <a href="freelance.html" class="platform-card">
+        <div class="picon"><img src="freelance.webp" alt="العمل الحر" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>العمل الحر
       </a>
-      <a href="najm.html">
-        <div class="picon"><img src="najm.webp" alt="najm"></div>نجم
+      <a href="najm.html" class="platform-card">
+        <div class="picon"><img src="najm.webp" alt="نجم" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>نجم
       </a>
-      <a href="simah.html">
-        <div class="picon"><img src="simah.jpg" alt="simah"></div>سمة
+      <a href="simah.html" class="platform-card">
+        <div class="picon"><img src="simah.jpg" alt="سمة" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>سمة
       </a>
-      <a href="musaned.html">
-        <div class="picon"><img src="musaned.svg" alt="musaned"></div>مساند
+      <a href="musaned.html" class="platform-card">
+        <div class="picon"><img src="musaned.svg" alt="مساند" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>مساند
       </a>
-      <a href="sce.html">
-        <div class="picon"><img src="sce.svg" alt="sce"></div>الهيئة السعودية للمهندسين
+      <a href="sce.html" class="platform-card">
+        <div class="picon"><img src="sce.svg" alt="الهيئة السعودية للمهندسين" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>الهيئة السعودية للمهندسين
       </a>
-      <a href="realestate.html">
-        <div class="picon"><img src="realestate.webp" alt="realestate"></div>البورصة العقارية
+      <a href="realestate.html" class="platform-card">
+        <div class="picon"><img src="realestate.webp" alt="البورصة العقارية" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>البورصة العقارية
       </a>
-      <a href="shomoos.html">
-        <div class="picon"><img src="shomoos.svg" alt="shomoos"></div>شموس
+      <a href="shomoos.html" class="platform-card">
+        <div class="picon"><img src="shomoos.svg" alt="شموس" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>شموس
       </a>
-      <a href="mumaris.html">
-        <div class="picon"><img src="mumaris.webp" alt="mumaris"></div>ممارس بلس
+      <a href="mumaris.html" class="platform-card">
+        <div class="picon"><img src="mumaris.webp" alt="ممارس بلس" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>ممارس بلس
       </a>
-      <a href="taradhi.html">
-        <div class="picon"><img src="taradhi.webp" alt="taradhi"></div>تراضي
+      <a href="taradhi.html" class="platform-card">
+        <div class="picon"><img src="taradhi.webp" alt="تراضي" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>تراضي
       </a>
-      <a href="support-citizen.html">
-        <div class="picon"><img src="support-citizen.svg" alt="support-citizen"></div>حساب المواطن
+      <a href="support-citizen.html" class="platform-card">
+        <div class="picon"><img src="support-citizen.svg" alt="حساب المواطن" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>حساب المواطن
       </a>
-      <a href="support-guarantee.html">
-        <div class="picon"><img src="support-guarantee.svg" alt="support-guarantee"></div>الضمان المطور
+      <a href="support-guarantee.html" class="platform-card">
+        <div class="picon"><img src="support-guarantee.svg" alt="الضمان المطور" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>الضمان المطور
       </a>
-      <a href="support-hafiz.html">
-        <div class="picon"><img src="support-hafiz.webp" alt="support-hafiz"></div>حافز
+      <a href="support-hafiz.html" class="platform-card">
+        <div class="picon"><img src="support-hafiz.webp" alt="حافز" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>حافز
       </a>
-      <a href="support-tamheer.html">
-        <div class="picon"><img src="support-tamheer.webp" alt="support-tamheer"></div>تمهير
+      <a href="support-tamheer.html" class="platform-card">
+        <div class="picon"><img src="support-tamheer.webp" alt="تمهير" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>تمهير
       </a>
-      <a href="support-sanad.html">
-        <div class="picon"><img src="support-sanad.webp" alt="support-sanad"></div>ساند
+      <a href="support-sanad.html" class="platform-card">
+        <div class="picon"><img src="support-sanad.webp" alt="ساند" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;"></div>ساند
       </a>
       <a href="ministry-industry.html" class="platform-card">
         <div class="picon">⚙️</div>وزارة الصناعة والثروة المعدنية
@@ -1602,7 +1602,7 @@
   /* ── تهيئة عند تحميل الصفحة ── */
   document.addEventListener('DOMContentLoaded', function() {
     renderCalendar();
-    if (typeof updateCartBadge === 'function') if (typeof updateCartBadge === "function") updateCartBadge();
+    if (typeof updateCartBadge === "function") updateCartBadge();
   });
 </script>
 <script src="sidebar.js"></script>
