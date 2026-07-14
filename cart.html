@@ -162,8 +162,8 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .wa-float:hover{transform:scale(1.1);}
 
 /* FOOTER */
-footer{background:#111827;color:rgba(255,255,255,.8);padding:40px 24px 20px;}
-.footer-bottom{max-width:1280px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;opacity:.5;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);}
+footer{background:#111827;color:rgba(255,255,255,.8);padding:20px 24px;}
+.footer-bottom{max-width:1280px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:rgba(255,255,255,.5);border-top:1px solid rgba(255,255,255,.1);padding-top:16px;}
 
 @media(max-width:900px){.cart-layout{grid-template-columns:1fr;}.summary-box{position:static;}}
 @media(max-width:600px){.header-nav{display:none;}.cart-item{flex-wrap:wrap;}}
@@ -314,8 +314,8 @@ function renderCart(){
         <a href="index.html" class="btn btn-green" style="display:inline-flex;margin:0 auto;">🔍 تصفح الخدمات</a>
       </div>`;
     countEl.textContent = '';
-    document.getElementById('upsell-section').style.display = 'block';
     updateSummary(cart);
+    loadSmartUpsell();
     return;
   }
 
@@ -357,7 +357,6 @@ function updateSummary(cart){
   document.getElementById('sum-count').textContent = count + ' خدمة';
   document.getElementById('sum-sub').textContent = '﷼ ' + sub.toFixed(2);
   document.getElementById('sum-total').textContent = '﷼ ' + total.toFixed(2);
-  document.getElementById('modal-total').textContent = '﷼ ' + total.toFixed(2);
 
   const dRow = document.getElementById('discount-row');
   if(discount > 0){
@@ -530,51 +529,27 @@ async function checkoutWhatsapp(){
 }
 
 /* ── Upsell ذكي من services.json ── */
+const FALLBACK_UPSELL = [
+  {name:'تجديد الإقامة', price:50, category:'خدمات حكومية / أبشر', id:0, icon:'🪪'},
+  {name:'تجديد رخصة القيادة', price:30, category:'خدمات حكومية / أبشر', id:0, icon:'🚗'},
+  {name:'تصميم سيرة ذاتية', price:40, category:'خدمات عامة', id:0, icon:'📄'},
+  {name:'فتح حساب بنكي', price:50, category:'خدمات عامة', id:0, icon:'🏦'},
+];
+
 async function loadSmartUpsell(){
   const cart = getCart();
   const upsellSection = document.getElementById('upsell-section');
   const upsellGrid = document.getElementById('upsell-grid');
   if(!upsellSection || !upsellGrid) return;
 
-  try {
-    const res = await fetch('services.json?v=' + Date.now());
-    const data = await res.json();
+  const cartNames = new Set(cart.map(i => i.name));
 
-    // جمع فئات المنتجات في السلة
-    const cartNames = new Set(cart.map(i => i.name));
-    const cartPages = new Set();
-    cart.forEach(item => {
-      if(item.category) {
-        // استخراج اسم الصفحة من الفئة (مثال: "خدمات حكومية / أبشر" → "absher")
-        const parts = item.category.split('/');
-        if(parts.length > 1) cartPages.add(parts[parts.length-1].trim());
-      }
-    });
-
-    // جمع كل الخدمات من نفس الصفحات
-    let suggestions = [];
-    for(const [page, services] of Object.entries(data)){
-      const pageLabel = page.replace('.html','');
-      const isRelated = cartPages.size === 0 || [...cartPages].some(p =>
-        pageLabel.includes(p) || p.includes(pageLabel)
-      );
-      if(isRelated || cartPages.size === 0){
-        services.forEach(svc => {
-          if(!cartNames.has(svc.name) && svc.price > 0){
-            suggestions.push({...svc, page});
-          }
-        });
-      }
-    }
-
-    // خلط وأخذ 4 فقط
-    suggestions = suggestions.sort(()=>Math.random()-0.5).slice(0,4);
-
-    if(suggestions.length === 0){ upsellSection.style.display='none'; return; }
-
-    upsellGrid.innerHTML = suggestions.map(svc => `
+  function renderUpsellCards(items){
+    const filtered = items.filter(s => !cartNames.has(s.name)).slice(0,4);
+    if(filtered.length === 0){ upsellSection.style.display='none'; return; }
+    upsellGrid.innerHTML = filtered.map(svc => `
       <div class="upsell-card">
-        <div class="upsell-icon">⚙️</div>
+        <div class="upsell-icon">${svc.icon||'⚙️'}</div>
         <div>
           <div class="upsell-name">${svc.name}</div>
           <div class="upsell-price">﷼ ${svc.price}</div>
@@ -582,11 +557,52 @@ async function loadSmartUpsell(){
         <button class="upsell-add" onclick="quickAdd('${svc.name.replace(/'/g,"\\'")}',${svc.price},'${(svc.category||'خدمات').replace(/'/g,"\\'")}',${svc.id||0})">+ أضف</button>
       </div>
     `).join('');
-
     upsellSection.style.display = 'block';
+  }
+
+  try {
+    const res = await fetch('services.json?v=' + Date.now());
+    if(!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+
+    // جمع الصفحات المرتبطة بالسلة
+    const cartPages = new Set();
+    cart.forEach(item => {
+      if(item.category){
+        const parts = item.category.split('/');
+        if(parts.length > 1) cartPages.add(parts[parts.length-1].trim().toLowerCase());
+      }
+    });
+
+    let suggestions = [];
+    for(const [page, services] of Object.entries(data)){
+      const pageLabel = page.replace('.html','').toLowerCase();
+      const isRelated = cartPages.size === 0 || [...cartPages].some(p =>
+        pageLabel.includes(p) || p.includes(pageLabel)
+      );
+      if(isRelated){
+        services.forEach(svc => {
+          if(!cartNames.has(svc.name) && svc.price > 0)
+            suggestions.push({...svc, icon:'⚙️'});
+        });
+      }
+    }
+
+    // إذا لم تجد خدمات مرتبطة خذ عشوائية
+    if(suggestions.length === 0){
+      for(const services of Object.values(data)){
+        services.forEach(svc => {
+          if(!cartNames.has(svc.name) && svc.price > 0)
+            suggestions.push({...svc, icon:'⚙️'});
+        });
+      }
+    }
+
+    suggestions = suggestions.sort(()=>Math.random()-0.5);
+    renderUpsellCards(suggestions);
   } catch(e) {
-    console.warn('Upsell load failed:', e);
-    upsellSection.style.display = 'none';
+    console.warn('Upsell: using fallback', e);
+    renderUpsellCards(FALLBACK_UPSELL);
   }
 }
 
