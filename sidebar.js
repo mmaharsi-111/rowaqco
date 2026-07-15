@@ -87,18 +87,6 @@
       <span class="sb-icon">🏗️</span><span class="sb-label">خدمات الاستشارات الهندسية</span>
     </a>
 
-    <a href="packages.html" class="sb-item">
-      <span class="sb-icon">📦</span><span class="sb-label">باقات اشتراك الأعمال</span>
-    </a>
-
-    <a href="cart.html" class="sb-item">
-      <span class="sb-icon">🛒</span><span class="sb-label">سلة المشتريات</span>
-    </a>
-
-    <a href="my-orders.html" class="sb-item">
-      <span class="sb-icon">📋</span><span class="sb-label">طلباتي</span>
-    </a>
-
     <div class="sb-item has-sub" onclick="toggleSub(this)">
       <span><span class="sb-icon">💰</span> خدمات منصات الدعم الغير مسترد</span>
       <span class="sb-arrow">❯</span>
@@ -118,6 +106,18 @@
 
     <a href="education-services.html" class="sb-item">
       <span class="sb-icon">📚</span><span class="sb-label">خدمات للطلاب والمعلمين وأولياء الأمور</span>
+    </a>
+
+    <a href="packages.html" class="sb-item">
+      <span class="sb-icon">📦</span><span class="sb-label">باقات اشتراك الأعمال</span>
+    </a>
+
+    <a href="cart.html" class="sb-item">
+      <span class="sb-icon">🛒</span><span class="sb-label">سلة المشتريات</span>
+    </a>
+
+    <a href="my-orders.html" class="sb-item">
+      <span class="sb-icon">📋</span><span class="sb-label">طلباتي</span>
     </a>
 
     <a href="about.html" class="sb-item" onclick="closeSidebar()">
