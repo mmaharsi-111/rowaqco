@@ -218,6 +218,130 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   <p>نحن هنا لمساعدتك في أي وقت — تواصل معنا الآن وسيرد عليك فريقنا في أقرب وقت.</p>
 </div>
 
+<!-- ===== احجز استشارتك المجانية ===== -->
+<section id="consultation" style="background:var(--bg);padding:72px 24px;">
+  <div class="wrap">
+    <div class="section-header" style="text-align:center;margin-bottom:48px;">
+      <div class="section-label" style="display:inline-block;background:var(--green-pale);color:var(--green);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:12px;">مجاناً 100%</div>
+      <h2 style="font-size:clamp(22px,3vw,34px);font-weight:900;margin-bottom:10px;">📅 احجز استشارتك المجانية</h2>
+      <p style="color:var(--muted);font-size:15px;">اختر التاريخ والوقت المناسب لك وسيتواصل معك أحد متخصصينا مباشرة.</p>
+    </div>
+
+    <div style="max-width:900px;margin:auto;">
+      <!-- الخطوات -->
+      <div style="display:flex;gap:0;margin-bottom:36px;background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07);">
+        <div class="consult-step active" id="step-tab-1" style="flex:1;padding:18px;text-align:center;cursor:pointer;transition:all .2s;border-bottom:3px solid var(--green);background:var(--green-pale);">
+          <div style="font-size:22px;margin-bottom:4px;">📅</div>
+          <div style="font-size:13px;font-weight:700;">1. اختر التاريخ</div>
+        </div>
+        <div class="consult-step" id="step-tab-2" style="flex:1;padding:18px;text-align:center;cursor:pointer;transition:all .2s;border-bottom:3px solid transparent;">
+          <div style="font-size:22px;margin-bottom:4px;">🕐</div>
+          <div style="font-size:13px;font-weight:700;">2. اختر الوقت</div>
+        </div>
+        <div class="consult-step" id="step-tab-3" style="flex:1;padding:18px;text-align:center;cursor:pointer;transition:all .2s;border-bottom:3px solid transparent;">
+          <div style="font-size:22px;margin-bottom:4px;">📝</div>
+          <div style="font-size:13px;font-weight:700;">3. بياناتك</div>
+        </div>
+        <div class="consult-step" id="step-tab-4" style="flex:1;padding:18px;text-align:center;cursor:pointer;transition:all .2s;border-bottom:3px solid transparent;">
+          <div style="font-size:22px;margin-bottom:4px;">✅</div>
+          <div style="font-size:13px;font-weight:700;">4. تأكيد الحجز</div>
+        </div>
+      </div>
+
+      <!-- STEP 1: التقويم -->
+      <div id="consult-step-1" class="consult-panel">
+        <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.07);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+            <button onclick="changeMonth(-1)" style="width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">❮</button>
+            <h3 id="cal-month-label" style="font-size:17px;font-weight:900;"></h3>
+            <button onclick="changeMonth(1)" style="width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">❯</button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px;">
+            <div style="text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:6px;">أح</div>
+            <div style="text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:6px;">إث</div>
+            <div style="text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:6px;">ثل</div>
+            <div style="text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:6px;">أر</div>
+            <div style="text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:6px;">خم</div>
+            <div style="text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:6px;">جم</div>
+            <div style="text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:6px;">سب</div>
+          </div>
+          <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;"></div>
+          <div style="display:flex;gap:16px;margin-top:16px;font-size:12px;color:var(--muted);flex-wrap:wrap;">
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--green);border-radius:3px;margin-left:4px;"></span>متاح</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:#e5e7eb;border-radius:3px;margin-left:4px;"></span>غير متاح</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--gold);border-radius:3px;margin-left:4px;"></span>اليوم المختار</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: الأوقات -->
+      <div id="consult-step-2" class="consult-panel" style="display:none;">
+        <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.07);">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <button onclick="goStep(1)" style="background:var(--green-pale);color:var(--green);border:none;padding:7px 14px;border-radius:8px;font-family:Cairo,sans-serif;font-weight:700;font-size:13px;cursor:pointer;">← رجوع</button>
+            <h3 id="selected-date-label" style="font-size:16px;font-weight:900;color:var(--green);"></h3>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">المواعيد المتاحة من 9:00 صباحاً حتى 4:00 مساءً — كل 30 دقيقة</p>
+          <div id="time-slots-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;"></div>
+        </div>
+      </div>
+
+      <!-- STEP 3: بيانات العميل -->
+      <div id="consult-step-3" class="consult-panel" style="display:none;">
+        <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.07);">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <button onclick="goStep(2)" style="background:var(--green-pale);color:var(--green);border:none;padding:7px 14px;border-radius:8px;font-family:Cairo,sans-serif;font-weight:700;font-size:13px;cursor:pointer;">← رجوع</button>
+            <div>
+              <h3 style="font-size:16px;font-weight:900;">أدخل بياناتك</h3>
+              <div id="booking-summary-label" style="font-size:13px;color:var(--green);margin-top:2px;font-weight:700;"></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="field"><label>الاسم الكامل <span style="color:#e53e3e;">*</span></label><input type="text" id="c-name" placeholder="اكتب اسمك الكامل"></div>
+            <div class="field"><label>رقم الجوال <span style="color:#e53e3e;">*</span></label><input type="tel" id="c-phone" placeholder="05XXXXXXXX"></div>
+          </div>
+          <div class="field" style="margin-top:14px;">
+            <label>موضوع الاستشارة <span style="color:#e53e3e;">*</span></label>
+            <select id="c-topic">
+              <option value="" disabled selected>اختر موضوع الاستشارة</option>
+              <option>خدمات أبشر والإقامة</option>
+              <option>تأسيس منشأة أو شركة</option>
+              <option>خدمات العمالة والتوظيف</option>
+              <option>الدعم الحكومي (حساب المواطن / ضمان)</option>
+              <option>التمويل والقروض</option>
+              <option>خدمات المرور والمركبات</option>
+              <option>خدمات التعليم</option>
+              <option>استفسار عام</option>
+            </select>
+          </div>
+          <div class="field" style="margin-top:14px;">
+            <label>تفاصيل إضافية (اختياري)</label>
+            <textarea id="c-notes" placeholder="اكتب أي تفاصيل تريد مشاركتها مع المستشار..." style="min-height:90px;resize:vertical;"></textarea>
+          </div>
+          <button onclick="submitBooking()" style="width:100%;padding:14px;border-radius:11px;background:var(--green);color:#fff;font-family:Cairo,sans-serif;font-size:16px;font-weight:900;border:none;cursor:pointer;margin-top:20px;">✅ تأكيد حجز الاستشارة المجانية</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: تأكيد -->
+      <div id="consult-step-4" class="consult-panel" style="display:none;">
+        <div style="background:#fff;border-radius:14px;border:1px solid var(--border);padding:40px 28px;box-shadow:0 2px 16px rgba(0,0,0,.07);text-align:center;">
+          <div style="font-size:64px;margin-bottom:16px;">🎉</div>
+          <h3 style="font-size:22px;font-weight:900;color:var(--green);margin-bottom:8px;">تم حجز استشارتك بنجاح!</h3>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:24px;">سيتواصل معك أحد متخصصينا في الموعد المحدد</p>
+          <div style="background:var(--green-pale);border:1.5px solid var(--green);border-radius:12px;padding:20px;margin-bottom:28px;text-align:right;">
+            <div id="confirm-details" style="display:flex;flex-direction:column;gap:10px;font-size:14px;"></div>
+          </div>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a id="confirm-wa-btn" href="#" target="_blank" style="background:#25d366;color:#fff;padding:12px 24px;border-radius:10px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;">💬 إرسال تأكيد عبر واتساب</a>
+            <button onclick="resetBooking()" style="background:var(--green-pale);color:var(--green);border:2px solid var(--green);padding:12px 24px;border-radius:10px;font-family:Cairo,sans-serif;font-weight:700;font-size:14px;cursor:pointer;">📅 حجز موعد آخر</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== MAIN CONTACT ===== -->
 <section>
   <div class="wrap">
@@ -459,29 +583,136 @@ function submitForm() {
   const name    = document.getElementById('fname').value.trim();
   const phone   = document.getElementById('fphone').value.trim();
   const service = document.getElementById('fservice').value;
-
-  if (!name || !phone || !service) {
-    alert('يرجى تعبئة الحقول المطلوبة: الاسم، الجوال، والخدمة');
-    return;
-  }
-
-  // ✏️ غيّر الرقم هنا
+  if (!name || !phone || !service) { alert('يرجى تعبئة الحقول المطلوبة: الاسم، الجوال، والخدمة'); return; }
   const waPhone = '966559580940';
   const msg = document.getElementById('fmsg').value;
-  const text = encodeURIComponent(
-    `مرحباً، اسمي ${name}\nرقمي: ${phone}\nالخدمة المطلوبة: ${service}\n${msg ? 'التفاصيل: ' + msg : ''}`
-  );
+  const text = encodeURIComponent(`مرحباً، اسمي ${name}\nرقمي: ${phone}\nالخدمة المطلوبة: ${service}\n${msg ? 'التفاصيل: ' + msg : ''}`);
   window.open(`https://wa.me/${waPhone}?text=${text}`, '_blank');
-
   document.getElementById('successMsg').style.display = 'block';
   setTimeout(() => document.getElementById('successMsg').style.display = 'none', 5000);
 }
-</script>
 
-<script>
-  
-  
-  );document.querySelectorAll(".sb-item.has-sub").forEach(function(s){s.classList.remove("open");});if(!isOpen){sub.classList.add("open");el.classList.add("open");}}
+// ===== نظام حجز الاستشارات =====
+const BOOKINGS_KEY = 'rawaq_bookings';
+const MONTHS_AR = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+const DAYS_AR   = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+let calCurrentDate = new Date();
+let selectedDate = null;
+let selectedTime = null;
+
+function getBookings() { try { return JSON.parse(localStorage.getItem(BOOKINGS_KEY)) || {}; } catch { return {}; } }
+function saveBooking(dk, time, info) { const b = getBookings(); if (!b[dk]) b[dk] = {}; b[dk][time] = info; try { localStorage.setItem(BOOKINGS_KEY, JSON.stringify(b)); } catch(e) {} }
+function isBooked(dk, time) { const b = getBookings(); return !!(b[dk] && b[dk][time]); }
+function dateKey(y, m, d) { return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`; }
+function generateSlots() { const s = []; for (let h = 9; h <= 15; h++) { s.push(`${String(h).padStart(2,'0')}:00`); if (h < 16) s.push(`${String(h).padStart(2,'0')}:30`); } s.push('16:00'); return s; }
+function formatTime(t) { const [h, m] = t.split(':').map(Number); const suffix = h < 12 ? 'ص' : 'م'; const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h; return `${h12}:${String(m).padStart(2,'0')} ${suffix}`; }
+
+function goStep(n) {
+  for (let i = 1; i <= 4; i++) {
+    const panel = document.getElementById(`consult-step-${i}`);
+    const tab   = document.getElementById(`step-tab-${i}`);
+    if (panel) panel.style.display = i === n ? 'block' : 'none';
+    if (tab) {
+      tab.style.borderBottomColor = i === n ? 'var(--green)' : 'transparent';
+      tab.style.background = i === n ? 'var(--green-pale)' : '';
+    }
+  }
+}
+
+function renderCalendar() {
+  const now = new Date(); const y = calCurrentDate.getFullYear(); const m = calCurrentDate.getMonth();
+  const first = new Date(y, m, 1).getDay(); const days = new Date(y, m + 1, 0).getDate();
+  document.getElementById('cal-month-label').textContent = `${MONTHS_AR[m]} ${y}`;
+  let html = '';
+  for (let i = 0; i < first; i++) html += '<div style="padding:8px;"></div>';
+  for (let d = 1; d <= days; d++) {
+    const date = new Date(y, m, d);
+    const isPast = date < new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const isFri = date.getDay() === 5;
+    const isSel = selectedDate && selectedDate.y === y && selectedDate.m === m && selectedDate.d === d;
+    const isToday = date.toDateString() === now.toDateString();
+    let bg = isPast || isFri ? '#f3f4f6' : isSel ? 'var(--gold)' : isToday ? 'var(--green-pale)' : 'var(--green)';
+    let color = isPast || isFri ? 'var(--muted)' : isSel ? 'var(--dark)' : '#fff';
+    let cursor = isPast || isFri ? 'default' : 'pointer';
+    html += `<div onclick="${!isPast && !isFri ? `selectDate(${y},${m},${d})` : ''}" style="padding:8px;text-align:center;border-radius:8px;background:${bg};color:${color};cursor:${cursor};font-size:13px;font-weight:700;">${d}</div>`;
+  }
+  document.getElementById('cal-grid').innerHTML = html;
+}
+
+function changeMonth(dir) {
+  calCurrentDate.setMonth(calCurrentDate.getMonth() + dir);
+  const now = new Date();
+  if (calCurrentDate.getFullYear() < now.getFullYear() || (calCurrentDate.getFullYear() === now.getFullYear() && calCurrentDate.getMonth() < now.getMonth())) {
+    calCurrentDate = new Date(now.getFullYear(), now.getMonth(), 1);
+  }
+  renderCalendar();
+}
+
+function selectDate(y, m, d) {
+  selectedDate = { y, m, d }; selectedTime = null;
+  renderCalendar(); renderTimeSlots(); goStep(2);
+  document.getElementById('selected-date-label').textContent = `${DAYS_AR[new Date(y,m,d).getDay()]} ${d} ${MONTHS_AR[m]} ${y}`;
+}
+
+function renderTimeSlots() {
+  if (!selectedDate) return;
+  const dk = dateKey(selectedDate.y, selectedDate.m, selectedDate.d);
+  const slots = generateSlots();
+  let html = '';
+  slots.forEach(t => {
+    const booked = isBooked(dk, t);
+    const sel = selectedTime === t;
+    html += `<button onclick="${!booked ? `selectTime('${t}')` : ''}" style="padding:10px;border-radius:8px;border:2px solid ${sel ? 'var(--green)' : booked ? '#e5e7eb' : 'var(--green)'};background:${sel ? 'var(--green)' : booked ? '#f3f4f6' : '#fff'};color:${sel ? '#fff' : booked ? 'var(--muted)' : 'var(--green)'};font-family:Cairo,sans-serif;font-weight:700;font-size:13px;cursor:${booked ? 'not-allowed' : 'pointer'};">${formatTime(t)}${booked ? ' 🔒' : ''}</button>`;
+  });
+  document.getElementById('time-slots-grid').innerHTML = html;
+}
+
+function selectTime(t) {
+  selectedTime = t; renderTimeSlots();
+  document.getElementById('booking-summary-label').textContent = `${DAYS_AR[new Date(selectedDate.y,selectedDate.m,selectedDate.d).getDay()]} ${selectedDate.d} ${MONTHS_AR[selectedDate.m]} — ${formatTime(t)}`;
+  setTimeout(() => goStep(3), 300);
+}
+
+function submitBooking() {
+  const name = document.getElementById('c-name').value.trim();
+  const phone = document.getElementById('c-phone').value.trim();
+  const topic = document.getElementById('c-topic').value;
+  const notes = document.getElementById('c-notes').value.trim();
+  if (!name) { document.getElementById('c-name').focus(); return; }
+  if (!phone) { document.getElementById('c-phone').focus(); return; }
+  if (!topic) { document.getElementById('c-topic').focus(); return; }
+  const { y, m, d } = selectedDate;
+  const dk = dateKey(y, m, d);
+  if (isBooked(dk, selectedTime)) { alert('عذراً! تم حجز هذا الموعد. يرجى اختيار موعد آخر.'); goStep(2); renderTimeSlots(); return; }
+  saveBooking(dk, selectedTime, { name, phone, topic });
+  const dayName = DAYS_AR[new Date(y,m,d).getDay()];
+  const dateStr = `${dayName} ${d} ${MONTHS_AR[m]} ${y}`;
+  const timeStr = formatTime(selectedTime);
+  document.getElementById('confirm-details').innerHTML = `
+    <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">👤</span><div><span style="color:var(--muted);font-size:12px;">الاسم</span><div style="font-weight:700;">${name}</div></div></div>
+    <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">📞</span><div><span style="color:var(--muted);font-size:12px;">الجوال</span><div style="font-weight:700;">${phone}</div></div></div>
+    <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">📅</span><div><span style="color:var(--muted);font-size:12px;">التاريخ</span><div style="font-weight:700;">${dateStr}</div></div></div>
+    <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">🕐</span><div><span style="color:var(--muted);font-size:12px;">الوقت</span><div style="font-weight:700;">${timeStr}</div></div></div>
+    <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:20px;">📋</span><div><span style="color:var(--muted);font-size:12px;">الموضوع</span><div style="font-weight:700;">${topic}</div></div></div>
+  `;
+  const waMsg = encodeURIComponent(`مرحباً 👋 أريد تأكيد حجز استشارتي المجانية:\n\n👤 الاسم: ${name}\n📞 الجوال: ${phone}\n📅 التاريخ: ${dateStr}\n🕐 الوقت: ${timeStr}\n📋 الموضوع: ${topic}${notes ? `\n📝 ملاحظات: ${notes}` : ''}`);
+  document.getElementById('confirm-wa-btn').href = `https://wa.me/966559580940?text=${waMsg}`;
+  goStep(4);
+}
+
+function resetBooking() {
+  selectedDate = null; selectedTime = null;
+  document.getElementById('c-name').value = '';
+  document.getElementById('c-phone').value = '';
+  document.getElementById('c-topic').value = '';
+  document.getElementById('c-notes').value = '';
+  renderCalendar(); goStep(1);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderCalendar();
+  if (typeof updateCartBadge === 'function') updateCartBadge();
+});
 </script>
 <script src="sidebar.js"></script>
 </body>
