@@ -305,7 +305,6 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 <!-- ===== HERO ===== -->
 <div class="auth-hero">
   <div class="auth-hero-content">
-    <p style="font-size:28px;margin-bottom:8px;">👤</p>
     <h1>حسابك في رواق التميز</h1>
     <p>سجّل دخولك أو أنشئ حساباً جديداً لإتمام طلباتك بسهولة</p>
   </div>
@@ -365,26 +364,38 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
         <div class="field-row">
           <div class="field">
             <label>الاسم الكامل <span class="req">*</span></label>
-            <input type="text" id="reg-name" placeholder="محمد أحمد">
+            <input type="text" id="reg-name" placeholder="محمد أحمد" maxlength="100">
             <div class="field-error" id="reg-name-err">يرجى إدخال الاسم الكامل</div>
           </div>
           <div class="field">
             <label>رقم الجوال <span class="req">*</span></label>
-            <input type="tel" id="reg-phone" placeholder="05xxxxxxxx" maxlength="10">
+            <div style="display:flex;gap:6px;">
+              <select id="reg-country" style="width:110px;padding:12px 8px;border-radius:10px;border:1.5px solid var(--border);font-family:'Cairo',sans-serif;font-size:13px;color:var(--dark);background:var(--white);outline:none;flex-shrink:0;" onchange="updatePhonePlaceholder()">
+                <option value="SA">🇸🇦 +966</option>
+                <option value="AE">🇦🇪 +971</option>
+                <option value="KW">🇰🇼 +965</option>
+                <option value="BH">🇧🇭 +973</option>
+                <option value="QA">🇶🇦 +974</option>
+                <option value="OM">🇴🇲 +968</option>
+                <option value="JO">🇯🇴 +962</option>
+                <option value="EG">🇪🇬 +20</option>
+              </select>
+              <input type="tel" id="reg-phone" placeholder="05xxxxxxxx" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
             <div class="field-error" id="reg-phone-err">يرجى إدخال رقم جوال صحيح</div>
           </div>
         </div>
 
         <div class="field">
           <label>البريد الإلكتروني <span class="req">*</span></label>
-          <input type="email" id="reg-email" placeholder="example@email.com">
+          <input type="email" id="reg-email" placeholder="example@email.com" maxlength="100">
           <div class="field-error" id="reg-email-err">يرجى إدخال بريد إلكتروني صحيح</div>
         </div>
 
         <div class="field">
           <label>كلمة المرور <span class="req">*</span></label>
           <div class="pass-wrap">
-            <input type="password" id="reg-pass" placeholder="8 أحرف على الأقل" oninput="checkStrength(this.value)">
+            <input type="password" id="reg-pass" placeholder="8 أحرف على الأقل" maxlength="100" oninput="checkStrength(this.value)">
             <button class="pass-toggle" onclick="togglePass('reg-pass', this)" type="button">👁</button>
           </div>
           <div class="pass-strength">
@@ -408,16 +419,18 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
           <div class="invoice-fields-title">🏢 بيانات الفاتورة الضريبية</div>
           <div class="field">
             <label>اسم الشركة / المنشأة <span class="opt">(اختياري)</span></label>
-            <input type="text" id="reg-company" placeholder="شركة ... المحدودة">
+            <input type="text" id="reg-company" placeholder="شركة ... المحدودة" maxlength="100">
           </div>
           <div class="field-row">
             <div class="field">
               <label>الرقم الموحد <span class="opt">(اختياري)</span></label>
-              <input type="text" id="reg-cr" placeholder="10 أرقام" maxlength="10">
+              <input type="text" id="reg-cr" placeholder="يبدأ بـ 7 — 10 أرقام" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+              <div class="field-error" id="reg-cr-err">يجب أن يبدأ بـ 7 ويكون 10 أرقام</div>
             </div>
             <div class="field">
               <label>الرقم الضريبي <span class="opt">(اختياري)</span></label>
-              <input type="text" id="reg-vat" placeholder="15 رقماً" maxlength="15">
+              <input type="text" id="reg-vat" placeholder="15 رقماً" maxlength="15" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+              <div class="field-error" id="reg-vat-err">يجب أن يكون 15 رقماً بالضبط</div>
             </div>
           </div>
         </div>
@@ -602,10 +615,32 @@ async function doLogin() {
   }
 }
 
+/* ===== PHONE RULES PER COUNTRY ===== */
+const phoneRules = {
+  SA: { pattern: /^05\d{8}$/, len: 10, hint: 'يبدأ بـ 05 ويكون 10 أرقام' },
+  AE: { pattern: /^05\d{8}$/, len: 10, hint: 'يبدأ بـ 05 ويكون 10 أرقام' },
+  KW: { pattern: /^[569]\d{7}$/, len: 8, hint: 'يبدأ بـ 5 أو 6 أو 9 ويكون 8 أرقام' },
+  BH: { pattern: /^[3689]\d{7}$/, len: 8, hint: 'يكون 8 أرقام' },
+  QA: { pattern: /^[3567]\d{7}$/, len: 8, hint: 'يكون 8 أرقام' },
+  OM: { pattern: /^[79]\d{7}$/, len: 8, hint: 'يبدأ بـ 7 أو 9 ويكون 8 أرقام' },
+  JO: { pattern: /^07[789]\d{7}$/, len: 10, hint: 'يبدأ بـ 077 أو 078 أو 079 ويكون 10 أرقام' },
+  EG: { pattern: /^0[1][0125]\d{8}$/, len: 11, hint: 'يبدأ بـ 010 أو 011 أو 012 أو 015 ويكون 11 رقماً' },
+};
+
+function updatePhonePlaceholder() {
+  const country = document.getElementById('reg-country').value;
+  const rule = phoneRules[country];
+  const inp = document.getElementById('reg-phone');
+  inp.maxLength = rule.len;
+  inp.placeholder = rule.hint;
+  inp.value = '';
+}
+
 /* ===== REGISTER ===== */
 async function doRegister() {
   const name    = document.getElementById('reg-name').value.trim();
   const phone   = document.getElementById('reg-phone').value.trim();
+  const country = document.getElementById('reg-country').value;
   const email   = document.getElementById('reg-email').value.trim();
   const pass    = document.getElementById('reg-pass').value;
   const invoice = document.getElementById('need-invoice').checked;
@@ -618,7 +653,9 @@ async function doRegister() {
   if (!name)  { showErr('reg-name-err', true);  markField('reg-name', true);  valid = false; }
   else        { showErr('reg-name-err', false);  markField('reg-name', false); }
 
-  if (!phone || !/^05\d{8}$/.test(phone)) {
+  const rule = phoneRules[country];
+  if (!phone || !rule.pattern.test(phone)) {
+    document.getElementById('reg-phone-err').textContent = 'رقم الجوال غير صحيح — ' + rule.hint;
     showErr('reg-phone-err', true); markField('reg-phone', true); valid = false;
   } else { showErr('reg-phone-err', false); markField('reg-phone', false); }
 
@@ -629,6 +666,15 @@ async function doRegister() {
   if (!pass || pass.length < 8) {
     showErr('reg-pass-err', true); markField('reg-pass', true); valid = false;
   } else { showErr('reg-pass-err', false); markField('reg-pass', false); }
+
+  // التحقق من بيانات الفاتورة (اختيارية لكن إن أُدخلت يجب أن تكون صحيحة)
+  if (cr && (!/^\d+$/.test(cr) || cr.length !== 10 || cr[0] !== '7')) {
+    showErr('reg-cr-err', true); markField('reg-cr', true); valid = false;
+  } else { showErr('reg-cr-err', false); markField('reg-cr', false); }
+
+  if (vat && (!/^\d+$/.test(vat) || vat.length !== 15)) {
+    showErr('reg-vat-err', true); markField('reg-vat', true); valid = false;
+  } else { showErr('reg-vat-err', false); markField('reg-vat', false); }
 
   if (!valid) return;
 
