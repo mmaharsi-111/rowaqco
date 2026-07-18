@@ -970,7 +970,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <h2 class="section-title">ماذا يقول عملاؤنا</h2>
       <p class="section-sub">ثقة مئات العملاء هي أكبر شهادة على جودة خدماتنا.</p>
     </div>
-    <div style="display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;-ms-overflow-style:none;">
+    <div style="position:relative;">
+      <button onclick="scrollReviews(-1)" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:10;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.15);">❯</button>
+      <button onclick="scrollReviews(1)" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);z-index:10;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.15);">❮</button>
+      <div id="reviews-track" style="display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;">
       <div class="review-card" style="min-width:300px;flex-shrink:0;">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"خدمة ممتازة وسريعة، وفّروا عليّ أكثر من 3 مشاوير لمكاتب مختلفة. تنجز كل شيء بجوالي من البيت."</p>
@@ -996,6 +999,13 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
     </div>
+    </div>
+    <script>
+    function scrollReviews(dir) {
+      const track = document.getElementById('reviews-track');
+      track.scrollBy({ left: dir * 320, behavior: 'smooth' });
+    }
+    </script>
   </div>
 </section>
 
