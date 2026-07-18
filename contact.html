@@ -685,6 +685,18 @@ function submitBooking() {
   const dk = dateKey(y, m, d);
   if (isBooked(dk, selectedTime)) { alert('عذراً! تم حجز هذا الموعد. يرجى اختيار موعد آخر.'); goStep(2); renderTimeSlots(); return; }
   saveBooking(dk, selectedTime, { name, phone, topic });
+
+  // إشعار فوري للمشرف عبر واتساب
+  const notifyMsg = encodeURIComponent(
+    `🔔 حجز استشارة جديد!\n\n` +
+    `👤 الاسم: ${name}\n` +
+    `📞 الجوال: ${phone}\n` +
+    `📅 التاريخ: ${dateStr}\n` +
+    `🕐 الوقت: ${timeStr}\n` +
+    `📋 الموضوع: ${topic}` +
+    (notes ? `\n📝 ملاحظات: ${notes}` : '')
+  );
+  window.open(`https://wa.me/966559580940?text=${notifyMsg}`, '_blank');
   const dayName = DAYS_AR[new Date(y,m,d).getDay()];
   const dateStr = `${dayName} ${d} ${MONTHS_AR[m]} ${y}`;
   const timeStr = formatTime(selectedTime);
