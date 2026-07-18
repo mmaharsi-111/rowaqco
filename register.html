@@ -13,12 +13,13 @@
 <meta name="description" content="سجّل حسابك في رواق التميز للخدمات العامة واستمتع بإنجاز معاملاتك الحكومية والتجارية بسهولة ويسر.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تسجيل الدخول / إنشاء حساب — رواق التميز</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 <script src="cart.js"></script>
 <style>
-/* ===== HEADER ===== */
+:root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--dark);direction:rtl;}
+a{text-decoration:none;color:inherit;}
 header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06);}
 .header-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px;}
 .logo{display:flex;align-items:center;gap:12px;}
@@ -31,15 +32,13 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .header-cta{display:flex;gap:10px;align-items:center;}
 .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
 .btn-green{background:var(--green);color:#fff;}.btn-green:hover{background:var(--green-light);}
-.btn-outline{background:transparent;border:2px solid var(--green);color:var(--green);}.btn-outline:hover{background:var(--green-pale);}
-.cart-btn{position:relative;display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:2px solid var(--green);color:var(--green);background:transparent;transition:all .2s;}.cart-btn:hover{background:var(--green-pale);}
-.cart-badge{position:absolute;top:-8px;left:-8px;background:var(--gold, #c9a84c);color:#111;border-radius:50%;width:20px;height:20px;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;}
-.cart-badge.visible{display:flex;}
-.menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
-.menu-btn span{display:block;width:24px;height:2px;background:var(--green);border-radius:2px;}
+.menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border-radius:10px;cursor:pointer;background:var(--green);border:none;padding:10px;flex-shrink:0;}
+.menu-btn span{display:block;height:2px;background:#fff;border-radius:2px;}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:7px;background:#f3f4f6;border:2px solid #e5e7eb;color:#374151;padding:9px 16px;border-radius:9px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;}
+.cart-btn:hover{border-color:var(--green);color:var(--green);}
+.cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}
 .wa-float{position:fixed;bottom:28px;left:28px;width:58px;height:58px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;transition:transform .2s;text-decoration:none;}
 .wa-float:hover{transform:scale(1.1);}
-@media(max-width:768px){.menu-btn{display:flex;}.header-nav{display:none;}}
 
 /* ===== AUTH PAGE ===== */
 .auth-wrapper {
@@ -283,16 +282,19 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 <!-- ===== HEADER ===== -->
 <header>
   <div class="header-inner">
-    <button class="menu-btn" onclick="openSidebar()" aria-label="القائمة">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
     <a href="index.html" class="logo">
-      <img src="logo.jpg" alt="رواق التميز" style="height:52px;width:auto;border-radius:8px;">
-      <div class="logo-text">
-        <strong>رواق التميز</strong>
-        <span>للخدمات العامة والحكومية</span>
-      </div>
+      <img src="logo.jpg" alt="رواق التميز">
+      <div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
     </a>
+    <nav class="header-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="individuals.html">خدمات الأفراد</a>
+      <a href="business-establishment.html">خدمات الأعمال</a>
+      <a href="government-platforms.html">المنصات الحكومية</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
     <div class="header-cta">
       <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
       <a href="cart.html" class="cart-btn">🛒 سلتي<span class="cart-badge" id="cart-badge">0</span></a>
