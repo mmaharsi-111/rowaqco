@@ -68,6 +68,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .status-new{background:#fef9c3;color:#854d0e;}
 .status-progress{background:#dbeafe;color:#1e40af;}
 .status-done{background:#dcfce7;color:#166534;}
+.status-cancelled{background:#fee2e2;color:#991b1b;}
 
 .order-items{padding:16px 20px;}
 .order-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border);}
@@ -236,21 +237,20 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
 <script src="sidebar.js"></script>
 <script>
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyzTHDGzy4Kqitq3U0q4z5fhxlsMwMDLUpZj5Ptd6G0nqp_3pFj67cEz66FhHUXROuc/exec';
+
 function getSession() {
   try { return JSON.parse(localStorage.getItem('rawaq_session')); } catch { return null; }
 }
 
-function getOrders() {
-  try { return JSON.parse(localStorage.getItem('rawaq_orders') || '[]'); } catch { return []; }
-}
-
 function statusLabel(s) {
-  if (s === 'done' || s === 'مكتمل')    return '<span class="order-status status-done">✅ مكتمل</span>';
-  if (s === 'progress' || s === 'قيد التنفيذ') return '<span class="order-status status-progress">⏳ قيد التنفيذ</span>';
+  if (s === 'مكتمل' || s === 'done')         return '<span class="order-status status-done">✅ مكتمل</span>';
+  if (s === 'قيد التنفيذ' || s === 'sale')   return '<span class="order-status status-progress">⏳ قيد التنفيذ</span>';
+  if (s === 'ملغي' || s === 'cancel')         return '<span class="order-status status-cancelled">❌ ملغي</span>';
   return '<span class="order-status status-new">🆕 جديد</span>';
 }
 
-function renderOrders() {
+async function renderOrders() {
   const body = document.getElementById('page-body');
   const session = getSession();
 
@@ -266,58 +266,121 @@ function renderOrders() {
     return;
   }
 
-  const orders = getOrders();
-
-  // لا توجد طلبات
-  if (orders.length === 0) {
-    body.innerHTML = `
-      <div class="empty-orders">
-        <div class="icon">📭</div>
-        <h2>لا توجد طلبات بعد</h2>
-        <p>لم تقم بأي طلب حتى الآن — تصفح خدماتنا وأضف ما تحتاجه</p>
-        <a href="individuals.html">🔍 تصفح الخدمات</a>
-      </div>`;
-    return;
-  }
-
-  // عرض الطلبات
-  let html = `
-    <div class="orders-header">
-      <h2>مرحباً، ${session.name} 👋</h2>
-      <span class="orders-count">${orders.length} طلب</span>
+  // عرض شاشة التحميل
+  body.innerHTML = `
+    <div style="text-align:center;padding:80px 24px;">
+      <div style="font-size:48px;margin-bottom:16px;">⏳</div>
+      <h2 style="font-size:18px;font-weight:700;color:var(--muted);">جاري تحميل طلباتك...</h2>
     </div>`;
 
-  orders.forEach(order => {
-    const itemsHtml = order.items.map(i => `
-      <div class="order-item">
-        <div>
-          <div class="item-name">${i.name}</div>
-          <div class="item-qty">الكمية: ${i.qty}</div>
-        </div>
-        <div class="item-price">${(i.price * i.qty).toFixed(0)} ﷼</div>
-      </div>`).join('');
+  try {
+    const odooId = session.odooId;
+    if (!odooId) throw new Error('no odooId');
 
-    html += `
-      <div class="order-card">
-        <div class="order-head">
-          <div>
-            <div class="order-id">طلب رقم #${order.orderId}</div>
-            <div class="order-date">📅 ${order.date}</div>
-          </div>
-          ${statusLabel(order.status)}
-        </div>
-        <div class="order-items">${itemsHtml}</div>
-        <div class="order-foot">
-          <span class="order-total-label">الإجمالي شامل الضريبة</span>
-          <span class="order-total-val">${order.total.toFixed(0)} ﷼</span>
-        </div>
+    const res = await fetch(`${GAS_URL}?action=get_orders&partner_id=${odooId}`);
+    const data = await res.json();
+
+    if (!data.success) throw new Error(data.error || 'failed');
+
+    const orders = data.orders || [];
+
+    // لا توجد طلبات
+    if (orders.length === 0) {
+      body.innerHTML = `
+        <div class="empty-orders">
+          <div class="icon">📭</div>
+          <h2>لا توجد طلبات بعد</h2>
+          <p>لم تقم بأي طلب حتى الآن — تصفح خدماتنا وأضف ما تحتاجه</p>
+          <a href="individuals.html">🔍 تصفح الخدمات</a>
+        </div>`;
+      return;
+    }
+
+    // عرض الطلبات
+    let html = `
+      <div class="orders-header">
+        <h2>مرحباً، ${session.name} 👋</h2>
+        <span class="orders-count">${orders.length} طلب</span>
       </div>`;
-  });
 
-  body.innerHTML = html;
+    orders.forEach(order => {
+      const itemsHtml = order.lines.map(l => `
+        <div class="order-item">
+          <div>
+            <div class="item-name">${l.name}</div>
+            <div class="item-qty">الكمية: ${l.qty}</div>
+          </div>
+          <div class="item-price">${(l.subtotal || l.price * l.qty).toFixed(0)} ﷼</div>
+        </div>`).join('') || '<div style="padding:12px;color:var(--muted);font-size:13px;">لا توجد تفاصيل</div>';
+
+      html += `
+        <div class="order-card">
+          <div class="order-head">
+            <div>
+              <div class="order-id">طلب رقم ${order.name}</div>
+              <div class="order-date">📅 ${order.date}</div>
+            </div>
+            ${statusLabel(order.state)}
+          </div>
+          <div class="order-items">${itemsHtml}</div>
+          <div class="order-foot">
+            <span class="order-total-label">الإجمالي</span>
+            <span class="order-total-val">${order.total.toFixed(0)} ﷼</span>
+          </div>
+        </div>`;
+    });
+
+    body.innerHTML = html;
+
+  } catch(err) {
+    // fallback: عرض من localStorage إذا فشل الاتصال
+    const localOrders = JSON.parse(localStorage.getItem('rawaq_orders') || '[]');
+    if (localOrders.length > 0) {
+      let html = `
+        <div class="orders-header">
+          <h2>مرحباً، ${session.name} 👋</h2>
+          <span class="orders-count">${localOrders.length} طلب (محلي)</span>
+        </div>`;
+
+      localOrders.forEach(order => {
+        const itemsHtml = (order.items || []).map(i => `
+          <div class="order-item">
+            <div><div class="item-name">${i.name}</div><div class="item-qty">الكمية: ${i.qty}</div></div>
+            <div class="item-price">${(i.price * i.qty).toFixed(0)} ﷼</div>
+          </div>`).join('');
+
+        html += `
+          <div class="order-card">
+            <div class="order-head">
+              <div>
+                <div class="order-id">طلب رقم #${order.orderId}</div>
+                <div class="order-date">📅 ${order.date}</div>
+              </div>
+              ${statusLabel(order.status)}
+            </div>
+            <div class="order-items">${itemsHtml}</div>
+            <div class="order-foot">
+              <span class="order-total-label">الإجمالي شامل الضريبة</span>
+              <span class="order-total-val">${order.total.toFixed(0)} ﷼</span>
+            </div>
+          </div>`;
+      });
+
+      body.innerHTML = html;
+    } else {
+      body.innerHTML = `
+        <div class="empty-orders">
+          <div class="icon">⚠️</div>
+          <h2>تعذّر تحميل الطلبات</h2>
+          <p>تحقق من اتصالك بالإنترنت وحاول مرة أخرى</p>
+          <button onclick="renderOrders()" style="background:var(--green);color:#fff;border:none;padding:12px 24px;border-radius:10px;font-family:Cairo,sans-serif;font-weight:700;cursor:pointer;font-size:14px;">🔄 إعادة المحاولة</button>
+        </div>`;
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', renderOrders);
+
 </script>
 </body>
 </html>
