@@ -499,7 +499,7 @@
     {
       "id": 2533,
       "name": "تأمين طبي",
-      "price": 50,
+      "price": 52,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -1557,7 +1557,7 @@
     {
       "id": 2647,
       "name": "تأمين طبي",
-      "price": 50,
+      "price": 52,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1589,7 +1589,7 @@
     {
       "id": 2648,
       "name": "فتح حساب بنكي أفراد / قاصر / تابع",
-      "price": 30,
+      "price": 69.8,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1597,7 +1597,7 @@
     {
       "id": 2651,
       "name": "حجز موعد في جميع الجهات الحكومية والخاصة",
-      "price": 25,
+      "price": 22,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1629,7 +1629,7 @@
     {
       "id": 2649,
       "name": "استخراج وثيقة عائلية / بطاقة هوية",
-      "price": 10,
+      "price": 104,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1637,7 +1637,7 @@
     {
       "id": 2650,
       "name": "الاستعلام عن صحة الإقامة وتاريخ انتهائها",
-      "price": 25,
+      "price": 17.6,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
