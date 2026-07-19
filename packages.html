@@ -193,115 +193,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     </div>
   </div>
 
-  <!-- ===== قسم الاشتراكات ===== -->
-  <div style="text-align:center;margin-bottom:32px;">
-    <div class="section-label" style="display:inline-block;background:var(--green-pale);color:var(--green);padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:10px;">الاشتراكات الشهرية</div>
-    <h2 style="font-size:clamp(20px,3vw,28px);font-weight:900;margin-bottom:8px;">اختر الباقة المناسبة لك</h2>
-    <p style="color:var(--muted);font-size:14px;">جميع الأسعار شاملة ضريبة القيمة المضافة — خدمة دائمة بسعر ثابت</p>
-  </div>
-
-  <div class="packages-grid">
-
-    <!-- البرونزية -->
-    <div class="pkg-card bronze">
-      <div class="pkg-header">
-        <div class="pkg-icon">🥉</div>
-        <div class="pkg-name">الباقة البرونزية</div>
-        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">750 ريال</del><strong>620 ريال</strong>شهرياً — 10 خدمات</div>
-      </div>
-      <div class="pkg-body">
-        <ul class="features">
-          <li><span class="feat-icon">✓</span> حتى <strong>10 خدمات شهرياً</strong></li>
-          <li><span class="feat-icon">✓</span> الخدمات العامة</li>
-          <li><span class="feat-icon">✓</span> خدمات المنصات الحكومية</li>
-          <li><span class="feat-icon">✓</span> دعم عبر واتساب</li>
-          <li><span class="feat-icon">✓</span> إنجاز خلال 48 ساعة</li>
-          <li class="off"><span class="feat-icon">✗</span> استشارات إدارية مجانية</li>
-          <li class="off"><span class="feat-icon">✗</span> خدمات الأفراد</li>
-          <li class="off"><span class="feat-icon">✗</span> خدمات الأعمال والوزارات</li>
-        </ul>
-        <button class="pkg-btn" onclick="orderPkg('البرونزية - 620 ريال')">🥉 اشترك الآن</button>
-      </div>
-    </div>
-
-    <!-- الفضية -->
-    <div class="pkg-card silver">
-      <div class="popular-tag">⭐ الأكثر طلباً</div>
-      <div class="pkg-header">
-        <div class="pkg-icon">🥈</div>
-        <div class="pkg-name">الباقة الفضية</div>
-        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">1,800 ريال</del><strong>1,500 ريال</strong>شهرياً — 25 خدمة</div>
-      </div>
-      <div class="pkg-body">
-        <ul class="features">
-          <li><span class="feat-icon">✓</span> حتى <strong>25 خدمة شهرياً</strong></li>
-          <li><span class="feat-icon">✓</span> خدمات الأفراد</li>
-          <li><span class="feat-icon">✓</span> الخدمات العامة</li>
-          <li><span class="feat-icon">✓</span> خدمات المنصات الحكومية</li>
-          <li><span class="feat-icon">✓</span> استشارتان إداريتان مجاناً 🎁</li>
-          <li><span class="feat-icon">✓</span> دعم هاتفي وواتساب</li>
-          <li><span class="feat-icon">✓</span> إنجاز خلال 24 ساعة</li>
-          <li class="off"><span class="feat-icon">✗</span> خدمات الأعمال والوزارات</li>
-        </ul>
-        <button class="pkg-btn" onclick="orderPkg('الفضية - 1500 ريال')">🥈 اشترك الآن</button>
-      </div>
-    </div>
-
-    <!-- الذهبية -->
-    <div class="pkg-card gold">
-      <div class="pkg-header">
-        <span class="pkg-meta">الأشمل والأقوى</span>
-        <div class="pkg-icon">🥇</div>
-        <div class="pkg-name">الباقة الذهبية</div>
-        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">3,600 ريال</del><strong>3,150 ريال</strong>شهرياً — 50 خدمة</div>
-      </div>
-      <div class="pkg-body">
-        <ul class="features">
-          <li><span class="feat-icon">✓</span> حتى <strong>50 خدمة شهرياً</strong></li>
-          <li><span class="feat-icon">✓</span> خدمات الأفراد والأعمال</li>
-          <li><span class="feat-icon">✓</span> الخدمات العامة والمنصات الحكومية</li>
-          <li><span class="feat-icon">✓</span> خدمات الوزارات</li>
-          <li><span class="feat-icon">✓</span> 5 استشارات إدارية مجاناً 🎁</li>
-          <li><span class="feat-icon">✓</span> دعم على مدار الساعة 24/7</li>
-          <li><span class="feat-icon">✓</span> إنجاز بأولوية قصوى</li>
-          <li><span class="feat-icon">✓</span> مدير حساب مخصص</li>
-        </ul>
-        <button class="pkg-btn" onclick="orderPkg('الذهبية - 3150 ريال')">🥇 اشترك الآن</button>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- مقارنة الباقات -->
-  <div class="compare-box">
-    <h3>📊 مقارنة الباقات</h3>
-    <div style="overflow-x:auto;">
-      <table class="compare-table">
-        <thead><tr>
-          <th style="text-align:right;">المميزات</th>
-          <th class="th-br">🥉 البرونزية</th>
-          <th class="th-si">🥈 الفضية</th>
-          <th class="th-go">🥇 الذهبية</th>
-        </tr></thead>
-        <tbody>
-          <tr><td>السعر الشهري</td><td>620 ريال</td><td>1,500 ريال</td><td>3,150 ريال</td></tr>
-          <tr><td>عدد الخدمات الشهرية</td><td>حتى 10</td><td>حتى 25</td><td>حتى 50</td></tr>
-          <tr><td>الخدمات العامة</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>المنصات الحكومية</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>خدمات الأفراد</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>خدمات الأعمال</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>خدمات الوزارات</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>استشارات إدارية مجانية</td><td><span class="n">—</span></td><td>استشارتان</td><td>5 استشارات</td></tr>
-          <tr><td>دعم واتساب</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>دعم هاتفي</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>دعم 24/7</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>وقت الإنجاز</td><td>48 ساعة</td><td>24 ساعة</td><td>أولوية قصوى</td></tr>
-          <tr><td>مدير حساب مخصص</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
   <!-- ===== قسم باقات إدارة المنشآت ===== -->
   <div id="section2" style="margin:48px 0 32px;text-align:center;">
     <div class="section-label" style="display:inline-block;background:var(--gold-light);color:#7a5c00;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:10px;">إدارة المنشآت</div>
@@ -416,6 +307,115 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
   </div>
 
+
+  <!-- ===== قسم الاشتراكات ===== -->
+  <div style="text-align:center;margin-bottom:32px;">
+    <div class="section-label" style="display:inline-block;background:var(--green-pale);color:var(--green);padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:10px;">الاشتراكات الشهرية</div>
+    <h2 style="font-size:clamp(20px,3vw,28px);font-weight:900;margin-bottom:8px;">اختر الباقة المناسبة لك</h2>
+    <p style="color:var(--muted);font-size:14px;">جميع الأسعار شاملة ضريبة القيمة المضافة — خدمة دائمة بسعر ثابت</p>
+  </div>
+
+  <div class="packages-grid">
+
+    <!-- البرونزية -->
+    <div class="pkg-card bronze">
+      <div class="pkg-header">
+        <div class="pkg-icon">🥉</div>
+        <div class="pkg-name">الباقة البرونزية</div>
+        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">750 ريال</del><strong>620 ريال</strong>شهرياً — 10 خدمات</div>
+      </div>
+      <div class="pkg-body">
+        <ul class="features">
+          <li><span class="feat-icon">✓</span> حتى <strong>10 خدمات شهرياً</strong></li>
+          <li><span class="feat-icon">✓</span> الخدمات العامة</li>
+          <li><span class="feat-icon">✓</span> خدمات المنصات الحكومية</li>
+          <li><span class="feat-icon">✓</span> دعم عبر واتساب</li>
+          <li><span class="feat-icon">✓</span> إنجاز خلال 48 ساعة</li>
+          <li class="off"><span class="feat-icon">✗</span> استشارات إدارية مجانية</li>
+          <li class="off"><span class="feat-icon">✗</span> خدمات الأفراد</li>
+          <li class="off"><span class="feat-icon">✗</span> خدمات الأعمال والوزارات</li>
+        </ul>
+        <button class="pkg-btn" onclick="orderPkg('البرونزية - 620 ريال')">🥉 اشترك الآن</button>
+      </div>
+    </div>
+
+    <!-- الفضية -->
+    <div class="pkg-card silver">
+      <div class="popular-tag">⭐ الأكثر طلباً</div>
+      <div class="pkg-header">
+        <div class="pkg-icon">🥈</div>
+        <div class="pkg-name">الباقة الفضية</div>
+        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">1,800 ريال</del><strong>1,500 ريال</strong>شهرياً — 25 خدمة</div>
+      </div>
+      <div class="pkg-body">
+        <ul class="features">
+          <li><span class="feat-icon">✓</span> حتى <strong>25 خدمة شهرياً</strong></li>
+          <li><span class="feat-icon">✓</span> خدمات الأفراد</li>
+          <li><span class="feat-icon">✓</span> الخدمات العامة</li>
+          <li><span class="feat-icon">✓</span> خدمات المنصات الحكومية</li>
+          <li><span class="feat-icon">✓</span> استشارتان إداريتان مجاناً 🎁</li>
+          <li><span class="feat-icon">✓</span> دعم هاتفي وواتساب</li>
+          <li><span class="feat-icon">✓</span> إنجاز خلال 24 ساعة</li>
+          <li class="off"><span class="feat-icon">✗</span> خدمات الأعمال والوزارات</li>
+        </ul>
+        <button class="pkg-btn" onclick="orderPkg('الفضية - 1500 ريال')">🥈 اشترك الآن</button>
+      </div>
+    </div>
+
+    <!-- الذهبية -->
+    <div class="pkg-card gold">
+      <div class="pkg-header">
+        <span class="pkg-meta">الأشمل والأقوى</span>
+        <div class="pkg-icon">🥇</div>
+        <div class="pkg-name">الباقة الذهبية</div>
+        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">3,600 ريال</del><strong>3,150 ريال</strong>شهرياً — 50 خدمة</div>
+      </div>
+      <div class="pkg-body">
+        <ul class="features">
+          <li><span class="feat-icon">✓</span> حتى <strong>50 خدمة شهرياً</strong></li>
+          <li><span class="feat-icon">✓</span> خدمات الأفراد والأعمال</li>
+          <li><span class="feat-icon">✓</span> الخدمات العامة والمنصات الحكومية</li>
+          <li><span class="feat-icon">✓</span> خدمات الوزارات</li>
+          <li><span class="feat-icon">✓</span> 5 استشارات إدارية مجاناً 🎁</li>
+          <li><span class="feat-icon">✓</span> دعم على مدار الساعة 24/7</li>
+          <li><span class="feat-icon">✓</span> إنجاز بأولوية قصوى</li>
+          <li><span class="feat-icon">✓</span> مدير حساب مخصص</li>
+        </ul>
+        <button class="pkg-btn" onclick="orderPkg('الذهبية - 3150 ريال')">🥇 اشترك الآن</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- مقارنة الباقات -->
+  <div class="compare-box">
+    <h3>📊 مقارنة الباقات</h3>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead><tr>
+          <th style="text-align:right;">المميزات</th>
+          <th class="th-br">🥉 البرونزية</th>
+          <th class="th-si">🥈 الفضية</th>
+          <th class="th-go">🥇 الذهبية</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>السعر الشهري</td><td>620 ريال</td><td>1,500 ريال</td><td>3,150 ريال</td></tr>
+          <tr><td>عدد الخدمات الشهرية</td><td>حتى 10</td><td>حتى 25</td><td>حتى 50</td></tr>
+          <tr><td>الخدمات العامة</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>المنصات الحكومية</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات الأفراد</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات الأعمال</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات الوزارات</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>استشارات إدارية مجانية</td><td><span class="n">—</span></td><td>استشارتان</td><td>5 استشارات</td></tr>
+          <tr><td>دعم واتساب</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>دعم هاتفي</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>دعم 24/7</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>وقت الإنجاز</td><td>48 ساعة</td><td>24 ساعة</td><td>أولوية قصوى</td></tr>
+          <tr><td>مدير حساب مخصص</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
   <!-- FAQ -->
   <div class="faq-wrap">
