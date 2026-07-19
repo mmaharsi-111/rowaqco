@@ -63,6 +63,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .features li.off .feat-icon{background:#f3f4f6;color:var(--muted);}
 .pkg-btn{width:100%;padding:13px;border-radius:10px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:900;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
 /* Bronze */
+.bronze{border:3px solid #cd7f32;}
 .bronze .pkg-header{background:linear-gradient(135deg,#cd7f32,#e8a96a);}
 .bronze .feat-icon{background:#fdf3e7;color:#cd7f32;}
 .bronze .pkg-btn{background:linear-gradient(135deg,#cd7f32,#e8a96a);color:#fff;}
@@ -149,7 +150,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .social-links a.yt:hover{background:#ff0000;}.social-links a.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
 .social-links a.fb:hover{background:#1877f2;}.social-links a.li:hover{background:#0a66c2;}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}.packages-grid{grid-template-columns:1fr;}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr;}.header-nav{display:none;}}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}.header-nav{display:none;}.header-cta{display:none;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}.packages-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -182,39 +184,43 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   <!-- HERO -->
   <div class="pkg-hero">
     <h1>اشترك معنا وانجز معاملاتك بلا انقطاع</h1>
-    <p>باقات اشتراك مخصصة للمؤسسات والشركات — خدمة دائمة بسعر ثابت مع أولوية في الإنجاز.</p>
+    <p>باقات اشتراك شهرية بسعر ثابت مع أولوية في الإنجاز.</p>
     <div class="badges">
       <span class="badge">✅ أولوية في الإنجاز</span>
       <span class="badge">📞 دعم مخصص</span>
       <span class="badge">💰 سعر ثابت</span>
-      <span class="badge">🔄 تجديد تلقائي</span>
+      <span class="badge">🔄 تجديد شهري</span>
     </div>
   </div>
 
-  <!-- PACKAGES -->
+  <!-- ===== قسم الاشتراكات ===== -->
+  <div style="text-align:center;margin-bottom:32px;">
+    <div class="section-label" style="display:inline-block;background:var(--green-pale);color:var(--green);padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:10px;">الاشتراكات الشهرية</div>
+    <h2 style="font-size:clamp(20px,3vw,28px);font-weight:900;margin-bottom:8px;">اختر الباقة المناسبة لك</h2>
+    <p style="color:var(--muted);font-size:14px;">جميع الأسعار شاملة ضريبة القيمة المضافة — خدمة دائمة بسعر ثابت</p>
+  </div>
+
   <div class="packages-grid">
 
     <!-- البرونزية -->
     <div class="pkg-card bronze">
       <div class="pkg-header">
-        <span class="pkg-meta">للمبتدئين</span>
         <div class="pkg-icon">🥉</div>
         <div class="pkg-name">الباقة البرونزية</div>
-        <div class="pkg-sub">للمنشآت الصغيرة والأفراد</div>
-        <div class="pkg-price"><strong>تواصل للسعر</strong>يُحدد حسب الاحتياج</div>
+        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">750 ريال</del><strong>620 ريال</strong>شهرياً — 10 خدمات</div>
       </div>
       <div class="pkg-body">
         <ul class="features">
-          <li><span class="feat-icon">✓</span> حتى <strong>5 خدمات شهرياً</strong></li>
-          <li><span class="feat-icon">✓</span> خدمات أبشر والإقامة</li>
-          <li><span class="feat-icon">✓</span> خدمات السجل التجاري</li>
+          <li><span class="feat-icon">✓</span> حتى <strong>10 خدمات شهرياً</strong></li>
+          <li><span class="feat-icon">✓</span> الخدمات العامة</li>
+          <li><span class="feat-icon">✓</span> خدمات المنصات الحكومية</li>
           <li><span class="feat-icon">✓</span> دعم عبر واتساب</li>
           <li><span class="feat-icon">✓</span> إنجاز خلال 48 ساعة</li>
-          <li class="off"><span class="feat-icon">✗</span> مدير حساب مخصص</li>
-          <li class="off"><span class="feat-icon">✗</span> أولوية قصوى في الإنجاز</li>
-          <li class="off"><span class="feat-icon">✗</span> تقارير شهرية</li>
+          <li class="off"><span class="feat-icon">✗</span> استشارات إدارية مجانية</li>
+          <li class="off"><span class="feat-icon">✗</span> خدمات الأفراد</li>
+          <li class="off"><span class="feat-icon">✗</span> خدمات الأعمال والوزارات</li>
         </ul>
-        <button class="pkg-btn" onclick="orderPkg('البرونزية')">🥉 اشترك في الباقة البرونزية</button>
+        <button class="pkg-btn" onclick="orderPkg('البرونزية - 620 ريال')">🥉 اشترك الآن</button>
       </div>
     </div>
 
@@ -222,24 +228,22 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     <div class="pkg-card silver">
       <div class="popular-tag">⭐ الأكثر طلباً</div>
       <div class="pkg-header">
-        <span class="pkg-meta">للمنشآت المتوسطة</span>
         <div class="pkg-icon">🥈</div>
         <div class="pkg-name">الباقة الفضية</div>
-        <div class="pkg-sub">للمنشآت المتوسطة والشركات</div>
-        <div class="pkg-price"><strong>تواصل للسعر</strong>يُحدد حسب الاحتياج</div>
+        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">1,800 ريال</del><strong>1,500 ريال</strong>شهرياً — 25 خدمة</div>
       </div>
       <div class="pkg-body">
         <ul class="features">
-          <li><span class="feat-icon">✓</span> حتى <strong>15 خدمة شهرياً</strong></li>
-          <li><span class="feat-icon">✓</span> جميع خدمات الباقة البرونزية</li>
-          <li><span class="feat-icon">✓</span> خدمات قوى ومدد والعمالة</li>
-          <li><span class="feat-icon">✓</span> خدمات بلدي والتراخيص</li>
+          <li><span class="feat-icon">✓</span> حتى <strong>25 خدمة شهرياً</strong></li>
+          <li><span class="feat-icon">✓</span> خدمات الأفراد</li>
+          <li><span class="feat-icon">✓</span> الخدمات العامة</li>
+          <li><span class="feat-icon">✓</span> خدمات المنصات الحكومية</li>
+          <li><span class="feat-icon">✓</span> استشارتان إداريتان مجاناً 🎁</li>
           <li><span class="feat-icon">✓</span> دعم هاتفي وواتساب</li>
           <li><span class="feat-icon">✓</span> إنجاز خلال 24 ساعة</li>
-          <li><span class="feat-icon">✓</span> مدير حساب مخصص</li>
-          <li class="off"><span class="feat-icon">✗</span> تقارير شهرية مفصّلة</li>
+          <li class="off"><span class="feat-icon">✗</span> خدمات الأعمال والوزارات</li>
         </ul>
-        <button class="pkg-btn" onclick="orderPkg('الفضية')">🥈 اشترك في الباقة الفضية</button>
+        <button class="pkg-btn" onclick="orderPkg('الفضية - 1500 ريال')">🥈 اشترك الآن</button>
       </div>
     </div>
 
@@ -249,21 +253,20 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <span class="pkg-meta">الأشمل والأقوى</span>
         <div class="pkg-icon">🥇</div>
         <div class="pkg-name">الباقة الذهبية</div>
-        <div class="pkg-sub">للشركات الكبيرة والمجموعات</div>
-        <div class="pkg-price"><strong>تواصل للسعر</strong>يُحدد حسب الاحتياج</div>
+        <div class="pkg-price"><del style="font-size:14px;opacity:.7;">3,600 ريال</del><strong>3,150 ريال</strong>شهرياً — 50 خدمة</div>
       </div>
       <div class="pkg-body">
         <ul class="features">
-          <li><span class="feat-icon">✓</span> <strong>خدمات غير محدودة</strong></li>
-          <li><span class="feat-icon">✓</span> جميع خدمات الباقة الفضية</li>
-          <li><span class="feat-icon">✓</span> جميع المنصات الحكومية</li>
-          <li><span class="feat-icon">✓</span> إنجاز بأولوية قصوى (فوري)</li>
-          <li><span class="feat-icon">✓</span> مدير حساب VIP مخصص</li>
+          <li><span class="feat-icon">✓</span> حتى <strong>50 خدمة شهرياً</strong></li>
+          <li><span class="feat-icon">✓</span> خدمات الأفراد والأعمال</li>
+          <li><span class="feat-icon">✓</span> الخدمات العامة والمنصات الحكومية</li>
+          <li><span class="feat-icon">✓</span> خدمات الوزارات</li>
+          <li><span class="feat-icon">✓</span> 5 استشارات إدارية مجاناً 🎁</li>
           <li><span class="feat-icon">✓</span> دعم على مدار الساعة 24/7</li>
-          <li><span class="feat-icon">✓</span> تقارير شهرية مفصّلة</li>
-          <li><span class="feat-icon">✓</span> اجتماع دوري مع فريق العمل</li>
+          <li><span class="feat-icon">✓</span> إنجاز بأولوية قصوى</li>
+          <li><span class="feat-icon">✓</span> مدير حساب مخصص</li>
         </ul>
-        <button class="pkg-btn" onclick="orderPkg('الذهبية')">🥇 اشترك في الباقة الذهبية</button>
+        <button class="pkg-btn" onclick="orderPkg('الذهبية - 3150 ريال')">🥇 اشترك الآن</button>
       </div>
     </div>
 
@@ -281,22 +284,138 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
           <th class="th-go">🥇 الذهبية</th>
         </tr></thead>
         <tbody>
-          <tr><td>عدد الخدمات الشهرية</td><td>حتى 5</td><td>حتى 15</td><td>غير محدود</td></tr>
-          <tr><td>خدمات أبشر والإقامة</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>خدمات السجل التجاري</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>خدمات قوى ومدد والعمالة</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>خدمات بلدي والتراخيص</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>جميع المنصات الحكومية</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>السعر الشهري</td><td>620 ريال</td><td>1,500 ريال</td><td>3,150 ريال</td></tr>
+          <tr><td>عدد الخدمات الشهرية</td><td>حتى 10</td><td>حتى 25</td><td>حتى 50</td></tr>
+          <tr><td>الخدمات العامة</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>المنصات الحكومية</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات الأفراد</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات الأعمال</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>خدمات الوزارات</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>استشارات إدارية مجانية</td><td><span class="n">—</span></td><td>استشارتان</td><td>5 استشارات</td></tr>
           <tr><td>دعم واتساب</td><td><span class="y">✅</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
           <tr><td>دعم هاتفي</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅</span></td></tr>
           <tr><td>دعم 24/7</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
-          <tr><td>مدير حساب مخصص</td><td><span class="n">—</span></td><td><span class="y">✅</span></td><td><span class="y">✅ VIP</span></td></tr>
-          <tr><td>وقت الإنجاز</td><td>48 ساعة</td><td>24 ساعة</td><td>فوري</td></tr>
-          <tr><td>تقارير شهرية</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
+          <tr><td>وقت الإنجاز</td><td>48 ساعة</td><td>24 ساعة</td><td>أولوية قصوى</td></tr>
+          <tr><td>مدير حساب مخصص</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✅</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <!-- ===== قسم باقات إدارة المنشآت ===== -->
+  <div id="section2" style="margin:48px 0 32px;text-align:center;">
+    <div class="section-label" style="display:inline-block;background:var(--gold-light);color:#7a5c00;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:10px;">إدارة المنشآت</div>
+    <h2 style="font-size:clamp(20px,3vw,28px);font-weight:900;margin-bottom:8px;">باقات إدارة المنشآت</h2>
+    <p style="color:var(--muted);font-size:14px;">إدارة منصات قوى ومدد والتأمينات الاجتماعية وأبشر أعمال ومقيم — حسب حجم منشأتك</p>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:#fff3cd;border:1.5px solid #f0c040;border-radius:10px;padding:8px 18px;margin-top:12px;font-size:13px;font-weight:700;color:#7a5c00;">
+      ⏱️ الحد الأدنى للاشتراك في هذه الباقات 6 أشهر
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:48px;">
+
+    <!-- باقة 1-5 -->
+    <div style="background:#fff;border-radius:16px;border:2px solid #e0f0ff;box-shadow:0 4px 20px rgba(0,80,180,.08);overflow:hidden;transition:transform .2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="background:linear-gradient(135deg,#1a6fb5,#4a9fd4);padding:24px;text-align:center;color:#fff;">
+        <div style="font-size:36px;margin-bottom:8px;">🏪</div>
+        <div style="font-size:13px;font-weight:700;opacity:.85;margin-bottom:4px;">المنشآت الصغيرة</div>
+        <div style="font-size:20px;font-weight:900;margin-bottom:4px;">١ — ٥ موظفين</div>
+        <div style="display:flex;justify-content:center;gap:6px;align-items:center;margin-top:12px;">
+          <span style="font-size:13px;opacity:.7;text-decoration:line-through;">1,200 ريال</span>
+        </div>
+        <div style="font-size:28px;font-weight:900;">990 ريال</div>
+        <div style="font-size:12px;opacity:.8;">شهرياً</div>
+      </div>
+      <div style="padding:20px;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a6fb5;font-weight:900;">✓</span> إدارة منصة قوى</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a6fb5;font-weight:900;">✓</span> إدارة منصة مدد</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a6fb5;font-weight:900;">✓</span> التأمينات الاجتماعية</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a6fb5;font-weight:900;">✓</span> أبشر أعمال</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a6fb5;font-weight:900;">✓</span> منصة مقيم</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);"><span style="color:#1a6fb5;font-size:11px;font-weight:900;">👥</span> حتى 5 موظفين</li>
+        </ul>
+        <button onclick="orderPkg('باقة إدارة المنشآت 1-5 موظفين - 990 ريال')" style="width:100%;padding:12px;border-radius:10px;background:linear-gradient(135deg,#1a6fb5,#4a9fd4);color:#fff;font-family:Cairo,sans-serif;font-size:14px;font-weight:900;border:none;cursor:pointer;transition:all .2s;" onmouseover="this.style.filter='brightness(.9)'" onmouseout="this.style.filter='brightness(1)'">اشترك الآن</button>
+      </div>
+    </div>
+
+    <!-- باقة 6-10 -->
+    <div style="background:#fff;border-radius:16px;border:2px solid #e8f5e9;box-shadow:0 4px 20px rgba(0,120,60,.08);overflow:hidden;transition:transform .2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="background:linear-gradient(135deg,#1a8a4a,#3dba6e);padding:24px;text-align:center;color:#fff;">
+        <div style="font-size:36px;margin-bottom:8px;">🏬</div>
+        <div style="font-size:13px;font-weight:700;opacity:.85;margin-bottom:4px;">المنشآت المتوسطة الصغيرة</div>
+        <div style="font-size:20px;font-weight:900;margin-bottom:4px;">٦ — ١٠ موظفين</div>
+        <div style="display:flex;justify-content:center;gap:6px;align-items:center;margin-top:12px;">
+          <span style="font-size:13px;opacity:.7;text-decoration:line-through;">1,800 ريال</span>
+        </div>
+        <div style="font-size:28px;font-weight:900;">1,490 ريال</div>
+        <div style="font-size:12px;opacity:.8;">شهرياً</div>
+      </div>
+      <div style="padding:20px;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a8a4a;font-weight:900;">✓</span> إدارة منصة قوى</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a8a4a;font-weight:900;">✓</span> إدارة منصة مدد</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a8a4a;font-weight:900;">✓</span> التأمينات الاجتماعية</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a8a4a;font-weight:900;">✓</span> أبشر أعمال</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#1a8a4a;font-weight:900;">✓</span> منصة مقيم</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);"><span style="color:#1a8a4a;font-size:11px;font-weight:900;">👥</span> من 6 إلى 10 موظفين</li>
+        </ul>
+        <button onclick="orderPkg('باقة إدارة المنشآت 6-10 موظفين - 1490 ريال')" style="width:100%;padding:12px;border-radius:10px;background:linear-gradient(135deg,#1a8a4a,#3dba6e);color:#fff;font-family:Cairo,sans-serif;font-size:14px;font-weight:900;border:none;cursor:pointer;transition:all .2s;" onmouseover="this.style.filter='brightness(.9)'" onmouseout="this.style.filter='brightness(1)'">اشترك الآن</button>
+      </div>
+    </div>
+
+    <!-- باقة 11-20 -->
+    <div style="background:#fff;border-radius:16px;border:2px solid #f3e5f5;box-shadow:0 4px 20px rgba(120,0,180,.08);overflow:hidden;transition:transform .2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="background:linear-gradient(135deg,#7b1fa2,#ab47bc);padding:24px;text-align:center;color:#fff;">
+        <div style="font-size:36px;margin-bottom:8px;">🏢</div>
+        <div style="font-size:13px;font-weight:700;opacity:.85;margin-bottom:4px;">المنشآت المتوسطة</div>
+        <div style="font-size:20px;font-weight:900;margin-bottom:4px;">١١ — ٢٠ موظفاً</div>
+        <div style="display:flex;justify-content:center;gap:6px;align-items:center;margin-top:12px;">
+          <span style="font-size:13px;opacity:.7;text-decoration:line-through;">2,400 ريال</span>
+        </div>
+        <div style="font-size:28px;font-weight:900;">1,990 ريال</div>
+        <div style="font-size:12px;opacity:.8;">شهرياً</div>
+      </div>
+      <div style="padding:20px;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#7b1fa2;font-weight:900;">✓</span> إدارة منصة قوى</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#7b1fa2;font-weight:900;">✓</span> إدارة منصة مدد</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#7b1fa2;font-weight:900;">✓</span> التأمينات الاجتماعية</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#7b1fa2;font-weight:900;">✓</span> أبشر أعمال</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#7b1fa2;font-weight:900;">✓</span> منصة مقيم</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);"><span style="color:#7b1fa2;font-size:11px;font-weight:900;">👥</span> من 11 إلى 20 موظفاً</li>
+        </ul>
+        <button onclick="orderPkg('باقة إدارة المنشآت 11-20 موظف - 1990 ريال')" style="width:100%;padding:12px;border-radius:10px;background:linear-gradient(135deg,#7b1fa2,#ab47bc);color:#fff;font-family:Cairo,sans-serif;font-size:14px;font-weight:900;border:none;cursor:pointer;transition:all .2s;" onmouseover="this.style.filter='brightness(.9)'" onmouseout="this.style.filter='brightness(1)'">اشترك الآن</button>
+      </div>
+    </div>
+
+    <!-- باقة 21-30 -->
+    <div style="background:#fff;border-radius:16px;border:2px solid #fff3e0;box-shadow:0 4px 20px rgba(200,80,0,.08);overflow:hidden;transition:transform .2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="background:linear-gradient(135deg,#e65100,#ff8f00);padding:24px;text-align:center;color:#fff;">
+        <div style="font-size:36px;margin-bottom:8px;">🏗️</div>
+        <div style="font-size:13px;font-weight:700;opacity:.85;margin-bottom:4px;">المنشآت المتوسطة الكبيرة</div>
+        <div style="font-size:20px;font-weight:900;margin-bottom:4px;">٢١ — ٣٠ موظفاً</div>
+        <div style="display:flex;justify-content:center;gap:6px;align-items:center;margin-top:12px;">
+          <span style="font-size:13px;opacity:.7;text-decoration:line-through;">3,000 ريال</span>
+        </div>
+        <div style="font-size:28px;font-weight:900;">2,490 ريال</div>
+        <div style="font-size:12px;opacity:.8;">شهرياً</div>
+      </div>
+      <div style="padding:20px;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#e65100;font-weight:900;">✓</span> إدارة منصة قوى</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#e65100;font-weight:900;">✓</span> إدارة منصة مدد</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#e65100;font-weight:900;">✓</span> التأمينات الاجتماعية</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#e65100;font-weight:900;">✓</span> أبشر أعمال</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mid);"><span style="color:#e65100;font-weight:900;">✓</span> منصة مقيم</li>
+          <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);"><span style="color:#e65100;font-size:11px;font-weight:900;">👥</span> من 21 إلى 30 موظفاً</li>
+        </ul>
+        <button onclick="orderPkg('باقة إدارة المنشآت 21-30 موظف - 2490 ريال')" style="width:100%;padding:12px;border-radius:10px;background:linear-gradient(135deg,#e65100,#ff8f00);color:#fff;font-family:Cairo,sans-serif;font-size:14px;font-weight:900;border:none;cursor:pointer;transition:all .2s;" onmouseover="this.style.filter='brightness(.9)'" onmouseout="this.style.filter='brightness(1)'">اشترك الآن</button>
+      </div>
+    </div>
+
+  </div>
+
 
   <!-- FAQ -->
   <div class="faq-wrap">
@@ -310,16 +429,12 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <div class="faq-a">نعم، يمكنك الترقية في أي وقت وسيتم احتساب الفرق فقط دون أي رسوم إضافية.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">ما الفرق بين الاشتراك الشهري والسنوي؟ <span class="faq-arr">▼</span></div>
-      <div class="faq-a">الاشتراك السنوي يوفر لك خصماً يصل إلى 20% مقارنة بالدفع الشهري.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">هل الخدمات غير المستخدمة تنتقل للشهر التالي؟ <span class="faq-arr">▼</span></div>
-      <div class="faq-a">نعم، يمكن ترحيل الخدمات غير المستخدمة لمدة شهر واحد في الباقتين الفضية والذهبية.</div>
+      <div class="faq-q" onclick="toggleFaq(this)">ما الحد الأدنى للاشتراك في باقات إدارة المنشآت؟ <span class="faq-arr">▼</span></div>
+      <div class="faq-a">الحد الأدنى للاشتراك في باقات إدارة المنشآت هو 6 أشهر متواصلة.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">كيف يتم الدفع؟ <span class="faq-arr">▼</span></div>
-      <div class="faq-a">يمكن الدفع عبر التحويل البنكي لمصرف الراجحي أو عبر بوابة الدفع الإلكترونية عند تفعيلها.</div>
+      <div class="faq-a">يمكن الدفع عبر التحويل البنكي أو عن طريق رابط الدفع.</div>
     </div>
   </div>
 
@@ -377,8 +492,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <ul>
         <li><a href="about.html">من نحن</a></li>
         <li><a href="contact.html">تواصل معنا</a></li>
-        <li><a href="packages.html">الباقات</a></li>
-        <li><a href="cart.html">سلة المشتريات</a></li>
+        <li><a href="#faq">الأسئلة الشائعة</a></li>
+        <li><a href="policies.html">الشروط والسياسات</a></li>
       </ul>
     </div>
     <div class="footer-col">
