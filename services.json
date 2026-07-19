@@ -1619,14 +1619,6 @@
       "sale_ok": true
     },
     {
-      "id": 2659,
-      "name": "حجز رحلات العمرة (باقات شاملة)",
-      "price": 0,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
       "id": 2649,
       "name": "استخراج وثيقة عائلية / بطاقة هوية",
       "price": 104,
@@ -1661,7 +1653,7 @@
     {
       "id": 2657,
       "name": "حجز تذاكر طيران داخلية وخارجية",
-      "price": 0,
+      "price": 30.43,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1669,7 +1661,7 @@
     {
       "id": 2658,
       "name": "حجز فنادق داخل المملكة وخارجها",
-      "price": 0,
+      "price": 30.43,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1677,7 +1669,7 @@
     {
       "id": 2660,
       "name": "حجز تذاكر باصات سفر داخل المملكة",
-      "price": 0,
+      "price": 30.43,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1685,7 +1677,7 @@
     {
       "id": 2661,
       "name": "حجز رحلات بحرية وسياحية",
-      "price": 0,
+      "price": 130.43,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
