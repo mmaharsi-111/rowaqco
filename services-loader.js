@@ -31,27 +31,31 @@
       const svc = lookup[cardId];
 
       if (!svc) {
-        // منتج محذوف أو غير نشط — أخفِ الكارت
         card.style.display = 'none';
         hidden++;
         return;
       }
 
-      // حدّث data-price (شامل ضريبة 15%)
+      // حدّث السعر فقط (بدون تغيير الاسم لتجنب الوميض)
       const priceWithTax = Math.ceil(svc.price * 1.15);
       card.dataset.price = priceWithTax;
 
-      // حدّث السعر في .price-val
       const priceVal = card.querySelector('.price-val');
-      if (priceVal) {
-        priceVal.textContent = priceWithTax;
-      }
+      if (priceVal) priceVal.textContent = priceWithTax;
 
       // حدّث الاسم في data-name وفي .svc-name
       if (svc.name) {
         card.dataset.name = svc.name;
         const nameEl = card.querySelector('.svc-name');
         if (nameEl) nameEl.textContent = svc.name;
+      }
+
+      // إذا كان السعر صفر — أظهر زر استفسر
+      if (svc.price === 0) {
+        const footer = card.querySelector('.svc-footer');
+        if (footer && !footer.querySelector('.ask')) {
+          footer.innerHTML = `<button class="btn-cart ask" onclick="askService('${svc.name}')">💬 استفسر عن السعر</button>`;
+        }
       }
 
       updated++;
