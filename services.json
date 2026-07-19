@@ -1605,7 +1605,7 @@
     {
       "id": 2653,
       "name": "حجز موعد فحص المركبات (الفحص الدوري)",
-      "price": 30,
+      "price": 21.73,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1613,7 +1613,7 @@
     {
       "id": 2654,
       "name": "حجز موعد الجوازات والإقامة",
-      "price": 20,
+      "price": 21.73,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1645,15 +1645,7 @@
     {
       "id": 2652,
       "name": "حجز موعد في المستشفيات والعيادات الحكومية",
-      "price": 20,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2655,
-      "name": "حجز موعد في البنوك والمصارف",
-      "price": 25,
+      "price": 21.73,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1661,7 +1653,7 @@
     {
       "id": 2656,
       "name": "حجز موعد المحاكم وكتابات العدل",
-      "price": 15,
+      "price": 21.73,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
