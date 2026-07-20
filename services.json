@@ -73,14 +73,6 @@
       "sale_ok": true
     },
     {
-      "id": 2524,
-      "name": "تقديم على جهاز نقاط البيع",
-      "price": 104.34,
-      "category": "خدمات حكومية / بلدي",
-      "active": true,
-      "sale_ok": true
-    },
-    {
       "id": 2509,
       "name": "إصدار رخصة عربة متنقلة (فود تراك)",
       "price": 150,
@@ -1291,6 +1283,144 @@
       "sale_ok": true
     }
   ],
+  "general-services": [
+    {
+      "id": 2524,
+      "name": "تقديم على جهاز نقاط البيع",
+      "price": 104.34,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2647,
+      "name": "التقديم على تأمين طبي",
+      "price": 52,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2644,
+      "name": "الاستعلام عن السجلات التجارية على اسمك",
+      "price": 25.8,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2645,
+      "name": "الاستعلام عن المخالفات المرورية",
+      "price": 17.3,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2646,
+      "name": "تصميم سيرة ذاتية احترافية (CV) عربي وإنجليزي",
+      "price": 173.5,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2648,
+      "name": "فتح حساب بنكي أفراد / قاصر / تابع",
+      "price": 69.56,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2651,
+      "name": "حجز موعد في جميع الجهات الحكومية والخاصة",
+      "price": 21.739,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2653,
+      "name": "حجز موعد فحص المركبات (الفحص الدوري)",
+      "price": 21.73,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2654,
+      "name": "حجز موعد الجوازات والإقامة",
+      "price": 21.73,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2649,
+      "name": "استخراج وثيقة عائلية / بطاقة هوية",
+      "price": 104,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2650,
+      "name": "الاستعلام عن صحة الإقامة وتاريخ انتهائها",
+      "price": 17.39,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2652,
+      "name": "حجز موعد في المستشفيات والعيادات الحكومية",
+      "price": 21.73,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2656,
+      "name": "حجز موعد المحاكم وكتابات العدل",
+      "price": 21.73,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2657,
+      "name": "حجز تذاكر طيران داخلية وخارجية",
+      "price": 30.43,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2658,
+      "name": "حجز فنادق داخل المملكة وخارجها",
+      "price": 30.43,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2660,
+      "name": "حجز تذاكر باصات سفر داخل المملكة",
+      "price": 30.43,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2661,
+      "name": "حجز رحلات بحرية وسياحية",
+      "price": 130.43,
+      "category": "خدمات عامة",
+      "active": true,
+      "sale_ok": true
+    }
+  ],
   "gosi": [
     {
       "id": 2662,
@@ -1549,136 +1679,6 @@
       "name": "التقديم على وظائف تطبيق أسعى",
       "price": 40,
       "category": "خدمات الأفراد / الوظائف",
-      "active": true,
-      "sale_ok": true
-    }
-  ],
-  "general-services": [
-    {
-      "id": 2647,
-      "name": "التقديم على تأمين طبي",
-      "price": 52,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2644,
-      "name": "الاستعلام عن السجلات التجارية على اسمك",
-      "price": 25.8,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2645,
-      "name": "الاستعلام عن المخالفات المرورية",
-      "price": 17.3,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2646,
-      "name": "تصميم سيرة ذاتية احترافية (CV) عربي وإنجليزي",
-      "price": 173.5,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2648,
-      "name": "فتح حساب بنكي أفراد / قاصر / تابع",
-      "price": 69.56,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2651,
-      "name": "حجز موعد في جميع الجهات الحكومية والخاصة",
-      "price": 21.739,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2653,
-      "name": "حجز موعد فحص المركبات (الفحص الدوري)",
-      "price": 21.73,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2654,
-      "name": "حجز موعد الجوازات والإقامة",
-      "price": 21.73,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2649,
-      "name": "استخراج وثيقة عائلية / بطاقة هوية",
-      "price": 104,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2650,
-      "name": "الاستعلام عن صحة الإقامة وتاريخ انتهائها",
-      "price": 17.39,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2652,
-      "name": "حجز موعد في المستشفيات والعيادات الحكومية",
-      "price": 21.73,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2656,
-      "name": "حجز موعد المحاكم وكتابات العدل",
-      "price": 21.73,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2657,
-      "name": "حجز تذاكر طيران داخلية وخارجية",
-      "price": 30.43,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2658,
-      "name": "حجز فنادق داخل المملكة وخارجها",
-      "price": 30.43,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2660,
-      "name": "حجز تذاكر باصات سفر داخل المملكة",
-      "price": 30.43,
-      "category": "خدمات عامة",
-      "active": true,
-      "sale_ok": true
-    },
-    {
-      "id": 2661,
-      "name": "حجز رحلات بحرية وسياحية",
-      "price": 130.43,
-      "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
     }
