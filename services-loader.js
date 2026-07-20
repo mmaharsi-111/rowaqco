@@ -50,11 +50,15 @@
         if (nameEl) nameEl.textContent = svc.name;
       }
 
-      // إذا كان السعر صفر — أظهر زر استفسر
-      if (svc.price === 0) {
-        const footer = card.querySelector('.svc-footer');
-        if (footer && !footer.querySelector('.ask')) {
+      // حدّث الزر حسب السعر
+      const footer = card.querySelector('.svc-footer');
+      if (footer) {
+        if (svc.price === 0) {
+          // سعر صفر → استفسر
           footer.innerHTML = `<button class="btn-cart ask" onclick="askService('${svc.name}')">💬 استفسر عن السعر</button>`;
+        } else {
+          // سعر موجود → أضف للسلة
+          footer.innerHTML = `<button class="btn-cart" onclick="cartAdd(this,'${svc.name}')">🛒 أضف للسلة</button>`;
         }
       }
 
