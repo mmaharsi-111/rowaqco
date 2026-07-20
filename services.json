@@ -1556,7 +1556,7 @@
   "general-services": [
     {
       "id": 2647,
-      "name": "[1141] تأمين طبي",
+      "name": "[1141] التقديم على تأمين طبي",
       "price": 52,
       "category": "خدمات عامة",
       "active": true,
