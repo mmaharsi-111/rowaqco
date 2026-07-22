@@ -252,15 +252,19 @@
   .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
   @media(max-width: 768px) {
     .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .service-card .card-top { padding: 14px 12px; }
-    .service-card .card-top h3 { font-size: 13px; }
-    .service-card .card-top span { font-size: 11px; }
-    .service-card .card-body { padding: 12px; }
-    .service-card .card-body p { font-size: 12px; line-height: 1.5; }
-    .service-card .card-tags { gap: 4px; }
-    .service-card .card-tags span { font-size: 10px; padding: 3px 8px; }
-    .service-card .card-btn { font-size: 13px; padding: 10px 14px; }
-    .icon-circle { width: 44px; height: 44px; font-size: 22px; }
+    .service-card { display: flex; flex-direction: column; }
+    .service-card .card-top {
+      padding: 12px 10px; min-height: 100px;
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .service-card .card-top .icon-circle { width: 38px; height: 38px; font-size: 18px; flex-shrink: 0; }
+    .service-card .card-top h3 { font-size: 12px; line-height: 1.4; margin-bottom: 4px; }
+    .service-card .card-top span { font-size: 10px; }
+    .service-card .card-body { padding: 10px; flex: 1; display: flex; flex-direction: column; }
+    .service-card .card-body p { font-size: 11px; line-height: 1.5; margin-bottom: 10px; }
+    .service-card .card-tags { gap: 4px; flex-wrap: wrap; }
+    .service-card .card-tags span { font-size: 10px; padding: 3px 7px; }
+    .service-card .card-btn { font-size: 12px; padding: 9px 10px; margin-top: auto; }
   }
   .service-card {
     background: var(--white); border-radius: var(--radius);
@@ -478,37 +482,41 @@
   }
   .wa-float:hover { transform: scale(1.1); }
 
+  /* زر السلة للجوال — مخفي افتراضياً */
+  .mobile-cart-btn { display: none !important; }
+
   /* ===== RESPONSIVE ===== */
   @media(max-width: 768px) {
     .header-inner { flex-wrap: nowrap; justify-content: space-between; padding: 10px 16px; }
-    nav { display: none; }
-    .header-cta { display: none; }
+    nav { display: none !important; }
+    .header-cta { display: none !important; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
     .hero-stats { gap: 24px; }
-    .steps { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .step { padding: 20px 14px; }
-    .step-num { width: 36px; height: 36px; font-size: 16px; margin-bottom: 10px; }
-    .step h3 { font-size: 13px; margin-bottom: 6px; }
-    .step p { font-size: 11px; line-height: 1.5; }
-    .how { padding: 36px 16px; }
+
+    /* كيف نعمل — 2×2 */
+    .steps { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    .step { padding: 16px 12px !important; text-align: center; }
+    .step-num { width: 40px !important; height: 40px !important; font-size: 17px !important; margin: 0 auto 10px !important; }
+    .step h3 { font-size: 13px !important; margin-bottom: 6px; }
+    .step p { font-size: 11px !important; line-height: 1.5; color: var(--muted); }
+    .how { padding: 32px 16px !important; }
     .how .section-header { margin-bottom: 20px; }
 
-    /* === هيدر الجوال — يطابق شكل my-orders === */
+    /* هيدر الجوال — زر السلة */
     .mobile-cart-btn {
-      position: relative; display: flex; align-items: center; gap: 8px;
+      display: flex !important;
+      position: relative; align-items: center; gap: 8px;
       background: var(--green); color: #fff;
       padding: 9px 18px; border-radius: 9px;
       font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
-      cursor: pointer; border: none; text-decoration: none;
-      transition: all .2s;
+      text-decoration: none; transition: all .2s; flex-shrink: 0;
     }
-    .mobile-cart-btn:hover { background: var(--green-light); }
     .mobile-cart-badge {
       position: absolute; top: -7px; left: -7px;
       background: #e53e3e; color: #fff;
       width: 20px; height: 20px; border-radius: 50%;
       font-size: 11px; font-weight: 900;
-      display: none; align-items: center; justify-content: center;
+      align-items: center; justify-content: center;
       border: 2px solid #fff;
     }
   }
@@ -519,12 +527,8 @@
     .logo img { height: 40px; }
     .logo-text strong { font-size: 14px; }
     .logo-text span { font-size: 10px; }
-    .steps { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
   }
-
-  /* زر السلة للجوال — مخفي على الكمبيوتر */
-  .mobile-cart-btn { display: none; }
 footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .footer-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
 .footer-brand strong{color:#fff;font-size:17px;font-weight:900;display:block;margin-bottom:10px;}
@@ -721,7 +725,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   function go(n){
     if(!isMob())return;
     idx=n;
-    slider.style.transform='translateX('+( n*100)+'%)';
+    slider.style.transform='translateX('+(-n*100)+'%)';
     dots.forEach(function(d,i){d.classList.toggle('active',i===n);});
   }
   function next(){go((idx+1)%total);}
