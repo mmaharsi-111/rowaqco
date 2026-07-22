@@ -474,6 +474,25 @@
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
     .hero-stats { gap: 24px; }
     .steps { grid-template-columns: 1fr 1fr; }
+
+    /* === هيدر الجوال — يطابق شكل my-orders === */
+    .mobile-cart-btn {
+      position: relative; display: flex; align-items: center; gap: 8px;
+      background: var(--green); color: #fff;
+      padding: 9px 18px; border-radius: 9px;
+      font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; border: none; text-decoration: none;
+      transition: all .2s;
+    }
+    .mobile-cart-btn:hover { background: var(--green-light); }
+    .mobile-cart-badge {
+      position: absolute; top: -7px; left: -7px;
+      background: #e53e3e; color: #fff;
+      width: 20px; height: 20px; border-radius: 50%;
+      font-size: 11px; font-weight: 900;
+      display: none; align-items: center; justify-content: center;
+      border: 2px solid #fff;
+    }
   }
   @media(max-width: 480px) {
     .footer-grid { grid-template-columns: 1fr; }
@@ -485,6 +504,9 @@
     .steps { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
   }
+
+  /* زر السلة للجوال — مخفي على الكمبيوتر */
+  .mobile-cart-btn { display: none; }
 footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .footer-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
 .footer-brand strong{color:#fff;font-size:17px;font-weight:900;display:block;margin-bottom:10px;}
@@ -552,6 +574,11 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <span class="cart-badge" style="position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;">0</span>
       </a>
     </div>
+    <!-- زر السلة للجوال فقط -->
+    <a href="cart.html" class="mobile-cart-btn" id="mobile-cart-btn">
+      🛒 السلة
+      <span class="mobile-cart-badge" id="mobile-cart-badge">0</span>
+    </a>
   </div>
 </header>
 
@@ -1123,6 +1150,14 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
   document.addEventListener('DOMContentLoaded', function() {
     if (typeof updateCartBadge === "function") updateCartBadge();
+    // تحديث badge سلة الجوال
+    const cart = JSON.parse(localStorage.getItem('rowaq_cart') || '[]');
+    const count = cart.reduce((s, i) => s + (i.qty || 1), 0);
+    const mobileBadge = document.getElementById('mobile-cart-badge');
+    if (mobileBadge && count > 0) {
+      mobileBadge.textContent = count;
+      mobileBadge.style.display = 'flex';
+    }
   });
 </script>
 <script src="sidebar.js"></script>
