@@ -187,6 +187,58 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== السلة على الجوال ===== */
+@media(max-width:768px){
+  .page-body{padding:16px 12px 40px;}
+  .cart-layout{grid-template-columns:1fr!important;gap:16px;}
+
+  /* رأس السلة */
+  .cart-items-head{padding:14px 16px;}
+  .cart-items-head h2{font-size:16px;}
+
+  /* عنصر في السلة — عمودي */
+  .cart-item{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    padding:14px 16px;
+  }
+  .item-icon{width:40px;height:40px;font-size:18px;border-radius:8px;}
+  .item-info{width:100%;}
+  .item-name{font-size:14px;font-weight:700;line-height:1.5;}
+  .item-cat{font-size:11px;}
+
+  /* صف السعر والكمية والإجمالي والحذف */
+  .item-bottom-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    margin-top:4px;
+  }
+  .item-qty{gap:6px;}
+  .qty-btn{width:28px;height:28px;font-size:14px;}
+  .qty-val{font-size:14px;}
+  .item-total{font-size:15px;font-weight:900;min-width:auto;}
+  .item-del{width:30px;height:30px;font-size:14px;}
+
+  /* خدمات مقترحة — عمود واحد */
+  .upsell-grid{grid-template-columns:1fr!important;gap:10px;}
+  .upsell-card{padding:14px;gap:10px;}
+  .upsell-icon{font-size:24px;}
+  .upsell-name{font-size:13px;}
+  .upsell-price{font-size:12px;}
+
+  /* ملخص الطلب */
+  .summary-box{position:static!important;}
+  .summary-body{padding:16px;}
+  .summary-head{padding:14px 16px;}
+
+  /* breadcrumb */
+  .breadcrumb{padding:10px 16px;}
+  .bc-title{font-size:17px;}
+}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/cart.html">
 <meta property="og:type" content="website">
@@ -407,14 +459,16 @@ function renderCart(){
         <span class="item-cat">${item.category}</span>
         <div class="item-name">${item.name}</div>
         <div class="item-price">سعر الوحدة: <strong>﷼ ${item.price > 0 ? item.price : 'يحدد لاحقاً'}</strong></div>
+        <div class="item-bottom-row">
+          <div class="item-qty">
+            <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+            <span class="qty-val">${item.qty||1}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+          </div>
+          <div class="item-total">${item.price > 0 ? '﷼ ' + itemTotal : '—'}</div>
+          <button class="item-del" onclick="deleteItem(${item.id})" title="حذف">✕</button>
+        </div>
       </div>
-      <div class="item-qty">
-        <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
-        <span class="qty-val">${item.qty||1}</span>
-        <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
-      </div>
-      <div class="item-total">${item.price > 0 ? '﷼ ' + itemTotal : '—'}</div>
-      <button class="item-del" onclick="deleteItem(${item.id})" title="حذف">✕</button>
     </div>`;
   }).join('');
 
