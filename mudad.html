@@ -29,7 +29,17 @@ window.addEventListener('load',function(){
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
-<style>body{font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;}</style>
+<style>
+@font-face {
+  font-family: 'Cairo Fallback';
+  src: local('Arial');
+  size-adjust: 106%;
+  ascent-override: 88%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+body{font-family:'Cairo','Cairo Fallback',sans-serif;}
+</style>
 <script src="cart.js" defer></script>
 <style>
 :root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}

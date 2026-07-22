@@ -31,7 +31,19 @@ window.addEventListener('load',function(){
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
 <style>
 /* Critical CSS — يُعرَض فوراً قبل تحميل الخط */
-body{font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;}
+/* font-face للخط البديل بنفس أبعاد Cairo لمنع CLS */
+@font-face {
+  font-family: 'Cairo Fallback';
+  src: local('Arial');
+  size-adjust: 106%;
+  ascent-override: 88%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+body{font-family:'Cairo','Cairo Fallback',sans-serif;}
+/* تثبيت ارتفاع الهيرو لمنع اهتزاز التصميم */
+.hero{min-height:420px;}
+@media(max-width:768px){.hero{min-height:360px;}}
 </style>
 <style>
   /* ===== TOKENS ===== */
