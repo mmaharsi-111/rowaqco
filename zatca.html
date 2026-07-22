@@ -98,6 +98,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .footer-grid{grid-template-columns:1fr 1fr;}.services-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr));}}
 @media(max-width:600px){footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .footer-grid{grid-template-columns:1fr;}.header-nav{display:none;}}
+
+.mobile-cart-btn{display:none!important;}
+@media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:"Cairo",sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/zatca.html">
 <meta property="og:type" content="website">
@@ -133,6 +137,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
       <a href="cart.html" class="cart-btn">🛒 سلتي<span class="cart-badge" id="cart-badge">0</span></a>
     </div>
+    <a href="cart.html" class="mobile-cart-btn" id="mobile-cart-btn">🛒 السلة<span class="mobile-cart-badge" id="mobile-cart-badge">0</span></a>
   </div>
 </header>
 

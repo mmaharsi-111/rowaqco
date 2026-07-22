@@ -164,6 +164,9 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .social-links a.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
 .social-links a.fb:hover{background:#1877f2;}
 .social-links a.li:hover{background:#0a66c2;}
+.mobile-cart-btn{display:none!important;}
+@media(max-width:768px){nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
 </style>
 <script src="cart.js"></script>
 </head>
@@ -200,6 +203,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <span class="cart-badge" style="position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;">0</span>
       </a>
     </div>
+    <a href="cart.html" class="mobile-cart-btn" id="mobile-cart-btn">🛒 السلة<span class="mobile-cart-badge" id="mobile-cart-badge">0</span></a>
   </div>
 </header>
 
