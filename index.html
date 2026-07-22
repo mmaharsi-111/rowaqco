@@ -695,20 +695,22 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 @media(max-width:768px){
   .offers-section{padding:36px 0!important;}
   .offers-section>.wrap{padding:0 16px!important;}
-  .offers-wrap{overflow:hidden;border-radius:14px;}
+  .offers-wrap{border-radius:14px;}
   .offers-track{
-    display:flex!important;
-    flex-direction:row!important;
-    gap:0!important;
+    display:block!important;
     width:100%;
-    direction:ltr;
-    transition:transform .5s ease;
   }
   .offer-card{
-    min-width:100%!important;
-    flex-shrink:0;
     border-radius:14px;
-    direction:rtl;
+    display:none;
+  }
+  .offer-card.active-slide{
+    display:block!important;
+    animation:fadeSlide .4s ease;
+  }
+  @keyframes fadeSlide{
+    from{opacity:0;transform:scale(.97);}
+    to{opacity:1;transform:scale(1);}
   }
   .offers-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
   .offers-dots span{width:9px;height:9px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .3s,transform .3s;display:inline-block;}
@@ -758,8 +760,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   function go(n){
     if(!isMob()||!track)return;
     idx=n;
-    var w=track.parentElement.offsetWidth;
-    track.style.transform='translateX(-'+(n*w)+'px)';
+    var cards=track.querySelectorAll('.offer-card');
+    cards.forEach(function(c,i){
+      c.classList.toggle('active-slide', i===n);
+    });
     dots.forEach(function(d,i){d.classList.toggle('active',i===n);});
   }
   function next(){go((idx+1)%total);}
@@ -786,7 +790,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   }
   document.addEventListener('DOMContentLoaded',function(){if(isMob()){go(0);start();}});
   window.addEventListener('resize',function(){
-    if(!isMob()){clearInterval(timer);slider.style.transform='';}
+    if(!isMob()){clearInterval(timer);var cards=track?track.querySelectorAll('.offer-card'):[];cards.forEach(function(c){c.classList.remove('active-slide');});}
     else{go(idx);start();}
   });
 })();
