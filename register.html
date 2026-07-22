@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV"></script>
+<!-- Google Analytics — يُحمَّل بعد تفاعل المستخدم لتحسين LCP -->
 <script>
-  window.dataLayer = window.dataLayer || [];
+window.addEventListener('load',function(){
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-09C3QPQGJV');
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-09C3QPQGJV');
+});
 </script>
 <meta charset="UTF-8">
 <meta name="description" content="سجّل حسابك في رواق التميز للخدمات العامة واستمتع بإنجاز معاملاتك الحكومية والتجارية بسهولة ويسر.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تسجيل الدخول / إنشاء حساب — رواق التميز</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<script src="cart.js"></script>
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
+<style>body{font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;}</style>
+<script src="cart.js" defer></script>
 <style>
 :root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -91,7 +105,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
   color: var(--muted); cursor: pointer;
   transition: color .2s, background .2s;
   border: none; background: transparent;
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Cairo','Segoe UI',Tahoma,Arial,sans-serif;
 }
 .auth-tab.active {
   color: var(--green);
@@ -120,7 +134,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .field input, .field select {
   width: 100%; padding: 12px 14px; border-radius: 10px;
   border: 1.5px solid var(--border);
-  font-family: 'Cairo', sans-serif; font-size: 14px;
+  font-family: 'Cairo','Segoe UI',Tahoma,Arial,sans-serif; font-size: 14px;
   color: var(--dark); background: var(--white);
   transition: border-color .2s, box-shadow .2s; outline: none;
 }
@@ -182,7 +196,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
   width: 100%; padding: 14px;
   background: var(--green); color: #fff;
   border: none; border-radius: 12px;
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Cairo','Segoe UI',Tahoma,Arial,sans-serif;
   font-size: 16px; font-weight: 700;
   cursor: pointer; transition: background .2s, transform .1s;
   margin-top: 8px;
@@ -204,7 +218,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
   width: 100%; padding: 13px;
   background: #25d366; color: #fff;
   border: none; border-radius: 12px;
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Cairo','Segoe UI',Tahoma,Arial,sans-serif;
   font-size: 15px; font-weight: 700;
   cursor: pointer; transition: background .2s;
   display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -289,7 +303,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
   <div class="header-inner">
     <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
     <a href="index.html" class="logo">
-      <img src="logo.jpg" alt="رواق التميز">
+      <img src="logo.webp" alt="رواق التميز">
       <div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
     </a>
     <nav class="header-nav">
@@ -491,7 +505,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 <!-- SIDEBAR -->
 <div id="sidebar-container"></div>
 
-<script src="sidebar.js"></script>
+<script src="sidebar.js" defer></script>
 <script>
 
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbyzTHDGzy4Kqitq3U0q4z5fhxlsMwMDLUpZj5Ptd6G0nqp_3pFj67cEz66FhHUXROuc/exec';

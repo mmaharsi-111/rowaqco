@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV"></script>
+<!-- Google Analytics — يُحمَّل بعد تفاعل المستخدم لتحسين LCP -->
 <script>
-  window.dataLayer = window.dataLayer || [];
+window.addEventListener('load',function(){
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-09C3QPQGJV');
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-09C3QPQGJV');
+});
 </script>
 <meta charset="UTF-8">
 <meta name="description" content="رواق التميز للخدمات العامة — أنجز معاملاتك الحكومية والتجارية بسهولة وسرعة من أي مكان في المملكة العربية السعودية.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>رواق التميز للخدمات العامة</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
+<style>
+/* Critical CSS — يُعرَض فوراً قبل تحميل الخط */
+body{font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;}
+</style>
 <style>
   /* ===== TOKENS ===== */
   :root {
@@ -34,7 +51,7 @@
     --shadow:     0 2px 16px rgba(0,0,0,0.08);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Cairo', sans-serif; background: var(--white); color: var(--dark); direction: rtl; }
+  body { font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif; background: var(--white); color: var(--dark); direction: rtl; }
   a { text-decoration: none; color: inherit; }
   img { display: block; max-width: 100%; }
 
@@ -570,7 +587,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 </style>
-<script src="cart.js"></script>
 <link rel="canonical" href="https://www.rowaqco.com/index.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.rowaqco.com/index.html">
@@ -596,7 +612,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <span></span><span></span><span></span>
     </button>
     <a href="index.html" class="logo">
-      <img src="logo.jpg" alt="رواق التميز" style="height:52px;width:auto;">
+      <img src="logo.webp" alt="رواق التميز" width="52" height="52" style="height:52px;width:auto;" loading="eager">
       <div class="logo-text">
         <strong>رواق التميز</strong>
         <span>للخدمات العامة والحكومية</span>
@@ -1006,7 +1022,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <a href="sbc.html" class="platform-card">
         <div class="picon"><img loading="lazy" src="sbc.svg" alt="المركز السعودي" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏢'"></div>المركز السعودي
       </a>
-      <!-- المنصات المخفية على الجوال -->
+      <!-- المنصات المخفية على الكمبيوتر تظهر عبر زر "عرض الكل" -->
       <a href="najiz.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="najiz.svg" alt="ناجز" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='⚖️'"></div>ناجز
       </a>
@@ -1080,7 +1096,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="picon"><img loading="lazy" src="najm.webp" alt="نجم" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='⭐'"></div>نجم
       </a>
       <a href="simah.html" class="platform-card mobile-hidden-platform">
-        <div class="picon"><img loading="lazy" src="simah.jpg" alt="ملم" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📈'"></div>سمة
+        <div class="picon"><img loading="lazy" src="simah.jpg" alt="سمة" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📈'"></div>سمة
       </a>
       <a href="musaned.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="musaned.svg" alt="مساند" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏠'"></div>مساند
@@ -1119,6 +1135,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     </div>
     <!-- زر عرض جميع المنصات — يظهر على الجوال فقط -->
     <a href="government-platforms.html" class="platforms-all-btn">عرض جميع المنصات ←</a>
+    <!-- رابط الكمبيوتر -->
+    <div style="text-align:center;margin-top:28px;" class="desktop-more-platforms">
+      <a href="government-platforms.html" class="btn btn-outline" style="display:inline-flex;">🏛️ عرض جميع المنصات (40+) ←</a>
+    </div>
   </div>
 </section>
 
@@ -1189,7 +1209,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     <div class="footer-brand">
       <!-- ✏️ غيّر الاسم والوصف -->
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-        <img src="logo.jpg" alt="رواق التميز" style="height:60px;width:auto;flex-shrink:0;">
+        <img src="logo.webp" alt="رواق التميز" width="60" height="60" style="height:60px;width:auto;flex-shrink:0;" loading="lazy">
         <strong style="font-size:17px;">رواق التميز للخدمات العامة</strong>
       </div>
       <p>نخدم المواطن والمقيم وأصحاب المؤسسات والشركات، وننجز معاملاتهم بطريقة رقمية متطورة من أي مكان.</p>
@@ -1281,6 +1301,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     }
   });
 </script>
-<script src="sidebar.js"></script>
+<script src="cart.js" defer></script>
+<script src="sidebar.js" defer></script>
 </body>
 </html>

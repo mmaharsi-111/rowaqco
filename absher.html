@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV"></script>
+<!-- Google Analytics — يُحمَّل بعد تفاعل المستخدم لتحسين LCP -->
 <script>
-  window.dataLayer = window.dataLayer || [];
+window.addEventListener('load',function(){
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-09C3QPQGJV');
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-09C3QPQGJV');
+});
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="خدمات منصة أبشر (أفراد وأعمال) — رواق التميز للخدمات العامة">
 <title>خدمات منصة أبشر — رواق التميز</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<script src="cart.js"></script>
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
+<style>body{font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;}</style>
+<script src="cart.js" defer></script>
 <style>
 :root{--green:#0a5c3a;--green-light:#0e7a4e;--green-pale:#e8f5ee;--gold:#c9a84c;--gold-light:#f0dfa0;--dark:#111827;--mid:#374151;--muted:#6b7280;--border:#e5e7eb;--bg:#f3f4f6;--white:#fff;--radius:14px;--shadow:0 2px 16px rgba(0,0,0,.07);--shadow-lg:0 8px 32px rgba(0,0,0,.13);}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
@@ -108,7 +122,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .footer-grid{grid-template-columns:1fr;}.header-nav{display:none;}}
 
 .mobile-cart-btn{display:none!important;}
-@media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:"Cairo",sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/absher.html">
@@ -130,7 +144,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   <div class="header-inner">
     <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
     <a href="index.html" class="logo">
-      <img src="logo.jpg" alt="رواق التميز">
+      <img src="logo.webp" alt="رواق التميز">
       <div class="logo-text"><strong>رواق التميز</strong><span>للخدمات العامة والحكومية</span></div>
     </a>
     <nav class="header-nav">
@@ -495,7 +509,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   <div class="footer-grid">
     <div class="footer-brand">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-        <img src="logo.jpg" alt="رواق التميز" style="height:60px;width:auto;flex-shrink:0;">
+        <img src="logo.webp" alt="رواق التميز" style="height:60px;width:auto;flex-shrink:0;">
         <strong style="font-size:17px;">رواق التميز للخدمات العامة</strong>
       </div>
       <p>نخدم المواطن والمقيم وأصحاب المؤسسات والشركات، وننجز معاملاتهم بطريقة رقمية متطورة من أي مكان.</p>
@@ -549,7 +563,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
-<script src="sidebar.js"></script>
+<script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
   const q = document.getElementById('search-input').value.trim().toLowerCase();
