@@ -695,28 +695,20 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 @media(max-width:768px){
   .offers-section{padding:36px 0!important;}
   .offers-section>.wrap{padding:0 16px!important;}
-  .offers-wrap{
-    overflow-x:scroll;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    border-radius:14px;
-    scroll-behavior:smooth;
-  }
-  .offers-wrap::-webkit-scrollbar{display:none;}
+  .offers-wrap{overflow:hidden;border-radius:14px;}
   .offers-track{
     display:flex!important;
     flex-direction:row!important;
     gap:0!important;
     width:100%;
     direction:ltr;
+    transition:transform .5s ease;
   }
   .offer-card{
     min-width:100%!important;
     flex-shrink:0;
     border-radius:14px;
     direction:rtl;
-    scroll-snap-align:start;
   }
   .offers-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
   .offers-dots span{width:9px;height:9px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .3s,transform .3s;display:inline-block;}
@@ -760,25 +752,35 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 <script>
 (function(){
   var idx=0, total=3, timer=null, paused=false;
-  var wrap=document.querySelector('.offers-wrap');
+  var track=document.getElementById('offersSlider');
   var dots=document.querySelectorAll('#offersDots span');
   function isMob(){return window.innerWidth<=768;}
   function go(n){
-    if(!isMob()||!wrap)return;
+    if(!isMob()||!track)return;
     idx=n;
-    var w=wrap.offsetWidth;
-    wrap.scrollLeft=n*w;
+    var w=track.parentElement.offsetWidth;
+    track.style.transform='translateX(-'+(n*w)+'px)';
     dots.forEach(function(d,i){d.classList.toggle('active',i===n);});
   }
   function next(){go((idx+1)%total);}
   function start(){clearInterval(timer);timer=setInterval(function(){if(!paused)next();},3500);}
-  dots.forEach(function(d,i){d.onclick=function(){go(i);paused=true;clearInterval(timer);setTimeout(function(){paused=false;start();},5000);};});
-  if(wrap){
-    wrap.addEventListener('touchstart',function(){paused=true;},{passive:true});
-    wrap.addEventListener('touchend',function(){
-      var w=wrap.offsetWidth;
-      idx=Math.round(wrap.scrollLeft/w);
-      dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+  // نقاط التنقل
+  dots.forEach(function(d,i){
+    d.onclick=function(){
+      go(i);paused=true;clearInterval(timer);
+      setTimeout(function(){paused=false;start();},5000);
+    };
+  });
+  // سحب بالإصبع
+  var startX=0;
+  if(track){
+    track.addEventListener('touchstart',function(e){
+      startX=e.touches[0].clientX;paused=true;
+    },{passive:true});
+    track.addEventListener('touchend',function(e){
+      var diff=startX-e.changedTouches[0].clientX;
+      if(diff>40) go(Math.min(idx+1,total-1));
+      else if(diff<-40) go(Math.max(idx-1,0));
       setTimeout(function(){paused=false;},4000);
     },{passive:true});
   }
