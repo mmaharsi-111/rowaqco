@@ -249,6 +249,26 @@
   .step p { color: var(--muted); font-size: 13px; line-height: 1.6; }
 
   /* ===== SERVICES ===== */
+  .platforms-all-btn { display: none; }
+  @media(max-width: 768px) {
+    .mobile-hidden-platform { display: none !important; }
+    .platforms-all-btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px;
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .platforms-all-btn:hover { background: var(--green-light); }
+  }
   .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
   @media(max-width: 768px) {
     .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -954,119 +974,119 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <a href="sbc.html" class="platform-card">
         <div class="picon"><img loading="lazy" src="sbc.svg" alt="المركز السعودي" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏢'"></div>المركز السعودي
       </a>
-      <a href="najiz.html" class="platform-card">
+      <!-- المنصات المخفية على الجوال -->
+      <a href="najiz.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="najiz.svg" alt="ناجز" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='⚖️'"></div>ناجز
       </a>
-      <a href="zatca.html" class="platform-card">
+      <a href="zatca.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="zatca.svg" alt="الزكاة والضريبة" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📊'"></div>الزكاة والضريبة
       </a>
-      <a href="sakani.html" class="platform-card">
+      <a href="sakani.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="sakani.svg" alt="سكني" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏠'"></div>سكني
       </a>
-      <a href="electricity.html" class="platform-card">
+      <a href="electricity.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="electricity.svg" alt="الكهرباء" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💡'"></div>الكهرباء
       </a>
-      <a href="water.html" class="platform-card">
+      <a href="water.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="water.svg" alt="المياه" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💧'"></div>المياه
       </a>
-      <a href="noor-faris.html" class="platform-card">
+      <a href="noor-faris.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="noor-faris.webp" alt="نور وفارس" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📚'"></div>نور وفارس
       </a>
-      <a href="gosi.html" class="platform-card">
+      <a href="gosi.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="gosi.svg" alt="تأمينات اجتماعية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🤝'"></div>تأمينات اجتماعية
       </a>
-      <a href="ejar.html" class="platform-card">
+      <a href="ejar.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="ejar.svg" alt="إيجار" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🔑'"></div>إيجار
       </a>
-      <a href="chamber.html" class="platform-card">
+      <a href="chamber.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="chamber.webp" alt="الغرفة التجارية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏛️'"></div>الغرفة التجارية
       </a>
-      <a href="monshaat.html" class="platform-card">
+      <a href="monshaat.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="monshaat.svg" alt="منشآت" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🔧'"></div>منشآت
       </a>
-
-      <!-- المنصات الجديدة -->
-      <a href="salama.html" class="platform-card">
+      <a href="salama.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="salama.webp" alt="سلامة" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🛡️'"></div>سلامة
       </a>
-      <a href="saber.html" class="platform-card">
+      <a href="saber.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="saber.webp" alt="سابر" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📦'"></div>سابر
       </a>
-      <a href="discounts.html" class="platform-card">
+      <a href="discounts.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="discounts.svg" alt="نظام التخفيضات" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏷️'"></div>نظام التخفيضات
       </a>
-      <a href="fasah.html" class="platform-card">
+      <a href="fasah.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="fasah.svg" alt="فسح" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🚢'"></div>فسح
       </a>
-      <a href="telecom.html" class="platform-card">
+      <a href="telecom.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="telecom.svg" alt="شركات الاتصالات" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📡'"></div>شركات الاتصالات
       </a>
-      <a href="spl.html" class="platform-card">
+      <a href="spl.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="spl.svg" alt="سبل" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📮'"></div>سبل
       </a>
-      <a href="tam.html" class="platform-card">
+      <a href="tam.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="tam.webp" alt="تام" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🚗'"></div>تم
       </a>
-      <a href="ip.html" class="platform-card">
+      <a href="ip.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="ip.svg" alt="الملكية الفكرية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💡'"></div>الملكية الفكرية
       </a>
-      <a href="taqyees.html" class="platform-card">
+      <a href="taqyees.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="taqyees.webp" alt="تقييس" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📐'"></div>تقييس
       </a>
-      <a href="qawayem.html" class="platform-card">
+      <a href="qawayem.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="qawayem.webp" alt="قوائم" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📊'"></div>قوائم
       </a>
-      <a href="seza.html" class="platform-card">
+      <a href="seza.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="seza.svg" alt="هيئة المدن الاقتصادية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏙️'"></div>هيئة المدن الاقتصادية
       </a>
-      <a href="taqat.html" class="platform-card">
+      <a href="taqat.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="taqat.jpg" alt="طاقات" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='⚡'"></div>طاقات
       </a>
-      <a href="freelance.html" class="platform-card">
+      <a href="freelance.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="freelance.webp" alt="العمل الحر" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💼'"></div>العمل الحر
       </a>
-      <a href="najm.html" class="platform-card">
+      <a href="najm.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="najm.webp" alt="نجم" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='⭐'"></div>نجم
       </a>
-      <a href="simah.html" class="platform-card">
+      <a href="simah.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="simah.jpg" alt="ملم" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📈'"></div>سمة
       </a>
-      <a href="musaned.html" class="platform-card">
+      <a href="musaned.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="musaned.svg" alt="مساند" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏠'"></div>مساند
       </a>
-      <a href="sce.html" class="platform-card">
+      <a href="sce.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="sce.svg" alt="الهيئة السعودية للمهندسين" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🔧'"></div>الهيئة السعودية للمهندسين
       </a>
-      <a href="realestate.html" class="platform-card">
+      <a href="realestate.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="realestate.webp" alt="البورصة العقارية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏗️'"></div>البورصة العقارية
       </a>
-      <a href="shomoos.html" class="platform-card">
+      <a href="shomoos.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="shomoos.svg" alt="شموس" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='☀️'"></div>شموس
       </a>
-      <a href="mumaris.html" class="platform-card">
+      <a href="mumaris.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="mumaris.webp" alt="ممارس بلس" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏥'"></div>ممارس بلس
       </a>
-      <a href="taradhi.html" class="platform-card">
+      <a href="taradhi.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="taradhi.webp" alt="تراضي" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🤝'"></div>تراضي
       </a>
-      <a href="support-citizen.html" class="platform-card">
+      <a href="support-citizen.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="support-citizen.svg" alt="حساب المواطن" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏠'"></div>حساب المواطن
       </a>
-      <a href="support-guarantee.html" class="platform-card">
+      <a href="support-guarantee.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="support-guarantee.svg" alt="الضمان المطور" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🤲'"></div>الضمان المطور
       </a>
-      <a href="support-hafiz.html" class="platform-card">
+      <a href="support-hafiz.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="support-hafiz.webp" alt="حافز" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💼'"></div>حافز
       </a>
-      <a href="support-tamheer.html" class="platform-card">
+      <a href="support-tamheer.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="support-tamheer.webp" alt="تمهير" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🎓'"></div>تمهير
       </a>
-      <a href="support-sanad.html" class="platform-card">
+      <a href="support-sanad.html" class="platform-card mobile-hidden-platform">
         <div class="picon"><img loading="lazy" src="support-sanad.webp" alt="ساند" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏗️'"></div>ساند
       </a>
 
-
     </div>
+    <!-- زر عرض جميع المنصات — يظهر على الجوال فقط -->
+    <a href="government-platforms.html" class="platforms-all-btn">عرض جميع المنصات ←</a>
   </div>
 </section>
 
