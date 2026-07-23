@@ -535,6 +535,19 @@ body{font-family:'Cairo','Cairo Fallback',sans-serif;}
   /* زر السلة للجوال — مخفي افتراضياً */
   .mobile-cart-btn { display: none !important; }
 
+  /* التعليقات على الجوال — بطاقة صغيرة في الوسط */
+  @media(max-width:768px){
+    #reviews-track {
+      scroll-snap-type: x mandatory !important;
+      padding: 0 52px 12px !important;
+      gap: 12px !important;
+    }
+    #reviews-track .review-card {
+      min-width: calc(100% - 104px) !important;
+      scroll-snap-align: center;
+    }
+  }
+
   /* ===== RESPONSIVE ===== */
   @media(max-width: 768px) {
     .header-inner { flex-wrap: nowrap; justify-content: space-between; padding: 10px 16px; }
