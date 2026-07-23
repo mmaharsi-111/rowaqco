@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Google Analytics — يُحمَّل بعد تفاعل المستخدم لتحسين LCP -->
+<script>
+window.addEventListener('load',function(){
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-09C3QPQGJV');
+});
+</script>
+<meta charset="UTF-8">
+<meta name="description" content="أنجز معاملاتك الحكومية بسهولة وسرعة من مكانك — رواق التميز منصة متخصصة تخدمك عبر أبشر وقوى وبلدي و40+ منصة حكومية بأسعار مناسبة وخدمة فورية.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رواق التميز للخدمات العامة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* Critical CSS — يُعرَض فوراً قبل تحميل الخط */
+/* font-face للخط البديل بنفس أبعاد Cairo لمنع CLS */
+@font-face {
+  font-family: 'Cairo Fallback';
+  src: local('Arial');
+  size-adjust: 106%;
+  ascent-override: 88%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+body{font-family:'Cairo','Cairo Fallback',sans-serif;}
+/* تثبيت ارتفاع الهيرو لمنع اهتزاز التصميم */
+.hero{min-height:420px;}
+@media(max-width:768px){.hero{min-height:360px;}}
+</style>
+<style>
+  /* ===== TOKENS ===== */
+  :root {
+    --green:      #0a5c3a;
+    --green-light:#0e7a4e;
+    --green-pale: #e8f5ee;
+    --gold:       #c9a84c;
+    --gold-light: #f0dfa0;
+    --dark:       #111827;
+    --mid:        #374151;
+    --muted:      #6b7280;
+    --border:     #e5e7eb;
+    --bg:         #f9fafb;
+    --white:      #ffffff;
+    --radius:     12px;
+    --shadow:     0 2px 16px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif; background: var(--white); color: var(--dark); direction: rtl; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* ===== SIDEBAR ===== */
+  .menu-btn {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 42px; border-radius: 10px; cursor: pointer;
+    background: var(--green); border: none; padding: 10px;
+    flex-shrink: 0; transition: background .2s;
+  }
+  .menu-btn span {
+    display: block; height: 2px; background: #fff; border-radius: 2px;
+    transition: all .3s;
+  }
+  .menu-btn:hover { background: var(--green-light); }
+
+  .sidebar-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    z-index: 998; opacity: 0; pointer-events: none;
+    transition: opacity .3s;
+  }
+  .sidebar-overlay.open { opacity: 1; pointer-events: all; }
+
+  .sidebar {
+    position: fixed; top: 0; right: -360px; width: 320px; max-width: 90vw;
+    height: 100vh; background: var(--white);
+    z-index: 999; overflow-y: auto;
+    transition: right .3s cubic-bezier(.4,0,.2,1);
+    box-shadow: -4px 0 32px rgba(0,0,0,.15);
+    display: flex; flex-direction: column;
+  }
+  .sidebar.open { right: 0; }
+
+  .sidebar-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+    background: var(--green); color: #fff; position: sticky; top: 0; z-index: 1;
+  }
+  .sidebar-head span { font-size: 15px; font-weight: 700; }
+  .sidebar-close {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: rgba(255,255,255,.15); border: none; color: #fff;
+    font-size: 20px; cursor: pointer; display: flex;
+    align-items: center; justify-content: center; transition: background .2s;
+  }
+  .sidebar-close:hover { background: rgba(255,255,255,.3); }
+
+  .sidebar-body { flex: 1; padding: 8px 0; }
+
+  .sb-item {
+    display: flex; align-items: center;
+    padding: 14px 20px; font-size: 14px; font-weight: 600; color: var(--dark);
+    border-bottom: 1px solid var(--border); cursor: pointer;
+    transition: background .15s, color .15s; gap: 10px;
+    text-decoration: none;
+  }
+  .sb-item:hover { background: var(--green-pale); color: var(--green); }
+  .sb-item .sb-icon { font-size: 18px; width: 28px; text-align: center; flex-shrink: 0; }
+  .sb-item .sb-label { flex: 1; }
+  .sb-item .sb-arrow { color: var(--muted); font-size: 12px; transition: transform .2s; margin-right: auto; }
+  .sb-item.has-sub.open .sb-arrow { transform: rotate(90deg); }
+
+  .sb-sub { display: none; background: var(--bg); }
+  .sb-sub.open { display: block; }
+  .sb-sub a {
+    display: block; padding: 11px 20px 11px 40px;
+    font-size: 13px; color: var(--mid); border-bottom: 1px solid var(--border);
+    transition: color .15s, background .15s; text-decoration: none;
+  }
+  .sb-sub a:hover { color: var(--green); background: var(--green-pale); }
+  .sb-sub a::before { content: '•'; margin-left: 8px; color: var(--green); }
+
+  .sidebar-footer {
+    padding: 16px 20px; border-top: 2px solid var(--border);
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .sidebar-footer a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 16px; border-radius: 10px; font-size: 14px; font-weight: 700;
+    text-decoration: none; transition: all .2s;
+  }
+  .sb-wa { background: #25d366; color: #fff; }
+  .sb-wa:hover { background: #1ebe5d; }
+  .sb-call { background: var(--green-pale); color: var(--green); }
+  .sb-call:hover { background: var(--green); color: #fff; }
+
+  /* ===== TOPBAR ===== */
+  .topbar {
+    background: var(--green);
+    color: var(--white);
+    text-align: center;
+    font-size: 13px;
+    padding: 8px 20px;
+  }
+  .topbar a { color: var(--gold-light); font-weight: 700; }
+
+  /* ===== HEADER ===== */
+  header {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .header-inner {
+    max-width: 1200px; margin: auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; gap: 16px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .logo-text { line-height: 1.2; }
+  .logo-text strong { display: block; font-size: 17px; font-weight: 900; color: var(--green); }
+  .logo-text span { font-size: 12px; color: var(--muted); }
+
+  nav { display: flex; gap: 6px; flex-wrap: wrap; }
+  nav a {
+    font-size: 14px; font-weight: 600; padding: 7px 14px;
+    border-radius: 8px; color: var(--mid);
+    transition: background .2s, color .2s;
+  }
+  nav a:hover { background: var(--green-pale); color: var(--green); }
+
+  .header-cta {
+    display: flex; gap: 10px; align-items: center;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 10px 20px; border-radius: 9px;
+    font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; border: none; transition: all .2s;
+  }
+  .btn-green { background: var(--green); color: var(--white); }
+  .btn-green:hover { background: var(--green-light); }
+  .btn-gold { background: var(--gold); color: var(--dark); }
+  .btn-gold:hover { background: #b8963e; }
+  .btn-outline {
+    background: transparent; border: 2px solid var(--green);
+    color: var(--green);
+  }
+  .btn-outline:hover { background: var(--green-pale); }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--green) 0%, #0e6b44 60%, #145c38 100%);
+    color: var(--white); padding: 80px 24px 90px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { position: relative; max-width: 780px; margin: auto; }
+  .hero-badge {
+    display: inline-block; background: rgba(201,168,76,0.25);
+    border: 1px solid var(--gold); color: var(--gold-light);
+    padding: 5px 16px; border-radius: 50px; font-size: 13px; font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900; line-height: 1.25; margin-bottom: 18px;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero p { font-size: 17px; opacity: .88; margin-bottom: 36px; line-height: 1.7; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 40px;
+    margin-top: 60px; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat strong { display: block; font-size: 32px; font-weight: 900; color: var(--gold-light); }
+  .stat span { font-size: 13px; opacity: .8; }
+
+  /* ===== SECTION BASICS ===== */
+  section { padding: 72px 24px; }
+  .section-label {
+    display: inline-block; background: var(--green-pale);
+    color: var(--green); font-size: 12px; font-weight: 700;
+    padding: 4px 14px; border-radius: 50px; margin-bottom: 12px;
+    letter-spacing: .04em; text-transform: uppercase;
+  }
+  .section-title { font-size: clamp(22px, 3vw, 34px); font-weight: 900; margin-bottom: 10px; }
+  .section-sub { color: var(--muted); font-size: 15px; line-height: 1.7; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .wrap { max-width: 1200px; margin: auto; }
+
+  /* ===== HOW IT WORKS ===== */
+  .how { background: var(--bg); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; }
+  .step {
+    background: var(--white); border-radius: var(--radius);
+    padding: 32px 24px; text-align: center;
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+    position: relative;
+  }
+  .step-num {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--green); color: var(--white);
+    font-size: 20px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .step p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+  /* ===== SERVICES ===== */
+  .platforms-all-btn { display: none; }
+  @media(max-width: 768px) {
+    .mobile-hidden-platform { display: none !important; }
+    .desktop-more-platforms { display: none !important; }
+    .platforms-all-btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px;
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .platforms-all-btn:hover { background: var(--green-light); }
+  }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  @media(max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .service-card { display: flex; flex-direction: column; }
+    .service-card .card-top {
+      padding: 12px 10px; height: 110px;
+      display: flex; align-items: flex-start; gap: 8px;
+      overflow: hidden;
+    }
+    .service-card .card-top .icon-circle { width: 36px; height: 36px; font-size: 17px; flex-shrink: 0; }
+    .service-card .card-top h3 { font-size: 11.5px; line-height: 1.35; margin-bottom: 3px; }
+    .service-card .card-top span { font-size: 10px; }
+    .service-card .card-body { padding: 10px; flex: 1; display: flex; flex-direction: column; }
+    .service-card .card-body p { font-size: 11px; line-height: 1.5; margin-bottom: 10px; }
+    .service-card .card-tags { gap: 4px; flex-wrap: wrap; }
+    .service-card .card-tags span { font-size: 10px; padding: 3px 7px; }
+    .service-card .card-btn { font-size: 12px; padding: 9px 10px; margin-top: auto; }
+  }
+  .service-card {
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--border); overflow: hidden;
+    box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s;
+    cursor: pointer; display: flex; flex-direction: column;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(10,92,58,.13); }
+  .card-top {
+    background: var(--green); padding: 24px 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .card-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .card-top h3 { color: var(--white); font-size: 15px; font-weight: 700; }
+  .card-top span { color: rgba(255,255,255,.7); font-size: 12px; }
+  .card-body { padding: 20px; flex: 1; }
+  .card-body p { color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
+  .tag {
+    display: inline-block; background: var(--green-pale); color: var(--green);
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin: 3px 2px;
+  }
+  .card-footer {
+    padding: 14px 20px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .price { font-size: 16px; font-weight: 900; color: var(--green); }
+  .price span { font-size: 12px; font-weight: 400; color: var(--muted); }
+  .btn-card {
+    background: var(--green); color: var(--white);
+    font-size: 12px; font-weight: 700; padding: 7px 16px;
+    border-radius: 7px; border: none; cursor: pointer;
+    font-family: 'Cairo', sans-serif; transition: background .2s;
+  }
+  .btn-card:hover { background: var(--green-light); }
+
+  
+
+  /* ===== PLATFORMS SECTION ===== */
+  .platforms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 14px; }
+  .platform-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 12px; text-align: center;
+    font-size: 12px; font-weight: 700; color: var(--mid);
+    box-shadow: var(--shadow); transition: all .2s; cursor: pointer;
+  }
+  .platform-card:hover { border-color: var(--green); color: var(--green); background: var(--green-pale); }
+  .platform-card .picon { font-size: 26px; margin-bottom: 8px; height: 48px; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; }
+
+  /* ===== CONSULTATION BOOKING ===== */
+  .consult-step {
+    flex: 1; padding: 16px 10px; text-align: center;
+    border-left: 1px solid var(--border); cursor: default;
+    color: var(--muted); transition: all .25s; font-size: 12px;
+  }
+  .consult-step:last-child { border-left: none; }
+  .consult-step.active { background: var(--green); color: #fff; }
+  .consult-step.done   { background: var(--green-pale); color: var(--green); }
+
+  .consult-panel { animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  /* أيام التقويم */
+  .cal-dow {
+    text-align: center; font-size: 12px; font-weight: 700;
+    color: var(--muted); padding: 6px 2px;
+  }
+  .cal-day {
+    aspect-ratio: 1; border-radius: 10px; border: 1.5px solid transparent;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    transition: all .18s; background: #fff;
+  }
+  .cal-day.empty       { background: transparent; cursor: default; border: none; }
+  .cal-day.past        { color: #d1d5db; cursor: not-allowed; background: #f9fafb; }
+  .cal-day.friday      { color: #d1d5db; cursor: not-allowed; background: #f9fafb; }
+  .cal-day.available   { border-color: var(--green); color: var(--green); background: var(--green-pale); }
+  .cal-day.available:hover { background: var(--green); color: #fff; transform: scale(1.08); }
+  .cal-day.today       { border-color: var(--green); font-weight: 900; }
+  .cal-day.selected    { background: var(--gold); border-color: var(--gold); color: #111; transform: scale(1.1); box-shadow: 0 4px 14px rgba(201,168,76,.4); }
+
+  /* أزرار الأوقات */
+  .time-slot {
+    padding: 11px 8px; border-radius: 10px;
+    border: 1.5px solid var(--green); color: var(--green);
+    background: var(--green-pale); font-family: Cairo, sans-serif;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    text-align: center; transition: all .18s;
+  }
+  .time-slot:hover   { background: var(--green); color: #fff; transform: translateY(-2px); }
+  .time-slot.booked  { background: #f3f4f6; color: #d1d5db; border-color: #e5e7eb; cursor: not-allowed; text-decoration: line-through; }
+  .time-slot.selected { background: var(--gold); border-color: var(--gold); color: #111; transform: scale(1.05); }
+
+  /* حقول الفورم */
+  .consult-field label {
+    display: block; font-size: 13px; font-weight: 700;
+    margin-bottom: 7px; color: var(--dark);
+  }
+  .consult-field input,
+  .consult-field select,
+  .consult-field textarea {
+    width: 100%; padding: 11px 14px; border-radius: 9px;
+    border: 1.5px solid var(--border); font-family: Cairo, sans-serif;
+    font-size: 14px; color: var(--dark); outline: none;
+    transition: border-color .2s, box-shadow .2s; background: #fff;
+  }
+  .consult-field input:focus,
+  .consult-field select:focus,
+  .consult-field textarea:focus {
+    border-color: var(--green); box-shadow: 0 0 0 3px rgba(10,92,58,.1);
+  }
+  @media(max-width:600px) {
+    .consult-step { padding: 12px 4px; font-size: 10px; }
+    .consult-step div:first-child { font-size: 16px; }
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .reviews { background: var(--bg); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .review-card {
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--border); padding: 24px;
+    box-shadow: var(--shadow);
+  }
+  .review-stars { color: var(--gold); font-size: 16px; margin-bottom: 12px; }
+  .review-text { color: var(--mid); font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+  .reviewer { display: flex; align-items: center; gap: 12px; }
+  .reviewer-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--green); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px;
+  }
+  .reviewer-name { font-weight: 700; font-size: 14px; }
+  .reviewer-city { font-size: 12px; color: var(--muted); }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 800px; margin: auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 24px; font-weight: 700; font-size: 15px;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    user-select: none;
+  }
+  .faq-q:hover { background: var(--green-pale); }
+  .faq-arrow { font-size: 18px; transition: transform .25s; color: var(--green); }
+  .faq-a {
+    display: none; padding: 0 24px 18px; color: var(--muted); font-size: 14px; line-height: 1.8;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+  /* ===== CTA BANNER ===== */
+  .cta-banner {
+    background: linear-gradient(120deg, var(--green) 0%, #0e6b44 100%);
+    color: var(--white); text-align: center; padding: 70px 24px;
+  }
+  .cta-banner h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 900; margin-bottom: 14px; }
+  .cta-banner p { font-size: 16px; opacity: .85; margin-bottom: 32px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: var(--white); color: var(--green); font-weight: 700; }
+  .btn-white:hover { background: #f0f0f0; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,.8);
+    padding: 56px 24px 24px;
+  }
+  .footer-grid {
+    max-width: 1200px; margin: auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand strong { color: var(--white); font-size: 17px; font-weight: 900; display: block; margin-bottom: 10px; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; margin-bottom: 20px; }
+  .footer-col h4 { color: var(--white); font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 13px; transition: color .2s; }
+  .footer-col ul a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    max-width: 1200px; margin: auto;
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 20px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; font-size: 12px; opacity: .6;
+  }
+  .social-links { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .social-links a {
+    width: 38px; height: 38px; border-radius: 9px;
+    background: rgba(255,255,255,.1); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, transform .2s;
+  }
+  .social-links a:hover { transform: translateY(-2px); }
+  .social-links a svg { width: 18px; height: 18px; fill: currentColor; }
+  .social-links a.yt:hover  { background: #ff0000; }
+  .social-links a.ig:hover  { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+  .social-links a.fb:hover  { background: #1877f2; }
+  .social-links a.li:hover  { background: #0a66c2; }
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wa-float {
+    position: fixed; bottom: 28px; left: 28px; z-index: 999;
+    background: #25d366; color: var(--white);
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,.45);
+    transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+
+  /* زر السلة للجوال — مخفي افتراضياً */
+  .mobile-cart-btn { display: none !important; }
+
+  /* التعليقات على الجوال — بطاقة صغيرة في الوسط */
+  @media(max-width:768px){
+    #reviews-track {
+      scroll-snap-type: x mandatory !important;
+      padding: 0 52px 12px !important;
+      gap: 12px !important;
+    }
+    #reviews-track .review-card {
+      min-width: calc(100% - 104px) !important;
+      scroll-snap-align: center;
+    }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width: 768px) {
+    .header-inner { flex-wrap: nowrap; justify-content: space-between; padding: 10px 16px; }
+    nav { display: none !important; }
+    .header-cta { display: none !important; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .hero-stats { gap: 24px; }
+
+    /* كيف نعمل — 2×2 */
+    .steps { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    .step { padding: 16px 12px !important; text-align: center; }
+    .step-num { width: 40px !important; height: 40px !important; font-size: 17px !important; margin: 0 auto 10px !important; }
+    .step h3 { font-size: 13px !important; margin-bottom: 6px; }
+    .step p { font-size: 11px !important; line-height: 1.5; color: var(--muted); }
+    .how { padding: 32px 16px !important; }
+    .how .section-header { margin-bottom: 20px; }
+
+    /* هيدر الجوال — زر السلة */
+    .mobile-cart-btn {
+      display: flex !important;
+      position: relative; align-items: center; gap: 8px;
+      background: var(--green); color: #fff;
+      padding: 9px 18px; border-radius: 9px;
+      font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 700;
+      text-decoration: none; transition: all .2s; flex-shrink: 0;
+    }
+    .mobile-cart-badge {
+      position: absolute; top: -7px; left: -7px;
+      background: #e53e3e; color: #fff;
+      width: 20px; height: 20px; border-radius: 50%;
+      font-size: 11px; font-weight: 900;
+      align-items: center; justify-content: center;
+      border: 2px solid #fff;
+    }
+  }
+  @media(max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: 1; }
+    .header-inner { padding: 8px 12px; }
+    .logo img { height: 40px; }
+    .logo-text strong { font-size: 14px; }
+    .logo-text span { font-size: 10px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+  }
+footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
+.footer-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand strong{color:#fff;font-size:17px;font-weight:900;display:block;margin-bottom:10px;}
+.footer-brand p{font-size:13px;line-height:1.7;margin-bottom:20px;}
+.footer-col h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:16px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul a{font-size:13px;transition:color .2s;color:rgba(255,255,255,.8);}
+.footer-col ul a:hover{color:#f0dfa0;}
+.footer-bottom{max-width:1200px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;opacity:.6;}
+.social-links{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+.social-links a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;}
+.social-links a:hover{transform:translateY(-2px);}
+.social-links a svg{width:18px;height:18px;fill:currentColor;}
+.social-links a.yt:hover{background:#ff0000;}
+.social-links a.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+.social-links a.fb:hover{background:#1877f2;}
+.social-links a.li:hover{background:#0a66c2;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+</style>
+<link rel="canonical" href="https://www.rowaqco.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rowaqco.com/">
+<meta property="og:title" content="رواق التميز للخدمات العامة">
+<meta property="og:description" content="أنجز معاملاتك الحكومية بسهولة وسرعة من مكانك — رواق التميز منصة متخصصة تخدمك عبر أبشر وقوى وبلدي و40+ منصة حكومية بأسعار مناسبة وخدمة فورية.">
+<meta property="og:image" content="https://www.rowaqco.com/logo.webp">
+<meta property="og:locale" content="ar_SA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="رواق التميز للخدمات العامة">
+<meta name="twitter:description" content="أنجز معاملاتك الحكومية بسهولة وسرعة من مكانك — رواق التميز منصة متخصصة تخدمك عبر أبشر وقوى وبلدي و40+ منصة حكومية بأسعار مناسبة وخدمة فورية.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"رواق التميز للخدمات العامة","url":"https://www.rowaqco.com","logo":"https://www.rowaqco.com/logo.webp","contactPoint":{"@type":"ContactPoint","telephone":"+966559580940","contactType":"customer service","availableLanguage":"Arabic"},"sameAs":["https://www.instagram.com/rowaqco","https://twitter.com/rowaqco"]}
+</script>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  🎉 خصم 10% على أول طلب باستخدام كود: <a href="#">WELCOME10</a> &nbsp;|&nbsp; للتواصل الفوري: <a href="https://wa.me/966559580940">واتساب</a>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" onclick="openSidebar()" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo">
+      <img src="logo.webp" alt="رواق التميز" width="52" height="52" style="height:52px;width:auto;" loading="eager">
+      <div class="logo-text">
+        <strong>رواق التميز</strong>
+        <span>للخدمات العامة والحكومية</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#services">خدماتنا</a>
+      <a href="#platforms">المنصات</a>
+      <a href="#how">كيف نعمل</a>
+      <a href="#reviews">آراء العملاء</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/966559580940" class="btn btn-green">📲 تواصل معنا</a>
+      <a href="cart.html" style="position:relative;display:inline-flex;align-items:center;gap:7px;background:#f3f4f6;border:2px solid #e5e7eb;color:#374151;padding:9px 16px;border-radius:9px;font-family:Cairo,sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='#0a5c3a';this.style.color='#0a5c3a'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">
+        🛒 سلتي
+        <span class="cart-badge" style="position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;">0</span>
+      </a>
+    </div>
+    <!-- زر السلة للجوال فقط -->
+    <a href="cart.html" class="mobile-cart-btn" id="mobile-cart-btn">
+      🛒 السلة
+      <span class="mobile-cart-badge" id="mobile-cart-badge">0</span>
+    </a>
+  </div>
+</header>
+
+<!-- ===== SIDEBAR ===== -->
+<div id="sidebar-container"></div>
+<!-- ===== END SIDEBAR ===== -->
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    
+    <!-- ✏️ غيّر العنوان والوصف حسب شركتك -->
+    <h1>أنجز معاملاتك الحكومية<br><span>بسهولة وسرعة من مكانك</span></h1>
+    <p>نقدم لك جميع الخدمات الإلكترونية الحكومية للأفراد والشركات<br>عبر منصة واحدة موثوقة بأسعار مناسبة وخدمة سريعة.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn btn-gold">🔍 استعرض خدماتنا</a>
+      <!-- ✏️ غيّر رقم الواتساب -->
+      <a href="https://wa.me/966559580940" class="btn btn-outline" style="border-color:rgba(255,255,255,.5);color:#fff;display:inline-flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#25d366;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        اطلب الآن عبر واتساب
+      </a>
+    </div>
+    <div class="hero-stats">
+      <!-- ✏️ غيّر الأرقام حسب إنجازاتك -->
+      <div class="stat"><strong>+500</strong><span>عميل راضٍ</span></div>
+      <div class="stat"><strong>+400</strong><span>خدمة متاحة</span></div>
+      <div class="stat"><strong>24 ساعة</strong><span>دعم مستمر</span></div>
+      <div class="stat"><strong>+16</strong><span>سنوات خبرة</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">كيف نعمل</div>
+      <h2 class="section-title">إنجاز خدمتك في 4 خطوات بسيطة</h2>
+      <p class="section-sub">لا تعقيدات، لا مشاوير، كل شيء يتم إلكترونياً من راحة منزلك.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>اختر الخدمة</h3>
+        <p>تصفّح قائمة خدماتنا واختر ما تحتاجه أو تواصل معنا لتحديد الخدمة المناسبة.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>أرسل المتطلبات</h3>
+        <p>نوضح لك المستندات المطلوبة وتُرسلها عبر واتساب أو البريد الإلكتروني.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>ادفع بأمان</h3>
+        <p>ادفع عبر طرق الدفع الإلكترونية المعتمدة بشكل آمن وسريع.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>استلم إنجازك</h3>
+        <p>نُنجز معاملتك ونُرسل لك النتيجة مباشرة أو نُبلّغك بكل خطوة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES NAV ===== -->
+
+<!-- ===== OFFERS ===== -->
+<style>
+.offers-grid,.offers-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+@media(max-width:768px){
+  .offers-section{padding:36px 0!important;}
+  .offers-section>.wrap{padding:0 16px!important;}
+  .offers-wrap{border-radius:14px;}
+  .offers-track{
+    display:block!important;
+    width:100%;
+  }
+  .offer-card{
+    border-radius:14px;
+    display:none;
+  }
+  .offer-card.active-slide{
+    display:block!important;
+    animation:fadeSlide .4s ease;
+  }
+  @keyframes fadeSlide{
+    from{opacity:0;transform:scale(.97);}
+    to{opacity:1;transform:scale(1);}
+  }
+  .offers-dots{display:flex;justify-content:center;gap:8px;margin-top:14px;}
+  .offers-dots span{width:9px;height:9px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .3s,transform .3s;display:inline-block;}
+  .offers-dots span.active{background:var(--green);transform:scale(1.3);}
+}
+@media(min-width:769px){.offers-dots{display:none;}.offer-card{border-radius:14px;}}
+</style>
+
+<section class="offers-section" style="background:var(--bg);padding:48px 24px;">
+  <div class="wrap">
+    <div class="section-header" style="margin-bottom:32px;">
+      <div class="section-label">عروض خاصة</div>
+      <h2 class="section-title">عروض ومزايا حصرية لعملائنا</h2>
+    </div>
+    <div class="offers-wrap">
+      <div class="offers-track" id="offersSlider">
+        <div class="offer-card" style="background:linear-gradient(135deg,var(--green),#0e6b44);padding:28px;color:#fff;position:relative;overflow:hidden;">
+          <div style="font-size:36px;margin-bottom:10px;">🎁</div>
+          <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">خصم 10% لأول طلب</h3>
+          <p style="font-size:13px;opacity:.85;line-height:1.6;margin-bottom:16px;">سجّل معنا الآن واحصل على خصم فوري على طلبك الأول بأي خدمة.</p>
+          <span style="background:var(--gold);color:#000;font-weight:900;padding:5px 14px;border-radius:20px;font-size:12px;">كود: WELCOME10</span>
+        </div>
+        <div class="offer-card" style="background:linear-gradient(135deg,#7a5c0a,#b8963e);padding:28px;color:#fff;">
+          <div style="font-size:36px;margin-bottom:10px;">⚡</div>
+          <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">إنجاز سريع خلال 24 ساعة</h3>
+          <p style="font-size:13px;opacity:.85;line-height:1.6;">نضمن تنفيذ معظم الخدمات خلال 24 ساعة عمل من استلام المستندات المطلوبة.</p>
+        </div>
+        <div class="offer-card" style="background:linear-gradient(135deg,#1e3a5f,#2d5986);padding:28px;color:#fff;">
+          <div style="font-size:36px;margin-bottom:10px;">🔄</div>
+          <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">ضمان استرجاع المبلغ</h3>
+          <p style="font-size:13px;opacity:.85;line-height:1.6;">في حال عدم اتمام الخدمة، نعيد لك المبلغ كاملاً وفق <a href="policies.html" style="color:#fff;text-decoration:underline;font-weight:700;">سياسة الاسترجاع</a> المعتمدة لدينا.</p>
+        </div>
+      </div>
+    </div>
+    <div class="offers-dots" id="offersDots">
+      <span class="active"></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var idx=0, total=3, timer=null, paused=false;
+  var track=document.getElementById('offersSlider');
+  var dots=document.querySelectorAll('#offersDots span');
+  function isMob(){return window.innerWidth<=768;}
+  function go(n){
+    if(!isMob()||!track)return;
+    idx=n;
+    var cards=track.querySelectorAll('.offer-card');
+    cards.forEach(function(c,i){
+      c.classList.toggle('active-slide', i===n);
+    });
+    dots.forEach(function(d,i){d.classList.toggle('active',i===n);});
+  }
+  function next(){go((idx+1)%total);}
+  function start(){clearInterval(timer);timer=setInterval(function(){if(!paused)next();},3500);}
+  // نقاط التنقل
+  dots.forEach(function(d,i){
+    d.onclick=function(){
+      go(i);paused=true;clearInterval(timer);
+      setTimeout(function(){paused=false;start();},5000);
+    };
+  });
+  // سحب بالإصبع
+  var startX=0;
+  if(track){
+    track.addEventListener('touchstart',function(e){
+      startX=e.touches[0].clientX;paused=true;
+    },{passive:true});
+    track.addEventListener('touchend',function(e){
+      var diff=startX-e.changedTouches[0].clientX;
+      if(diff>40) go(Math.min(idx+1,total-1));
+      else if(diff<-40) go(Math.max(idx-1,0));
+      setTimeout(function(){paused=false;},4000);
+    },{passive:true});
+  }
+  document.addEventListener('DOMContentLoaded',function(){if(isMob()){go(0);start();}});
+  window.addEventListener('resize',function(){
+    if(!isMob()){clearInterval(timer);var cards=track?track.querySelectorAll('.offer-card'):[];cards.forEach(function(c){c.classList.remove('active-slide');});}
+    else{go(idx);start();}
+  });
+})();
+</script>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">خدماتنا</div>
+      <h2 class="section-title">جميع الخدمات التي تحتاجها في مكان واحد</h2>
+      <p class="section-sub">نغطي مئات الخدمات الحكومية والإلكترونية للأفراد والشركات.</p>
+    </div>
+
+    <!-- ✏️ ======================================================== -->
+    <!-- ✏️  هنا تُعدّل بطاقات الخدمات: غيّر الاسم والوصف والسعر   -->
+    <!-- ✏️ ======================================================== -->
+    <div class="services-grid" id="servicesGrid">
+
+      <!-- بطاقة 1: الخدمات العامة -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">📅</div>
+          <div>
+            <h3>الخدمات العامة</h3>
+            <span>حجز المواعيد والرحلات</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>حجز مواعيد حكومية وخاصة، حجز رحلات وتذاكر سفر، وجميع الخدمات العامة التي تحتاجها يومياً.</p>
+          <div>
+            <span class="tag">حجز مواعيد</span>
+            <span class="tag">حجز رحلات</span>
+            <span class="tag">خدمات عامة</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="general-services.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 2: خدمات الأفراد -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">👤</div>
+          <div>
+            <h3>خدمات الأفراد</h3>
+            <span>أبشر أفراد وأعمال</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>تجديد الإقامة، تأشيرة الخروج والعودة، إصدار وثائق، وجميع خدمات أبشر للأفراد والأعمال.</p>
+          <div>
+            <span class="tag">تجديد إقامة</span>
+            <span class="tag">تأشيرة خروج</span>
+            <span class="tag">هوية وطنية</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="individuals.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 3: خدمات الأعمال -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">🏢</div>
+          <div>
+            <h3>خدمات الأعمال</h3>
+            <span>تأسيس وتطوير المنشآت</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>تأسيس المنشآت والشركات، تجديد السجلات، نقل الملكية، إدارة العمالة وجميع معاملات الأعمال.</p>
+          <div>
+            <span class="tag">سجل تجاري</span>
+            <span class="tag">رخصة بلدي</span>
+            <span class="tag">تأسيس شركة</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="business-establishment.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 4: باقات اشتراك الأعمال -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">📦</div>
+          <div>
+            <h3>باقات اشتراك الأعمال والمؤسسات</h3>
+            <span>باقات شهرية وسنوية</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>باقات اشتراك مخصصة للمؤسسات والشركات تشمل جميع الخدمات الحكومية بسعر ثابت شهري أو سنوي.</p>
+          <div>
+            <span class="tag">باقة شهرية</span>
+            <span class="tag">باقة سنوية</span>
+            <span class="tag">خدمة VIP</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="packages.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الباقات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 5: خدمات المعلمين والطلاب -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">📚</div>
+          <div>
+            <h3>خدمات المعلمين والطلاب وأولياء الأمور</h3>
+            <span>منصة فارس ونور</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>خدمات للطلاب والمعلمين وأولياء الأمور عبر منصات نور وفارس، التسجيل والنقل المدرسي وغيرها.</p>
+          <div>
+            <span class="tag">منصة نور</span>
+            <span class="tag">منصة فارس</span>
+            <span class="tag">تسجيل مدرسي</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="education-services.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 6: خدمات التقديم على وظائف -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">💼</div>
+          <div>
+            <h3>خدمات التقديم على الوظائف</h3>
+            <span>جدارة والتوظيف الحكومي</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>مساعدتك في التقديم على الوظائف الحكومية والخاصة، تحضير السيرة الذاتية وإنشاء حساب جدارة.</p>
+          <div>
+            <span class="tag">منصة جدارة</span>
+            <span class="tag">سيرة ذاتية</span>
+            <span class="tag">وظائف حكومية</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="jobs-services.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+      <!-- بطاقة 7: خدمات الاستشارات الهندسية -->
+      <div class="service-card">
+        <div class="card-top">
+          <div class="card-icon">🏗️</div>
+          <div>
+            <h3>خدمات الاستشارات الهندسية</h3>
+            <span>تصميم وإشراف وتحكيم</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>استشارات هندسية متخصصة، إشراف فني وإدارة جودة، تصميم داخلي فاخر وإعادة تطوير المباني.</p>
+          <div>
+            <span class="tag">استشارات</span>
+            <span class="tag">إشراف فني</span>
+            <span class="tag">تصميم معماري</span>
+          </div>
+        </div>
+        <div class="card-footer" style="justify-content:center;">
+          <a href="engineering-consulting.html" class="btn-card" style="width:100%;text-align:center;justify-content:center;">استعرض الخدمات ←</a>
+        </div>
+      </div>
+
+    </div>
+    <!-- نهاية الخدمات -->
+
+    <div style="text-align:center; margin-top:40px;">
+      <!-- ✏️ غيّر رقم الواتساب -->
+      <a href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن خدمة" class="btn btn-green" style="font-size:15px;padding:14px 36px;">
+        💬 ما لقيت خدمتك؟ تواصل معنا مباشرة
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLATFORMS ===== -->
+<section id="platforms" style="background:var(--bg);">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">المنصات</div>
+      <h2 class="section-title">نخدمك عبر جميع المنصات الحكومية</h2>
+      <p class="section-sub">نتعامل مع أكثر من 40 منصة حكومية وخدمية سعودية.</p>
+    </div>
+    <!-- ✏️ غيّر أو أضف منصات حسب خدماتك -->
+    <div class="platforms-grid">
+
+      <!-- المنصات الموجودة + اللوقوهات الرسمية -->
+      <a href="absher.html" class="platform-card">
+        <div class="picon"><img loading="lazy" src="absher.svg" alt="أبشر" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🆔'"></div>أبشر
+      </a>
+      <a href="qiwa.html" class="platform-card">
+        <div class="picon"><img loading="lazy" src="qiwa.svg" alt="قوى" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='👷'"></div>قوى
+      </a>
+      <a href="balady.html" class="platform-card">
+        <div class="picon"><img loading="lazy" src="balady.svg" alt="بلدي" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏙️'"></div>بلدي
+      </a>
+      <a href="mudad.html" class="platform-card">
+        <div class="picon"><img loading="lazy" src="mudad.svg" alt="مدد" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💵'"></div>مدد
+      </a>
+      <a href="muqeem.html" class="platform-card">
+        <div class="picon"><img loading="lazy" src="muqeem.webp" alt="مقيم" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🌍'"></div>مقيم
+      </a>
+      <a href="sbc.html" class="platform-card">
+        <div class="picon"><img loading="lazy" src="sbc.svg" alt="المركز السعودي" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏢'"></div>المركز السعودي
+      </a>
+      <!-- المنصات المخفية على الكمبيوتر تظهر عبر زر "عرض الكل" -->
+      <a href="najiz.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="najiz.svg" alt="ناجز" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='⚖️'"></div>ناجز
+      </a>
+      <a href="zatca.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="zatca.svg" alt="الزكاة والضريبة" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📊'"></div>الزكاة والضريبة
+      </a>
+      <a href="sakani.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="sakani.svg" alt="سكني" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏠'"></div>سكني
+      </a>
+      <a href="electricity.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="electricity.svg" alt="الكهرباء" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💡'"></div>الكهرباء
+      </a>
+      <a href="water.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="water.svg" alt="المياه" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💧'"></div>المياه
+      </a>
+      <a href="noor-faris.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="noor-faris.webp" alt="نور وفارس" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📚'"></div>نور وفارس
+      </a>
+      <a href="gosi.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="gosi.svg" alt="تأمينات اجتماعية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🤝'"></div>تأمينات اجتماعية
+      </a>
+      <a href="ejar.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="ejar.svg" alt="إيجار" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🔑'"></div>إيجار
+      </a>
+      <a href="chamber.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="chamber.webp" alt="الغرفة التجارية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏛️'"></div>الغرفة التجارية
+      </a>
+      <a href="monshaat.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="monshaat.svg" alt="منشآت" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🔧'"></div>منشآت
+      </a>
+      <a href="salama.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="salama.webp" alt="سلامة" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🛡️'"></div>سلامة
+      </a>
+      <a href="saber.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="saber.webp" alt="سابر" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📦'"></div>سابر
+      </a>
+      <a href="discounts.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="discounts.svg" alt="نظام التخفيضات" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏷️'"></div>نظام التخفيضات
+      </a>
+      <a href="fasah.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="fasah.svg" alt="فسح" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🚢'"></div>فسح
+      </a>
+      <a href="telecom.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="telecom.svg" alt="شركات الاتصالات" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📡'"></div>شركات الاتصالات
+      </a>
+      <a href="spl.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="spl.svg" alt="سبل" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📮'"></div>سبل
+      </a>
+      <a href="tam.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="tam.webp" alt="تام" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🚗'"></div>تم
+      </a>
+      <a href="ip.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="ip.svg" alt="الملكية الفكرية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💡'"></div>الملكية الفكرية
+      </a>
+      <a href="taqyees.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="taqyees.webp" alt="تقييس" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📐'"></div>تقييس
+      </a>
+      <a href="qawayem.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="qawayem.webp" alt="قوائم" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📊'"></div>قوائم
+      </a>
+      <a href="seza.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="seza.svg" alt="هيئة المدن الاقتصادية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏙️'"></div>هيئة المدن الاقتصادية
+      </a>
+      <a href="taqat.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="taqat.jpg" alt="طاقات" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='⚡'"></div>طاقات
+      </a>
+      <a href="freelance.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="freelance.webp" alt="العمل الحر" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💼'"></div>العمل الحر
+      </a>
+      <a href="najm.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="najm.webp" alt="نجم" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='⭐'"></div>نجم
+      </a>
+      <a href="simah.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="simah.jpg" alt="سمة" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='📈'"></div>سمة
+      </a>
+      <a href="musaned.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="musaned.svg" alt="مساند" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏠'"></div>مساند
+      </a>
+      <a href="sce.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="sce.svg" alt="الهيئة السعودية للمهندسين" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🔧'"></div>الهيئة السعودية للمهندسين
+      </a>
+      <a href="realestate.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="realestate.webp" alt="البورصة العقارية" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏗️'"></div>البورصة العقارية
+      </a>
+      <a href="shomoos.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="shomoos.svg" alt="شموس" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='☀️'"></div>شموس
+      </a>
+      <a href="mumaris.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="mumaris.webp" alt="ممارس بلس" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏥'"></div>ممارس بلس
+      </a>
+      <a href="taradhi.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="taradhi.webp" alt="تراضي" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🤝'"></div>تراضي
+      </a>
+      <a href="support-citizen.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="support-citizen.svg" alt="حساب المواطن" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏠'"></div>حساب المواطن
+      </a>
+      <a href="support-guarantee.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="support-guarantee.svg" alt="الضمان المطور" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🤲'"></div>الضمان المطور
+      </a>
+      <a href="support-hafiz.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="support-hafiz.webp" alt="حافز" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='💼'"></div>حافز
+      </a>
+      <a href="support-tamheer.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="support-tamheer.webp" alt="تمهير" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🎓'"></div>تمهير
+      </a>
+      <a href="support-sanad.html" class="platform-card mobile-hidden-platform">
+        <div class="picon"><img loading="lazy" src="support-sanad.webp" alt="ساند" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏗️'"></div>ساند
+      </a>
+
+    </div>
+    <!-- زر عرض جميع المنصات — يظهر على الجوال فقط -->
+    <a href="government-platforms.html" class="platforms-all-btn">عرض جميع المنصات ←</a>
+    <!-- رابط الكمبيوتر -->
+    <div style="text-align:center;margin-top:28px;" class="desktop-more-platforms">
+      <a href="government-platforms.html" class="btn btn-outline" style="display:inline-flex;">🏛️ عرض جميع المنصات (40+) ←</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-label">آراء العملاء</div>
+      <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+      <p class="section-sub">ثقة مئات العملاء هي أكبر شهادة على جودة خدماتنا.</p>
+    </div>
+    <div style="position:relative;">
+      <button onclick="scrollReviews(-1)" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:10;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.15);">❯</button>
+      <button onclick="scrollReviews(1)" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);z-index:10;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.15);">❮</button>
+      <div id="reviews-track" style="display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;">
+      <div class="review-card" style="min-width:300px;flex-shrink:0;">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"خدمة ممتازة وسريعة، وفّروا عليّ أكثر من 3 مشاوير لمكاتب مختلفة. تنجز كل شيء بجوالي من البيت."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">ع</div>
+          <div><div class="reviewer-name">عبد العزيز محمد</div></div>
+        </div>
+      </div>
+      <div class="review-card" style="min-width:300px;flex-shrink:0;">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"أسعار مناسبة جداً مقارنة بالمكاتب الأخرى، والفريق محترف ومتجاوب. أنصح كل شخص يتعامل معهم."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">ن</div>
+          <div><div class="reviewer-name">نورة</div></div>
+        </div>
+      </div>
+      <div class="review-card" style="min-width:300px;flex-shrink:0;">
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">"أنجزوا معاملة تجديد السجل التجاري في نفس اليوم. الخدمة ممتازة وسهّلوا عليّ الأمر كثيراً."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">م</div>
+          <div><div class="reviewer-name">محمد خالد</div></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script>
+    function scrollReviews(dir) {
+      const track = document.getElementById('reviews-track');
+      track.scrollBy({ left: dir * 320, behavior: 'smooth' });
+    }
+    </script>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<div class="cta-banner">
+  <h2>جاهز تبدأ؟ تواصل معنا الآن</h2>
+  <p>فريقنا متاح طوال أيام الأسبوع لمساعدتك في جميع معاملاتك الحكومية.</p>
+  <div class="cta-btns">
+    <!-- ✏️ غيّر رقم الواتساب -->
+    <a href="https://wa.me/966559580940" class="btn btn-white" style="font-size:15px;padding:14px 32px;">
+      <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#25d366;flex-shrink:0;"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4C7.3 9 6.7 9.6 6.7 10.9s.9 2.7 1.1 2.9c.1.2 1.8 2.7 4.4 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3zM12.1 2C6.5 2 2 6.5 2 12.1c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3 1.2 4.7 1.2 5.6 0 10.2-4.6 10.2-10.2S17.7 2 12.1 2zm0 18.7c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3c-.9-1.4-1.3-2.9-1.3-4.6 0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.9 8.4-8.6 8.4z"/></svg>
+      راسلنا على واتساب
+    </a>
+    <a href="tel:+966559580940" class="btn btn-gold" style="font-size:15px;padding:14px 32px;">📞 اتصل بنا</a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <!-- ✏️ غيّر الاسم والوصف -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <img src="logo.webp" alt="رواق التميز" width="60" height="60" style="height:60px;width:auto;flex-shrink:0;" loading="lazy">
+        <strong style="font-size:17px;">رواق التميز للخدمات العامة</strong>
+      </div>
+      <p>نخدم المواطن والمقيم وأصحاب المؤسسات والشركات، وننجز معاملاتهم بطريقة رقمية متطورة من أي مكان.</p>
+      <!-- ✏️ غيّر روابط التواصل الاجتماعي -->
+      <div class="social-links">
+        <!-- يوتيوب -->
+        <a href="https://www.youtube.com/@rowaqaltamiyuz" target="_blank" title="يوتيوب" class="yt">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        </a>
+        <!-- إنستغرام -->
+        <a href="https://www.instagram.com/rowaqaltamiyuz/" target="_blank" title="إنستغرام" class="ig">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+        </a>
+        <!-- فيسبوك -->
+        <a href="https://www.facebook.com/rowaqaltamiyuz/" target="_blank" title="فيسبوك" class="fb">
+          <svg viewBox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg>
+        </a>
+        <!-- لينكدإن -->
+        <a href="https://www.linkedin.com/company/rowaqaltamiyuz" target="_blank" title="لينكدإن" class="li">
+          <svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8v5.4H9.8V9h3.3v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3zM5.3 7.4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1.7 13H3.6V9h3.4v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <ul>
+        <li><a href="individuals.html">خدمات الأفراد</a></li>
+        <li><a href="business-establishment.html">خدمات الأعمال</a></li>
+        <li><a href="government-platforms.html">المنصات الحكومية</a></li>
+        <li><a href="education-services.html">خدمات التعليم</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="about.html">من نحن</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+        <li><a href="#faq">الأسئلة الشائعة</a></li>
+        <li><a href="policies.html">الشروط والسياسات</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <!-- ✏️ غيّر معلومات التواصل -->
+        <li><a href="https://wa.me/966559580940">📲 واتساب: 0559580940</a></li>
+        <li><a href="tel:+966559580940">📞 هاتف: 0559580940</a></li>
+        <li><a href="mailto:info@rowaqco.com">📧 info@rowaqco.com</a></li>
+        <li><a href="#">📍 المدينة المنورة، السعودية</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <!-- ✏️ غيّر الاسم وسنة التأسيس ورقم السجل -->
+    <span>© 2026 شركة رواق التميز الحديثة — جميع الحقوق محفوظة</span>
+    <span>سجل تجاري: 4650288413</span>
+  </div>
+</footer>
+
+<!-- ===== واتساب عائم ===== -->
+<!-- ✏️ غيّر رقم الواتساب -->
+<a href="https://wa.me/966559580940?text=مرحباً، أريد الاستفسار عن خدمة" class="wa-float" title="تواصل عبر واتساب">💬</a>
+
+<script>
+  // ===== FAQ toggle =====
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ===== طلب خدمة عبر واتساب =====
+  function orderService(name) {
+    const phone = '966559580940';
+    const msg = encodeURIComponent(`مرحباً، أريد الاستفسار عن: ${name}`);
+    window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof updateCartBadge === "function") updateCartBadge();
+    // تحديث badge سلة الجوال
+    const cart = JSON.parse(localStorage.getItem('rowaq_cart') || '[]');
+    const count = cart.reduce((s, i) => s + (i.qty || 1), 0);
+    const mobileBadge = document.getElementById('mobile-cart-badge');
+    if (mobileBadge && count > 0) {
+      mobileBadge.textContent = count;
+      mobileBadge.style.display = 'flex';
+    }
+  });
+</script>
+<script src="cart.js" defer></script>
+<script src="sidebar.js" defer></script>
+</body>
+</html>
