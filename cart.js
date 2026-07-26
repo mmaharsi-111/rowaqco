@@ -82,9 +82,25 @@ function clearCart() {
 function updateCartBadge() {
   const cart = getCart();
   const total = cart.reduce((s, i) => s + (i.qty||1), 0);
+
+  // تحديث badge الكمبيوتر
   document.querySelectorAll('.cart-badge').forEach(el => {
     el.textContent = total;
     el.style.display = total > 0 ? 'flex' : 'none';
+  });
+
+  // تحديث badge الجوال
+  document.querySelectorAll('.mobile-cart-badge').forEach(el => {
+    el.textContent = total;
+    el.style.display = total > 0 ? 'flex' : 'none';
+  });
+
+  // تحديث نص زر السلة على الجوال
+  document.querySelectorAll('.mobile-cart-btn').forEach(btn => {
+    const badge = btn.querySelector('.mobile-cart-badge');
+    if (!badge) return;
+    badge.textContent = total;
+    badge.style.display = total > 0 ? 'flex' : 'none';
   });
 }
  

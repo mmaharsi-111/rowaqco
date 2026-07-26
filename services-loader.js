@@ -41,7 +41,10 @@
       card.dataset.price = priceWithTax;
 
       const priceVal = card.querySelector('.price-val');
-      if (priceVal) priceVal.textContent = priceWithTax;
+      if (priceVal) {
+        priceVal.textContent = priceWithTax;
+        priceVal.dataset.price = priceWithTax; // ✅ إصلاح: cart.js يقرأ من هنا
+      }
 
       // حدّث الاسم في data-name وفي .svc-name
       if (svc.name) {
