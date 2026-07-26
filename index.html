@@ -555,7 +555,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .sri-cat{font-size:11px;color:var(--muted);margin-top:2px;}
 .sri-price{font-size:13px;font-weight:900;color:var(--green);flex-shrink:0;white-space:nowrap;}
 .search-no-result{padding:16px;text-align:center;color:var(--muted);font-size:13px;}
-@media(max-width:768px){.header-search{display:none;}.hero-search-box{max-width:100%;margin:0 0 20px;}.hero-search-wrap{padding:10px 14px;border-radius:12px;}.hero-search-wrap input{font-size:14px;}}
+.hero-search-box{display:none;}.hero-btns{display:none;}@media(max-width:768px){.header-search{display:none;}.hero-search-box{display:block;max-width:100%;margin:0 0 20px;}.hero-search-wrap{padding:10px 14px;border-radius:12px;}.hero-search-wrap input{font-size:14px;}.hero-btns{display:flex;}}
 </style>
 <script src="cart.js"></script>
 <link rel="canonical" href="https://www.rowaqco.com/index.html">
@@ -1227,7 +1227,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       if(!res.length){el.innerHTML='<div class="search-no-result">لا نتائج لـ "'+q+'"</div>';}
       else{el.innerHTML=res.map(function(s){
         var p=s.price>0?'﷼ '+Math.ceil(s.price*1.15):'استفسر';
-        return '<a class="search-result-item" href="'+s.page+'"><div class="sri-info"><div class="sri-name">'+s.name+'</div><div class="sri-cat">'+s.cat+'</div></div><div class="sri-price">'+p+'</div></a>';
+        return '<a class="search-result-item" href="'+s.page+'"><div class="sri-info"><div class="sri-name">'+s.name+'</div><div class="sri-cat">'+s.cat+'</div></div></a>';
       }).join('');}
       el.classList.add('open');
     });
