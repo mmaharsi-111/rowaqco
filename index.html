@@ -25,6 +25,14 @@ window.addEventListener('load',function(){
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
+
+  /* إخفاء شريط البحث وواتساب في الهيرو على الكمبيوتر */
+  .hero-search-box { display: none !important; }
+  .desktop-only-btn { display: none !important; }
+  @media(max-width:768px) {
+    .hero-search-box { display: block !important; }
+    .desktop-only-btn { display: flex !important; }
+  }
 @font-face{font-family:"Cairo Fallback";src:local("Arial");size-adjust:106%;ascent-override:88%;descent-override:22%;line-gap-override:0%;}
 body{font-family:"Cairo","Cairo Fallback",sans-serif;}
 .hero{min-height:420px;}
@@ -704,10 +712,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <p style="font-size:13px;opacity:.85;line-height:1.6;">في حال عدم اتمام الخدمة، نعيد لك المبلغ كاملاً وفق <a href="policies.html" style="color:#fff;text-decoration:underline;font-weight:700;">سياسة الاسترجاع</a> المعتمدة لدينا.</p>
       </div>
     </div>
-    <a href="government-platforms.html" class="platforms-all-btn">عرض جميع المنصات ←</a>
-    <div style="text-align:center;margin-top:28px;" class="desktop-more-platforms">
-      <a href="government-platforms.html" class="btn btn-outline" style="display:inline-flex;">🏛️ عرض جميع المنصات (40+) ←</a>
-    </div>
   </div>
 </section>
 
@@ -1034,6 +1038,12 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
 
     </div>
+    <a href="government-platforms.html" class="platforms-all-btn">عرض جميع المنصات ←</a>
+    <div style="text-align:center;margin-top:28px;" class="desktop-more-platforms">
+      <a href="government-platforms.html" class="btn btn-outline" style="display:inline-flex;">🏛️ عرض جميع المنصات (40+) ←</a>
+    </div>
+    <!-- زر عرض جميع المنصات — جوال فقط -->
+    <a href="government-platforms.html" class="platforms-all-btn">عرض جميع المنصات ←</a>
   </div>
 </section>
 
