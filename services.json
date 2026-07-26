@@ -811,7 +811,7 @@
     {
       "id": 2493,
       "name": "تعديل المؤهل الدراسي في الأحوال المدنية",
-      "price": 25,
+      "price": 26.08,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -859,7 +859,7 @@
     {
       "id": 2491,
       "name": "تجديد استمارات السيارات",
-      "price": 50,
+      "price": 43.47,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -867,7 +867,7 @@
     {
       "id": 2492,
       "name": "تجديد الهوية الوطنية",
-      "price": 50,
+      "price": 52.17,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -891,7 +891,7 @@
     {
       "id": 2496,
       "name": "نقل ملكية المركبة بين أفراد الأسرة",
-      "price": 50,
+      "price": 52.17,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -899,7 +899,7 @@
     {
       "id": 2497,
       "name": "نقل ملكية المركبة فوري",
-      "price": 99,
+      "price": 100,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -907,7 +907,7 @@
     {
       "id": 2499,
       "name": "تجديد رخصة القيادة",
-      "price": 50,
+      "price": 52.17,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -915,7 +915,7 @@
     {
       "id": 2500,
       "name": "طلب هوية وطنية بدل فاقد",
-      "price": 50,
+      "price": 43.47,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -923,7 +923,7 @@
     {
       "id": 2501,
       "name": "تحديث البيانات على منصة أبشر",
-      "price": 50,
+      "price": 52.17,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -931,7 +931,7 @@
     {
       "id": 2502,
       "name": "تجديد جواز السفر السعودي",
-      "price": 50,
+      "price": 65.21,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -939,7 +939,7 @@
     {
       "id": 2503,
       "name": "إصدار جواز سفر سعودي جديد",
-      "price": 50,
+      "price": 69.56,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -947,7 +947,7 @@
     {
       "id": 2504,
       "name": "الاعتراض على المخالفات المرورية",
-      "price": 50,
+      "price": 21.73,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -955,7 +955,7 @@
     {
       "id": 2505,
       "name": "تسجيل المواليد",
-      "price": 150,
+      "price": 43.47,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -2509,7 +2509,7 @@
     {
       "id": 2680,
       "name": "إفادة بعدم وجود سجل تجاري",
-      "price": 50,
+      "price": 26.08,
       "category": "خدمات الأفراد / الأفراد",
       "active": true,
       "sale_ok": true
@@ -3055,7 +3055,7 @@
     {
       "id": 2525,
       "name": "افادة بعدم وجود سجل تجاري",
-      "price": 20,
+      "price": 26.08,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
