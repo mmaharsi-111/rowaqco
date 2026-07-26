@@ -362,19 +362,21 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </footer>
 
+<script src="cart.js"></script>
 <script>
-// cart.js مُحمَّل مسبقاً ويوفر: getCart, clearCart, CART_KEY
-// نعيد تعريف saveCart وclearCart فقط لأنهما تحتاجان استدعاء renderCart() هنا
+// cart.js مُحمَّل مسبقاً ويوفر: getCart, CART_KEY, addToCart, cartAdd, updateCartBadge
+// نعيد تعريف saveCart وclearCart فقط لأنهما يحتاجان استدعاء renderCart() هنا
 let promoApplied = false;
 
 function saveCart(cart){
-  if(typeof localStorage !== 'undefined') localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  if(storageAvailable()) localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  else window._rawaqCartFallback = cart;
   updateCartBadge();
   renderCart();
 }
 
 function clearCart(){
-  if(typeof localStorage !== 'undefined') localStorage.removeItem(CART_KEY);
+  if(storageAvailable()) localStorage.removeItem(CART_KEY);
   window._rawaqCartFallback = [];
   updateCartBadge();
   renderCart();
@@ -396,9 +398,20 @@ function renderCart(){
       </div>`;
     countEl.textContent = '';
     updateSummary(cart);
-    loadSmartUpsell();
+    // إخفاء الملخص والupsell عند السلة الفارغة
+    const summaryBox = document.querySelector('.summary-box');
+    const upsellSection = document.getElementById('upsell-section');
+    if(summaryBox) summaryBox.style.display = 'none';
+    if(upsellSection) upsellSection.style.display = 'none';
     return;
   }
+
+  // إظهار الملخص والupsell عند وجود خدمات
+  const summaryBox = document.querySelector('.summary-box');
+  const upsellSection = document.getElementById('upsell-section');
+  if(summaryBox) summaryBox.style.display = '';
+  if(upsellSection) upsellSection.style.display = '';
+  loadSmartUpsell();
 
   const icons = {'الإقامة':'🪪','أبشر أفراد':'🆔','التأشيرات':'🛂','المرور':'🚗','الأحوال المدنية':'📋','الدعم الحكومي':'💰','خدمات عامة':'🔧','خدمات المنصات الحكومية':'🖥️','خدمات التقديم':'📄','خدمات الموظفين والعمال':'👷','حجز مواعيد':'📅','حجز رحلات':'✈️','خدمة':'⚙️'};
 
@@ -707,7 +720,7 @@ function showMiniToast(msg){
 document.addEventListener('DOMContentLoaded', () => {
   renderCart();
   showUserBar();
-  loadSmartUpsell();
+  // loadSmartUpsell تُستدعى داخل renderCart() فقط عند وجود خدمات
 });
 </script>
 <script src="sidebar.js"></script>
