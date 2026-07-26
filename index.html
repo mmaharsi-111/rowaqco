@@ -753,7 +753,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <div class="header-search" id="headerSearch">
         <div class="search-input-wrap">
           <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" placeholder="ابحث عن خدمة..." autocomplete="off" oninput="searchServices(this.value)" onfocus="showResults()" onblur="setTimeout(hideResults,200)">
+          <input type="text" id="searchInput" placeholder="ابحث عن خدمة..." autocomplete="off" oninput="searchServices(this.value,'header')" onfocus="showResults('header')" onblur="setTimeout(function(){hideResults('header')},200)">
         </div>
         <div class="search-results" id="searchResults"></div>
       </div>
@@ -1469,17 +1469,23 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     return fetch('services.json')
       .then(function(r){ return r.json(); })
       .then(function(data){
-        // data هو object من pages
         Object.keys(data).forEach(function(page){
           var svcs = data[page];
           if(Array.isArray(svcs)) {
             svcs.forEach(function(s){
-              services.push({ name: s.name, price: s.price, cat: s.cat || '', page: page+'.html' });
+              if(s.active && s.sale_ok) {
+                services.push({
+                  name: s.name,
+                  price: s.price,
+                  category: s.category || '',
+                  page: page + '.html'
+                });
+              }
             });
           }
         });
         loaded = true;
-      }).catch(function(){ loaded = true; });
+      }).catch(function(e){ console.log('search error',e); loaded = true; });
   }
 
   window.searchServices = function(q, src) {
@@ -1491,7 +1497,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       var filtered = services.filter(function(s){
         return s.name && s.name.indexOf(q) !== -1;
       }).slice(0, 8);
-
       if (filtered.length === 0) {
         results.innerHTML = '<div class="search-no-result">لا توجد نتائج لـ "'+q+'"</div>';
       } else {
@@ -1500,7 +1505,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
           return '<a class="search-result-item" href="'+s.page+'">'+
             '<div class="search-result-info">'+
               '<div class="search-result-name">'+s.name+'</div>'+
-              '<div class="search-result-cat">'+s.cat+'</div>'+
+              '<div class="search-result-cat">'+s.category+'</div>'+
             '</div>'+
             '<div class="search-result-price">'+price+'</div>'+
           '</a>';
@@ -1511,9 +1516,13 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   };
 
   window.showResults = function(src) {
-    var inp = document.getElementById(src === 'hero' ? 'heroSearchInput' : 'searchInput');
+    var inpId = src === 'hero' ? 'heroSearchInput' : 'searchInput';
     var resultsId = src === 'hero' ? 'heroSearchResults' : 'searchResults';
-    if (inp && inp.value.length >= 2) document.getElementById(resultsId).classList.add('open');
+    var inp = document.getElementById(inpId);
+    if (inp && inp.value.length >= 2) {
+      var el = document.getElementById(resultsId);
+      if(el) el.classList.add('open');
+    }
     loadServices();
   };
 
