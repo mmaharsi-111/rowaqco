@@ -647,27 +647,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 
 /* ===== بانر باقات المنشآت ===== */
-.pkg-promo-banner{margin:28px auto 0;max-width:820px;border-radius:14px;overflow:hidden;direction:rtl;}
-.pkg-ticker-wrap{background:#0a5c3a;padding:7px 0;overflow:hidden;}
+.pkg-promo-banner{margin:28px -24px 0;direction:rtl;}
+.pkg-ticker-wrap{background:rgba(0,0,0,.2);padding:7px 0;overflow:hidden;}
 .pkg-ticker{white-space:nowrap;display:inline-block;animation:pkgticker 20s linear infinite;font-size:12px;font-weight:700;color:#f0dfa0;}
 @keyframes pkgticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.pkg-promo-body{background:#0e3d28;padding:24px 24px 20px;}
+.pkg-promo-body{padding:20px 24px 22px;}
 .pkg-promo-label{display:inline-block;background:rgba(201,168,76,.2);border:1px solid #c9a84c;color:#f0dfa0;padding:4px 14px;border-radius:50px;font-size:11px;font-weight:700;margin-bottom:10px;}
-.pkg-promo-title{color:#fff;font-size:17px;font-weight:900;margin:0 0 4px;}
+.pkg-promo-title{color:#fff;font-size:18px;font-weight:900;margin:0 0 4px;}
 .pkg-promo-sub{color:rgba(255,255,255,.65);font-size:12px;margin:0 0 16px;}
-.pkg-promo-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;}
-.pkg-promo-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 8px;text-align:center;text-decoration:none;transition:all .2s;display:block;position:relative;}
-.pkg-promo-card:hover{background:rgba(255,255,255,.14);transform:translateY(-3px);}
-.pkg-promo-card--popular{background:rgba(201,168,76,.18);border:2px solid #c9a84c;}
-.pkg-promo-card--popular:hover{background:rgba(201,168,76,.28);}
-.ppc-popular{position:absolute;top:-9px;right:50%;transform:translateX(50%);background:#c9a84c;color:#111;font-size:8px;font-weight:900;padding:2px 8px;border-radius:20px;white-space:nowrap;}
-.ppc-icon{font-size:24px;margin-bottom:4px;}
-.ppc-range{color:rgba(255,255,255,.6);font-size:9px;margin-bottom:4px;}
-.ppc-old{color:rgba(255,255,255,.35);font-size:10px;text-decoration:line-through;margin-bottom:1px;}
-.ppc-price{color:#f0dfa0;font-size:16px;font-weight:900;line-height:1;}
-.ppc-unit{color:rgba(255,255,255,.45);font-size:9px;margin-bottom:4px;}
-.ppc-save{background:rgba(201,168,76,.25);color:#f0dfa0;font-size:8px;font-weight:900;padding:2px 6px;border-radius:20px;display:inline-block;}
-.pkg-promo-btn{display:inline-block;background:#c9a84c;color:#111;font-family:Cairo,sans-serif;font-size:13px;font-weight:900;padding:11px 28px;border-radius:9px;text-decoration:none;animation:pkgpulse 2s ease-in-out infinite;}
+.pkg-promo-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
+.pkg-promo-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:16px 12px;text-align:center;text-decoration:none;transition:all .2s;display:block;position:relative;}
+.pkg-promo-card:hover{background:rgba(255,255,255,.18);transform:translateY(-4px);}
+.pkg-promo-card--popular{background:rgba(201,168,76,.22);border:2px solid #c9a84c;}
+.pkg-promo-card--popular:hover{background:rgba(201,168,76,.32);}
+.ppc-popular{position:absolute;top:-10px;right:50%;transform:translateX(50%);background:#c9a84c;color:#111;font-size:9px;font-weight:900;padding:2px 10px;border-radius:20px;white-space:nowrap;}
+.ppc-icon{font-size:30px;margin-bottom:6px;}
+.ppc-range{color:rgba(255,255,255,.65);font-size:10px;margin-bottom:6px;}
+.ppc-old{color:rgba(255,255,255,.35);font-size:11px;text-decoration:line-through;margin-bottom:2px;}
+.ppc-price{color:#f0dfa0;font-size:20px;font-weight:900;line-height:1;}
+.ppc-unit{color:rgba(255,255,255,.45);font-size:10px;margin-bottom:6px;}
+.ppc-save{background:rgba(201,168,76,.3);color:#f0dfa0;font-size:9px;font-weight:900;padding:3px 8px;border-radius:20px;display:inline-block;}
+.pkg-promo-btn{display:inline-block;background:#c9a84c;color:#111;font-family:Cairo,sans-serif;font-size:14px;font-weight:900;padding:12px 32px;border-radius:9px;text-decoration:none;animation:pkgpulse 2s ease-in-out infinite;}
 @keyframes pkgpulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.5)}50%{box-shadow:0 0 0 8px rgba(201,168,76,0)}}
 .pkg-promo-note{color:rgba(255,255,255,.35);font-size:10px;margin:8px 0 0;}
 @media(max-width:768px){.pkg-promo-banner{display:none;}}
