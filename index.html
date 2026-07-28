@@ -538,7 +538,70 @@ body{font-family:"Cairo","Cairo Fallback",sans-serif;}
   }
 
   /* زر السلة للجوال — مخفي على الكمبيوتر */
-  .mobile-cart-btn { display: none; }
+  .mobile-cart-btn { display: none !important; }
+
+  /* ===== زر عرض جميع المنصات (جوال فقط) ===== */
+  .platforms-all-btn {
+    display: none;
+  }
+
+  /* ===== العروض slider (جوال فقط) ===== */
+  @media(max-width:768px) {
+    /* إظهار زر الجوال */
+    .mobile-cart-btn { display: flex !important; }
+
+    /* بطاقات الخدمات — عمودين على الجوال */
+    .services-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    .services-grid .service-card:nth-child(5),
+    .services-grid .service-card:nth-child(6),
+    .services-grid .service-card:nth-child(7) { grid-column: auto !important; }
+    .services-grid .card-top { min-height: 140px; align-items: flex-start; }
+    .services-grid .card-top h3 { font-size: 12px; }
+    .services-grid .card-top span { font-size: 10px; }
+    .services-grid .service-card:nth-child(5),
+    .services-grid .service-card:nth-child(6),
+    .services-grid .service-card:nth-child(7) { grid-column: auto !important; }
+
+    /* المنصات — عمودين وإخفاء من السابعة */
+    .platforms-grid { grid-template-columns: 1fr 1fr !important; }
+    .platforms-grid .platform-card:nth-child(n+7) { display: none !important; }
+    .platforms-all-btn {
+      display: block !important;
+      width: 100%; margin-top: 20px;
+      background: var(--green); color: #fff;
+      text-align: center; padding: 14px;
+      border-radius: 10px; font-size: 15px; font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* التعليقات — بطاقة أصغر تتسع بين السهمين */
+    #reviews-track .review-card { min-width: 200px !important; max-width: 200px !important; font-size: 12px; padding: 14px; }
+    #reviews-track .review-card .review-text { font-size: 12px; }
+    #reviews-track .review-card .reviewer-name { font-size: 12px; }
+    .reviews .wrap > div[style*="position:relative"] { padding: 0 52px; }
+    .offers-section-grid {
+      position: relative; overflow: hidden;
+    }
+    .offers-track {
+      display: flex !important; flex-direction: row !important;
+      gap: 0 !important; transition: none;
+      direction: ltr;
+    }
+    .offers-track > div {
+      min-width: 100% !important; display: none !important;
+      direction: rtl;
+    }
+    .offers-track > div.active-slide { display: block !important; }
+    .offers-dots {
+      display: flex !important; justify-content: center;
+      gap: 8px; margin-top: 16px;
+    }
+    .offers-dots span {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); cursor: pointer; display: block;
+    }
+    .offers-dots span.active { background: var(--green); }
+  }
 footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .footer-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
 .footer-brand strong{color:#fff;font-size:17px;font-weight:900;display:block;margin-bottom:10px;}
@@ -634,7 +697,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       🛒 السلة
       <span class="mobile-cart-badge" id="mobile-cart-badge">0</span>
     </a>
-    <a href="cart.html" class="mobile-cart-btn" id="mobile-cart-btn">🛒 السلة<span class="mobile-cart-badge" id="mobile-cart-badge">0</span></a>
   </div>
 </header>
 
@@ -714,23 +776,29 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <div class="section-label">عروض خاصة</div>
       <h2 class="section-title">عروض ومزايا حصرية لعملائنا</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
-      <!-- ✏️ غيّر العروض حسب ما تقدمه -->
-      <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:28px;color:#fff;position:relative;overflow:hidden;">
-        <div style="font-size:36px;margin-bottom:10px;">🎁</div>
-        <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">خصم 10% لأول طلب</h3>
-        <p style="font-size:13px;opacity:.85;line-height:1.6;margin-bottom:16px;">سجّل معنا الآن واحصل على خصم فوري على طلبك الأول بأي خدمة.</p>
-        <span style="background:var(--gold);color:#000;font-weight:900;padding:5px 14px;border-radius:20px;font-size:12px;">كود: WELCOME10</span>
+    <div class="offers-section-grid">
+      <div class="offers-track" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;" id="offersTrack">
+        <!-- ✏️ غيّر العروض حسب ما تقدمه -->
+        <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:28px;color:#fff;position:relative;overflow:hidden;">
+          <div style="font-size:36px;margin-bottom:10px;">🎁</div>
+          <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">خصم 10% لأول طلب</h3>
+          <p style="font-size:13px;opacity:.85;line-height:1.6;margin-bottom:16px;">سجّل معنا الآن واحصل على خصم فوري على طلبك الأول بأي خدمة.</p>
+          <span style="background:var(--gold);color:#000;font-weight:900;padding:5px 14px;border-radius:20px;font-size:12px;">كود: WELCOME10</span>
+        </div>
+        <div style="background:linear-gradient(135deg,#7a5c0a,#b8963e);border-radius:14px;padding:28px;color:#fff;">
+          <div style="font-size:36px;margin-bottom:10px;">⚡</div>
+          <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">إنجاز سريع خلال 24 ساعة</h3>
+          <p style="font-size:13px;opacity:.85;line-height:1.6;">نضمن تنفيذ معظم الخدمات خلال 24 ساعة عمل من استلام المستندات المطلوبة.</p>
+        </div>
+        <div style="background:linear-gradient(135deg,#1e3a5f,#2d5986);border-radius:14px;padding:28px;color:#fff;">
+          <div style="font-size:36px;margin-bottom:10px;">🔄</div>
+          <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">ضمان استرجاع المبلغ</h3>
+          <p style="font-size:13px;opacity:.85;line-height:1.6;">في حال عدم اتمام الخدمة، نعيد لك المبلغ كاملاً وفق <a href="policies.html" style="color:#fff;text-decoration:underline;font-weight:700;">سياسة الاسترجاع</a> المعتمدة لدينا.</p>
+        </div>
       </div>
-      <div style="background:linear-gradient(135deg,#7a5c0a,#b8963e);border-radius:14px;padding:28px;color:#fff;">
-        <div style="font-size:36px;margin-bottom:10px;">⚡</div>
-        <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">إنجاز سريع خلال 24 ساعة</h3>
-        <p style="font-size:13px;opacity:.85;line-height:1.6;">نضمن تنفيذ معظم الخدمات خلال 24 ساعة عمل من استلام المستندات المطلوبة.</p>
-      </div>
-      <div style="background:linear-gradient(135deg,#1e3a5f,#2d5986);border-radius:14px;padding:28px;color:#fff;">
-        <div style="font-size:36px;margin-bottom:10px;">🔄</div>
-        <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">ضمان استرجاع المبلغ</h3>
-        <p style="font-size:13px;opacity:.85;line-height:1.6;">في حال عدم اتمام الخدمة، نعيد لك المبلغ كاملاً وفق <a href="policies.html" style="color:#fff;text-decoration:underline;font-weight:700;">سياسة الاسترجاع</a> المعتمدة لدينا.</p>
+      <!-- نقاط الـ slider — تظهر على الجوال فقط -->
+      <div class="offers-dots" id="offersDots" style="display:none;">
+        <span class="active"></span><span></span><span></span>
       </div>
     </div>
   </div>
@@ -1267,22 +1335,29 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   };
 })();
 
-// ===== العروض slider =====
+// ===== العروض slider (جوال فقط) =====
 (function(){
-  var idx=0,total=3,timer=null,paused=false;
-  var track=document.getElementById('offersSlider');
-  var dots=document.querySelectorAll('#offersDots span');
+  var idx=0, total=3, timer=null, paused=false;
+  var track=document.getElementById('offersTrack');
+  var dotsEl=document.getElementById('offersDots');
+  var dots=dotsEl?dotsEl.querySelectorAll('span'):[];
+
   function isMob(){return window.innerWidth<=768;}
+
   function go(n){
     if(!isMob()||!track)return;
     idx=n;
-    var cards=track.querySelectorAll('.offer-card');
-    cards.forEach(function(c,i){c.classList.toggle('active-slide',i===n);});
+    var cards=track.children;
+    for(var i=0;i<cards.length;i++) cards[i].classList.toggle('active-slide',i===n);
     dots.forEach(function(d,i){d.classList.toggle('active',i===n);});
   }
   function next(){go((idx+1)%total);}
   function start(){clearInterval(timer);timer=setInterval(function(){if(!paused)next();},3500);}
-  dots.forEach(function(d,i){d.onclick=function(){go(i);paused=true;clearInterval(timer);setTimeout(function(){paused=false;start();},5000);};});
+
+  dots.forEach(function(d,i){
+    d.onclick=function(){go(i);paused=true;clearInterval(timer);setTimeout(function(){paused=false;start();},5000);};
+  });
+
   var startX=0;
   if(track){
     track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;paused=true;},{passive:true});
@@ -1293,15 +1368,24 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       setTimeout(function(){paused=false;},4000);
     },{passive:true});
   }
-  document.addEventListener('DOMContentLoaded',function(){if(isMob()){go(0);start();}});
-  window.addEventListener('resize',function(){
-    if(!isMob()){clearInterval(timer);if(track){var cards=track.querySelectorAll('.offer-card');cards.forEach(function(c){c.classList.remove('active-slide');});}}
-    else{go(idx);start();}
-  });
+
+  function init(){
+    if(isMob()){
+      if(dotsEl) dotsEl.style.display='flex';
+      go(0); start();
+    } else {
+      clearInterval(timer);
+      if(dotsEl) dotsEl.style.display='none';
+      if(track){ var cards=track.children; for(var i=0;i<cards.length;i++) cards[i].classList.remove('active-slide'); }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+  window.addEventListener('resize', init);
 
   // badge السلة
-  if(typeof updateCartBadge==='function')updateCartBadge();
-  var cart=JSON.parse(localStorage.getItem('rawaq_cart')||'[]');
+  if(typeof updateCartBadge==='function') updateCartBadge();
+  var cart=JSON.parse(localStorage.getItem('rowaq_cart')||'[]');
   var count=cart.reduce(function(s,i){return s+(i.qty||1);},0);
   var mb=document.getElementById('mobile-cart-badge');
   if(mb&&count>0){mb.textContent=count;mb.style.display='flex';}
