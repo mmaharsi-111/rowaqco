@@ -80,7 +80,7 @@ body{font-family:"Cairo","Cairo Fallback",sans-serif;}
     --shadow:     0 2px 16px rgba(0,0,0,0.08);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Cairo', sans-serif; background: var(--white); color: var(--dark); direction: rtl; }
+  body { font-family: 'Cairo', sans-serif; background: var(--white); color: var(--dark); direction: rtl; overflow-x: hidden; }
   a { text-decoration: none; color: inherit; }
   img { display: block; max-width: 100%; }
 
@@ -588,13 +588,20 @@ body{font-family:"Cairo","Cairo Fallback",sans-serif;}
     .mobile-cart-btn { display: flex !important; }
 
     /* بطاقات الخدمات — عمودين على الجوال */
-    .services-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    .services-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
     .services-grid .service-card:nth-child(5),
     .services-grid .service-card:nth-child(6),
     .services-grid .service-card:nth-child(7) { grid-column: auto !important; }
-    .services-grid .card-top { min-height: 140px; align-items: flex-start; }
+    .services-grid .card-top { min-height: 90px; align-items: flex-start; padding: 14px 12px; }
+    .services-grid .card-icon { width: 36px; height: 36px; font-size: 16px; }
     .services-grid .card-top h3 { font-size: 12px; }
     .services-grid .card-top span { font-size: 10px; }
+    .services-grid .card-body { padding: 10px 12px; }
+    .services-grid .card-body p { font-size: 11px; line-height: 1.5; margin-bottom: 8px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .services-grid .tag { font-size: 9px; padding: 2px 7px; }
+    .services-grid .card-footer { padding: 8px 12px; }
+    .services-grid .btn-card { font-size: 11px; padding: 6px 10px; }
     .services-grid .service-card:nth-child(5),
     .services-grid .service-card:nth-child(6),
     .services-grid .service-card:nth-child(7) { grid-column: auto !important; }
@@ -659,15 +666,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 
-/* ===== بانر باقات المنشآت ===== */
-.pkg-promo-banner{margin:28px -24px 0;direction:rtl;}
-.pkg-ticker-wrap{background:rgba(0,0,0,.2);padding:7px 0;overflow:hidden;}
-.pkg-ticker{white-space:nowrap;display:inline-block;animation:pkgticker 20s linear infinite;font-size:12px;font-weight:700;color:#f0dfa0;}
-@keyframes pkgticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.pkg-promo-body{padding:20px 24px 22px;}
-.pkg-promo-label{display:inline-block;background:rgba(201,168,76,.2);border:1px solid #c9a84c;color:#f0dfa0;padding:4px 14px;border-radius:50px;font-size:11px;font-weight:700;margin-bottom:10px;}
-.pkg-promo-title{color:#fff;font-size:18px;font-weight:900;margin:0 0 4px;}
-.pkg-promo-sub{color:rgba(255,255,255,.65);font-size:12px;margin:0 0 16px;}
+
 .pkg-promo-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
 .pkg-promo-card{background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:16px 12px;text-align:center;text-decoration:none;transition:all .2s;display:block;position:relative;}
 .pkg-promo-card:hover{background:rgba(0,0,0,.6);transform:translateY(-4px);}
