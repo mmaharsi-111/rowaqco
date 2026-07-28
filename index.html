@@ -646,6 +646,32 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 
+/* ===== بانر باقات المنشآت ===== */
+.pkg-promo-banner{margin:28px auto 0;max-width:820px;border-radius:14px;overflow:hidden;direction:rtl;}
+.pkg-ticker-wrap{background:#0a5c3a;padding:7px 0;overflow:hidden;}
+.pkg-ticker{white-space:nowrap;display:inline-block;animation:pkgticker 20s linear infinite;font-size:12px;font-weight:700;color:#f0dfa0;}
+@keyframes pkgticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.pkg-promo-body{background:#0e3d28;padding:24px 24px 20px;}
+.pkg-promo-label{display:inline-block;background:rgba(201,168,76,.2);border:1px solid #c9a84c;color:#f0dfa0;padding:4px 14px;border-radius:50px;font-size:11px;font-weight:700;margin-bottom:10px;}
+.pkg-promo-title{color:#fff;font-size:17px;font-weight:900;margin:0 0 4px;}
+.pkg-promo-sub{color:rgba(255,255,255,.65);font-size:12px;margin:0 0 16px;}
+.pkg-promo-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;}
+.pkg-promo-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 8px;text-align:center;text-decoration:none;transition:all .2s;display:block;position:relative;}
+.pkg-promo-card:hover{background:rgba(255,255,255,.14);transform:translateY(-3px);}
+.pkg-promo-card--popular{background:rgba(201,168,76,.18);border:2px solid #c9a84c;}
+.pkg-promo-card--popular:hover{background:rgba(201,168,76,.28);}
+.ppc-popular{position:absolute;top:-9px;right:50%;transform:translateX(50%);background:#c9a84c;color:#111;font-size:8px;font-weight:900;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+.ppc-icon{font-size:24px;margin-bottom:4px;}
+.ppc-range{color:rgba(255,255,255,.6);font-size:9px;margin-bottom:4px;}
+.ppc-old{color:rgba(255,255,255,.35);font-size:10px;text-decoration:line-through;margin-bottom:1px;}
+.ppc-price{color:#f0dfa0;font-size:16px;font-weight:900;line-height:1;}
+.ppc-unit{color:rgba(255,255,255,.45);font-size:9px;margin-bottom:4px;}
+.ppc-save{background:rgba(201,168,76,.25);color:#f0dfa0;font-size:8px;font-weight:900;padding:2px 6px;border-radius:20px;display:inline-block;}
+.pkg-promo-btn{display:inline-block;background:#c9a84c;color:#111;font-family:Cairo,sans-serif;font-size:13px;font-weight:900;padding:11px 28px;border-radius:9px;text-decoration:none;animation:pkgpulse 2s ease-in-out infinite;}
+@keyframes pkgpulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.5)}50%{box-shadow:0 0 0 8px rgba(201,168,76,0)}}
+.pkg-promo-note{color:rgba(255,255,255,.35);font-size:10px;margin:8px 0 0;}
+@media(max-width:768px){.pkg-promo-banner{display:none;}}
+
 /* ===== شريط البحث في الهيدر ===== */
 .header-search{position:relative;width:220px;}
 .search-input-wrap{display:flex;align-items:center;gap:8px;background:#f3f4f6;border:2px solid #e5e7eb;border-radius:10px;padding:9px 14px;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,.06);}
@@ -747,6 +773,61 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         اطلب الآن عبر واتساب
       </a>
     </div>
+    <!-- ===== بانر باقات المنشآت — كمبيوتر فقط ===== -->
+    <div class="pkg-promo-banner">
+      <!-- شريط متحرك -->
+      <div class="pkg-ticker-wrap">
+        <div class="pkg-ticker">
+          &nbsp;&nbsp;🏢 وفّر وقتك وأنجز أكثر &nbsp;•&nbsp; باقات شهرية بأسعار ثابتة &nbsp;•&nbsp; إدارة قوى ومدد وأبشر من مكان واحد &nbsp;•&nbsp; اشترك اليوم واحصل على خصم 10% &nbsp;•&nbsp; 🏢 وفّر وقتك وأنجز أكثر &nbsp;•&nbsp; باقات شهرية بأسعار ثابتة &nbsp;•&nbsp; إدارة قوى ومدد وأبشر من مكان واحد &nbsp;•&nbsp;
+        </div>
+      </div>
+      <!-- محتوى البانر -->
+      <div class="pkg-promo-body">
+        <div class="pkg-promo-label">⭐ لأصحاب المنشآت والشركات</div>
+        <h3 class="pkg-promo-title">أنجز معاملات منشأتك بباقة شهرية واحدة</h3>
+        <p class="pkg-promo-sub">قوى • مدد • أبشر أعمال • مقيم — كل شيء في مكان واحد بسعر ثابت</p>
+        <!-- 4 بطاقات -->
+        <div class="pkg-promo-cards">
+          <a href="packages.html" class="pkg-promo-card">
+            <div class="ppc-icon">🛖</div>
+            <div class="ppc-range">حتى 5 موظفين</div>
+            <div class="ppc-old">1,200 ريال</div>
+            <div class="ppc-price">990</div>
+            <div class="ppc-unit">ريال/شهر</div>
+            <div class="ppc-save">وفّر 210 ﷼</div>
+          </a>
+          <a href="packages.html" class="pkg-promo-card">
+            <div class="ppc-icon">🏪</div>
+            <div class="ppc-range">6 – 10 موظفين</div>
+            <div class="ppc-old">1,800 ريال</div>
+            <div class="ppc-price">1,490</div>
+            <div class="ppc-unit">ريال/شهر</div>
+            <div class="ppc-save">وفّر 310 ﷼</div>
+          </a>
+          <a href="packages.html" class="pkg-promo-card pkg-promo-card--popular">
+            <div class="ppc-popular">الأكثر طلباً</div>
+            <div class="ppc-icon">🏬</div>
+            <div class="ppc-range">11 – 20 موظف</div>
+            <div class="ppc-old">2,400 ريال</div>
+            <div class="ppc-price">1,990</div>
+            <div class="ppc-unit">ريال/شهر</div>
+            <div class="ppc-save">وفّر 410 ﷼</div>
+          </a>
+          <a href="packages.html" class="pkg-promo-card">
+            <div class="ppc-icon">🏢</div>
+            <div class="ppc-range">21 – 30 موظف</div>
+            <div class="ppc-old">3,000 ريال</div>
+            <div class="ppc-price">2,490</div>
+            <div class="ppc-unit">ريال/شهر</div>
+            <div class="ppc-save">وفّر 510 ﷼</div>
+          </a>
+        </div>
+        <!-- زر -->
+        <a href="packages.html" class="pkg-promo-btn">🏢 اكتشف باقات إدارة المنشآت ←</a>
+        <p class="pkg-promo-note">الحد الأدنى للاشتراك 6 أشهر • الأسعار شاملة الضريبة</p>
+      </div>
+    </div>
+
     <div class="hero-stats">
       <!-- ✏️ غيّر الأرقام حسب إنجازاتك -->
       <div class="stat"><strong>+500</strong><span>عميل راضٍ</span></div>
