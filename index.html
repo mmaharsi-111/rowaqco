@@ -231,15 +231,12 @@ body{font-family:"Cairo","Cairo Fallback",sans-serif;}
 
   /* ===== HERO ===== */
   .hero {
-    background: linear-gradient(135deg, var(--green) 0%, #0e6b44 60%, #145c38 100%);
+    background: linear-gradient(rgba(10,60,35,0.72), rgba(10,60,35,0.72)),
+                url('hero-bg.jpg') center center / cover no-repeat;
     color: var(--white); padding: 80px 24px 90px;
     text-align: center; position: relative; overflow: hidden;
   }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
+  .hero::before { display: none; }
   .hero-content { position: relative; max-width: 780px; margin: auto; }
   .hero-badge {
     display: inline-block; background: rgba(201,168,76,0.25);
@@ -828,13 +825,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       </div>
     </div>
 
-    <div class="hero-stats">
-      <!-- ✏️ غيّر الأرقام حسب إنجازاتك -->
-      <div class="stat"><strong>+500</strong><span>عميل راضٍ</span></div>
-      <div class="stat"><strong>+400</strong><span>خدمة متاحة</span></div>
-      <div class="stat"><strong>24 ساعة</strong><span>دعم مستمر</span></div>
-      <div class="stat"><strong>+16</strong><span>سنوات خبرة</span></div>
-    </div>
   </div>
 </section>
 
