@@ -31,7 +31,31 @@ window.addEventListener('load',function(){
   .desktop-only-btn { display: none !important; }
   @media(max-width:768px) {
     .hero-search-box { display: block !important; }
-    .desktop-only-btn { display: flex !important; }
+    /* واتساب مخفي على الجوال أيضاً */
+    .desktop-only-btn { display: none !important; }
+
+    /* شريط البحث في الهيرو */
+    .hero-search-wrap {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.95); border-radius: 10px;
+      padding: 10px 14px; margin-bottom: 12px;
+    }
+    .hero-search-wrap input {
+      border: none; background: transparent;
+      font-family: Cairo, sans-serif; font-size: 14px;
+      color: #111; width: 100%; outline: none; direction: rtl;
+    }
+    .hero-search-wrap input::placeholder { color: #9ca3af; }
+    .hero-results {
+      background: #fff; border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+      max-height: 260px; overflow-y: auto; display: none;
+    }
+    .hero-results.open { display: block; }
+
+    /* تصغير خط 24 ساعة في الإحصائيات */
+    .hero-stats .stat strong { font-size: 22px; }
+    .hero-stats .stat span { font-size: 11px; }
   }
 @font-face{font-family:"Cairo Fallback";src:local("Arial");size-adjust:106%;ascent-override:88%;descent-override:22%;line-gap-override:0%;}
 body{font-family:"Cairo","Cairo Fallback",sans-serif;}
