@@ -74,6 +74,11 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .search-box{display:flex;align-items:center;gap:8px;background:var(--bg);border:1.5px solid var(--border);border-radius:9px;padding:8px 14px;min-width:240px;transition:border-color .2s;}
 .search-box:focus-within{border-color:var(--green);}
 .search-box input{border:none;background:transparent;font-family:'Cairo',sans-serif;font-size:13px;outline:none;width:100%;}
+@media(max-width:768px){
+  .toolbar .wrap{display:flex;flex-direction:row;gap:8px;align-items:center;}
+  .search-box{min-width:0;flex:1;}
+  .sort-select{width:auto;flex-shrink:0;}
+}
 .sort-select{padding:8px 12px;border-radius:8px;border:1.5px solid var(--border);font-family:'Cairo',sans-serif;font-size:13px;color:var(--mid);background:#fff;outline:none;cursor:pointer;}
 .wrap{max-width:1280px;margin:auto;}
 .page-body{padding:32px 24px 60px;}
@@ -137,7 +142,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </head>
 <body>
 
-<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a> &nbsp;|&nbsp; <a href="https://wa.me/966559580940">واتساب</a></div>
+
 
 <header>
   <div class="header-inner">
