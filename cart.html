@@ -183,7 +183,28 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 @media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
 
 @media(max-width:900px){.cart-layout{grid-template-columns:1fr;}.summary-box{position:static;}}
-@media(max-width:600px){.header-nav{display:none;}.cart-item{flex-wrap:wrap;}}
+@media(max-width:600px){
+  .header-nav{display:none;}
+  .cart-item{flex-wrap:wrap;}
+  /* إصلاح عناصر السلة على الجوال */
+  .cart-item{
+    display:grid !important;
+    grid-template-columns:auto 1fr auto auto !important;
+    grid-template-rows:auto auto !important;
+    gap:8px !important;
+    padding:14px 16px !important;
+    align-items:center;
+  }
+  .item-icon{grid-column:1;grid-row:1/3;width:40px !important;height:40px !important;font-size:20px !important;}
+  .item-info{grid-column:2;grid-row:1;min-width:0;}
+  .item-name{font-size:13px !important;white-space:normal !important;word-break:break-word;}
+  .item-cat{font-size:10px !important;}
+  .item-price{font-size:11px !important;}
+  .item-qty{grid-column:2;grid-row:2;}
+  .item-total{grid-column:3;grid-row:1/3;font-size:13px !important;font-weight:900;}
+  .item-del{grid-column:4;grid-row:1/3;}
+  html,body{overflow-x:hidden;}
+}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/cart.html">
 <meta property="og:type" content="website">
@@ -199,7 +220,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 <body>
 
 <!-- TOPBAR -->
-<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a> &nbsp;|&nbsp; <a href="https://wa.me/966559580940">واتساب</a></div>
+
 
 <!-- HEADER -->
 <header>
