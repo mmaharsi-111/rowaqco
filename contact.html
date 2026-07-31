@@ -124,14 +124,14 @@
   .header-cta .btn-green { display: none !important; }
   /* إصلاح overflow */
   html, body { overflow-x: hidden; }
-  /* إصلاح الخريطة */
-  .branch-card iframe,
-  iframe[src*="google.com/maps"] {
-    width: 100% !important; max-width: 100% !important;
-    height: 220px !important; border-radius: 10px;
+  /* قسم الفرع على الجوال — خريطة فوق والمعلومات تحت */
+  #branch .wrap > div[style*="grid"] {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    gap: 20px !important;
   }
-  .branches-grid { grid-template-columns: 1fr; }
-  .branch-body { padding: 14px; }
+  #branch { padding: 40px 16px !important; }
+  #branch iframe { height: 260px !important; }
   /* الفوتر */
   .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
   .footer-brand { grid-column: 1 / -1; }
