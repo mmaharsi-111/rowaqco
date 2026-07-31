@@ -60,6 +60,14 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .search-box{display:flex;align-items:center;gap:8px;background:var(--bg);border:1.5px solid var(--border);border-radius:9px;padding:8px 14px;min-width:220px;transition:border-color .2s;}
 .search-box:focus-within{border-color:var(--green);}
 .search-box input{border:none;background:transparent;font-family:'Cairo',sans-serif;font-size:13px;outline:none;width:100%;}
+@media(max-width:768px){
+  .btn.btn-green[href*="wa.me"]:not([style*="padding:13px"]){display:none;}
+  .toolbar .wrap{display:flex;flex-direction:row;gap:8px;}
+  .toolbar-right{flex-wrap:nowrap;width:100%;}
+  .search-box{min-width:0;flex:1;padding:6px 10px;}
+  .search-box input{font-size:12px;}
+  .sort-select{width:auto;flex-shrink:0;font-size:12px;padding:6px 8px;}
+}
 .filter-btn{padding:8px 16px;border-radius:8px;border:1.5px solid var(--border);background:#fff;font-family:'Cairo',sans-serif;font-size:13px;font-weight:600;color:var(--mid);cursor:pointer;transition:all .2s;}
 .filter-btn:hover,.filter-btn.active{border-color:var(--green);color:var(--green);background:var(--green-pale);}
 .sort-select{padding:8px 12px;border-radius:8px;border:1.5px solid var(--border);font-family:'Cairo',sans-serif;font-size:13px;color:var(--mid);background:#fff;outline:none;cursor:pointer;}
@@ -136,7 +144,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 <body>
 
 <!-- TOPBAR -->
-<div class="topbar">🎉 خصم 10% على أول طلب — كود: <a href="index.html">WELCOME10</a> &nbsp;|&nbsp; للتواصل الفوري: <a href="https://wa.me/966559580940">واتساب</a></div>
+
 
 <!-- HEADER -->
 <header>
