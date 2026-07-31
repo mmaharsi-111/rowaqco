@@ -120,6 +120,21 @@
   .contact-layout { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .form-card { padding: 24px 18px; }
+  /* إخفاء زر تواصل معنا من الهيدر */
+  .header-cta .btn-green { display: none !important; }
+  /* إصلاح overflow */
+  html, body { overflow-x: hidden; }
+  /* إصلاح الخريطة */
+  .branch-card iframe,
+  iframe[src*="google.com/maps"] {
+    width: 100% !important; max-width: 100% !important;
+    height: 220px !important; border-radius: 10px;
+  }
+  .branches-grid { grid-template-columns: 1fr; }
+  .branch-body { padding: 14px; }
+  /* الفوتر */
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+  .footer-brand { grid-column: 1 / -1; }
 }
   /* ===== SIDEBAR ===== */
   .menu-btn { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; border-radius: 10px; cursor: pointer; background: var(--green); border: none; padding: 10px; flex-shrink: 0; transition: background .2s; }
@@ -171,12 +186,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 <link rel="canonical" href="https://www.rowaqco.com/contact.html">
 </head>
 <body>
-
-<!-- ===== TOPBAR ===== -->
-<div class="topbar">
-  🎉 خصم 10% على أول طلب باستخدام كود: <a href="index.html">WELCOME10</a>
-  &nbsp;|&nbsp; للتواصل الفوري: <a href="https://wa.me/966559580940">واتساب</a>
-</div>
 
 <!-- ===== HEADER ===== -->
 <header>
@@ -526,7 +535,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   <div class="footer-grid">
     <div class="footer-brand">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-        <img src="logo.jpg" alt="رواق التميز" style="height:60px;width:auto;flex-shrink:0;">
+        <img src="logo.webp" alt="رواق التميز" width="60" height="60" style="height:60px;width:auto;flex-shrink:0;" loading="lazy">
         <strong style="font-size:17px;">رواق التميز للخدمات العامة</strong>
       </div>
       <p>نخدم المواطن والمقيم وأصحاب المؤسسات والشركات، وننجز معاملاتهم بطريقة رقمية متطورة من أي مكان.</p>
