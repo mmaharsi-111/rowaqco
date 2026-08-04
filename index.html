@@ -56,6 +56,10 @@ window.addEventListener('load',function(){
     /* تصغير خط 24 ساعة في الإحصائيات */
     .hero-stats .stat strong { font-size: 22px; }
     .hero-stats .stat span { font-size: 11px; }
+    /* ضبط الهيرو على الجوال */
+    .hero h1 { font-size: clamp(26px, 7vw, 36px); margin-bottom: 12px; }
+    .hero p { font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
+    .hero-search-box { margin-top: 8px; }
   }
 @font-face{font-family:"Cairo Fallback";src:local("Arial");size-adjust:106%;ascent-override:88%;descent-override:22%;line-gap-override:0%;}
 body{font-family:"Cairo","Cairo Fallback",sans-serif;}
@@ -684,7 +688,13 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .pkg-promo-btn{display:inline-block;background:#c9a84c;color:#111;font-family:Cairo,sans-serif;font-size:14px;font-weight:900;padding:12px 32px;border-radius:9px;text-decoration:none;animation:pkgpulse 2s ease-in-out infinite;}
 @keyframes pkgpulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.5)}50%{box-shadow:0 0 0 8px rgba(201,168,76,0)}}
 .pkg-promo-note{color:rgba(255,255,255,.35);font-size:10px;margin:8px 0 0;}
-@media(max-width:768px){.pkg-promo-banner{display:none;}}
+@media(max-width:768px){
+  .pkg-promo-banner{display:block;width:100%;margin:20px 0 0;padding:0;}
+  .pkg-promo-label{font-size:12px;padding:4px 12px;}
+  .pkg-promo-title{font-size:18px;line-height:1.4;margin:8px 0 6px;}
+  .pkg-promo-sub{font-size:13px;margin:0 0 16px;}
+  .pkg-promo-btn{font-size:15px !important;padding:14px 24px !important;width:100%;display:block;text-align:center;box-sizing:border-box;}
+}
 
 /* ===== شريط البحث في الهيدر ===== */
 .header-search{position:relative;width:220px;}
