@@ -35,7 +35,7 @@
     {
       "id": 2507,
       "name": "تجديد رخصة بلدية (تجارية)",
-      "price": 99,
+      "price": 50,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -43,7 +43,7 @@
     {
       "id": 2513,
       "name": "تجديد رخصة سلامة (الدفاع المدني)",
-      "price": 69.56,
+      "price": 50,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -83,7 +83,7 @@
     {
       "id": 2508,
       "name": "إصدار رخصة بلدية (تجارية)",
-      "price": 199,
+      "price": 86,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -311,7 +311,7 @@
     {
       "id": 2571,
       "name": "تجديد السجل التجاري للمؤسسات",
-      "price": 150,
+      "price": 50,
       "category": "خدمات الأعمال / تجديد",
       "active": true,
       "sale_ok": true
@@ -327,7 +327,7 @@
     {
       "id": 2573,
       "name": "إصدار شهادة الالتزام بالنظام وحماية الأجور",
-      "price": 100,
+      "price": 30,
       "category": "خدمات الأعمال / تجديد",
       "active": true,
       "sale_ok": true
@@ -369,7 +369,7 @@
     {
       "id": 2577,
       "name": "نقل السجل التجاري للمؤسسات",
-      "price": 100,
+      "price": 86,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -377,7 +377,7 @@
     {
       "id": 2578,
       "name": "تعديل السجل التجاري للمؤسسات",
-      "price": 100,
+      "price": 50,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -2401,7 +2401,7 @@
     {
       "id": 2816,
       "name": "إصدار رخصة سلامة جديدة",
-      "price": 250,
+      "price": 86,
       "category": "خدمات حكومية / سلامة",
       "active": true,
       "sale_ok": true
@@ -2409,7 +2409,7 @@
     {
       "id": 2817,
       "name": "تجديد رخصة سلامة",
-      "price": 150,
+      "price": 50,
       "category": "خدمات حكومية / سلامة",
       "active": true,
       "sale_ok": true
@@ -3071,7 +3071,7 @@
     {
       "id": 2529,
       "name": "شطب السجل التجاري للمؤسسات",
-      "price": 100,
+      "price": 50,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
