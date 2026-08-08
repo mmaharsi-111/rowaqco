@@ -165,7 +165,7 @@
     {
       "id": 2563,
       "name": "شهادة توثيق التجارة الالكترونية",
-      "price": 100,
+      "price": 86,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -173,7 +173,7 @@
     {
       "id": 2564,
       "name": "الاستعلام عن الطلبات المقدمة",
-      "price": 100,
+      "price": 30,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -181,7 +181,7 @@
     {
       "id": 2565,
       "name": "طباعة سجل تجاري",
-      "price": 549,
+      "price": 30,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -189,7 +189,7 @@
     {
       "id": 2568,
       "name": "التسجيل في تابي أو تمارا",
-      "price": 50,
+      "price": 100,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -205,7 +205,7 @@
     {
       "id": 2569,
       "name": "فتح حساب بنكي تجاري",
-      "price": 50,
+      "price": 100,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -221,7 +221,7 @@
     {
       "id": 2567,
       "name": "ربط الحساب البنكي للمؤسسة مع مدد",
-      "price": 699,
+      "price": 30,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -245,7 +245,7 @@
     {
       "id": 2566,
       "name": "فتح حساب بنكي للمؤسسة في STC Bank وربطه مع مدد",
-      "price": 699,
+      "price": 100,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -351,7 +351,7 @@
     {
       "id": 2574,
       "name": "طباعة تقرير حماية الأجور",
-      "price": 50,
+      "price": 30,
       "category": "خدمات الأعمال / تجديد",
       "active": true,
       "sale_ok": true
@@ -1069,7 +1069,7 @@
     {
       "id": 2619,
       "name": "طباعة عقد الإيجار",
-      "price": 50,
+      "price": 30,
       "category": "خدمات حكومية / إيجار",
       "active": true,
       "sale_ok": true
@@ -1261,7 +1261,7 @@
     {
       "id": 2641,
       "name": "التسجيل في تابي أو تمارة",
-      "price": 75,
+      "price": 100,
       "category": "خدمات الأعمال / العمل الحر",
       "active": true,
       "sale_ok": true
@@ -1269,7 +1269,7 @@
     {
       "id": 2642,
       "name": "شهادة توثيق التجارة الإلكترونية",
-      "price": 100,
+      "price": 86,
       "category": "خدمات الأعمال / العمل الحر",
       "active": true,
       "sale_ok": true
@@ -1327,7 +1327,7 @@
     {
       "id": 2648,
       "name": "فتح حساب بنكي أفراد / قاصر / تابع",
-      "price": 69.56,
+      "price": 86,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
@@ -1473,7 +1473,7 @@
     {
       "id": 2668,
       "name": "طباعة مشهد راتب متقاعد",
-      "price": 50,
+      "price": 30,
       "category": "خدمات حكومية / التأمينات",
       "active": true,
       "sale_ok": true
@@ -1481,7 +1481,7 @@
     {
       "id": 2669,
       "name": "طباعة شهادة تأمينات",
-      "price": 35,
+      "price": 30,
       "category": "خدمات حكومية / التأمينات",
       "active": true,
       "sale_ok": true
@@ -1895,7 +1895,7 @@
     {
       "id": 2753,
       "name": "طباعة تقرير مقيم",
-      "price": 49,
+      "price": 30,
       "category": "خدمات حكومية / مقيم",
       "active": true,
       "sale_ok": true
@@ -2003,7 +2003,7 @@
     {
       "id": 2766,
       "name": "طباعة واستخراج الوثائق والصكوك",
-      "price": 100,
+      "price": 30,
       "category": "خدمات حكومية / ناجز",
       "active": true,
       "sale_ok": true
@@ -2953,7 +2953,7 @@
     {
       "id": 2881,
       "name": "طباعة وثيقة صلح",
-      "price": 20,
+      "price": 30,
       "category": "خدمات حكومية / تراضي",
       "active": true,
       "sale_ok": true
@@ -3063,7 +3063,7 @@
     {
       "id": 2526,
       "name": "طباعة شهادة شطب سجل تجاري",
-      "price": 20,
+      "price": 30,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
