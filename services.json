@@ -35,7 +35,7 @@
     {
       "id": 2507,
       "name": "تجديد رخصة بلدية (تجارية)",
-      "price": 50,
+      "price": 99,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -43,7 +43,7 @@
     {
       "id": 2513,
       "name": "تجديد رخصة سلامة (الدفاع المدني)",
-      "price": 50,
+      "price": 69.56,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -51,7 +51,7 @@
     {
       "id": 2516,
       "name": "قبول ملكية نقل رخصة بلدية (تجارية)",
-      "price": 30,
+      "price": 50,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -59,7 +59,7 @@
     {
       "id": 2517,
       "name": "نقل ملكية رخصة بلدية (تجارية)",
-      "price": 30,
+      "price": 199,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -67,7 +67,7 @@
     {
       "id": 2506,
       "name": "تعديل رخصة بلدية (تجارية)",
-      "price": 50,
+      "price": 99,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -83,7 +83,7 @@
     {
       "id": 2508,
       "name": "إصدار رخصة بلدية (تجارية)",
-      "price": 86,
+      "price": 199,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -311,7 +311,7 @@
     {
       "id": 2571,
       "name": "تجديد السجل التجاري للمؤسسات",
-      "price": 50,
+      "price": 150,
       "category": "خدمات الأعمال / تجديد",
       "active": true,
       "sale_ok": true
@@ -327,7 +327,7 @@
     {
       "id": 2573,
       "name": "إصدار شهادة الالتزام بالنظام وحماية الأجور",
-      "price": 30,
+      "price": 100,
       "category": "خدمات الأعمال / تجديد",
       "active": true,
       "sale_ok": true
@@ -361,7 +361,7 @@
     {
       "id": 2576,
       "name": "تعديل بيانات منشأة",
-      "price": 30,
+      "price": 100,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -369,7 +369,7 @@
     {
       "id": 2577,
       "name": "نقل السجل التجاري للمؤسسات",
-      "price": 86,
+      "price": 199,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -377,7 +377,7 @@
     {
       "id": 2578,
       "name": "تعديل السجل التجاري للمؤسسات",
-      "price": 50,
+      "price": 199,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -385,7 +385,7 @@
     {
       "id": 2579,
       "name": "تغيير نشاط منشأة",
-      "price": 50,
+      "price": 100,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -395,7 +395,7 @@
     {
       "id": 2544,
       "name": "إصدار شهادة السعودة",
-      "price": 30,
+      "price": 99,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -403,7 +403,7 @@
     {
       "id": 2531,
       "name": "استخراج تأشيرة العمالة الزراعية",
-      "price": 100,
+      "price": 149,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -411,7 +411,7 @@
     {
       "id": 2536,
       "name": "نقل تابع للمنشأة",
-      "price": 100,
+      "price": 50,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -427,7 +427,7 @@
     {
       "id": 2540,
       "name": "تعديل المهنة",
-      "price": 30,
+      "price": 99,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -435,7 +435,7 @@
     {
       "id": 2541,
       "name": "إلغاء التأشيرات للعمال",
-      "price": 30,
+      "price": 50,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -451,7 +451,7 @@
     {
       "id": 2535,
       "name": "نقل عامل بين الفروع",
-      "price": 30,
+      "price": 50,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -459,7 +459,7 @@
     {
       "id": 2547,
       "name": "تصحيح المهنة",
-      "price": 30,
+      "price": 50,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -467,23 +467,31 @@
     {
       "id": 2532,
       "name": "إصدار / تمديد / تأشيرة الخروج والعودة",
-      "price": 30,
+      "price": 50,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
     },
     {
       "id": 2533,
-      "name": "التقديم على تأمين طبي",
+      "name": "التقديم على التأمين الطبي",
       "price": 52.1,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
     },
     {
-      "id": 2538,
-      "name": "توليق عقد الموظفين",
+      "id": 2534,
+      "name": "إصدار تأشيرة دائمة أو مؤقتة",
       "price": 50,
+      "category": "خدمات الأعمال / موظفين",
+      "active": true,
+      "sale_ok": true
+    },
+    {
+      "id": 2538,
+      "name": "توثيق عقد الموظفين",
+      "price": 0,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -491,7 +499,7 @@
     {
       "id": 2539,
       "name": "إضافة موظفين على مدد",
-      "price": 30,
+      "price": 99,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -507,7 +515,7 @@
     {
       "id": 2545,
       "name": "إلغاء تأشيرة الخروج النهائي",
-      "price": 30,
+      "price": 99,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -515,7 +523,7 @@
     {
       "id": 2546,
       "name": "إلغاء تأشيرة الخروج والعودة",
-      "price": 30,
+      "price": 99,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -795,7 +803,7 @@
     {
       "id": 2480,
       "name": "الغاء تأشيرة الخروج والعودة",
-      "price": 30,
+      "price": 49,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -811,7 +819,7 @@
     {
       "id": 2484,
       "name": "إصدار / تمديد تأشيرة الخروج والعودة",
-      "price": 30,
+      "price": 50,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -819,7 +827,7 @@
     {
       "id": 2488,
       "name": "الغاء تأشيرة الخروج النهائي",
-      "price": 30,
+      "price": 49,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -947,7 +955,7 @@
     {
       "id": 2483,
       "name": "إصدار تأشيرة الخروج النهائي",
-      "price": 30,
+      "price": 50,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -963,7 +971,7 @@
     {
       "id": 2498,
       "name": "تعديل المهنة في أبشر أفراد/أعمال",
-      "price": 30,
+      "price": 50,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -971,7 +979,7 @@
     {
       "id": 2487,
       "name": "طلب تقرير مقيم",
-      "price": 30,
+      "price": 49,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -979,7 +987,7 @@
     {
       "id": 2489,
       "name": "تحديث معلومات الجواز للمقيمين",
-      "price": 30,
+      "price": 100,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -987,7 +995,7 @@
     {
       "id": 2486,
       "name": "بلاغ تغيب عن العمل",
-      "price": 50,
+      "price": 49,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -1465,7 +1473,7 @@
     {
       "id": 2670,
       "name": "تقديم بلاغ عجز مهني",
-      "price": 50,
+      "price": 80,
       "category": "خدمات حكومية / التأمينات",
       "active": true,
       "sale_ok": true
@@ -1839,7 +1847,7 @@
     {
       "id": 2749,
       "name": "تحديث معلومات جواز السفر",
-      "price": 30,
+      "price": 60,
       "category": "خدمات حكومية / مقيم",
       "active": true,
       "sale_ok": true
@@ -1881,7 +1889,7 @@
     {
       "id": 2754,
       "name": "استخراج تأشيرات ذوي الإعاقة",
-      "price": 100,
+      "price": 99,
       "category": "خدمات حكومية / مساند",
       "active": true,
       "sale_ok": true
@@ -1905,7 +1913,7 @@
     {
       "id": 2757,
       "name": "نقل كفالة عامل منزلي",
-      "price": 130.43,
+      "price": 80,
       "category": "خدمات حكومية / مساند",
       "active": true,
       "sale_ok": true
@@ -1913,7 +1921,7 @@
     {
       "id": 2758,
       "name": "تقديم بلاغ هروب عامل منزلي",
-      "price": 50,
+      "price": 60,
       "category": "خدمات حكومية / مساند",
       "active": true,
       "sale_ok": true
@@ -2225,7 +2233,7 @@
     {
       "id": 2796,
       "name": "بلاغ انقطاع عن العمل (بلاغ الهروب)",
-      "price": 50,
+      "price": 49,
       "category": "خدمات حكومية / قوى",
       "active": true,
       "sale_ok": true
@@ -2233,7 +2241,7 @@
     {
       "id": 2797,
       "name": "إصدار تأشيرة عمل دائمة أو مؤقتة",
-      "price": 50,
+      "price": 99,
       "category": "خدمات حكومية / قوى",
       "active": true,
       "sale_ok": true
@@ -2393,7 +2401,7 @@
     {
       "id": 2816,
       "name": "إصدار رخصة سلامة جديدة",
-      "price": 86,
+      "price": 250,
       "category": "خدمات حكومية / سلامة",
       "active": true,
       "sale_ok": true
@@ -2401,7 +2409,7 @@
     {
       "id": 2817,
       "name": "تجديد رخصة سلامة",
-      "price": 50,
+      "price": 150,
       "category": "خدمات حكومية / سلامة",
       "active": true,
       "sale_ok": true
@@ -3023,7 +3031,7 @@
     {
       "id": 2530,
       "name": "إلغاء الرقم المميز",
-      "price": 30,
+      "price": 100,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
@@ -3031,7 +3039,7 @@
     {
       "id": 2525,
       "name": "افادة بعدم وجود سجل تجاري",
-      "price": 30,
+      "price": 26.08,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
@@ -3047,7 +3055,7 @@
     {
       "id": 2527,
       "name": "إغلاق المنشأة",
-      "price": 200,
+      "price": 20,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
@@ -3055,7 +3063,7 @@
     {
       "id": 2528,
       "name": "الغاء رخصة بلدي",
-      "price": 30,
+      "price": 20,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
@@ -3063,7 +3071,7 @@
     {
       "id": 2529,
       "name": "شطب السجل التجاري للمؤسسات",
-      "price": 50,
+      "price": 100,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
