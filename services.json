@@ -403,7 +403,7 @@
     {
       "id": 2531,
       "name": "استخراج تأشيرة العمالة الزراعية",
-      "price": 149,
+      "price": 100,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -411,7 +411,7 @@
     {
       "id": 2536,
       "name": "نقل تابع للمنشأة",
-      "price": 50,
+      "price": 100,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -427,7 +427,7 @@
     {
       "id": 2540,
       "name": "تعديل المهنة",
-      "price": 99,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -435,7 +435,7 @@
     {
       "id": 2541,
       "name": "إلغاء التأشيرات للعمال",
-      "price": 50,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -451,7 +451,7 @@
     {
       "id": 2535,
       "name": "نقل عامل بين الفروع",
-      "price": 50,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -459,7 +459,7 @@
     {
       "id": 2547,
       "name": "تصحيح المهنة",
-      "price": 50,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -467,7 +467,7 @@
     {
       "id": 2532,
       "name": "إصدار / تمديد / تأشيرة الخروج والعودة",
-      "price": 50,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -481,17 +481,9 @@
       "sale_ok": true
     },
     {
-      "id": 2534,
-      "name": "إصدار تأشيرة دائمة أو مؤقتة",
-      "price": 50,
-      "category": "خدمات الأعمال / موظفين",
-      "active": true,
-      "sale_ok": true
-    },
-    {
       "id": 2538,
       "name": "توليق عقد الموظفين",
-      "price": 0,
+      "price": 50,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -499,7 +491,7 @@
     {
       "id": 2539,
       "name": "إضافة موظفين على مدد",
-      "price": 99,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -515,7 +507,7 @@
     {
       "id": 2545,
       "name": "إلغاء تأشيرة الخروج النهائي",
-      "price": 99,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -523,7 +515,7 @@
     {
       "id": 2546,
       "name": "إلغاء تأشيرة الخروج والعودة",
-      "price": 99,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
@@ -803,7 +795,7 @@
     {
       "id": 2480,
       "name": "الغاء تأشيرة الخروج والعودة",
-      "price": 49,
+      "price": 30,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -819,7 +811,7 @@
     {
       "id": 2484,
       "name": "إصدار / تمديد تأشيرة الخروج والعودة",
-      "price": 50,
+      "price": 30,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -827,7 +819,7 @@
     {
       "id": 2488,
       "name": "الغاء تأشيرة الخروج النهائي",
-      "price": 49,
+      "price": 30,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -955,7 +947,7 @@
     {
       "id": 2483,
       "name": "إصدار تأشيرة الخروج النهائي",
-      "price": 50,
+      "price": 30,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -971,7 +963,7 @@
     {
       "id": 2498,
       "name": "تعديل المهنة في أبشر أفراد/أعمال",
-      "price": 50,
+      "price": 30,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -979,7 +971,7 @@
     {
       "id": 2487,
       "name": "طلب تقرير مقيم",
-      "price": 49,
+      "price": 30,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -987,7 +979,7 @@
     {
       "id": 2489,
       "name": "تحديث معلومات الجواز للمقيمين",
-      "price": 100,
+      "price": 30,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -995,7 +987,7 @@
     {
       "id": 2486,
       "name": "بلاغ تغيب عن العمل",
-      "price": 49,
+      "price": 50,
       "category": "خدمات حكومية / أبشر",
       "active": true,
       "sale_ok": true
@@ -1473,7 +1465,7 @@
     {
       "id": 2670,
       "name": "تقديم بلاغ عجز مهني",
-      "price": 80,
+      "price": 50,
       "category": "خدمات حكومية / التأمينات",
       "active": true,
       "sale_ok": true
@@ -1847,7 +1839,7 @@
     {
       "id": 2749,
       "name": "تحديث معلومات جواز السفر",
-      "price": 60,
+      "price": 30,
       "category": "خدمات حكومية / مقيم",
       "active": true,
       "sale_ok": true
@@ -1889,7 +1881,7 @@
     {
       "id": 2754,
       "name": "استخراج تأشيرات ذوي الإعاقة",
-      "price": 99,
+      "price": 100,
       "category": "خدمات حكومية / مساند",
       "active": true,
       "sale_ok": true
@@ -1913,7 +1905,7 @@
     {
       "id": 2757,
       "name": "نقل كفالة عامل منزلي",
-      "price": 80,
+      "price": 130.43,
       "category": "خدمات حكومية / مساند",
       "active": true,
       "sale_ok": true
@@ -1921,7 +1913,7 @@
     {
       "id": 2758,
       "name": "تقديم بلاغ هروب عامل منزلي",
-      "price": 60,
+      "price": 50,
       "category": "خدمات حكومية / مساند",
       "active": true,
       "sale_ok": true
@@ -2233,7 +2225,7 @@
     {
       "id": 2796,
       "name": "بلاغ انقطاع عن العمل (بلاغ الهروب)",
-      "price": 49,
+      "price": 50,
       "category": "خدمات حكومية / قوى",
       "active": true,
       "sale_ok": true
@@ -2241,7 +2233,7 @@
     {
       "id": 2797,
       "name": "إصدار تأشيرة عمل دائمة أو مؤقتة",
-      "price": 99,
+      "price": 50,
       "category": "خدمات حكومية / قوى",
       "active": true,
       "sale_ok": true
