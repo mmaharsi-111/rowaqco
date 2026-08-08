@@ -3,7 +3,7 @@
     {
       "id": 2523,
       "name": "تقرير في غير فوري (سلامة)",
-      "price": 699,
+      "price": 200,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -11,7 +11,7 @@
     {
       "id": 2512,
       "name": "شهادة تركيب أدوات الوقاية من الحريق (سلامة)",
-      "price": 249,
+      "price": 260.86,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -19,7 +19,7 @@
     {
       "id": 2519,
       "name": "اعتراض على مخالفة الرقابة",
-      "price": 35,
+      "price": 200,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -27,7 +27,7 @@
     {
       "id": 2520,
       "name": "استخراج ملصق رايك بفرق",
-      "price": 35,
+      "price": 50,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -131,7 +131,7 @@
     {
       "id": 2510,
       "name": "إصدار وتجديد رخصة سكن جماعي",
-      "price": 150,
+      "price": 100,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -139,7 +139,7 @@
     {
       "id": 2522,
       "name": "تقرير في فوري (سلامة)",
-      "price": 549,
+      "price": 86,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -149,7 +149,7 @@
     {
       "id": 2559,
       "name": "اشتراك أو تجديد ابشر أعمال",
-      "price": 49,
+      "price": 50,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -197,7 +197,7 @@
     {
       "id": 2561,
       "name": "إضافة مفوض إلكتروني",
-      "price": 150,
+      "price": 50,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -229,7 +229,7 @@
     {
       "id": 2560,
       "name": "تسجيل منشأة في مدد",
-      "price": 199,
+      "price": 86,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -237,7 +237,7 @@
     {
       "id": 2558,
       "name": "طباعة تقارير إدارة الرواتب",
-      "price": 100,
+      "price": 30,
       "category": "خدمات الأعمال / تأسيس",
       "active": true,
       "sale_ok": true
@@ -335,7 +335,7 @@
     {
       "id": 2572,
       "name": "اشتراك او تجديد ابشر أعمال",
-      "price": 99,
+      "price": 50,
       "category": "خدمات الأعمال / تجديد",
       "active": true,
       "sale_ok": true
@@ -1287,7 +1287,7 @@
     {
       "id": 2524,
       "name": "التقديم على جهاز نقاط البيع",
-      "price": 104.34,
+      "price": 86,
       "category": "خدمات عامة",
       "active": true,
       "sale_ok": true
