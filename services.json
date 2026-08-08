@@ -3031,7 +3031,7 @@
     {
       "id": 2530,
       "name": "إلغاء الرقم المميز",
-      "price": 100,
+      "price": 30,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
@@ -3039,7 +3039,7 @@
     {
       "id": 2525,
       "name": "افادة بعدم وجود سجل تجاري",
-      "price": 26.08,
+      "price": 30,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
@@ -3055,7 +3055,7 @@
     {
       "id": 2527,
       "name": "إغلاق المنشأة",
-      "price": 20,
+      "price": 200,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
@@ -3063,7 +3063,7 @@
     {
       "id": 2528,
       "name": "الغاء رخصة بلدي",
-      "price": 20,
+      "price": 30,
       "category": "خدمات الأعمال / إغلاق",
       "active": true,
       "sale_ok": true
