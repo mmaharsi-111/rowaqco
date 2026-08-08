@@ -51,7 +51,7 @@
     {
       "id": 2516,
       "name": "قبول ملكية نقل رخصة بلدية (تجارية)",
-      "price": 50,
+      "price": 30,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -59,7 +59,7 @@
     {
       "id": 2517,
       "name": "نقل ملكية رخصة بلدية (تجارية)",
-      "price": 199,
+      "price": 30,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -67,7 +67,7 @@
     {
       "id": 2506,
       "name": "تعديل رخصة بلدية (تجارية)",
-      "price": 99,
+      "price": 50,
       "category": "خدمات حكومية / بلدي",
       "active": true,
       "sale_ok": true
@@ -361,7 +361,7 @@
     {
       "id": 2576,
       "name": "تعديل بيانات منشأة",
-      "price": 100,
+      "price": 30,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -369,7 +369,7 @@
     {
       "id": 2577,
       "name": "نقل السجل التجاري للمؤسسات",
-      "price": 199,
+      "price": 100,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -377,7 +377,7 @@
     {
       "id": 2578,
       "name": "تعديل السجل التجاري للمؤسسات",
-      "price": 199,
+      "price": 100,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -385,7 +385,7 @@
     {
       "id": 2579,
       "name": "تغيير نشاط منشأة",
-      "price": 100,
+      "price": 50,
       "category": "خدمات الأعمال / تعديل ونقل",
       "active": true,
       "sale_ok": true
@@ -395,7 +395,7 @@
     {
       "id": 2544,
       "name": "إصدار شهادة السعودة",
-      "price": 99,
+      "price": 30,
       "category": "خدمات الأعمال / موظفين",
       "active": true,
       "sale_ok": true
