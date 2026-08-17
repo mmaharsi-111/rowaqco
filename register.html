@@ -356,9 +356,12 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
         <div class="auth-title">مرحباً بعودتك 👋</div>
         <div class="auth-sub">أدخل بيانات حسابك للمتابعة</div>
 
+        <!-- Honeypot -->
+        <input type="text" id="lhoney" name="website" autocomplete="off" tabindex="-1" style="display:none!important;position:absolute;left:-9999px;" aria-hidden="true">
+
         <div class="field">
           <label>البريد الإلكتروني أو رقم الجوال <span class="req">*</span></label>
-          <input type="text" id="login-id" placeholder="example@email.com أو 05xxxxxxxx">
+          <input type="text" id="login-id" placeholder="example@email.com أو 05xxxxxxxx" maxlength="100">
           <div class="field-error" id="login-id-err">يرجى إدخال البريد الإلكتروني أو رقم الجوال</div>
         </div>
 
@@ -389,6 +392,9 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
       <div class="auth-panel" id="panel-register">
         <div class="auth-title">إنشاء حساب جديد ✨</div>
         <div class="auth-sub">أنشئ حسابك مجاناً وابدأ طلب خدماتك الحكومية بسهولة</div>
+
+        <!-- Honeypot -->
+        <input type="text" id="rhoney" name="website" autocomplete="off" tabindex="-1" style="display:none!important;position:absolute;left:-9999px;" aria-hidden="true">
 
         <div class="field-row">
           <div class="field">
@@ -519,6 +525,39 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbyzTHDGzy4Kqitq3U0q4z5fhxlsMwMDLUpZj5Ptd6G0nqp_3pFj67cEz66FhHUXROuc/exec';
 
+/* ===== SHA-256 (Web Crypto API — لا مكتبات خارجية) ===== */
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+/* ===== Rate Limiting ===== */
+function checkRateLimit(key, maxAttempts, windowMs) {
+  const now = Date.now();
+  const data = JSON.parse(localStorage.getItem(key) || '{"attempts":[],"blocked":false,"blockedUntil":0}');
+  if (data.blocked && now < data.blockedUntil) {
+    const mins = Math.ceil((data.blockedUntil - now) / 60000);
+    alert(`تم تجاوز الحد المسموح. يرجى الانتظار ${mins} دقيقة.`);
+    return false;
+  }
+  data.attempts = data.attempts.filter(t => now - t < windowMs);
+  data.attempts.push(now);
+  if (data.attempts.length >= maxAttempts) {
+    data.blocked = true;
+    data.blockedUntil = now + windowMs;
+    localStorage.setItem(key, JSON.stringify(data));
+    alert('تم تجاوز الحد المسموح. يرجى الانتظار 15 دقيقة.');
+    return false;
+  }
+  localStorage.setItem(key, JSON.stringify(data));
+  return true;
+}
+
+/* ===== تعقيم نصي ===== */
+function escText(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
 /* ===== TABS ===== */
 function switchTab(tab) {
   document.querySelectorAll('.auth-tab').forEach((t,i) => {
@@ -579,6 +618,11 @@ function markField(id, hasErr) {
 
 /* ===== LOGIN ===== */
 async function doLogin() {
+  // Honeypot
+  if (document.getElementById('lhoney') && document.getElementById('lhoney').value) return;
+  // Rate Limit: 5 محاولات كل 15 دقيقة
+  if (!checkRateLimit('rl_login', 5, 15 * 60 * 1000)) return;
+
   const id   = document.getElementById('login-id').value.trim();
   const pass = document.getElementById('login-pass').value;
   let valid  = true;
@@ -591,12 +635,16 @@ async function doLogin() {
 
   if (!valid) return;
 
-  // تحقق من localStorage أولاً
+  // hash كلمة المرور قبل المقارنة
+  const passHash = await sha256(pass);
+
+  // تحقق من localStorage بمقارنة الـ hash
   const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
-  const localUser = users.find(u => (u.email === id || u.phone === id) && u.password === pass);
+  const localUser = users.find(u => (u.email === id || u.phone === id) && u.passwordHash === passHash);
 
   if (localUser) {
-    localStorage.setItem('rawaq_session', JSON.stringify(localUser));
+    const session = { name: localUser.name, phone: localUser.phone, email: localUser.email, odooId: localUser.odooId };
+    localStorage.setItem('rawaq_session', JSON.stringify(session));
     showSuccess('login', localUser.name);
     return;
   }
@@ -612,7 +660,7 @@ async function doLogin() {
       action: 'login',
       email: isEmail ? id : '',
       phone: isEmail ? '' : id,
-      password: pass
+      passwordHash: passHash  // نرسل hash فقط وليس كلمة المرور الأصلية
     });
 
     const res  = await fetch(`${GAS_URL}?${params}`);
@@ -620,11 +668,11 @@ async function doLogin() {
 
     if (data?.success && data?.user) {
       const sessionUser = {
-        name:    data.user.name,
-        phone:   data.user.phone || id,
-        email:   data.user.email || '',
-        odooId:  data.user.odooId,
-        password: pass
+        name:   data.user.name,
+        phone:  data.user.phone || id,
+        email:  data.user.email || '',
+        odooId: data.user.odooId
+        // لا نحفظ كلمة المرور في الجلسة
       };
       localStorage.setItem('rawaq_session', JSON.stringify(sessionUser));
       showSuccess('login', sessionUser.name);
@@ -667,13 +715,18 @@ function updatePhonePlaceholder() {
 
 /* ===== REGISTER ===== */
 async function doRegister() {
-  const name    = document.getElementById('reg-name').value.trim();
+  // Honeypot
+  if (document.getElementById('rhoney') && document.getElementById('rhoney').value) return;
+  // Rate Limit: 3 تسجيلات كل 15 دقيقة
+  if (!checkRateLimit('rl_register', 3, 15 * 60 * 1000)) return;
+
+  const name    = document.getElementById('reg-name').value.trim().slice(0, 100);
   const phone   = document.getElementById('reg-phone').value.trim();
   const country = document.getElementById('reg-country').value;
-  const email   = document.getElementById('reg-email').value.trim();
+  const email   = document.getElementById('reg-email').value.trim().slice(0, 100);
   const pass    = document.getElementById('reg-pass').value;
   const invoice = document.getElementById('need-invoice').checked;
-  const company = document.getElementById('reg-company').value.trim();
+  const company = document.getElementById('reg-company').value.trim().slice(0, 100);
   const cr      = document.getElementById('reg-cr').value.trim();
   const vat     = document.getElementById('reg-vat').value.trim();
 
@@ -716,10 +769,14 @@ async function doRegister() {
     return;
   }
 
-  // بناء كائن المستخدم
+  // hash كلمة المرور قبل الحفظ
+  const passHash = await sha256(pass);
+
+  // بناء كائن المستخدم — بدون كلمة المرور الأصلية
   const newUser = {
     id: Date.now(),
-    name, phone, email, password: pass,
+    name, phone, email,
+    passwordHash: passHash,  // hash فقط وليس النص الأصلي
     invoice, company, cr, vat,
     createdAt: new Date().toISOString()
   };
@@ -727,9 +784,11 @@ async function doRegister() {
   // حفظ في localStorage
   users.push(newUser);
   localStorage.setItem('rawaq_users', JSON.stringify(users));
-  localStorage.setItem('rawaq_session', JSON.stringify(newUser));
+  // الجلسة بدون كلمة مرور
+  const session = { name, phone, email, odooId: null };
+  localStorage.setItem('rawaq_session', JSON.stringify(session));
 
-  // إرسال لأودو عبر GAS
+  // إرسال لأودو عبر GAS — hash فقط وليس كلمة المرور الأصلية
   const btn = document.getElementById('register-btn');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> جارٍ الحفظ...';
@@ -738,7 +797,7 @@ async function doRegister() {
     const params = new URLSearchParams({
       action: 'create_partner',
       name, phone, email,
-      password: pass,
+      passwordHash: passHash,  // ⚠️ ملاحظة لأودو: يجب تحديث GAS لقبول passwordHash بدلاً من password
       company: company || '',
       vat: vat || ''
     });
@@ -774,12 +833,15 @@ function showSuccess(type, name) {
 
 /* ===== FORGOT PASSWORD ===== */
 function showForgot() {
-  const phone = prompt('أدخل رقم جوالك المسجل لإرسال كلمة المرور عبر واتساب:');
+  const phone = prompt('أدخل رقم جوالك المسجل وسنساعدك عبر واتساب:');
   if (!phone) return;
   const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
   const user  = users.find(u => u.phone === phone);
   if (!user) { alert('لم يتم العثور على حساب بهذا الرقم.'); return; }
-  const msg = encodeURIComponent(`مرحباً ${user.name}،\nكلمة المرور الخاصة بك: ${user.password}\nرواق التميز للخدمات العامة`);
+  // لا نكشف كلمة المرور — نرسل طلب مساعدة فقط
+  const msg = encodeURIComponent(
+    `مرحباً، أريد المساعدة في استعادة كلمة مرور حسابي في رواق التميز.\n\nرقم الجوال المسجل: ${phone}`
+  );
   window.open(`https://wa.me/966559580940?text=${msg}`, '_blank');
 }
 
@@ -799,10 +861,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.getElementById('auth-card');
     const welcomeBar = document.createElement('div');
     welcomeBar.style.cssText = 'background:var(--green-pale);border-bottom:1px solid var(--green);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;font-size:13px;';
-    welcomeBar.innerHTML = `
-      <span>👤 مرحباً <strong style="color:var(--green)">${user.name}</strong></span>
-      <button onclick="doLogout()" style="background:none;border:none;color:#e53e3e;font-size:12px;cursor:pointer;font-family:Cairo,sans-serif;font-weight:700;">تسجيل الخروج</button>
-    `;
+    // textContent آمن ضد XSS
+    const greet = document.createElement('span');
+    greet.textContent = '👤 مرحباً ';
+    const strong = document.createElement('strong');
+    strong.style.color = 'var(--green)';
+    strong.textContent = user.name;
+    greet.appendChild(strong);
+    const logoutBtn = document.createElement('button');
+    logoutBtn.textContent = 'تسجيل الخروج';
+    logoutBtn.style.cssText = 'background:none;border:none;color:#e53e3e;font-size:12px;cursor:pointer;font-family:Cairo,sans-serif;font-weight:700;';
+    logoutBtn.onclick = doLogout;
+    welcomeBar.appendChild(greet);
+    welcomeBar.appendChild(logoutBtn);
     card.insertBefore(welcomeBar, card.firstChild);
   }
 });
