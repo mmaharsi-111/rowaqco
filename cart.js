@@ -177,6 +177,7 @@ async function sendToOdoo(cart, customerInfo) {
  
   try {
     const params = new URLSearchParams({
+      token: 'rwq_2026_s3cur3_k9mX',
       cart: encodeURIComponent(JSON.stringify(cart)),
       name: customerInfo?.name || '',
       phone: customerInfo?.phone || ''

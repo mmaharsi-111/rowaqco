@@ -657,6 +657,7 @@ async function doLogin() {
   try {
     const isEmail = id.includes('@');
     const params = new URLSearchParams({
+      token: 'rwq_2026_s3cur3_k9mX',
       action: 'login',
       email: isEmail ? id : '',
       phone: isEmail ? '' : id,
@@ -795,6 +796,7 @@ async function doRegister() {
 
   try {
     const params = new URLSearchParams({
+      token: 'rwq_2026_s3cur3_k9mX',
       action: 'create_partner',
       name, phone, email,
       passwordHash: passHash,  // ⚠️ ملاحظة لأودو: يجب تحديث GAS لقبول passwordHash بدلاً من password
