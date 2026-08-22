@@ -293,7 +293,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
             <!-- كود خصم -->
             <div class="promo-box">
-              <input class="promo-input" id="promo-input" type="text" placeholder="كود الخصم">
+              <input class="promo-input" id="promo-input" type="text" placeholder="كود الخصم (مثال: WELCOME10)">
               <button class="promo-btn" onclick="applyPromo()">تطبيق</button>
             </div>
             <div class="promo-success" id="promo-msg" style="display:none;">✅ تم تطبيق خصم 10%!</div>
@@ -301,7 +301,7 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
             <div class="summary-row"><span>عدد الخدمات</span><span id="sum-count">0</span></div>
             <div class="summary-row"><span>المجموع الفرعي</span><span id="sum-sub">﷼ 0</span></div>
             <div class="summary-row" id="discount-row" style="display:none;color:#e53e3e;"><span>خصم (10%)</span><span id="sum-discount">-﷼ 0</span></div>
-            <div class="summary-row total"><span>الإجمالي ش.ض.م</span><span id="sum-total">﷼ 0</span></div>
+            <div class="summary-row total"><span>الإجمالي</span><span id="sum-total">﷼ 0</span></div>
 
             <div class="summary-note">
               <strong>⚡ كيف تتم العملية؟</strong>
@@ -612,6 +612,7 @@ async function checkoutWhatsapp(){
   try {
     const cartParam = encodeURIComponent(JSON.stringify(cart));
     const params = new URLSearchParams({
+      token:   'rwq_2026_s3cur3_k9mX',
       name:    user.name,
       phone:   user.phone,
       email:   user.email   || '',
