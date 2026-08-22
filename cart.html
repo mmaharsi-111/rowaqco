@@ -605,7 +605,9 @@ async function checkoutWhatsapp(){
   btn.textContent = '⏳ جاري إرسال الطلب...';
 
   const GAS_URL = 'https://script.google.com/macros/s/AKfycbyzTHDGzy4Kqitq3U0q4z5fhxlsMwMDLUpZj5Ptd6G0nqp_3pFj67cEz66FhHUXROuc/exec';
-
+  const ODOO_URL = 'https://rowaqco.odoo.com';
+  const ODOO_DB = 'rowaqco';
+  const ODOO_API_KEY = '48b1e3bc9f3f862fce0ab00a95bde9bfc2f489a9';
 
   try {
     const cartParam = encodeURIComponent(JSON.stringify(cart));
