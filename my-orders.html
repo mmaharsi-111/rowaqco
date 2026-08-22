@@ -301,7 +301,7 @@ async function renderOrders() {
     const odooId = session.odooId;
     if (!odooId) throw new Error('no odooId');
 
-    const res = await fetch(`${GAS_URL}?action=get_orders&token=rwq_2026_s3cur3_k9mX&partner_id=${odooId}`);
+    const res = await fetch(`${GAS_URL}?action=get_orders&partner_id=${odooId}`);
     const data = await res.json();
 
     if (!data.success) throw new Error(data.error || 'failed');
