@@ -719,7 +719,7 @@ async function doRegister() {
   // Honeypot
   if (document.getElementById('rhoney') && document.getElementById('rhoney').value) return;
   // Rate Limit: 3 تسجيلات كل 15 دقيقة
-  if (!checkRateLimit('rl_register', 3, 15 * 60 * 1000)) return;
+  if (!checkRateLimit('rl_register', 5, 15 * 60 * 1000)) return;
 
   const name    = document.getElementById('reg-name').value.trim().slice(0, 100);
   const phone   = document.getElementById('reg-phone').value.trim();
