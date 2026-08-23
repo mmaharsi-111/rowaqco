@@ -232,3 +232,20 @@ footer { background: var(--dark); color: rgba(255,255,255,.8); padding: 56px 24p
   .footer-grid { grid-template-columns: 1fr; }
   .header-inner { flex-wrap: wrap; }
 }
+
+/* ===== رمز الريال السعودي الرسمي ===== */
+.sar-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url('sar.svg') no-repeat center center;
+  background-size: contain;
+  vertical-align: middle;
+  margin-left: 3px;
+  filter: invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%);
+}
+.svc-price .sar-icon,
+.price-val .sar-icon {
+  width: 13px;
+  height: 13px;
+}

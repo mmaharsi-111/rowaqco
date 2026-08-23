@@ -42,8 +42,13 @@
 
       const priceVal = card.querySelector('.price-val');
       if (priceVal) {
-        priceVal.textContent = priceWithTax;
-        priceVal.dataset.price = priceWithTax; // ✅ إصلاح: cart.js يقرأ من هنا
+        priceVal.dataset.price = priceWithTax;
+      }
+
+      // تحديث منطقة السعر كاملة — رمز SVG يسار الرقم
+      const priceEl = card.querySelector('.svc-price');
+      if (priceEl) {
+        priceEl.innerHTML = `<span class="sar-icon" aria-label="ريال سعودي"></span><span class="price-val" data-price="${priceWithTax}">${priceWithTax}</span>`;
       }
 
       // حدّث الاسم في data-name وفي .svc-name
