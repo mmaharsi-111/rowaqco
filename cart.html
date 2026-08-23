@@ -612,6 +612,7 @@ async function checkoutWhatsapp(){
   try {
     const cartParam = encodeURIComponent(JSON.stringify(cart));
     const params = new URLSearchParams({
+      token:   'rwq_2026_s3cur3_k9mX',
       name:    user.name,
       phone:   user.phone,
       email:   user.email   || '',
