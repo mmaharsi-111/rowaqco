@@ -855,10 +855,16 @@ function submitBooking() {
     document.getElementById('c-phone').focus(); return;
   }
   if (!topic) { document.getElementById('c-topic').focus(); return; }
+
   const { y, m, d } = selectedDate;
   const dk = dateKey(y, m, d);
   if (isBooked(dk, selectedTime)) { alert('عذراً! تم حجز هذا الموعد. يرجى اختيار موعد آخر.'); goStep(2); renderTimeSlots(); return; }
   saveBooking(dk, selectedTime, { name, phone, topic });
+
+  // تعريف dateStr وtimeStr أولاً
+  const dayName = DAYS_AR[new Date(y,m,d).getDay()];
+  const dateStr = `${dayName} ${d} ${MONTHS_AR[m]} ${y}`;
+  const timeStr = formatTime(selectedTime);
 
   // إشعار فوري للمشرف عبر واتساب
   const notifyMsg = encodeURIComponent(
@@ -871,9 +877,7 @@ function submitBooking() {
     (notes ? `\n📝 ملاحظات: ${notes}` : '')
   );
   window.open(`https://wa.me/966559580940?text=${notifyMsg}`, '_blank');
-  const dayName = DAYS_AR[new Date(y,m,d).getDay()];
-  const dateStr = `${dayName} ${d} ${MONTHS_AR[m]} ${y}`;
-  const timeStr = formatTime(selectedTime);
+
   // تعقيم البيانات قبل إدراجها في DOM
   const container = document.getElementById('confirm-details');
   container.innerHTML = '';
@@ -895,7 +899,7 @@ function submitBooking() {
     lbl.textContent = label;
     const v = document.createElement('div');
     v.style.fontWeight = '700';
-    v.textContent = val;   // textContent آمن ضد XSS
+    v.textContent = val;
     info.appendChild(lbl);
     info.appendChild(v);
     row.appendChild(ico);
