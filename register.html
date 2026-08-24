@@ -803,7 +803,18 @@ async function doRegister() {
       company: company || '',
       vat: vat || ''
     });
-    await fetch(`${GAS_URL}?${params}`);
+    const gasRes = await fetch(`${GAS_URL}?${params}`);
+    const gasData = await gasRes.json();
+
+    // إذا كان مسجلاً مسبقاً — أظهر خطأ
+    if (!gasData.success && gasData.error === 'مسجل مسبقاً') {
+      btn.disabled = false;
+      btn.innerHTML = 'إنشاء الحساب ✨';
+      showErr('reg-email-err', true);
+      markField('reg-email', true);
+      return;
+    }
+
   } catch(e) {
     console.warn('تعذّر الإرسال لأودو، تم الحفظ محلياً');
   }
