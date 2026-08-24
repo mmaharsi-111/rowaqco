@@ -3,6 +3,17 @@
  * يجلب الخدمات من services.json ويحدّث الصفحة تلقائياً
  */
 
+// ✅ دالة تطبيع النص العربي للبحث (همزات، تاء مربوطة، ألف مقصورة)
+window.normalizeAr = function(str) {
+  return (str || '')
+    .toLowerCase()
+    .replace(/[إأآا]/g, 'ا')   // توحيد الألف والهمزات
+    .replace(/ة/g, 'ه')        // تاء مربوطة → هاء
+    .replace(/ى/g, 'ي')        // ألف مقصورة → ياء
+    .replace(/[ًٌٍَُِّْ]/g, '') // إزالة التشكيل
+    .trim();
+};
+
 // ✅ حقن CSS رمز الريال تلقائياً في كل صفحة
 (function() {
   const style = document.createElement('style');

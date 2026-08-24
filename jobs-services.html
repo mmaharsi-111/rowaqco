@@ -472,10 +472,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
 <script>
 function filterServices() {
-  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const q = window.normalizeAr ? window.normalizeAr(document.getElementById('search-input').value) : document.getElementById('search-input').value.trim().toLowerCase();
   let anyVisible = false;
   document.querySelectorAll('.svc-card').forEach(card => {
-    const name = (card.dataset.name || '').toLowerCase();
+    const name = window.normalizeAr ? window.normalizeAr(card.dataset.name || '') : (card.dataset.name || '').toLowerCase();
     const show = !q || name.includes(q);
     card.style.display = show ? '' : 'none';
     if (show) anyVisible = true;

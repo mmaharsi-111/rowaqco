@@ -1485,12 +1485,24 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       loaded=true;
     }).catch(function(){loaded=true;});
   }
+  window.normalizeAr = function(str) {
+    return (str || '').toLowerCase()
+      .replace(/[إأآا]/g, 'ا')
+      .replace(/ة/g, 'ه')
+      .replace(/ى/g, 'ي')
+      .replace(/[ًٌٍَُِّْ]/g, '')
+      .trim();
+  };
   window.doSearch=function(q,src){
     var el=document.getElementById(src==='hero'?'heroSearchResults':'searchResults');
     if(!el)return;
     if(!q||q.length<2){el.innerHTML='';el.classList.remove('open');return;}
+    var nq = window.normalizeAr ? window.normalizeAr(q) : q.toLowerCase();
     load().then(function(){
-      var res=svcs.filter(function(s){return s.name.indexOf(q)!==-1;}).slice(0,8);
+      var res=svcs.filter(function(s){
+        var nn = window.normalizeAr ? window.normalizeAr(s.name) : s.name.toLowerCase();
+        return nn.indexOf(nq)!==-1;
+      }).slice(0,8);
       if(!res.length){el.innerHTML='<div class="search-no-result">لا نتائج لـ "'+q+'"</div>';}
       else{el.innerHTML=res.map(function(s){
         return '<a class="search-result-item" href="'+s.page+'"><div class="sri-info"><div class="sri-name">'+s.name+'</div><div class="sri-cat">'+s.cat+'</div></div></a>';
