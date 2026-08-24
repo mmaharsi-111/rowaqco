@@ -638,9 +638,40 @@ async function checkoutWhatsapp(){
       localStorage.setItem('rawaq_orders', JSON.stringify(orders));
 
       clearCart();
-      btn.textContent = '✅ تم إرسال طلبك بنجاح!';
-      btn.style.background = '#0a5c3a';
-      showMiniToast('✅ تم إرسال طلبك! سنتواصل معك قريباً.');
+
+      // ✅ إظهار صفحة نجاح الطلب
+      document.querySelector('.cart-layout').innerHTML = `
+        <div style="
+          max-width:560px; margin:60px auto; text-align:center;
+          background:#fff; border-radius:20px; padding:48px 32px;
+          box-shadow:0 8px 40px rgba(0,0,0,0.10);
+        ">
+          <div style="font-size:72px; margin-bottom:16px;">🎉</div>
+          <h2 style="color:#0a5c3a; font-size:28px; font-weight:900; margin-bottom:12px;">
+            تم استلام طلبك بنجاح!
+          </h2>
+          <p style="color:#6b7280; font-size:16px; margin-bottom:8px;">
+            رقم الطلب: <strong style="color:#0a5c3a;">#${data.orderId}</strong>
+          </p>
+          <p style="color:#6b7280; font-size:15px; margin-bottom:32px; line-height:1.8;">
+            سيتواصل معك فريقنا في أقرب وقت لإتمام الخدمة.<br>
+            يمكنك متابعة طلبك عبر واتساب أو من خلال صفحة طلباتي.
+          </p>
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a href="https://wa.me/966559580940" target="_blank" style="
+              background:#25d366; color:#fff; padding:14px 28px;
+              border-radius:12px; font-weight:700; font-size:15px;
+              text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+            ">💬 تواصل عبر واتساب</a>
+            <a href="index.html" style="
+              background:#0a5c3a; color:#fff; padding:14px 28px;
+              border-radius:12px; font-weight:700; font-size:15px;
+              text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+            ">🏠 العودة للرئيسية</a>
+          </div>
+        </div>
+      `;
+      window.scrollTo({top: 0, behavior: 'smooth'});
     } else {
       throw new Error(data?.error || 'فشل الإرسال');
     }
