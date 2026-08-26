@@ -845,17 +845,52 @@ function showSuccess(type, name) {
 }
 
 /* ===== FORGOT PASSWORD ===== */
-function showForgot() {
-  const phone = prompt('أدخل رقم جوالك المسجل وسنساعدك عبر واتساب:');
+async function showForgot() {
+  const phone = prompt('أدخل رقم جوالك المسجّل:');
   if (!phone) return;
-  const users = JSON.parse(localStorage.getItem('rawaq_users') || '[]');
-  const user  = users.find(u => u.phone === phone);
-  if (!user) { alert('لم يتم العثور على حساب بهذا الرقم.'); return; }
-  // لا نكشف كلمة المرور — نرسل طلب مساعدة فقط
-  const msg = encodeURIComponent(
-    `مرحباً، أريد المساعدة في استعادة كلمة مرور حسابي في رواق التميز.\n\nرقم الجوال المسجل: ${phone}`
-  );
-  window.open(`https://wa.me/966559580940?text=${msg}`, '_blank');
+
+  // إرسال كود للبريد
+  const btn = document.querySelector('.forgot-link') || { textContent: '' };
+  try {
+    const params = new URLSearchParams({
+      token: 'rwq_2026_s3cur3_k9mX',
+      action: 'forgot_password',
+      phone: phone.trim()
+    });
+    const res  = await fetch(`${GAS_URL}?${params}`);
+    const data = await res.json();
+
+    if (!data.success) {
+      alert(data.message || 'حدث خطأ');
+      return;
+    }
+
+    // طلب الكود وكلمة المرور الجديدة
+    alert('✅ تم إرسال كود التحقق إلى بريدك الإلكتروني المسجّل. الكود صالح 15 دقيقة.');
+    const code    = prompt('أدخل الكود المرسل إلى بريدك:');
+    if (!code) return;
+    const newPass = prompt('أدخل كلمة المرور الجديدة:');
+    if (!newPass || newPass.length < 6) { alert('كلمة المرور يجب أن تكون 6 أحرف على الأقل'); return; }
+
+    const newPassHash = await sha256(newPass);
+    const params2 = new URLSearchParams({
+      token: 'rwq_2026_s3cur3_k9mX',
+      action: 'reset_password',
+      phone: phone.trim(),
+      code: code.trim(),
+      newPassHash
+    });
+    const res2  = await fetch(`${GAS_URL}?${params2}`);
+    const data2 = await res2.json();
+
+    if (data2.success) {
+      alert('✅ تم تحديث كلمة المرور بنجاح! يمكنك تسجيل الدخول الآن.');
+    } else {
+      alert('❌ ' + (data2.message || 'حدث خطأ'));
+    }
+  } catch(err) {
+    alert('تعذّر الاتصال، يرجى المحاولة لاحقاً');
+  }
 }
 
 /* ===== WHATSAPP LOGIN ===== */
