@@ -845,52 +845,99 @@ function showSuccess(type, name) {
 }
 
 /* ===== FORGOT PASSWORD ===== */
-async function showForgot() {
-  const phone = prompt('أدخل رقم جوالك المسجّل:');
-  if (!phone) return;
+function showForgot() {
+  document.getElementById('forgot-modal').style.display = 'flex';
+  document.getElementById('forgot-step1').style.display = 'block';
+  document.getElementById('forgot-step1b').style.display = 'none';
+  document.getElementById('forgot-step3').style.display = 'none';
+  document.getElementById('forgot-phone').value = '';
+  document.getElementById('forgot-err1').style.display = 'none';
+}
 
-  // إرسال كود للبريد
-  const btn = document.querySelector('.forgot-link') || { textContent: '' };
+function closeForgot() {
+  document.getElementById('forgot-modal').style.display = 'none';
+}
+
+let forgotPhone = '';
+
+async function forgotStep1() {
+  const phone = document.getElementById('forgot-phone').value.trim();
+  const errEl = document.getElementById('forgot-err1');
+  if (!phone) { errEl.textContent = 'أدخل رقم الجوال'; errEl.style.display = 'block'; return; }
+  errEl.style.display = 'none';
+  forgotPhone = phone;
+
+  const btn = document.getElementById('forgot-btn1');
+  btn.disabled = true;
+  btn.textContent = '⏳ جارٍ الإرسال...';
+
   try {
     const params = new URLSearchParams({
       token: 'rwq_2026_s3cur3_k9mX',
       action: 'forgot_password',
-      phone: phone.trim()
+      phone: phone
     });
     const res  = await fetch(`${GAS_URL}?${params}`);
     const data = await res.json();
 
     if (!data.success) {
-      alert(data.message || 'حدث خطأ');
+      errEl.textContent = data.message || 'حدث خطأ';
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'إرسال الكود';
       return;
     }
 
-    // طلب الكود وكلمة المرور الجديدة
-    alert('✅ تم إرسال كود التحقق إلى بريدك الإلكتروني المسجّل. الكود صالح 15 دقيقة.');
-    const code    = prompt('أدخل الكود المرسل إلى بريدك:');
-    if (!code) return;
-    const newPass = prompt('أدخل كلمة المرور الجديدة:');
-    if (!newPass || newPass.length < 6) { alert('كلمة المرور يجب أن تكون 6 أحرف على الأقل'); return; }
+    // انتقل للخطوة 1.5
+    document.getElementById('forgot-step1').style.display = 'none';
+    document.getElementById('forgot-step1b').style.display = 'block';
+  } catch(err) {
+    errEl.textContent = 'تعذّر الاتصال، يرجى المحاولة لاحقاً';
+    errEl.style.display = 'block';
+  }
+  btn.disabled = false;
+  btn.textContent = 'إرسال الكود';
+}
 
-    const newPassHash = await sha256(newPass);
-    const params2 = new URLSearchParams({
+async function forgotStep2() {
+  const code    = document.getElementById('forgot-code').value.trim();
+  const newPass = document.getElementById('forgot-newpass').value;
+  const errEl   = document.getElementById('forgot-err2');
+
+  if (!code)              { errEl.textContent = 'أدخل الكود'; errEl.style.display = 'block'; return; }
+  if (newPass.length < 6) { errEl.textContent = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل'; errEl.style.display = 'block'; return; }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('forgot-btn2');
+  btn.disabled = true;
+  btn.textContent = '⏳ جارٍ التحديث...';
+
+  const newPassHash = await sha256(newPass);
+
+  try {
+    const params = new URLSearchParams({
       token: 'rwq_2026_s3cur3_k9mX',
       action: 'reset_password',
-      phone: phone.trim(),
-      code: code.trim(),
+      phone: forgotPhone,
+      code: code,
       newPassHash
     });
-    const res2  = await fetch(`${GAS_URL}?${params2}`);
-    const data2 = await res2.json();
+    const res  = await fetch(`${GAS_URL}?${params}`);
+    const data = await res.json();
 
-    if (data2.success) {
-      alert('✅ تم تحديث كلمة المرور بنجاح! يمكنك تسجيل الدخول الآن.');
+    if (data.success) {
+      document.getElementById('forgot-step1b').style.display = 'none';
+      document.getElementById('forgot-step3').style.display = 'block';
     } else {
-      alert('❌ ' + (data2.message || 'حدث خطأ'));
+      errEl.textContent = data.message || 'حدث خطأ';
+      errEl.style.display = 'block';
     }
   } catch(err) {
-    alert('تعذّر الاتصال، يرجى المحاولة لاحقاً');
+    errEl.textContent = 'تعذّر الاتصال';
+    errEl.style.display = 'block';
   }
+  btn.disabled = false;
+  btn.textContent = 'تأكيد وتحديث كلمة المرور';
 }
 
 /* ===== WHATSAPP LOGIN ===== */
@@ -933,5 +980,51 @@ function doLogout() {
 }
 
 </script>
+<!-- ===== FORGOT PASSWORD MODAL ===== -->
+<div id="forgot-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:20px;padding:36px 32px;max-width:420px;width:90%;direction:rtl;position:relative;">
+    <button onclick="closeForgot()" style="position:absolute;top:16px;left:16px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280;">✕</button>
+
+    <!-- الخطوة 1: إدخال الجوال -->
+    <div id="forgot-step1">
+      <h3 style="color:#0a5c3a;margin-bottom:8px;">🔑 نسيت كلمة المرور</h3>
+      <p style="color:#6b7280;font-size:14px;margin-bottom:20px;">أدخل رقم جوالك المسجّل وسنرسل كود التحقق لبريدك الإلكتروني.</p>
+      <div class="field">
+        <label>رقم الجوال</label>
+        <input type="tel" id="forgot-phone" placeholder="05xxxxxxxx" maxlength="10" style="width:100%;padding:12px;border:1.5px solid #e5e7eb;border-radius:10px;font-family:Cairo,sans-serif;font-size:15px;">
+      </div>
+      <p id="forgot-err1" style="color:#e53e3e;font-size:13px;margin-top:8px;display:none;"></p>
+      <button id="forgot-btn1" onclick="forgotStep1()" style="width:100%;margin-top:16px;padding:14px;background:#0a5c3a;color:#fff;border:none;border-radius:12px;font-family:Cairo,sans-serif;font-size:16px;font-weight:700;cursor:pointer;">إرسال الكود</button>
+    </div>
+
+    <!-- الخطوة 1.5: تم الإرسال -->
+    <div id="forgot-step1b" style="display:none;">
+      <div style="text-align:center;padding:16px 0;">
+        <div style="font-size:48px;margin-bottom:12px;">📧</div>
+        <h3 style="color:#0a5c3a;margin-bottom:8px;">تم إرسال الكود!</h3>
+        <p style="color:#6b7280;font-size:14px;margin-bottom:20px;">تحقق من بريدك الإلكتروني المسجّل وأدخل الكود المكون من 6 أرقام أدناه.</p>
+      </div>
+      <div class="field" style="margin-bottom:12px;">
+        <label>كود التحقق</label>
+        <input type="text" id="forgot-code" placeholder="_ _ _ _ _ _" maxlength="6" style="width:100%;padding:14px;border:1.5px solid #e5e7eb;border-radius:10px;font-family:Cairo,sans-serif;font-size:24px;text-align:center;letter-spacing:10px;">
+      </div>
+      <div class="field">
+        <label>كلمة المرور الجديدة</label>
+        <input type="password" id="forgot-newpass" placeholder="6 أحرف على الأقل" style="width:100%;padding:12px;border:1.5px solid #e5e7eb;border-radius:10px;font-family:Cairo,sans-serif;font-size:15px;">
+      </div>
+      <p id="forgot-err2" style="color:#e53e3e;font-size:13px;margin-top:8px;display:none;"></p>
+      <button id="forgot-btn2" onclick="forgotStep2()" style="width:100%;margin-top:16px;padding:14px;background:#0a5c3a;color:#fff;border:none;border-radius:12px;font-family:Cairo,sans-serif;font-size:16px;font-weight:700;cursor:pointer;">تأكيد وتحديث كلمة المرور</button>
+    </div>
+
+    <!-- الخطوة 3: نجاح -->
+    <div id="forgot-step3" style="display:none;text-align:center;">
+      <div style="font-size:60px;margin-bottom:16px;">✅</div>
+      <h3 style="color:#0a5c3a;margin-bottom:8px;">تم تحديث كلمة المرور!</h3>
+      <p style="color:#6b7280;font-size:14px;margin-bottom:20px;">يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة.</p>
+      <button onclick="closeForgot();switchTab('login');" style="padding:14px 32px;background:#0a5c3a;color:#fff;border:none;border-radius:12px;font-family:Cairo,sans-serif;font-size:16px;font-weight:700;cursor:pointer;">تسجيل الدخول الآن</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
