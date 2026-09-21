@@ -168,7 +168,7 @@ function getCategoryFromCard(btn) {
  
 function askService(name) {
   const msg = encodeURIComponent('مرحباً، أريد الاستفسار عن سعر خدمة:\n📌 ' + name);
-  window.open('https://wa.me/966559580940?text=' + msg, '_blank');
+  window.open('https://wa.me/966505659737?text=' + msg, '_blank');
 }
  
 /* ── إرسال الطلب لأودو عبر Google Apps Script (GET) ── */

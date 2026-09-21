@@ -131,8 +131,8 @@
   </div>
 
   <div class="sidebar-footer">
-    <a href="https://wa.me/966559580940" class="sb-wa">💬 تواصل عبر واتساب</a>
-    <a href="tel:+966559580940" class="sb-call">📞 اتصل بنا مباشرة</a>
+    <a href="https://wa.me/966505659737" class="sb-wa">💬 تواصل عبر واتساب</a>
+    <a href="tel:+966505659737" class="sb-call">📞 اتصل بنا مباشرة</a>
   </div>
 </div>`;
 
