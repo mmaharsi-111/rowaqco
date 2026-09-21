@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-09C3QPQGJV"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -115,8 +114,6 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .checkout-call{width:100%;padding:12px;border-radius:11px;background:#fff;color:var(--mid);font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;border:1.5px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;}
 .checkout-call:hover{border-color:var(--green);color:var(--green);}
 
-
-
 /* PROMO CODE */
 .promo-box{display:flex;gap:8px;margin-bottom:18px;}
 .promo-input{flex:1;padding:10px 14px;border-radius:9px;border:1.5px solid var(--border);font-family:'Cairo',sans-serif;font-size:13px;outline:none;transition:border-color .2s;}
@@ -225,10 +222,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </head>
 <body>
 
-<!-- TOPBAR -->
-
-
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
@@ -252,7 +245,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </header>
 
-<!-- BREADCRUMB -->
 <div class="breadcrumb">
   <div class="wrap">
     <div><a href="index.html">الرئيسية</a><span>›</span><span>سلة المشتريات</span></div>
@@ -260,12 +252,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </div>
 
-<!-- PAGE BODY -->
 <div class="page-body">
   <div class="wrap">
     <div class="cart-layout" id="cart-layout">
 
-      <!-- عمود الخدمات -->
       <div>
         <div class="cart-items-box">
           <div class="cart-items-head">
@@ -273,25 +263,21 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
             <button class="clear-btn" onclick="confirmClear()">🗑️ إفراغ السلة</button>
           </div>
           <div id="cart-items-list">
-            <!-- يتم ملؤها بـ JavaScript -->
           </div>
         </div>
 
-        <!-- خدمات قد تعجبك - ذكية -->
         <div class="upsell" id="upsell-section" style="display:none;">
           <h3>🌟 خدمات قد تحتاجها أيضاً</h3>
           <div class="upsell-grid" id="upsell-grid"></div>
         </div>
       </div>
 
-      <!-- ملخص الطلب -->
       <div>
         <div class="user-bar" id="user-bar"></div>
         <div class="summary-box">
           <div class="summary-head"><h3>📋 ملخص الطلب</h3></div>
           <div class="summary-body">
 
-            <!-- كود خصم -->
             <div class="promo-box">
               <input class="promo-input" id="promo-input" type="text" placeholder="كود الخصم">
               <button class="promo-btn" onclick="applyPromo()">تطبيق</button>
@@ -320,16 +306,11 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-    </div><!-- /cart-layout -->
-  </div>
+    </div>  </div>
 </div>
 
-
-
-<!-- WA FLOAT -->
 <a href="https://wa.me/966505659737" class="wa-float">💬</a>
 
-<!-- SIDEBAR -->
 <div id="sidebar-container"></div>
 
 <footer>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google Analytics — يُحمَّل بعد تفاعل المستخدم لتحسين LCP -->
 <script>
 window.addEventListener('load',function(){
   var s=document.createElement('script');
@@ -307,7 +306,6 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 </head>
 <body class="auth-wrapper">
 
-<!-- ===== HEADER ===== -->
 <header>
   <div class="header-inner">
     <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
@@ -331,7 +329,6 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
 <div class="auth-hero">
   <div class="auth-hero-content">
     <h1>حسابك في رواق التميز</h1>
@@ -339,11 +336,9 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
   </div>
 </div>
 
-<!-- ===== AUTH CARD ===== -->
 <div class="auth-card-wrap">
   <div class="auth-card" id="auth-card">
 
-    <!-- TABS -->
     <div class="auth-tabs">
       <button class="auth-tab active" onclick="switchTab('login')">تسجيل الدخول</button>
       <button class="auth-tab" onclick="switchTab('register')">حساب جديد</button>
@@ -351,12 +346,10 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 
     <div class="auth-body">
 
-      <!-- ===== LOGIN PANEL ===== -->
       <div class="auth-panel active" id="panel-login">
         <div class="auth-title">مرحباً بعودتك 👋</div>
         <div class="auth-sub">أدخل بيانات حسابك للمتابعة</div>
 
-        <!-- Honeypot -->
         <input type="text" id="lhoney" name="website" autocomplete="off" tabindex="-1" style="display:none!important;position:absolute;left:-9999px;" aria-hidden="true">
 
         <div class="field">
@@ -388,12 +381,10 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
         </div>
       </div>
 
-      <!-- ===== REGISTER PANEL ===== -->
       <div class="auth-panel" id="panel-register">
         <div class="auth-title">إنشاء حساب جديد ✨</div>
         <div class="auth-sub">أنشئ حسابك مجاناً وابدأ طلب خدماتك الحكومية بسهولة</div>
 
-        <!-- Honeypot -->
         <input type="text" id="rhoney" name="website" autocomplete="off" tabindex="-1" style="display:none!important;position:absolute;left:-9999px;" aria-hidden="true">
 
         <div class="field-row">
@@ -440,7 +431,6 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
           <div class="field-error" id="reg-pass-err">كلمة المرور يجب أن تكون 8 أحرف على الأقل</div>
         </div>
 
-        <!-- INVOICE TOGGLE -->
         <label class="invoice-toggle" for="need-invoice">
           <input type="checkbox" id="need-invoice" onchange="toggleInvoice(this.checked)">
           <div class="invoice-toggle-label">
@@ -449,7 +439,6 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
           </div>
         </label>
 
-        <!-- INVOICE FIELDS -->
         <div class="invoice-fields" id="invoice-fields">
           <div class="invoice-fields-title">🏢 بيانات الفاتورة الضريبية</div>
           <div class="field">
@@ -477,9 +466,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
         </div>
       </div>
 
-    </div><!-- /auth-body -->
-
-    <!-- SUCCESS STATE -->
+    </div>
     <div class="auth-success" id="auth-success">
       <div class="success-icon">🎉</div>
       <h2 id="success-title">تم إنشاء حسابك بنجاح!</h2>
@@ -491,9 +478,7 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
       <a href="index.html" style="font-size:13px;color:var(--muted);">العودة للرئيسية</a>
     </div>
 
-  </div><!-- /auth-card -->
-
-  <!-- BENEFITS -->
+  </div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;">
     <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;">
       <div style="font-size:24px;margin-bottom:6px;">🔒</div>
@@ -512,12 +497,9 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
     </div>
   </div>
 
-</div><!-- /auth-card-wrap -->
-
-<!-- WHATSAPP FLOAT -->
+</div>
 <a href="https://wa.me/966505659737" class="wa-float" title="تواصل عبر واتساب">💬</a>
 
-<!-- SIDEBAR -->
 <div id="sidebar-container"></div>
 
 <script src="sidebar.js" defer></script>
@@ -980,12 +962,10 @@ function doLogout() {
 }
 
 </script>
-<!-- ===== FORGOT PASSWORD MODAL ===== -->
 <div id="forgot-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
   <div style="background:#fff;border-radius:20px;padding:36px 32px;max-width:420px;width:90%;direction:rtl;position:relative;">
     <button onclick="closeForgot()" style="position:absolute;top:16px;left:16px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280;">✕</button>
 
-    <!-- الخطوة 1: إدخال الجوال -->
     <div id="forgot-step1">
       <h3 style="color:#0a5c3a;margin-bottom:8px;">🔑 نسيت كلمة المرور</h3>
       <p style="color:#6b7280;font-size:14px;margin-bottom:20px;">أدخل رقم جوالك المسجّل وسنرسل كود التحقق لبريدك الإلكتروني.</p>
@@ -997,7 +977,6 @@ function doLogout() {
       <button id="forgot-btn1" onclick="forgotStep1()" style="width:100%;margin-top:16px;padding:14px;background:#0a5c3a;color:#fff;border:none;border-radius:12px;font-family:Cairo,sans-serif;font-size:16px;font-weight:700;cursor:pointer;">إرسال الكود</button>
     </div>
 
-    <!-- الخطوة 1.5: تم الإرسال -->
     <div id="forgot-step1b" style="display:none;">
       <div style="text-align:center;padding:16px 0;">
         <div style="font-size:48px;margin-bottom:12px;">📧</div>
@@ -1016,7 +995,6 @@ function doLogout() {
       <button id="forgot-btn2" onclick="forgotStep2()" style="width:100%;margin-top:16px;padding:14px;background:#0a5c3a;color:#fff;border:none;border-radius:12px;font-family:Cairo,sans-serif;font-size:16px;font-weight:700;cursor:pointer;">تأكيد وتحديث كلمة المرور</button>
     </div>
 
-    <!-- الخطوة 3: نجاح -->
     <div id="forgot-step3" style="display:none;text-align:center;">
       <div style="font-size:60px;margin-bottom:16px;">✅</div>
       <h3 style="color:#0a5c3a;margin-bottom:8px;">تم تحديث كلمة المرور!</h3>

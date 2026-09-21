@@ -682,7 +682,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 
-
 .pkg-promo-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
 .pkg-promo-card{background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:16px 12px;text-align:center;text-decoration:none;transition:all .2s;display:block;position:relative;}
 .pkg-promo-card:hover{background:rgba(0,0,0,.6);transform:translateY(-4px);}
@@ -825,10 +824,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
-
-
-<!-- ===== HEADER ===== -->
 <header>
   <div class="header-inner">
     <button class="menu-btn" onclick="openSidebar()" aria-label="القائمة">
@@ -861,7 +856,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <span class="cart-badge" style="position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;">0</span>
       </a>
     </div>
-    <!-- زر السلة للجوال فقط -->
     <a href="cart.html" class="mobile-cart-btn" id="mobile-cart-btn">
       🛒 السلة
       <span class="mobile-cart-badge" id="mobile-cart-badge">0</span>
@@ -869,15 +863,11 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </header>
 
-<!-- ===== SIDEBAR ===== -->
 <div id="sidebar-container"></div>
-<!-- ===== END SIDEBAR ===== -->
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-content">
     
-    <!-- ✏️ غيّر العنوان والوصف حسب شركتك -->
     <h1>أنجز جميع معاملاتك<br><span>بسهولة وسرعة حيثما كنت</span></h1>
     <p>نقدم لك جميع الخدمات الإلكترونية للأفراد والشركات<br>عبر منصة واحدة موثوقة بأسعار مناسبة وخدمة سريعة.</p>
     <div class="hero-search-box">
@@ -893,14 +883,11 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         اطلب الآن عبر واتساب
       </a>
     </div>
-    <!-- ===== بانر باقات المنشآت — كمبيوتر فقط ===== -->
     <div class="pkg-promo-banner">
-      <!-- محتوى البانر -->
       <div class="pkg-promo-body">
         <div class="pkg-promo-label">⭐ لأصحاب المنشآت والشركات</div>
         <h3 class="pkg-promo-title">ندير جميع منصات الموارد البشرية لمنشأتك بباقة شهرية واحدة</h3>
         <p class="pkg-promo-sub">قوى • مدد • أبشر أعمال • مقيم — كل شيء في مكان واحد بسعر ثابت</p>
-        <!-- زر -->
         <a href="packages.html" class="pkg-promo-btn" style="font-size:18px;padding:18px 48px;">🏢 اكتشف باقاتنا لإدارة المنشآت ←</a>
       </div>
     </div>
@@ -908,7 +895,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </section>
 
-<!-- ===== OFFERS ===== -->
 <section style="background:var(--bg);padding:48px 24px;">
   <div class="wrap">
     <div class="section-header" style="margin-bottom:32px;">
@@ -917,7 +903,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     </div>
     <div class="offers-section-grid">
       <div class="offers-track" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;" id="offersTrack">
-        <!-- ✏️ غيّر العروض حسب ما تقدمه -->
         <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:28px;color:#fff;position:relative;overflow:hidden;">
           <div style="font-size:36px;margin-bottom:10px;">🎁</div>
           <h3 style="font-size:17px;font-weight:900;margin-bottom:8px;">خصم 10% لأول طلب</h3>
@@ -935,7 +920,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
           <p style="font-size:13px;opacity:.85;line-height:1.6;">في حال عدم اتمام الخدمة، نعيد لك المبلغ كاملاً وفق <a href="policies.html" style="color:#fff;text-decoration:underline;font-weight:700;">سياسة الاسترجاع</a> المعتمدة لدينا.</p>
         </div>
       </div>
-      <!-- نقاط الـ slider — تظهر على الجوال فقط -->
       <div class="offers-dots" id="offersDots" style="display:none;">
         <span class="active"></span><span></span><span></span>
       </div>
@@ -943,7 +927,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </section>
 
-<!-- ===== HOW IT WORKS ===== -->
 <section class="how" id="how">
   <div class="wrap">
     <div class="section-header">
@@ -976,9 +959,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </section>
 
-<!-- ===== CATEGORIES NAV ===== -->
-
-<!-- ===== SERVICES ===== -->
 <section id="services">
   <div class="wrap">
     <div class="section-header">
@@ -987,12 +967,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <p class="section-sub">نغطي مئات الخدمات الحكومية والإلكترونية للأفراد والشركات.</p>
     </div>
 
-    <!-- ✏️ ======================================================== -->
-    <!-- ✏️  هنا تُعدّل بطاقات الخدمات: غيّر الاسم والوصف والسعر   -->
-    <!-- ✏️ ======================================================== -->
     <div class="services-grid" id="servicesGrid">
 
-      <!-- بطاقة 1: الخدمات العامة -->
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon">📅</div>
@@ -1014,7 +990,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <!-- بطاقة 2: خدمات الأفراد -->
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon">👤</div>
@@ -1036,7 +1011,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <!-- بطاقة 3: خدمات الأعمال -->
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon">🏢</div>
@@ -1058,7 +1032,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <!-- بطاقة 4: باقات اشتراك الأعمال -->
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon">📦</div>
@@ -1080,7 +1053,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <!-- بطاقة 5: خدمات المعلمين والطلاب -->
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon">📚</div>
@@ -1102,7 +1074,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <!-- بطاقة 6: خدمات التقديم على وظائف -->
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon">💼</div>
@@ -1124,7 +1095,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <!-- بطاقة 7: خدمات الاستشارات الهندسية -->
       <div class="service-card">
         <div class="card-top">
           <div class="card-icon">🏗️</div>
@@ -1147,10 +1117,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       </div>
 
     </div>
-    <!-- نهاية الخدمات -->
 
     <div style="text-align:center; margin-top:40px;">
-      <!-- ✏️ غيّر رقم الواتساب -->
       <a href="https://wa.me/966505659737?text=مرحباً، أريد الاستفسار عن خدمة" class="btn btn-green" style="font-size:15px;padding:14px 36px;">
         💬 ما لقيت خدمتك؟ تواصل معنا مباشرة
       </a>
@@ -1158,7 +1126,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </section>
 
-<!-- ===== PLATFORMS ===== -->
 <section id="platforms" style="background:var(--bg);">
   <div class="wrap">
     <div class="section-header">
@@ -1166,10 +1133,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       <h2 class="section-title">نخدمك عبر جميع المنصات الحكومية</h2>
       <p class="section-sub">نتعامل مع أكثر من 40 منصة حكومية وخدمية سعودية.</p>
     </div>
-    <!-- ✏️ غيّر أو أضف منصات حسب خدماتك -->
     <div class="platforms-grid">
 
-      <!-- المنصات الموجودة + اللوقوهات الرسمية -->
       <a href="absher.html" class="platform-card">
         <div class="picon"><img loading="lazy" src="absher.svg" alt="أبشر" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🆔'"></div>أبشر
       </a>
@@ -1219,7 +1184,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="picon"><img loading="lazy" src="monshaat.svg" alt="منشآت" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🔧'"></div>منشآت
       </a>
 
-      <!-- المنصات الجديدة -->
       <a href="salama.html" class="platform-card">
         <div class="picon"><img loading="lazy" src="salama.webp" alt="سلامة" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🛡️'"></div>سلامة
       </a>
@@ -1299,14 +1263,11 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="picon"><img loading="lazy" src="support-sanad.webp" alt="ساند" style="width:44px;height:44px;object-fit:contain;" onerror="this.outerHTML='🏗️'"></div>ساند
       </a>
 
-
     </div>
-    <!-- زر جوال فقط -->
     <a href="government-platforms.html" class="platforms-all-btn">عرض جميع المنصات ←</a>
   </div>
 </section>
 
-<!-- ===== REVIEWS ===== -->
 <section class="reviews" id="reviews">
   <div class="wrap">
     <div class="section-header">
@@ -1353,12 +1314,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </section>
 
-<!-- ===== CTA BANNER ===== -->
 <div class="cta-banner">
   <h2>جاهز تبدأ؟ تواصل معنا الآن</h2>
   <p>فريقنا متاح طوال أيام الأسبوع لمساعدتك في جميع معاملاتك الحكومية.</p>
   <div class="cta-btns">
-    <!-- ✏️ غيّر رقم الواتساب -->
     <a href="https://wa.me/966505659737" class="btn btn-white" style="font-size:15px;padding:14px 32px;">
       <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#25d366;flex-shrink:0;"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4C7.3 9 6.7 9.6 6.7 10.9s.9 2.7 1.1 2.9c.1.2 1.8 2.7 4.4 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3 0-.1-.2-.2-.5-.3zM12.1 2C6.5 2 2 6.5 2 12.1c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3 1.2 4.7 1.2 5.6 0 10.2-4.6 10.2-10.2S17.7 2 12.1 2zm0 18.7c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3c-.9-1.4-1.3-2.9-1.3-4.6 0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.9 8.4-8.6 8.4z"/></svg>
       راسلنا على واتساب
@@ -1367,31 +1326,24 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <!-- ✏️ غيّر الاسم والوصف -->
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
         <img src="logo.webp" alt="رواق التميز" width="60" height="60" style="height:60px;width:auto;flex-shrink:0;" loading="lazy">
         <strong style="font-size:17px;">رواق التميز للخدمات العامة</strong>
       </div>
       <p>نخدم المواطن والمقيم وأصحاب المؤسسات والشركات، وننجز معاملاتهم بطريقة رقمية متطورة من أي مكان.</p>
-      <!-- ✏️ غيّر روابط التواصل الاجتماعي -->
       <div class="social-links">
-        <!-- يوتيوب -->
         <a href="https://www.youtube.com/@rowaqaltamiyuz" target="_blank" title="يوتيوب" class="yt">
           <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
         </a>
-        <!-- إنستغرام -->
         <a href="https://www.instagram.com/rowaqaltamiyuz/" target="_blank" title="إنستغرام" class="ig">
           <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
         </a>
-        <!-- فيسبوك -->
         <a href="https://www.facebook.com/rowaqaltamiyuz/" target="_blank" title="فيسبوك" class="fb">
           <svg viewBox="0 0 24 24"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"/></svg>
         </a>
-        <!-- لينكدإن -->
         <a href="https://www.linkedin.com/company/rowaqaltamiyuz" target="_blank" title="لينكدإن" class="li">
           <svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8v5.4H9.8V9h3.3v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3zM5.3 7.4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm1.7 13H3.6V9h3.4v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
         </a>
@@ -1418,7 +1370,6 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     <div class="footer-col">
       <h4>تواصل معنا</h4>
       <ul>
-        <!-- ✏️ غيّر معلومات التواصل -->
         <li><a href="https://wa.me/966505659737">📲 واتساب: 0505659737</a></li>
         <li><a href="tel:+966505659737">📞 هاتف: 0505659737</a></li>
         <li><a href="mailto:info@rowaqco.com">📧 info@rowaqco.com</a></li>
@@ -1427,14 +1378,11 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     </div>
   </div>
   <div class="footer-bottom">
-    <!-- ✏️ غيّر الاسم وسنة التأسيس ورقم السجل -->
     <span>© 2026 شركة رواق التميز الحديثة — جميع الحقوق محفوظة</span>
     <span>سجل تجاري: 4650288413</span>
   </div>
 </footer>
 
-<!-- ===== واتساب عائم ===== -->
-<!-- ✏️ غيّر رقم الواتساب -->
 <a href="https://wa.me/966505659737?text=مرحباً، أريد الاستفسار عن خدمة" class="wa-float" title="تواصل عبر واتساب">💬</a>
 
 <script>
