@@ -133,6 +133,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/gosi.html">
 <meta property="og:type" content="website">
@@ -310,8 +334,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="grid-individuals">
 
-      <div class="svc-card" data-id="1109" data-price="30.0" data-name="إصدار شهادة مدد الأجور">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1109" data-price="30.0" data-name="إصدار شهادة مدد الأجور" data-desc="خدمة إصدار شهادة مدد وأجور المشترك عبر منصة &quot;التأمينات الاجتماعية&quot; تتيح للأفراد المستفيدين الحصول على وثيقة إلكترونية رسمية تثبت فترات اشتراكهم وتاريخهم الوظيفي وقيمة أجورهم المسجلة في النظام." data-reqs="حساب نشط في التأمينات: الدخول ببيانات النفاذ الوطني الموحد (أبشر).||سجل اشتراك سابق أو حالي: وجود فترات اشتراك مسجلة لدى صاحب عمل في القطاع الخاص أو العام.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">إصدار شهادة مدد الأجور</div>
@@ -320,8 +344,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة مدد الأجور')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1110" data-price="30.0" data-name="التحقق من الاشتراك في التأمينات">
-        <div class="svc-img"><div class="icon-circle">🔍</div></div>
+      <div class="svc-card" data-id="1110" data-price="30.0" data-name="التحقق من الاشتراك في التأمينات" data-desc="خدمة التحقق من الاشتراك في نظام التأمينات الاجتماعية تتيح للأفراد التأكد من حالة تسجيلهم وملاءمتهم النظامية ومتابعة استمرار اشتراكهم على كفالة صاحب العمل الحقيقي." data-reqs="رقم الهوية الوطنية أو الإقامة: للمستعلم.||الرمز المباشر للتحقق: إدخال رمز التحقق المرئي عبر البوابة دون الحاجة لتسجيل دخول كامل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔍</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">التحقق من الاشتراك في التأمينات</div>
@@ -330,8 +354,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التحقق من الاشتراك في التأمينات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1111" data-price="50.0" data-name="صرف مستحقات العجز غير المهني">
-        <div class="svc-img"><div class="icon-circle">🏥</div></div>
+      <div class="svc-card" data-id="1111" data-price="50.0" data-name="صرف مستحقات العجز غير المهني" data-desc="خدمة طلب صرف تعويض أو معاش العجز غير المهني تتيح للمشتركين الذين تعرضوا لعجز صحي دائم يمنعهم عن العمل (لأسباب غير مرتبطة بإصابات العمل) تقديم طلب صرف المستحقات المالية المقررة." data-reqs="تقرير اللجنة الطبية المعتمدة: التقارير الطبية وإثبات حدوث العجز قبل بلوغ سن الستين وأثناء فترة الاشتراك.||توفر فترة الاشتراك النظامية: استيفاء مدة اشتراك دنيا محددة بنظام التأمينات (12 شهراً متصلة أو 18 شهراً منفصلة).||رقم الحساب البنكي (IBAN): حساب بنكي محلي نشط ومسجل باسم المشترك.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏥</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">صرف مستحقات العجز غير المهني</div>
@@ -340,8 +364,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صرف مستحقات العجز غير المهني')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1112" data-price="50.0" data-name="طلب صرف الراتب التقاعدي للورثة">
-        <div class="svc-img"><div class="icon-circle">👨‍👩‍👧</div></div>
+      <div class="svc-card" data-id="1112" data-price="50.0" data-name="طلب صرف الراتب التقاعدي للورثة" data-desc="خدمة طلب صرف المستحقات والراتب التقاعدي للورثة تتيح لأفراد عائلة المشترك أو المتقاعد المتوفى توزيع وصرف المعاش التقاعدي للمستحقين المعتمدين نظاماً." data-reqs="شهادة الوفاة وحصر الورثة: صورة طبق الأصل إلكترونية من شهادة الوفاة وصك حصر الورثة.||إثباتات العائلة: الهويات الوطنية أو سجل الأسرة للمستحقين (الزوجة، الأبناء، العاجزين عن العمل).||بيانات الحساب البنكي (IBAN): الحسابات البنكية للمستحقين أو الحساب البنكي الموحد للوكيل.||مشهد عدم الزواج/العمل: إقرارات استيفاء شروط الاستحقاق للفتيات والأبناء غير الموظفين.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👨‍👩‍👧</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">طلب صرف الراتب التقاعدي للورثة</div>
@@ -350,8 +374,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب صرف الراتب التقاعدي للورثة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1113" data-price="30.0" data-name="تحديث الحساب البنكي للمستفيد في التأمينات">
-        <div class="svc-img"><div class="icon-circle">🏦</div></div>
+      <div class="svc-card" data-id="1113" data-price="30.0" data-name="تحديث الحساب البنكي للمستفيد في التأمينات" data-desc="خدمة تحديث وتغيير الآيبان البنكي عبر التأمينات الاجتماعية تتيح للمستفيدين والمتقاعدين تعديل بيانات الحساب المصرفي المعتمد لتحويل المنافع والمعاشات الشهرية عليه." data-reqs="رقم الآيبان (IBAN) الجديد: حساب بنكي محلي نشط ومطابق لاسم الهوية الوطنية/الإقامة للعميل.||توثيق الحساب البنكي: ربط الحساب والتحقق الآلي عبر البنوك المحلية المعتمدة.||التأكيد بالنفاذ الوطني: الموافقة عبر الرمز المباشر المرسل لجوال المسجل في أبشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏦</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">تحديث الحساب البنكي للمستفيد في التأمينات</div>
@@ -360,8 +384,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحديث الحساب البنكي للمستفيد في التأمينات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1114" data-price="50.0" data-name="طلب إضافة فرد غير مسجل في التأمينات الاجتماعية">
-        <div class="svc-img"><div class="icon-circle">➕</div></div>
+      <div class="svc-card" data-id="1114" data-price="50.0" data-name="طلب إضافة فرد غير مسجل في التأمينات الاجتماعية" data-desc="خدمة طلب تسجيل فترة اشتراك غير مسجلة (إضافة مدة) تتيح للأفراد تقديم طلب إثبات وتسجيل مدة عمل سابقة لدى منشأة لم تقم بإدراج المشترك في النظام خلال فترة عمله لديها." data-reqs="إثبات العلاقة التعاقدية: عقد العمل السابق، مسيرات الأجور، أو كشف الحساب البنكي المقابل للرواتب.||بيانات المنشأة: اسم صاحب العمل أو رقم السجل التجاري للجهة السابقة.||شهادة الخبرة أو قرار التعيين/الاستقالة: أي وثائق تثبت بداية ونهاية العلاقة العمالية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">➕</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">طلب إضافة فرد غير مسجل في التأمينات الاجتماعية</div>
@@ -370,8 +394,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب إضافة فرد غير مسجل في التأمينات الاجتماعية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1115" data-price="30.0" data-name="طباعة مشهد راتب متقاعد">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+      <div class="svc-card" data-id="1115" data-price="30.0" data-name="طباعة مشهد راتب متقاعد" data-desc="خدمة طباعة مشهد/شهادة بالدخل للمتقاعد تتيح للمتقاعدين حاملي المعاش الاستثنائي أو التقاعدي الحصول على وثيقة رسمية إلكترونية توضح قيمة المعاش الشامل والمصروف شهرياً." data-reqs="حالة متقاعد قائمة: وجود معاش تقاعدي أو منفعة تصرف بانتظام.||حساب مفعل بالمنصة: تسجيل الدخول ببيانات صاحب المعاش لاستخراج الشهادة فورياً بصيغة PDF.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖨️</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">طباعة مشهد راتب متقاعد</div>
@@ -380,8 +404,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة مشهد راتب متقاعد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1116" data-price="30.0" data-name="طباعة شهادة تأمينات">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1116" data-price="30.0" data-name="طباعة شهادة تأمينات" data-desc="خدمة طباعة شهادة اشتراك/تأمينات تتيح للمشتركين استخراج وثيقة إلكترونية فورية تُثبت حالتهم التأمينية الحالية (نشط/غير نشط) لتقديمها لجهات التوظيف أو المعاملات الرسمية." data-reqs="حساب نشط بالمنصة: الدخول ببيانات أبشر الخاصة بالمستفيد.||تحديد نوع الشهادة: اختيار طباعة تفصيلية أو شهادة اشتراك عامة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">طباعة شهادة تأمينات</div>
@@ -390,8 +414,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة شهادة تأمينات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1117" data-price="50.0" data-name="تقديم بلاغ عجز مهني">
-        <div class="svc-img"><div class="icon-circle">🏥</div></div>
+      <div class="svc-card" data-id="1117" data-price="50.0" data-name="تقديم بلاغ عجز مهني" data-desc="خدمة تسجيل وبلاغ عن عجز مهني تتيح للمشتركين الذين تعرضوا لإصابة عمل نتج عنها عجز صحي جزئي أو كلي التقديم لعرض حالتهم على اللجان الطبية المعتمدة لتقييم نسبة العجز وتحديد التعويض." data-reqs="بلاغ إصابة عمل سابق: وجود بلاغ مقيد إلكترونياً عن حالة إصابة العمل من جهة أصحاب المنشآت.||التقارير الطبية الشاملة: تقارير مستشفى معتمدة توضح طبيعة الإصابة ونسبة الأثر الدائم.||قرار وتوصيات الطبيب المعالج: المستندات الطبية النهائية الدالة على انتهاء فترة العلاج وتثبيت الحالة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏥</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أفراد</span>
           <div class="svc-name">تقديم بلاغ عجز مهني</div>
@@ -410,8 +434,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="grid-business">
 
-      <div class="svc-card" data-id="1118" data-price="30.0" data-name="تعديل راتب الموظف">
-        <div class="svc-img"><div class="icon-circle">✏️</div></div>
+      <div class="svc-card" data-id="1118" data-price="30.0" data-name="تعديل راتب الموظف" data-desc="خدمة تعديل وتحديث أجر المشترك عبر منصة &quot;التأمينات الاجتماعية أعمال&quot; تتيح لأصحاب المنشآت تعديل الأجر الخاضع لاشتراك التأمينات للموظفين وفق التحديثات السنوية أو العقود الموثقة." data-reqs="عقد عمل محدث: عقد موثق على منصة قوى يعكس الأجر الجديد.||الالتزام بمهلة التعديل: تقديم الطلب خلال المهلة النظامية المحددة للسنوات المالية.||موافقة المشترك: إقرار وتأكيد التعديل عبر حساب الموظف الفردي عند الإشعار.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">✏️</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أعمال</span>
           <div class="svc-name">تعديل راتب الموظف</div>
@@ -420,8 +444,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل راتب الموظف')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1119" data-price="30.0" data-name="إصدار شهادة التزام التأمينات الاجتماعية للمنشأة">
-        <div class="svc-img"><div class="icon-circle">📜</div></div>
+      <div class="svc-card" data-id="1119" data-price="30.0" data-name="إصدار شهادة التزام التأمينات الاجتماعية للمنشأة" data-desc="خدمة إصدار شهادة الالتزام (شهادة التأمينات) تتيح لأصحاب الأعمال استخراج وثيقة رسمية تثبت سداد المنشأة للاشتراكات وتسجيل عمالتها بانتظام واستيفاء الشروط للحصول على المنافسات والرخص الحكومية." data-reqs="الالتزام بالسداد: سداد كافة الفواتير والمديونيات التأمينية المستحقة على ملف المنشأة.||تحديث بيانات المشتركين: توثيق العقود وعدم وجود بلاغات أو مخالفات معلقة.||حساب منشأة نشط: الدخول ببيانات صاحب العمل أو المفوض المعترف به.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📜</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أعمال</span>
           <div class="svc-name">إصدار شهادة التزام التأمينات الاجتماعية للمنشأة</div>
@@ -430,8 +454,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة التزام التأمينات الاجتماعية للمنشأة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1120" data-price="30.0" data-name="إصدار شهادة الراتب لموظف">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1120" data-price="30.0" data-name="إصدار شهادة الراتب لموظف" data-desc="خدمة إصدار وتزويد الموظف بشهادة أجر تتيح للمنشآت إلكترونياً استخراج شهادة بالأجر المسجل للموظف لديهم لتقديمها للجهات المعنية بناءً على طلبه." data-reqs="اشتراك الموظف القائم: أن يكون العامل مسجلاً ضمن قائمة العمالة النشطة بالمنشأة.||اعتماد الأجر بالنظام: مطابقة بيانات الراتب مع مسيرات الرواتب وعقود قوى.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أعمال</span>
           <div class="svc-name">إصدار شهادة الراتب لموظف</div>
@@ -440,8 +464,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة الراتب لموظف')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1121" data-price="50.0" data-name="توثيق عقود المشتركين">
-        <div class="svc-img"><div class="icon-circle">📝</div></div>
+      <div class="svc-card" data-id="1121" data-price="50.0" data-name="توثيق عقود المشتركين" data-desc="خدمة توثيق العقود التأمينية والعمالية تتيح للمنشآت ربط وتوثيق عقود العمل للعاملين السعوديين وغير السعوديين إلكترونياً لحفظ الحقوق وضمان صحة البيانات المرفوعة." data-reqs="نموذج عقد العمل: تحديد المسمى الوظيفي، الأجر الأساسي، البدلات، وتاريخ المباشرة.||موافقة الموظف: موافقة وتأكيد الموظف على بنود العقد عبر حسابه الإلكتروني.||سريان السجل والأنشطة: سريان السجل التجاري والملف التأميني للمنشأة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📝</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أعمال</span>
           <div class="svc-name">توثيق عقود المشتركين</div>
@@ -450,8 +474,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق عقود المشتركين')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1122" data-price="30.0" data-name="إصدار شهادة التزام">
-        <div class="svc-img"><div class="icon-circle">✅</div></div>
+      <div class="svc-card" data-id="1122" data-price="30.0" data-name="إصدار شهادة التزام" data-desc="خدمة إصدار شهادة التزام فورية تتيح للمنشآت والمؤسسات تقديم إثبات رقمي مباشر ومختوم للجهات التي تطلب التأكد من صحة موقفها التأميني بدون غرامات." data-reqs="تصفية المديونيات: ألا تكون على المنشأة أية مبالغ تأخير أو متأخرات مالية.||الالتزام بنسب التوطين والاشتراك: تسجيل كامل العمالة بالمنشأة وإدخال بياناتهم الصحيحة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">✅</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أعمال</span>
           <div class="svc-name">إصدار شهادة التزام</div>
@@ -460,8 +484,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة التزام')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1123" data-price="50.0" data-name="إضافة أو استبعاد مشترك سعودي">
-        <div class="svc-img"><div class="icon-circle">👤</div></div>
+      <div class="svc-card" data-id="1123" data-price="50.0" data-name="إضافة أو استبعاد مشترك سعودي" data-desc="خدمة تسجيل أو إنهاء اشتراك موظف سعودي تتيح لأصحاب الأعمال تسجيل المواطنين فور دخولهم الخدمة أو استبعادهم فور انتهاء العلاقة العمالية." data-reqs="الهوية الوطنية للمواطن: إدخال رقم الهوية وتاريخ الميلاد.||عقد العمل الموثق: توثيق العقد وتحديد سبب الاستقالة/الاستبعاد في حال إيقاف الاشتراك.||تحديد الأجر المباشر: إدخال تفاصيل الأجر الأساسي وبدل السكن والبدلات الأخرى.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👤</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أعمال</span>
           <div class="svc-name">إضافة أو استبعاد مشترك سعودي</div>
@@ -470,8 +494,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إضافة أو استبعاد مشترك سعودي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1124" data-price="50.0" data-name="تبليغ عن إصابة عمل">
-        <div class="svc-img"><div class="icon-circle">🚨</div></div>
+      <div class="svc-card" data-id="1124" data-price="50.0" data-name="تبليغ عن إصابة عمل" data-desc="خدمة تسجيل وإبلاغ عن إصابة عمل تتيح لأصحاب المنشآت الإبلاغ الفوري عن أي حادث أو إصابة تعرض لها الموظف أثناء العمل أو بسبب أداء وظائفه لنقل معالجته للجهة الصحية المعتمدة ومتابعة التعويض." data-reqs="التقديم خلال المهلة: رفع البلاغ خلال 72 ساعة من وقوع الحادثة.||التقرير الطبي والتفاصيل: تقرير المستشفى الأولي وشرح ظروف وقوع حادثة العمل.||بيانات المصاب: رقم الهوية/الإقامة للموظف المصاب وتفاصيل التغطية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚨</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أعمال</span>
           <div class="svc-name">تبليغ عن إصابة عمل</div>
@@ -480,8 +504,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تبليغ عن إصابة عمل')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1125" data-price="50.0" data-name="إضافة أو استبعاد موظف غير سعودي">
-        <div class="svc-img"><div class="icon-circle">🌍</div></div>
+      <div class="svc-card" data-id="1125" data-price="50.0" data-name="إضافة أو استبعاد موظف غير سعودي" data-desc="خدمة إدارة اشتراك العمالة الوافدة (تسجيل/استبعاد) تتيح للمنشآت إضافة الموظفين غير السعوديين في نظام التأمينات أو تسقيطهم عند انتقال الخدمة أو الخروج النهائي." data-reqs="رقم الإقامة أو الحدود: للعامل غير السعودي.||الموافقات العمالية: وجود الموظف على كفالة المنشأة في أنظمة وزارة الموارد البشرية (قوى/أبشر أعمال).||تحديد سبب الاستبعاد: اختيار سبب إنهاء الخدمة (خروج نهائي، نقل خدمات، نقل كفالة).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌍</div></div>
         <div class="svc-body">
           <span class="svc-cat">التأمينات الاجتماعية أعمال</span>
           <div class="svc-name">إضافة أو استبعاد موظف غير سعودي</div>
@@ -560,6 +584,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -588,6 +633,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
