@@ -131,6 +131,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/spl.html">
 <meta property="og:type" content="website">
@@ -302,18 +326,18 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1303" data-price="50.0" data-name="تسجيل عنوان وطني للأفراد">
-        <div class="svc-img"><div class="icon-circle">🏠</div></div>
+      <div class="svc-card" data-id="1303" data-price="50.0" data-name="تسجيل عنوان وطني للأفراد" data-desc="خدمة تسجيل وتأسيس عنوان وطني للأفراد عبر منصة &quot;سبل&quot; تتيح للمواطنين والمقيمين إنشاء عنوان جغرافي رسمي وموثق يستند إلى معايير الملاحة لربط المستفيد بالخدمات الحكومية والتجارية والبريدية." data-reqs="هوية وطنية أو إقامة سارية: للمواطن أو المقيم المتقدم.||بيانات موقع السكن: تفاصيل المنطقة، المدينة، الحي، اسم الشارع، رقم المبنى المكون من 4 أرقام، الرمز البريدي، والرقم الإضافي.||التوثيق عبر النفاذ الوطني: الدخول والتأكيد ببيانات حساب أبشر الخاص بالمستفيد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏠</div></div>
         <div class="svc-body">
-          <span class="svc-cat alt">الخدمات العامة وحجز المواعيد والرحلات</span>
+          <span class="svc-cat">سبل (العنوان الوطني)</span>
           <div class="svc-name">تسجيل عنوان وطني للأفراد</div>
           <div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">57</span></div>
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل عنوان وطني للأفراد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1304" data-price="50.0" data-name="تسجيل عنوان وطني للمنشآت">
-        <div class="svc-img"><div class="icon-circle">🏢</div></div>
+      <div class="svc-card" data-id="1304" data-price="50.0" data-name="تسجيل عنوان وطني للمنشآت" data-desc="خدمة تسجيل العنوان الوطني للشركات والمؤسسات عبر منصة &quot;سبل&quot; تتيح للمنشآت التجارية والقطاعات المختلفة ربط مقرها الرئيسي أو فروعها بتعريف جغرافي معتمد ومصرح به في التعاملات الرسمية والحكومية." data-reqs="سجل تجاري ساري المفعول: خاص بالمنشأة والمراد ربط العنوان به.||بيانات مقر المنشأة الميداني: رقم المبنى، الرمز البريدي، والرقم الإضافي لموقع المقر التجاري.||تفويض أو صلاحية نفاذ: توثيق الطلب عبر النفاذ الوطني لمالك المنشأة أو المفوض المعترف به نظاماً.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏢</div></div>
         <div class="svc-body">
           <span class="svc-cat">سبل (العنوان الوطني)</span>
           <div class="svc-name">تسجيل عنوان وطني للمنشآت</div>
@@ -322,8 +346,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل عنوان وطني للمنشآت')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1305" data-price="30.0" data-name="تسجيل عنوان تابع قاصر">
-        <div class="svc-img"><div class="icon-circle">👶</div></div>
+      <div class="svc-card" data-id="1305" data-price="30.0" data-name="تسجيل عنوان تابع قاصر" data-desc="خدمة إضافة وتسجيل قاصر إلى العنوان الوطني تتيح لأولياء الأمور والأوصياء إضافة الأبناء أو القاصرين كأفراد تابعين ضمن العنوان الوطني الخاص بالأسرة." data-reqs="سجل الأسرة / بطاقة الهوية: صك الولاية أو سجل الأسرة الصادر من الأحوال المدنية للإثبات.||عنوان وطني قائم لولي الأمر: وجود عنوان وطني مسجل ومفعل للأب أو الولي المباشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👶</div></div>
         <div class="svc-body">
           <span class="svc-cat">سبل (العنوان الوطني)</span>
           <div class="svc-name">تسجيل عنوان تابع قاصر</div>
@@ -332,8 +356,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل عنوان تابع قاصر')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1306" data-price="30.0" data-name="تحديث العنوان الوطني">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="1306" data-price="30.0" data-name="تحديث العنوان الوطني" data-desc="خدمة تحديث وتعديل بيانات العنوان الوطني عبر &quot;سبل&quot; تتيح للأفراد والمنشآت تغيير وتحديث معلومات السكن أو المقر عند الانتقال لموقع جديد أو تعديل التفاصيل المعمارية." data-reqs="عنوان وطني مسجل سابقاً: اختيار الملف المراد تعديله بالمنصة.||تفاصيل الموقع الجديد: بيانات المبنى والعنوان الجديد المحدث بدقة.||التأكيد بالنفاذ الوطني: اعتماد التحديث إلكترونياً عبر أبشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">سبل (العنوان الوطني)</span>
           <div class="svc-name">تحديث العنوان الوطني</div>
@@ -342,8 +366,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحديث العنوان الوطني')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1307" data-price="30.0" data-name="طباعة العنوان الوطني">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+      <div class="svc-card" data-id="1307" data-price="30.0" data-name="طباعة العنوان الوطني" data-desc="خدمة إصدار وطباعة إثبات العنوان الوطني تتيح للمستفيدين الحصول على شهادة أو بطاقة رسمية معتمدة ومختومة بصيغة PDF تُثبت العنوان الوطني لاستخدامها في المعاملات البنكية، الحكومية، والشركات." data-reqs="عنوان وطني نشط ومفعل: عدم وجود نقص في بيانات العنوان المسجل.||حساب مفعل في منصة سبل: الدخول ببيانات المستفيد عبر النفاذ الوطني الموحد لمباشرة استخراج الوثيقة وطباعتها.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖨️</div></div>
         <div class="svc-body">
           <span class="svc-cat">سبل (العنوان الوطني)</span>
           <div class="svc-name">طباعة العنوان الوطني</div>
@@ -422,6 +446,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -445,6 +490,41 @@ function sortServices(val) {
   });
   cards.forEach(c => grid.appendChild(c));
 }
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
