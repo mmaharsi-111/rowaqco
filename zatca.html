@@ -129,6 +129,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/zatca.html">
 <meta property="og:type" content="website">
@@ -300,8 +324,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1349" data-price="86.0" data-name="تقديم الإقرارات الضريبية">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1349" data-price="86.0" data-name="تقديم الإقرارات الضريبية" data-desc="خدمة تقديم الإقرارات الضريبية (ضريبة القيمة المضافة / الزكاة والدخل) عبر منصة &quot;هيئة الزكاة والضريبة والجمارك&quot; تتيح لأصحاب المنشآت والمكلفين الإفصاح الدوري عن المشتريات، المبيعات، والإيرادات المالية لاحتساب الالتزام الزكوي أو الضريبي المستحق وسداده." data-reqs="رقم مميز وحساب نشط: تسجيل المنشأة مسبقاً لدى هيئة الزكاة والضريبة والجمارك.||سجل تجاري ساري المفعول: بنفس بيانات المكلف المتقدم.||الفواتير والقوائم المالية: الفواتير الضريبية المعتمدة (صادرة وواردة) والقوائم المالية عن الفترة الضريبية المحددة.||سداد المستحقات السابقة: عدم وجود إقرارات متأخرة لم يتم تقديمها عن فترات سابقة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">الزكاة والضريبة والجمارك</span>
           <div class="svc-name">تقديم الإقرارات الضريبية</div>
@@ -310,8 +334,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم الإقرارات الضريبية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1350" data-price="86.0" data-name="تسجيل منشأة في ضريبة القيمة المضافة / رقم ضريبي جديد">
-        <div class="svc-img"><div class="icon-circle">🏢</div></div>
+      <div class="svc-card" data-id="1350" data-price="86.0" data-name="تسجيل منشأة في ضريبة القيمة المضافة / رقم ضريبي جديد" data-desc="خدمة التسجيل في ضريبة القيمة المضافة وإصدار الرقم الضريبي عبر منصة &quot;هيئة الزكاة والضريبة والجمارك&quot; تتيح للمنشآت تسجيل أنشطتها إجبارياً أو اختيارياً لإصدار الشهادة الضريبية وبدء تحصيل وضبط ضريبة القيمة المضافة." data-reqs="بلوغ حد التسجيل: وصول المبيعات الخاضعة للضريبة للحد الإلزامي (375,000 ريال) أو حد التسجيل الاختياري (187,500 ريال) خلال 12 شهراً.||سجل تجاري أو ترخيص ساري: مسجل باسم المنشأة المراد تسجيلها.||حساب بنكي تجاري: باسم المنشأة ومربوط بالنظام.||العنوان الوطني للمنشأة: دقيق ومسجل لدى سبل.||بيانات الإيرادات والتكاليف المتوقعة: القوائم المالية أو الفواتير المثبتة لتجاوز حد التسجيل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏢</div></div>
         <div class="svc-body">
           <span class="svc-cat">الزكاة والضريبة والجمارك</span>
           <div class="svc-name">تسجيل منشأة في ضريبة القيمة المضافة / رقم ضريبي جديد</div>
@@ -320,8 +344,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل منشأة في ضريبة القيمة المضافة / رقم ضريبي جديد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1351" data-price="30.0" data-name="إلغاء الرقم المميز">
-        <div class="svc-img"><div class="icon-circle">❌</div></div>
+      <div class="svc-card" data-id="1351" data-price="30.0" data-name="إلغاء الرقم المميز" data-desc="خدمة إلغاء الرقم المميز (إلغاء التسجيل الزكوي والضريبي) عبر منصة &quot;هيئة الزكاة والضريبة والجمارك&quot; تتيح للمنشآت والمؤسسات إنهاء ملفها الضريبي والزكوي نهائياً عند إغلاق النشاط أو تصفيته." data-reqs="شطب السجل التجاري أو الترخيص: إرفاق وثيقة شطب السجل التجاري أو إلغاء الترخيص المهني/التجاري من الجهة المصدرة.||تقديم كافة الإقرارات المعلقة: تقديم الإقرارات الضريبية والزكوية النهائية حتى تاريخ الشطب.||سداد جميع الالتزامات المالية: تسوية كافة المبالغ، الفروقات، والغرامات المستحقة للجهة.||إلغاء تسجيل ضريبة القيمة المضافة: تقديم طلب إلغاء ضريبة القيمة المضافة والموافقة عليه قبل إلغاء الرقم المميز.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">❌</div></div>
         <div class="svc-body">
           <span class="svc-cat">الزكاة والضريبة والجمارك</span>
           <div class="svc-name">إلغاء الرقم المميز</div>
@@ -330,8 +354,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إلغاء الرقم المميز')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1352" data-price="30.0" data-name="طباعة الشهادة الضريبية وشهادة الزكاة والدخل">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+      <div class="svc-card" data-id="1352" data-price="30.0" data-name="طباعة الشهادة الضريبية وشهادة الزكاة والدخل" data-desc="خدمة طباعة الشهادة الضريبية وشهادة الزكاة والدخل عبر منصة &quot;هيئة الزكاة والضريبة والجمارك&quot; تتيح لأصحاب المنشآت استخراج وثيقة إلكترونية رسمية تثبت التزام المنشأة وتقديمها للجهات الحكومية والخاصة والمنافسات." data-reqs="تقديم كافة الإقرارات في مواعيدها: الالتزام بتقديم إقرارات الزكاة وضريبة القيمة المضافة بانتظام.||سداد المبالغ المستحقة: تسوية المبالغ الزكوية والضريبية المعتمدة بالنظام.||حساب نشط لدى الهيئة: الدخول ببيانات الرقم المميز أو عبر النفاذ الوطني الموحد لمباشرة الطباعة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖨️</div></div>
         <div class="svc-body">
           <span class="svc-cat">الزكاة والضريبة والجمارك</span>
           <div class="svc-name">طباعة الشهادة الضريبية وشهادة الزكاة والدخل</div>
@@ -410,6 +434,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -436,6 +481,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
