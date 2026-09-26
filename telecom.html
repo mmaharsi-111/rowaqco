@@ -88,6 +88,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:110px;display:flex;align-items:center;justify-content:center;padding:12px;background:#fff;}
 .icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
 .svc-name{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:34px;}
@@ -300,8 +322,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1341" data-price="50.0" data-name="تأسيس شريحة اتصال (SIM)">
-        <div class="svc-img"><div class="icon-circle">📱</div></div>
+      <div class="svc-card" data-id="1341" data-price="50.0" data-name="تأسيس شريحة اتصال (SIM)" data-desc="خدمة تأسيس شريحة اتصال جديدة عبر شركات الاتصالات تتيح للأفراد والمنشآت إصدار واستخراج شرائح الاتصالات الصوتية أو شرائح البيانات (مفوترة أو مسبقة الدفع) وتوثيقها بالهوية رسمياً." data-reqs='هوية وطنية أو إقامة سارية: للمواطنين والمقيمين، أو سجل تجاري ساري للمنشآت.||التوثيق عبر أبشر (النفاذ الوطني): توثيق رمز خدمة التوثيق لشرائح الاتصالات (Niam/IAM).||عدم تجاوز الحد النظامي: ألا يتجاوز عدد الشرائح المسبقة الدفع المسجلة باسم المستفيد الحد الأعلى المحدد من الهيئة.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📱</div></div>
         <div class="svc-body">
           <span class="svc-cat">شركات الاتصالات</span>
           <div class="svc-name">تأسيس شريحة اتصال (SIM)</div>
@@ -310,8 +332,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تأسيس شريحة اتصال (SIM)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1342" data-price="50.0" data-name="تأسيس خط إنترنت للمنشآت">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1342" data-price="50.0" data-name="تأسيس خط إنترنت للمنشآت" data-desc="خدمة تأسيس خطوط الإنترنت والألياف الضوئية للمنشآت تتيح للشركات والمؤسسات التقديم على إيصال وتأسيس شبكات الاتصالات والإنترنت المخصص للقطاع الأعمال (Business Broadband / Dedicated Internet)." data-reqs='سجل تجاري ساري المفعول: مسجل باسم المنشأة.||العنوان الوطني للمقر: تحديد موقع المقر التجاري للشركة بدقة لربط التوصيلات الفنية.||هوية المالك أو المفوض: بطاقة الهوية والتفويض المعتمد للتوقيع باسم المنشأة.||سداد رسوم التأسيس: تسوية مقابل التأسيس والاشتراك المالي الأولي للخدمة.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">شركات الاتصالات</span>
           <div class="svc-name">تأسيس خط إنترنت للمنشآت</div>
@@ -320,8 +342,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تأسيس خط إنترنت للمنشآت')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1343" data-price="50.0" data-name="تأسيس خط هاتف أرضي">
-        <div class="svc-img"><div class="icon-circle">☎️</div></div>
+      <div class="svc-card" data-id="1343" data-price="50.0" data-name="تأسيس خط هاتف أرضي" data-desc="خدمة تأسيس خط الهاتف الثابت تتيح للأفراد والمنشآت طلب توصيل وتركيب خطوط الاتصالات الأرضية بالمنازل، المحلات، أو المكاتب المعتمدة." data-reqs='بيانات الكبينة الميدانية: رقم اللوحة المعلق على المبنى أو رقم العنوان الوطني للموقع.||إثبات ملكية أو إيجار المقر: صك ملكية إلكتروني أو عقد إيجار ساري المفعول.||الهوية الوطنية / الإقامة: للمتقدم وتوثيق الطلب عبر النفاذ الوطني الموحد.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">☎️</div></div>
         <div class="svc-body">
           <span class="svc-cat">شركات الاتصالات</span>
           <div class="svc-name">تأسيس خط هاتف أرضي</div>
@@ -330,8 +352,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تأسيس خط هاتف أرضي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1344" data-price="50.0" data-name="تقديم اعتراض على فاتورة">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1344" data-price="50.0" data-name="تقديم اعتراض على فاتورة" data-desc="خدمة تقديم وشكوى اعتراض على فاتورة الاتصالات تتيح للعملاء رفع طلب اعتراض رسمي على المبالغ المستحقة أو الخدمات المفلترة غير المستفاد منها أمام مقدم الخدمة تمهيداً للتصعيد للهيئة عند عدم الحل." data-reqs='تفاصيل الفاتورة المعترض عليها: رقم حساب الخدمة ورقم الفاتورة المعنية بالشكوى.||تحديد سبب الاعتراض: شرح أسباب الاعتراض (مبالغ غير صحيحة، احتساب خدمات لم تطلب، عدم توفر الخدمة).||الرفع خلال المهلة النظامية: تقديم الشكوى لمزود الخدمة خلال 60 يوماً من تاريخ إصدار الفاتورة.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">شركات الاتصالات</span>
           <div class="svc-name">تقديم اعتراض على فاتورة</div>
@@ -340,8 +362,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم اعتراض على فاتورة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1345" data-price="150.0" data-name="دراسة احتياجات المؤسسة من خدمات الاتصال والإنترنت">
-        <div class="svc-img"><div class="icon-circle">📊</div></div>
+      <div class="svc-card" data-id="1345" data-price="150.0" data-name="دراسة احتياجات المؤسسة من خدمات الاتصال والإنترنت" data-desc="خدمة دراسة واستشارة الاحتياجات التقنية للمؤسسة تتيح للمنشآت تقييم البنية التحتية وتحليل المتطلبات التشغيلية لاختيار أفضل الباقات، السرعات، وأنظمة الاتصالات الموحدة المناسبة لحجم ونشاط المنشأة." data-reqs='بيانات حجم المنشأة وعدد الفروع: توفير مخطط الفروع وعدد الموظفين والمستخدمين للشبكة.||تحديد طبيعة الاستخدام: شرح الأنشطة التشغيلية (أنظمة ERP، السحابة الإلكترونية، الاتصالات الموحدة، استضافة البيانات).||السجل التجاري: بيانات المنشأة الرسمية لرفع التوصيات والحلول المخصصة لقطاع الأعمال.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📊</div></div>
         <div class="svc-body">
           <span class="svc-cat">شركات الاتصالات</span>
           <div class="svc-name">دراسة احتياجات المؤسسة من خدمات الاتصال والإنترنت</div>
@@ -420,6 +442,26 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -443,6 +485,41 @@ function sortServices(val) {
   });
   cards.forEach(c => grid.appendChild(c));
 }
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>

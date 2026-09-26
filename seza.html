@@ -88,6 +88,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:110px;display:flex;align-items:center;justify-content:center;padding:12px;background:#fff;}
 .icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
 .svc-name{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:34px;}
@@ -300,8 +322,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1290" data-price="350.0" data-name="تسجيل رخصة استثمارية">
-        <div class="svc-img"><div class="icon-circle">📜</div></div>
+      <div class="svc-card" data-id="1290" data-price="350.0" data-name="تسجيل رخصة استثمارية" data-desc="خدمة تسجيل وإصدار الرخصة الاستثمارية عبر هيئة المدن والمناطق الاقتصادية الخاصة تتيح للمستثمرين المحليين والأجانب تأسيس نشاط استثماري نظامي داخل نطاق المدن الاقتصادية والحصول على الحوافز الاستثمارية المعتمدة." data-reqs='السجل التجاري أو عقد التأسيس: للشركة المتقدمة أو عقد التأسيس المبدئي للمنشأة.||خطة العمل الاستثمارية: تقديم دراسة جدوى مبسطة أو خطة تشغيل ونشاط المشروع داخل المدينة.||بيانات المستثمر والشركاء: صورة الهوية الوطنية أو جواز السفر للمستثمرين والأعضاء المفوضين.||سداد المقابل المالي: دفع الرسوم المقررة لإصدار الرخصة الاستثمارية.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📜</div></div>
         <div class="svc-body">
           <span class="svc-cat">هيئة المدن الاقتصادية</span>
           <div class="svc-name">تسجيل رخصة استثمارية</div>
@@ -310,8 +332,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل رخصة استثمارية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1291" data-price="350.0" data-name="تقديم طلب تصريح تشغيل">
-        <div class="svc-img"><div class="icon-circle">⚙️</div></div>
+      <div class="svc-card" data-id="1291" data-price="350.0" data-name="تقديم طلب تصريح تشغيل" data-desc="خدمة تقديم طلب تصريح التشغيل النهائي تتيح للمشاريع الاستثمارية الجاهزة الحصول على الإذن الرسمي لبدء ممارسة الأنشطة التشغيلية والتجارية داخل المدن الاقتصادية." data-reqs='رخصة استثمارية سارية: صادر عن هيئة المدن الاقتصادية.||تصريح الأشغال واستكمال البناء: الحصول على شهادة إتمام البناء أو تصريح الأشغال للمقر.||موافقات السلامة والبيئة: استيفاء اشتراطات ومتطلبات السلامة والدفاع المدني والتصاريح البيئية.||سداد رسوم تقديم الطلب: تسوية المقابل المالي لدراسة وإصدار التصريح.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚙️</div></div>
         <div class="svc-body">
           <span class="svc-cat">تصاريح التشغيل</span>
           <div class="svc-name">تقديم طلب تصريح تشغيل</div>
@@ -320,8 +342,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم طلب تصريح تشغيل')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1292" data-price="100.0" data-name="تجديد تصريح التشغيل">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="1292" data-price="100.0" data-name="تجديد تصريح التشغيل" data-desc="خدمة تجديد تصريح التشغيل السنوي تتيح للأنشطة والمنشآت القائمة داخل المدن الاقتصادية تمديد صلاحية تصريح التشغيل لضمان استمرارية الأعمال وفق المعايير واللوائح." data-reqs='تصريح تشغيل منتهي أو قريب الانتهاء: تقديم طلب التجديد عبر البوابة الإلكترونية.||سريان الرخصة الاستثمارية والعقد: استمرار صلاحية الرخصة الاستثمارية وعقد الإيجار أو التخصيص.||الالتزام بالاشتراطات البيئية والفنية: خلو المنشأة من أي مخالفات تشغيلية أو أمنية معلقة.||سداد رسوم التجديد: تسوية القيمة المالية الخاصة بتجديد تصريح التشغيل.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">تصاريح التشغيل</span>
           <div class="svc-name">تجديد تصريح التشغيل</div>
@@ -330,8 +352,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد تصريح التشغيل')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1293" data-price="200.0" data-name="إصدار تصريح أشغال">
-        <div class="svc-img"><div class="icon-circle">🏗️</div></div>
+      <div class="svc-card" data-id="1293" data-price="200.0" data-name="إصدار تصريح أشغال" data-desc="خدمة إصدار تصريح الأشغال للمباني والمنشآت تتيح للمطورين والمستثمرين الحصول على موافقة الهيئة على استخدام وإشغال العقار أو المبنى بعد التأكد من مطابقتة للمخططات الهندسية المعتمدة." data-reqs='رخصة البناء المعتمدة: وتأكيد الانتهاء الميداني من أعمال التشييد والبناء.||شهادة سلامة المنشأة: تقرير السلامة وإتمام التوصيلات الفنية والألياف والخدمات الأساسية.||تقرير الاستشاري المشرف: تقرير المطابقة الميدانية الصادر من المكتب الهندسي المعتمد.||سداد المقابل المالي: دفع الرسوم المقررة لإصدار تصريح الأشغال.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏗️</div></div>
         <div class="svc-body">
           <span class="svc-cat">تصاريح الأشغال</span>
           <div class="svc-name">إصدار تصريح أشغال</div>
@@ -340,8 +362,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار تصريح أشغال')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1294" data-price="150.0" data-name="تصريح أشغال الهياكل المؤقتة">
-        <div class="svc-img"><div class="icon-circle">🏚️</div></div>
+      <div class="svc-card" data-id="1294" data-price="150.0" data-name="تصريح أشغال الهياكل المؤقتة" data-desc="خدمة إصدار تصريح إشغال للمباني والهياكل المؤقتة تتيح للمقاولين والمطورين إقامة وإشغال المكاتب الميدانية، المنشآت المؤقتة، ومجمعات السكن المؤقتة لمشاريع الإنشاءات داخل المدن الاقتصادية." data-reqs='عقد المشروع أو المخطط الميداني: إرفاق عقود المقاولة ومخطط موقع الهياكل المؤقتة.||موافقات السلامة المؤقتة: توفير وسائل السلامة والإطفاء الأساسية بالموقع المؤقت.||تحديد الفترة الزمنية: تحديد تاريخ البداية والنهاية المتوقعة لإزالة الهياكل.||سداد رسوم الترخيص: دفع مقابل الخدمة لإصدار التصريح المؤقت.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏚️</div></div>
         <div class="svc-body">
           <span class="svc-cat">تصاريح الأشغال</span>
           <div class="svc-name">تصريح أشغال الهياكل المؤقتة</div>
@@ -350,8 +372,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تصريح أشغال الهياكل المؤقتة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1295" data-price="150.0" data-name="إصدار ترخيص تأهيل واعتماد المطورين">
-        <div class="svc-img"><div class="icon-circle">🏅</div></div>
+      <div class="svc-card" data-id="1295" data-price="150.0" data-name="إصدار ترخيص تأهيل واعتماد المطورين" data-desc="خدمة تأهيل واعتماد المطورين العقاريين والصناعيين تتيح للشركات والمؤسسات الحصول على الاعتماد الرسمي لتطوير الأراضي، البنى التحتية، أو المشاريع الاستثمارية الكبرى في نطاق المدن الاقتصادية." data-reqs='سجل تجاري نشط: يتضمن نشاط التطوير العقاري أو الصناعي أو البنية التحتية.||الملاءة المالية والسابقة الخبيرية: القوائم المالية المعتمدة للشركة وكشف المشاريع والخبرات السابقة.||الهيكل التنظيمي والكوادر: تقديم بيانات الفريق الفني والمهندسين المسجلين لدى الجهة.||سداد المقابل المالي: تسوية رسوم التقييم والتأهيل المقررة بالمنصة.'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏅</div></div>
         <div class="svc-body">
           <span class="svc-cat">التراخيص والاعتماد</span>
           <div class="svc-name">إصدار ترخيص تأهيل واعتماد المطورين</div>
@@ -430,6 +452,26 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -457,6 +499,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
