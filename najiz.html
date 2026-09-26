@@ -129,6 +129,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/najiz.html">
 <meta property="og:type" content="website">
@@ -300,8 +324,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1181" data-price="50.0" data-name="توثيق حضانة">
-        <div class="svc-img"><div class="icon-circle">👶</div></div>
+      <div class="svc-card" data-id="1181" data-price="50.0" data-name="توثيق حضانة" data-desc="خدمة توثيق صك الحضانة عبر منصة &quot;ناجز&quot; تتيح للأم أو الأب (أو من له الصفة النظامية) توثيق حضانة الأطفال الأبناء دون السن النظامي إلكترونياً عند عدم وجود نزاع قضائي." data-reqs="هوية وطنية أو إقامة سارية: للأب والأم وللمتقدم بالطلب.||صك/عقد الطلاق أو سجل الأسرة: إثبات العلاقة الأسرية وحالة الانفصال إن وجدت.||بيانات الحضناء: أرقام الهويات أو شهادات الميلاد للأبناء المراد توثيق حضانتهم.||شهادة شهود ومزكين: إدخال بيانات هوية شاهدين ومزكيين اثنين لإقرار عدم وجود نزاع وسلامة الحضانة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👶</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">توثيق حضانة</div>
@@ -310,8 +334,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق حضانة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1182" data-price="100.0" data-name="حصر ورثة">
-        <div class="svc-img"><div class="icon-circle">📜</div></div>
+      <div class="svc-card" data-id="1182" data-price="100.0" data-name="حصر ورثة" data-desc="خدمة إصدار وثيقة حصر الورثة عبر منصة &quot;ناجز&quot; تتيح لأحد الورثة أو وكيلهم حصر وثبت بيانات وتفاصيل جميع ورثة المتوفى الشرعيين." data-reqs="شهادة الوفاة أو صك إثبات الوفاة: صك رسمي معتمد ومسجل بالأنظمة.||هويات المتوفى وجميع الورثة: أرقام هويات/إقامات كافة الورثة الشرعيين وتواريخ ميلادهم.||بيانات عقد الزواج/الطلاق (للمتوفى): لإثبات الزوجية أو الانفصال وقت الوفاة.||بيانات شاهدين ومزكيين: توفير الهويات الوطنية لشاهدين ومزكيين اثنين للتحقق من حصر الورثة الشرعيين إلكترونياً.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📜</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">حصر ورثة</div>
@@ -320,8 +344,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'حصر ورثة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1183" data-price="86.0" data-name="إصدار صك ولاية على قاصر">
-        <div class="svc-img"><div class="icon-circle">🔏</div></div>
+      <div class="svc-card" data-id="1183" data-price="86.0" data-name="إصدار صك ولاية على قاصر" data-desc="خدمة إصدار صك ولاية على قاصر سناً عبر منصة &quot;ناجز&quot; تتيح لأحد الأقارب أو المستحقين للولاية طلب إثبات الولاية المالية والشخصية على القاصر الذي لم يبلغ السن النظامي (18 سنة) بعد وفاة الأب." data-reqs="صك حصر الورثة للمتوفى (الأب): يثبت وفاة الأب وقصر الأبناء.||هوية الولي والمولى عليه: الهويات الوطنية أو سجل الأسرة.||شهادة ميلاد القاصر: في حال عدم إصدار هوية وطنية.||بيانات شاهدين ومزكيين: توفير هويات وشواهد إلكترونية تثبت أهلية المتقدم للولاية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔏</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">إصدار صك ولاية على قاصر</div>
@@ -330,8 +354,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار صك ولاية على قاصر')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1184" data-price="50.0" data-name="إصدار شهادة وفاة لمواطن">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1184" data-price="50.0" data-name="إصدار شهادة وفاة لمواطن" data-desc="خدمة توثيق وإصدار شهادة وفاة عبر منصة &quot;ناجز&quot; تتيح لأقارب المتوفى إثبات حالة الوفاة إلكترونياً وتوثيق البيانات الصادرة من الجهات الصحية." data-reqs="تبليغ الوفاة الطبي: بلاغ إلكتروني معتمد وصادر من المستشفى أو وزارة الصحة.||هوية المتوفى وهوية مقدم الطلب: بطاقة الهوية الوطنية السارية للمتوفى ولصلة القرابة.||بيانات أقارب المتوفى: صلة القرابة المباشرة لطلب الوثيقة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">إصدار شهادة وفاة لمواطن</div>
@@ -340,8 +364,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة وفاة لمواطن')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1185" data-price="200.0" data-name="صحيفة دعوى (فسخ عقد النكاح)">
-        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+      <div class="svc-card" data-id="1185" data-price="200.0" data-name="صحيفة دعوى (فسخ عقد النكاح)" data-desc="خدمة رفع دعوى فسخ عقد النكاح عبر منصة &quot;ناجز&quot; تتيح للزوجة أو وكيلها رفع طلب قضائي للمحكمة المختصة بطلب فسخ عقد الزواج بناءً على أسباب شرعية ونظامية." data-reqs="عقد الزواج الموثق: رقم وتاريخ عقد الزواج الصادر من المحكمة أو المنصة.||محضر محاولة الصلح: وجود محضر صلح متعذر صادر من مركز المصالحة (منصة تراضي).||بيانات المدعى عليه (الزوج): الاسم الكامل، رقم الهوية/الإقامة، والعنوان الوطني للتبليغ.||لائحة الأسباب والأدلة: إرفاق مذكرة الأسباب والمستندات الداعمة (تقارير طبية، إثباتات عدم الإنفاق، أو الإضرار).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">صحيفة دعوى (فسخ عقد النكاح)</div>
@@ -350,8 +374,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (فسخ عقد النكاح)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1186" data-price="50.0" data-name="توثيق طلاق">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1186" data-price="50.0" data-name="توثيق طلاق" data-desc="خدمة توثيق طلاق عبر منصة &quot;ناجز&quot; تتيح للزوج إثبات حالة الطلاق الواقع على زوجته وتوثيقه إلكترونياً لاستخراج صك الطلاق المعتمد." data-reqs="عقد الزواج الموثق: بيانات عقد النكاح المسجل.||هوية الزوج والزوجة: أرقام الهويات الوطنية أو الإقامات المعتمدة.||تاريخ ونوع الطلاق: تحديد عدد الطلقات وتاريخ وقوع الطلاق الفعلي.||بيانات الشاهدين: توفير الهويات الوطنية لشاهدين معتمدين لإقرار وقوع الطلاق إلكترونياً.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">توثيق طلاق</div>
@@ -360,8 +384,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق طلاق')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1187" data-price="30.0" data-name="إمهال تأجيل السداد">
-        <div class="svc-img"><div class="icon-circle">⏳</div></div>
+      <div class="svc-card" data-id="1187" data-price="30.0" data-name="إمهال تأجيل السداد" data-desc="خدمة تقديم طلب إمهال أو تأجيل السداد عبر منصة &quot;ناجز&quot; تتيح للمنفذ ضده (المدين) تقديم طلب لقاضي التنفيذ لتأجيل السداد أو إعطائه مهلة إضافية بموافقة الدائن أو للمبررات النظامية." data-reqs="طلب تنفيذ قائم: وجود طلب تنفيذ نشط مسجل ضد المنفذ ضده في المنصة.||موافقة المنفذ له (الدائن): موافقة الدائن الإلكترونية أو كتابة مبررات أسباب طلب الإمهال.||إرفاق السندات الداعمة: إرفاق الإثباتات والتقارير المالية أو خطط السداد الجادة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⏳</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">إمهال تأجيل السداد</div>
@@ -370,8 +394,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إمهال تأجيل السداد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1188" data-price="30.0" data-name="طباعة واستخراج الوثائق والصكوك">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+      <div class="svc-card" data-id="1188" data-price="30.0" data-name="طباعة واستخراج الوثائق والصكوك" data-desc="خدمة طباعة الوثائق والصكوك العدلية عبر منصة &quot;ناجز&quot; تتيح للعملاء استخراج وتنزيل النسخ الإلكترونية المعتمدة للصكوك (عقارية، وكالات، صكوك حصر ورثة، أحكام) بصيغة PDF." data-reqs="حساب مفعل بالنفاذ الوطني: ببيانات صاحب الصك أو الوكيل الشرعي.||رقم الوثيقة/الصك: إدخال رقم الصك وتاريخ إصداره المنشور بالنظام.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖨️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">طباعة واستخراج الوثائق والصكوك</div>
@@ -380,8 +404,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة واستخراج الوثائق والصكوك')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1189" data-price="200.0" data-name="الرد على جميع القضايا">
-        <div class="svc-img"><div class="icon-circle">📝</div></div>
+      <div class="svc-card" data-id="1189" data-price="200.0" data-name="الرد على جميع القضايا" data-desc="خدمة المرافعة والرد على الدعاوى المقيدة عبر منصة &quot;ناجز&quot; تتيح للمدعى عليه أو وكيله تقديم مذكرة الرد الجوابية الإلكترونية على لائحة الدعوى المقامة ضده أمام المحاكم." data-reqs="رقم الدعوى والقضية المقيدة: وجود القضية على أوراق حساب المدعى عليه بالمنصة.||صفة المتقدم: هوية المدعى عليه أو صك وكالة شرعية سارية للمحامي/الوكيل.||مذكرة الرد والأدلة: إرفاق مذكرة جوابية بالدفوع والمستندات المؤيدة والأسانيد الشرعية بصيغة PDF.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📝</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">الرد على جميع القضايا</div>
@@ -390,8 +414,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الرد على جميع القضايا')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1611" data-price="86.0" data-name="إصدار وكالة شرعية">
-        <div class="svc-img"><div class="icon-circle">📃</div></div>
+      <div class="svc-card" data-id="1611" data-price="86.0" data-name="إصدار وكالة شرعية" data-desc="خدمة إصدار وكالة إلكترونية عبر منصة &quot;ناجز&quot; تتيح للمواطنين والمقيمين إنشاء وكالة شرعية وتفويض أفراد أو محامين لمراجعة الجهات أو التصرف نيابة عنهم." data-reqs="هوية الموكل والوكيل: أرقام الهويات الوطنية أو الإقامات وسارية المفعول للطرفين.||أهلية الموكل: ألا يكون الموكل قاصراً أو محجوراً عليه، وتوفر حساب مفعل بأبشر.||تحديد البنود والتخاويل: اختيار نص بنود الوكالة المعتمدة من وزارة العدل وتحديد مدة صلاحيتها.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📃</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">إصدار وكالة شرعية</div>
@@ -400,8 +424,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار وكالة شرعية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1191" data-price="50.0" data-name="رفع طلب تنفيذ">
-        <div class="svc-img"><div class="icon-circle">🏛️</div></div>
+      <div class="svc-card" data-id="1191" data-price="50.0" data-name="رفع طلب تنفيذ" data-desc="خدمة تقديم طلب تنفيذ جديد عبر منصة &quot;ناجز&quot; تتيح للمستفيد (المنفذ له) المطالبة بالحقوق المالية أو التنفيذية الموثقة بقرارات وأحكام أو سندات لأمر ضد المدين." data-reqs="السند التنفيذي المعتمد: صك حكم قضائي نهائي، سند لأمر إلكتروني، عقد موثق، أو شيك.||بيانات المنفذ ضده: الاسم الكامل، رقم الهوية/الإقامة أو السجل التجاري، والعنوان إن وجد.||بيانات الحساب البنكي (IBAN): الحساب البنكي للمنفذ له لإيداع المبالغ المحصلة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏛️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">رفع طلب تنفيذ</div>
@@ -410,8 +434,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع طلب تنفيذ')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1192" data-price="86.0" data-name="إنشاء عقد زواج">
-        <div class="svc-img"><div class="icon-circle">💍</div></div>
+      <div class="svc-card" data-id="1192" data-price="86.0" data-name="إنشاء عقد زواج" data-desc="خدمة إصدار وتوثيق عقد الزواج عبر منصة &quot;ناجز&quot; تتيح للمواطنين والمقيمين التقديم الإلكتروني لطلب إجراء عقد النكاح وتوثيقه بواسطة المأذون الشرعي." data-reqs="الفحص الطبي قبل الزواج: نتيجة الفحص الطبي التوافقي الساري للزوج والزوجة من المراكز المعتمدة.||هويات أطراف العقد: الزوج، الزوجة، وولي أمر الزوجة.||بيانات مهر وصداق العقد: تحديد قيمة المهر المؤجل والمقدم والشروط المتبادلة.||بيانات شاهدين: توفير أرقام هويات شاهدين لحضور جلسة المأذون والتوثيق.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💍</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">إنشاء عقد زواج</div>
@@ -420,8 +444,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء عقد زواج')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1193" data-price="200.0" data-name="صحيفة دعوى (قضايا أسرية)">
-        <div class="svc-img"><div class="icon-circle">👨‍👩‍👧</div></div>
+      <div class="svc-card" data-id="1193" data-price="200.0" data-name="صحيفة دعوى (قضايا أسرية)" data-desc="خدمة رفع دعوى أحوال شخصية (أسرية) عبر منصة &quot;ناجز&quot; تتيح للعملاء قيد الدعاوى الخاصة بالنفقة، الزيارة، فسخ النكاح، الخلع، أو حضانة الأبناء." data-reqs="وثيقة الصلح (منصة تراضي): التعذر في محاولة الصلح الأسري للأنشطة التي تتطلب ذلك.||بيانات أطراف الدعوى والعنوان الوطني: للمدعي والمدعى عليه.||المستندات المؤيدة: عقود الزواج، صكوك الطلاق، شهادات الميلاد للأبناء، وأدلة الدعوى.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👨‍👩‍👧</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">صحيفة دعوى (قضايا أسرية)</div>
@@ -430,8 +454,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (قضايا أسرية)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1194" data-price="200.0" data-name="صحيفة دعوى (قضايا أخرى)">
-        <div class="svc-img"><div class="icon-circle">📁</div></div>
+      <div class="svc-card" data-id="1194" data-price="200.0" data-name="صحيفة دعوى (قضايا أخرى)" data-desc="خدمة قيد صحيفة دعوى عامة أو حقوقية عبر منصة &quot;ناجز&quot; تتيح للمواطنين والمؤسسات رفع الدعاوى القضائية بمختلف أنواعها لدى المحاكم العامة أو العمالية أو التجارية." data-reqs="بيانات المدعي والمدعى عليه الشاملة: الهويات والعنوان الوطني الموثق إلكترونياً.||موضوع الدعوى والطلبات: صياغة لائحة الطلبات والمطالبات المالية أو الإدارية بوضوح.||الأسانيد والأدلة الداعمة: إرفاق العقود، الفواتير، المراسلات، أو المستندات المثبتة للحق.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📁</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">صحيفة دعوى (قضايا أخرى)</div>
@@ -440,8 +464,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (قضايا أخرى)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1195" data-price="200.0" data-name="صحيفة دعوى (حق خاص)">
-        <div class="svc-img"><div class="icon-circle">🔐</div></div>
+      <div class="svc-card" data-id="1195" data-price="200.0" data-name="صحيفة دعوى (حق خاص)" data-desc="خدمة رفع دعوى الحق الخاص عبر منصة &quot;ناجز&quot; تتيح للمتضرر من جريمة أو فعل جنائي المطالبة بحقه الشخصي والمالي أمام المحاكم الجزائية." data-reqs="رقم المعاملة الجنائية/الشرطية: وجود لائحة الاتصال أو رقم القضية الصادرة من النيابة العامة أو الشرطة.||بيانات الجاني/المدعى عليه: رقم هويته أو بياناته الواردة في ضبط الحادثة.||حصر الأضرار والمطالبات: إرفاق تقارير تقييم الأضرار أو الفواتير والتعويضات المطلوبة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔐</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">صحيفة دعوى (حق خاص)</div>
@@ -450,8 +474,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (حق خاص)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1196" data-price="200.0" data-name="صحيفة دعوى (مرورية)">
-        <div class="svc-img"><div class="icon-circle">🚗</div></div>
+      <div class="svc-card" data-id="1196" data-price="200.0" data-name="صحيفة دعوى (مرورية)" data-desc="خدمة رفع دعوى في القضايا المرورية عبر منصة &quot;ناجز&quot; تتيح للمتضررين رفع قضايا المطالبة بالتعويض عن أضرار الحوادث المرورية والتلفيات ضد السائقين أو شركات التأمين." data-reqs="تقرير تقييم الحادث (نجم / المرور): تقرير المباشرة المرورية المعتمد وتقرير التقدير.||بيانات أطراف الحادث: رقم هوية المتسبب ورقم وثيقة التأمين.||وثيقة ملكية المركبة: صك الملكية أو استمارة السير للمركبة المتضررة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚗</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">صحيفة دعوى (مرورية)</div>
@@ -460,8 +484,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'صحيفة دعوى (مرورية)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1197" data-price="50.0" data-name="رفع إيقاف خدمات في حال السداد">
-        <div class="svc-img"><div class="icon-circle">✅</div></div>
+      <div class="svc-card" data-id="1197" data-price="50.0" data-name="رفع إيقاف خدمات في حال السداد" data-desc="خدمة رفع إجراءات قاضي التنفيذ (رفع إيقاف الخدمات) عبر منصة &quot;ناجز&quot; تتيح للمنفذ ضده طلب سحب قرارات المادة 46 تلقائياً أو يدوياً فور إتمام سداد كامل المبالغ المطالب بها." data-reqs="إتمام السداد الكامل: سداد الفاتورة الموحدة الصادرة عبر نظام سداد لطلب التنفيذ.||رقم طلب التنفيذ القائم: أن يكون الطلب مسجلاً بمركز محاكم التنفيذ.||تسوية مع المالك (في حال السداد الجزئي): إرفاق اتفاقية الصلح والموافقة من المنفذ له.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">✅</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">رفع إيقاف خدمات في حال السداد</div>
@@ -470,8 +494,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع إيقاف خدمات في حال السداد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1198" data-price="100.0" data-name="رفع طلب للتواصل العدل">
-        <div class="svc-img"><div class="icon-circle">📞</div></div>
+      <div class="svc-card" data-id="1198" data-price="100.0" data-name="رفع طلب للتواصل العدل" data-desc="خدمة تقديم طلب تواصل وتظلم عبر منصة &quot;ناجز&quot; تتيح للمستفيدين رفع طلبات الدعم الفني، معالجة تأخر الدوائر القضائية، أو الاستفسار عن المعاملات العدلية المتعثرة." data-reqs="تحديد الدائرة أو الخدمة العدلية: اختيار المحكمة، كتابة العدل، أو محكمة التنفيذ المعنية.||رقم المعاملة أو الصك أو القضية: الرقم المرجعي للطلب المراد التواصل بخصوصه.||مذكرة الوصف المرفقة: كتابة تفاصيل المشكلة وإرفاق إثباتات الضرر أو التعثر بصيغة PDF.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📞</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">رفع طلب للتواصل العدل</div>
@@ -480,8 +504,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع طلب للتواصل العدل')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1199" data-price="50.0" data-name="استخراج صك حضانة">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1199" data-price="50.0" data-name="استخراج صك حضانة" data-desc="خدمة إصدار واستخراج صك الحضانة الإلكتروني عبر منصة &quot;ناجز&quot; تتيح للحاضن الحصول على النسخة الرسمية الصادرة لصك الحضانة بعد اعتماده قضاءً أو توثيقاً." data-reqs="صدور موافقة التوثيق أو الحكم القضائي: اعتماد طلب توثيق الحضانة أو الحكم النهائي الصادر بالحق.||هوية الحاضن والحضناء: البيانات الوطنية والأرقام المعتمدة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">استخراج صك حضانة</div>
@@ -490,8 +514,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج صك حضانة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1200" data-price="50.0" data-name="توثيق عقد زواج أو طلاق">
-        <div class="svc-img"><div class="icon-circle">📝</div></div>
+      <div class="svc-card" data-id="1200" data-price="50.0" data-name="توثيق عقد زواج أو طلاق" data-desc="خدمة التوثيق الإلكتروني لعقود الزواج أو حالات الطلاق عبر منصة &quot;ناجز&quot; تتيح تسجيل وإثبات الواقعات الأسرية في سجلات وزارة العدل والأحوال المدنية إلكترونياً." data-reqs="بيانات أطراف الواقعة الأسرية: هويات الزوج والزوجة والولي في الزواج.||المستندات الداعمة: الفحوصات الطبية للزواج أو رقم عقد النكاح للطلاق.||بيانات الشهود: هويات شاهدين ومزكيين للتوثيق النهائي عبر النظام.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📝</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">توثيق عقد زواج أو طلاق</div>
@@ -500,8 +524,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق عقد زواج أو طلاق')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1201" data-price="86.0" data-name="استخراج صك حصر ورثة">
-        <div class="svc-img"><div class="icon-circle">📑</div></div>
+      <div class="svc-card" data-id="1201" data-price="86.0" data-name="استخراج صك حصر ورثة" data-desc="خدمة طباعة واستخراج صك حصر الورثة عبر منصة &quot;ناجز&quot; تتيح للمستفيدين الحصول على وثيقة حصر الورثة الإلكترونية الصادرة والمختومة." data-reqs="اعتماد طلب حصر الورثة: صدور الموافقة واعتماد الطلب من كتابة العدل.||هوية أحد الورثة أو الوكيل: الدخول بحساب النفاذ الوطني لأحد المستفيدين المسجلين في الصك.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📑</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">استخراج صك حصر ورثة</div>
@@ -510,8 +534,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج صك حصر ورثة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1202" data-price="50.0" data-name="طلب انهاء تنفيذ أو إمهال">
-        <div class="svc-img"><div class="icon-circle">🔚</div></div>
+      <div class="svc-card" data-id="1202" data-price="50.0" data-name="طلب انهاء تنفيذ أو إمهال" data-desc="خدمة تقديم طلب إنهاء قضية تنفيذ أو إمهال عبر منصة &quot;ناجز&quot; تتيح للمنفذ له (الدائن) إنهاء طلب التنفيذ بسبب التسوية، أو إمهال المدين فترة زمنية إضافية." data-reqs="طلب تنفيذ نشط: وجود القضية في قائمة طلبات التنفيذ الخاصة بالمنفذ له.||إقرار الاستلام أو الصلح: تأكيد المنفذ له استلام كافة مستحقاته المالية أو الموافقة على مهلة جديدة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔚</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">طلب انهاء تنفيذ أو إمهال</div>
@@ -520,8 +544,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب انهاء تنفيذ أو إمهال')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1203" data-price="86.0" data-name="تقديم طلب تنفيذ">
-        <div class="svc-img"><div class="icon-circle">⚡</div></div>
+      <div class="svc-card" data-id="1203" data-price="86.0" data-name="تقديم طلب تنفيذ" data-desc="خدمة قيد طلب تنفيذ أحكام وسندات عبر منصة &quot;ناجز&quot; تتيح للأفراد والشركات تحصيل ديونهم وأحكامهم القضائية عبر محاكم التنفيذ فورياً." data-reqs="سند تنفيذي معتمد: أحكام قضائية، عقود موثقة، أو سندات لأمر إلكترونية.||بيانات المدين والتواصل: العنوان الوطني، الهوية أو السجل التجاري للمنفذ ضده.||حساب آيبان بنكي: باسم الطالب لإيداع الأموال.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚡</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">تقديم طلب تنفيذ</div>
@@ -530,8 +554,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم طلب تنفيذ')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1204" data-price="100.0" data-name="إنشاء أو فسخ وكالة إلكترونية">
-        <div class="svc-img"><div class="icon-circle">🖥️</div></div>
+      <div class="svc-card" data-id="1204" data-price="100.0" data-name="إنشاء أو فسخ وكالة إلكترونية" data-desc="خدمة إصدار جديد أو إلغاء وكالة شرعية عبر منصة &quot;ناجز&quot; تتيح للموكل التحكم الكامل في صلاحيات الوكالات الشرعية بإصدارها أو فسخها نهائياً." data-reqs="هويات أطراف الوكالة: الموكل والوكيل.||حساب نشط بأبشر: للموكل لإجراء الاعتماد بالنفاذ الوطني.||رقم الوكالة المراد إلغاؤها: (في حال طلب الفسخ والإنهاء).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖥️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">إنشاء أو فسخ وكالة إلكترونية</div>
@@ -540,8 +564,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء أو فسخ وكالة إلكترونية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1205" data-price="86.0" data-name="إنشاء أو إلغاء سند لأمر">
-        <div class="svc-img"><div class="icon-circle">📜</div></div>
+      <div class="svc-card" data-id="1205" data-price="86.0" data-name="إنشاء أو إلغاء سند لأمر" data-desc="خدمة إصدار أو إلغاء السندات لأمر الإلكترونية عبر منصة &quot;ناجز&quot; (نافذ) تتيح للأفراد والشركات توثيق الديون والتزامات الدفع بسندات تنفيذية معتمدة." data-reqs="بيانات المحرر والمستفيد: الهوية الوطنية/الإقامة، رقم الجوال المعتمد، والعنوان.||مبلغ السند وتاريخ الاستحقاق: تحديد قيمة التزام الدفع وشروطه.||الموافقة والاعتماد الإلكتروني: قبول السند من المدين عبر منصة نافذ.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📜</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">إنشاء أو إلغاء سند لأمر</div>
@@ -550,8 +574,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء أو إلغاء سند لأمر')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1206" data-price="100.0" data-name="الإفراغ العقاري الإلكتروني">
-        <div class="svc-img"><div class="icon-circle">🏠</div></div>
+      <div class="svc-card" data-id="1206" data-price="100.0" data-name="الإفراغ العقاري الإلكتروني" data-desc="خدمة نقل ملكية العقارات (الإفراغ العقاري) عبر منصة &quot;ناجز&quot; تتيح للبائع والمشتري نقل ملكية العقار السكني أو التجاري وسداد الثمن إلكترونياً وبشكل فوري دون مراجعة كتابة العدل." data-reqs="صك عقاري إلكتروني ساري: أن يكون الصك محدثاً ومسجلاً بالنظام الموحد.||الحساب البنكي للبائع والمشتري: للتحقق وإتمام عملية البيع والحفظ المالي.||عدم وجود قيود عقارية: خلو العقار من الرهن، الوقف، أو الحجز القضائي.||سداد ضريبة التصرفات العقارية: توفير الرقم الضريبي لضريبة التصرفات العقارية المسددة أو المعفاة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏠</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">الإفراغ العقاري الإلكتروني</div>
@@ -560,8 +584,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الإفراغ العقاري الإلكتروني')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1207" data-price="86.0" data-name="تحديث الصكوك العقارية">
-        <div class="svc-img"><div class="icon-circle">🏗️</div></div>
+      <div class="svc-card" data-id="1207" data-price="86.0" data-name="تحديث الصكوك العقارية" data-desc="خدمة تحديث الصكوك الورقية القديمة عبر منصة &quot;ناجز&quot; تتيح لأصحاب العقارات تحويل صكوك الملكية الورقية القديمة إلى صكوك رقمية إلكترونية حديثة." data-reqs="أصل الصك الورقي القديم: صورة واضحة ومسحوبة ضوئياً للصك من الأمام والخلف.||عدم سابقة التحديث: ألا يكون الصك قد تم تحديثه أو إغلاقه سابقاً.||بيانات المالك والعقار: مطابقة رقم الهوية والاسم ورقم القطعة والمخطط المسجل بالصك.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏗️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">تحديث الصكوك العقارية</div>
@@ -570,8 +594,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحديث الصكوك العقارية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1208" data-price="50.0" data-name="استخراج صك ولاية على قاصر سنا أو عقلا">
-        <div class="svc-img"><div class="icon-circle">👨‍👧</div></div>
+      <div class="svc-card" data-id="1208" data-price="50.0" data-name="استخراج صك ولاية على قاصر سنا أو عقلا" data-desc="خدمة توثيق وإصدار صك ولاية عبر منصة &quot;ناجز&quot; تتيح للمتقدمين إثبات الولاية على القاصرين سنياً أو فاقدي الأهلية عقلياً لإدارة شؤونهم وتلبية احتياجاتهم." data-reqs="تقرير طبي معتمد (لفاقدي الأهلية): تقرير طبي صادر من مستشفى حكومي يثبت الحالة العقلية وصعوبة إدارة الشؤون.||صك حصر الورثة أو شهادة الميلاد: لإثبات صلة القرابة والسن النظامية للقاصر.||شهادة شهود ومزكيين: توفير الهويات الوطنية لشاهدين ومزكيين لإقرار الأهلية والكفاءة الشرعية للولي.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👨‍👧</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة ناجز</span>
           <div class="svc-name">استخراج صك ولاية على قاصر سنا أو عقلا</div>
@@ -650,6 +674,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -676,6 +721,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
