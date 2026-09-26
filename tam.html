@@ -129,6 +129,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/tam.html">
 <meta property="og:type" content="website">
@@ -300,8 +324,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1308" data-price="50.0" data-name="إصدار رخصة سير مركبة">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1308" data-price="50.0" data-name="إصدار رخصة سير مركبة" data-desc="خدمة إصدار رخصة سير مركبة (استمارة) عبر منصة &quot;تم&quot; تتيح للمنشآت والشركات إصدار رخصة السير الإلكترونية للمركبات الجديدة المسجلة باسمها بعد استكمال إجراءات الشراء والتسجيل." data-reqs="وثيقة التأمين على المركبة: سارية المفعول ومربوطة بالنظام الآلي.||سداد الرسوم الحكومية: تسوية رسوم إصدار رخصة السير المقررة عبر نظام سداد.||الفحص الدوري الفني: وجود فحص دوري ساري المفعول للمركبة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">إصدار رخصة سير مركبة</div>
@@ -310,8 +334,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار رخصة سير مركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1309" data-price="30.0" data-name="تجديد رخصة سير مركبة">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="1309" data-price="30.0" data-name="تجديد رخصة سير مركبة" data-desc="خدمة تجديد رخصة سير المركبة تتيح للمنشآت تمديد صلاحية استمارة المركبات التابعة لأسطولها لضمان النظامية والسلامة الميدانية." data-reqs="تأمين مركبة ساري المفعول: وثيقة تأمين نشطة مسجلة برقم هيكل/لوحة المركبة.||شهادة فحص دوري سارية: اجتياز الفحص الفني الدوري للمركبة.||تسديد الغرامات والرسوم: سداد أي مخالفات مرورية مسجلة ورسوم تجديد الاستمارة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">تجديد رخصة سير مركبة</div>
@@ -320,8 +344,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد رخصة سير مركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1310" data-price="50.0" data-name="نقل ملكية مركبة">
-        <div class="svc-img"><div class="icon-circle">🔀</div></div>
+      <div class="svc-card" data-id="1310" data-price="50.0" data-name="نقل ملكية مركبة" data-desc="خدمة نقل ملكية المركبة عبر منصة &quot;تم&quot; تتيح نقل ملكية المركبة بين المنشآت أو من منشأة إلى فرد وتحديث بيانات المالك في أنظمة المرور." data-reqs="سداد المبايعة ورسوم النقل: تسوية مبالغ الشراء ورسوم نقل الملكية المقررة.||تأمين باسم المالك الجديد: إصدار وثيقة تأمين سارية باسم الجهة أو الشخص المنقولة له الملكية.||شهادة فحص دوري سارية: فحص فني معتمد وغير منتهي الصلاحية للمركبة.||سريان رخصة السير: ألا تكون استمارة المركبة منتهية الصلاحية وقت النقل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔀</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">نقل ملكية مركبة</div>
@@ -330,8 +354,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل ملكية مركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1311" data-price="50.0" data-name="إصدار لوحات مركبة">
-        <div class="svc-img"><div class="icon-circle">🪪</div></div>
+      <div class="svc-card" data-id="1311" data-price="50.0" data-name="إصدار لوحات مركبة" data-desc="خدمة إصدار واستبدال لوحات المركبة تتيح للمنشآت طلب إصدار لوحات جديدة أو بدل تالف/مفقود، أو تغيير مقاس اللوحات لمركبات الأسطول." data-reqs="رخصة سير سارية: استمارة مركبة مفعلة وغير منتهية.||بلاغ الفقدان/التلف (إن وجد): تقديم محضر أمني أو إقرار تلف في حال استبدال اللوحات.||سداد رسوم اللوحات: سداد المقابل المالي المقرر لإصدار اللوحات عبر نظام سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🪪</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">إصدار لوحات مركبة</div>
@@ -340,8 +364,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار لوحات مركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1312" data-price="30.0" data-name="إصدار تفويض داخلي">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1312" data-price="30.0" data-name="إصدار تفويض داخلي" data-desc="خدمة إصدار تفويض قيادة داخلي تتيح للمنشآت منح صلاحية قيادة مركبة تابعة لأسطولها لموظف محدد داخل أراضي المملكة العربية السعودية." data-reqs="رخصة قيادة سارية للمفوض: رخصة قيادة معتمدة ومناسبة لنوع المركبة للموظف.||سريان رخصة السير والتأمين: استمارة المركبة ووثيقة التأمين ساريتان طوال مدة التفويض.||اشتراك منشأة نشط: حساب مفعل للمنشأة في منصة تم مع توفر رصيد تفويض.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">إصدار تفويض داخلي</div>
@@ -350,8 +374,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار تفويض داخلي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1313" data-price="30.0" data-name="إصدار تفويض خارجي">
-        <div class="svc-img"><div class="icon-circle">🌍</div></div>
+      <div class="svc-card" data-id="1313" data-price="30.0" data-name="إصدار تفويض خارجي" data-desc="خدمة إصدار تفويض قيادة خارجي (دولياً) تتيح للمنشآت السماح للموظفين بالسفر بالمركبة خارج المملكة عبر المنافذ الحدودية." data-reqs="رخصة سير وتأمين ساريان: سريان التأمين (يشمل التغطية الجغرافية الخارجية إن أمكن) والاستمارة.||رخصة قيادة سارية للمفوض: رخصة قيادة سارية المفعول للسائق المفوض.||عدم وجود قيود أمنية/مرورية: خلو سجل المركبة والسائق من البلاغات أو القيود المانعة للسفر.||سداد رسوم التفويض الخارجي: تسوية المبالغ المقررة للخدمة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌍</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">إصدار تفويض خارجي</div>
@@ -360,8 +384,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار تفويض خارجي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1314" data-price="30.0" data-name="إلغاء تفويض مركبة">
-        <div class="svc-img"><div class="icon-circle">❌</div></div>
+      <div class="svc-card" data-id="1314" data-price="30.0" data-name="إلغاء تفويض مركبة" data-desc="خدمة إلغاء تفويض قيادة مركبة تتيح للمنشآت إنهاء وسحب صلاحية التفويض الممنوح لسائق معين على إحدى مركبات المنشأة قبل انتهاء مدته." data-reqs="تفويض قائم ونشط: تحديد العقد أو التفويض المراد إنهاؤه بالرقم المرجعي.||موافقة المنشأة/المفوض: إلغاء التفويض فورياً إلكترونياً عبر حساب المنشأة في تم.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">❌</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">إلغاء تفويض مركبة</div>
@@ -370,8 +394,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إلغاء تفويض مركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1315" data-price="50.0" data-name="إضافة مستخدم فعلي للمركبة">
-        <div class="svc-img"><div class="icon-circle">👤</div></div>
+      <div class="svc-card" data-id="1315" data-price="50.0" data-name="إضافة مستخدم فعلي للمركبة" data-desc="خدمة إضافة وتسجيل مستخدم فعلي للمركبة تتيح للمنشآت تخصيص موظف كمستخدم رئيسي للمركبة لتسجيل المخالفات المرورية المباشرة على سجله الخاص." data-reqs="هوية أو إقامة سارية: للمستخدم الفعلي المراد إضافته.||رخصة قيادة سارية المفعول: تناسب نوع ونشاط المركبة المحددة.||موافقة المستخدم الفعلي: قبول طلب التخصيص عبر حساب المستفيد في منصة أبشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👤</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">إضافة مستخدم فعلي للمركبة</div>
@@ -380,8 +404,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إضافة مستخدم فعلي للمركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1316" data-price="30.0" data-name="الاستعلام عن مخالفات المركبة">
-        <div class="svc-img"><div class="icon-circle">🔍</div></div>
+      <div class="svc-card" data-id="1316" data-price="30.0" data-name="الاستعلام عن مخالفات المركبة" data-desc="خدمة الاستعلام عن المخالفات المرورية للمركبة تتيح للمنشآت الاطلاع التفصيلي على قائمة المخالفات وقيمتها والموقع والجداول الزمنية المسجلة على أسطول المركبات." data-reqs="رقم اللوحة أو الرقم التسلسلي: للمركبة المراد الاستعلام عنها.||حساب نشط بالمنصة: الدخول ببيانات المنشأة المعتمدة في تم.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔍</div></div>
         <div class="svc-body">
           <span class="svc-cat">استعلامات تم</span>
           <div class="svc-name">الاستعلام عن مخالفات المركبة</div>
@@ -390,8 +414,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن مخالفات المركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1317" data-price="30.0" data-name="الاستعلام عن وثائق التأمين">
-        <div class="svc-img"><div class="icon-circle">🛡️</div></div>
+      <div class="svc-card" data-id="1317" data-price="30.0" data-name="الاستعلام عن وثائق التأمين" data-desc="خدمة الاستعلام عن حالة تأمين المركبة تتيح للشركات التحقق الفوري من صلاحية وثيقة التأمين، اسم شركة التأمين، وتاريخ انتهاء التغطية لكافة المركبات." data-reqs="الرقم التسلسلي أو رقم اللوحة: الخاص بالمركبة الاستعلامية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🛡️</div></div>
         <div class="svc-body">
           <span class="svc-cat">استعلامات تم</span>
           <div class="svc-name">الاستعلام عن وثائق التأمين</div>
@@ -400,8 +424,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن وثائق التأمين')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1318" data-price="30.0" data-name="الاستعلام عن الفحص الدوري للمركبة">
-        <div class="svc-img"><div class="icon-circle">🔧</div></div>
+      <div class="svc-card" data-id="1318" data-price="30.0" data-name="الاستعلام عن الفحص الدوري للمركبة" data-desc="خدمة الاستعلام عن حالة الفحص الفني الدوري تتيح التأكد من سريان شهادة الفحص الدوري للمركبة وتاريخ انتهائها المعتمد لدى مراكز الفحص." data-reqs="الرقم التسلسلي للمركبة: أو رقم هيكل الأسطول للمتابعة المباشرة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔧</div></div>
         <div class="svc-body">
           <span class="svc-cat">استعلامات تم</span>
           <div class="svc-name">الاستعلام عن الفحص الدوري للمركبة</div>
@@ -410,8 +434,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن الفحص الدوري للمركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1319" data-price="30.0" data-name="الاستعلام عن تفاصيل المركبة">
-        <div class="svc-img"><div class="icon-circle">🚘</div></div>
+      <div class="svc-card" data-id="1319" data-price="30.0" data-name="الاستعلام عن تفاصيل المركبة" data-desc="خدمة الاستعلام الشامل عن بيانات المركبة تتيح الحصول على تقرير تفصيلي يشمل معلومات الملكية، الطراز، السنة، حالة الاستمارة، واللوحات." data-reqs="رقم اللوحة والرمز / الرقم التسلسلي: للوصول للتقرير المباشر بالمنصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚘</div></div>
         <div class="svc-body">
           <span class="svc-cat">استعلامات تم</span>
           <div class="svc-name">الاستعلام عن تفاصيل المركبة</div>
@@ -420,8 +444,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن تفاصيل المركبة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1320" data-price="30.0" data-name="تحديث بيانات التأمين">
-        <div class="svc-img"><div class="icon-circle">📝</div></div>
+      <div class="svc-card" data-id="1320" data-price="30.0" data-name="تحديث بيانات التأمين" data-desc="خدمة تحديث بيانات وثيقة التأمين للمركبة تتيح ربط وتحديث معلومات التأمين الجديدة إلكترونياً في أنظمة المرور فور تجديد الوثيقة مع شركات التأمين." data-reqs="وثيقة تأمين حديثة: صادرة عن إحدى شركات التأمين المعتمدة في المملكة.||الرقم التسلسلي للمركبة: لربط بيانات الوثيقة برقم الهيكل واللوحة مباشرة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📝</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة تم</span>
           <div class="svc-name">تحديث بيانات التأمين</div>
@@ -500,6 +524,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -527,6 +572,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
