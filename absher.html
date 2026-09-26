@@ -137,6 +137,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/absher.html">
 <meta property="og:type" content="website">
@@ -312,8 +336,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="grid-business">
 
-      <div class="svc-card" data-id="910" data-price="30.0" data-name="الغاء تأشيرة الخروج والعودة">
-        <div class="svc-img"><div class="icon-circle">🚫</div></div>
+      <div class="svc-card" data-id="910" data-price="30.0" data-name="الغاء تأشيرة الخروج والعودة" data-desc="خدمة إلغاء تأشيرة الخروج والعودة عبر منصة &quot;أبشر أعمال&quot; تتيح لأصحاب الأعمال إلغاء التأشيرة المصدرة للعامل المقيم وإعادتها لحالتها قبل السفر." data-reqs="تواجد العامل داخل المملكة: ألا يكون العامل قد غادر المملكة بالتأشيرة المراد إلغاؤها.||تقديم الطلب خلال مدة الصلاحية: إلغاء التأشيرة قبل انتهاء مدة صلاحيتها المحددة عند الإصدار.||عدم وجود مخالفات: عدم تسجيل مخالفة عدم إلغاء التأشيرة في حال انتهاء صلاحيتها.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚫</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة أبشر (أفراد - أعمال)</span>
           <div class="svc-name">الغاء تأشيرة الخروج والعودة</div>
@@ -322,8 +346,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الغاء تأشيرة الخروج والعودة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="911" data-price="50.0" data-name="اشتراك أو تجديد أبشر أعمال">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="911" data-price="50.0" data-name="اشتراك أو تجديد أبشر أعمال" data-desc="خدمة الاشتراك أو تجديد العضوية في منصة &quot;أبشر أعمال&quot; تتيح للمنشآت والمؤسسات الوصول للخدمات الإلكترونية لقطاع الأعمال بوزارة الداخلية وتمديد الصلاحية سنوياً." data-reqs="سجل تجاري ساري المفعول: للمنشأة الرئيسية أو الفرعية.||حساب مفعل في النفاذ الوطني: لمالك المنشأة أو المفوض الرسمي في أبشر أفراد.||بيانات التواصل: رقم جوال نشط وبريد إلكتروني مسجل.||سداد رسوم الاشتراك: سداد المقابل المالي للباقة المختارة عبر نظام سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات المنصات الحكومية</span>
           <div class="svc-name">اشتراك أو تجديد أبشر أعمال</div>
@@ -332,8 +356,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'اشتراك أو تجديد أبشر أعمال')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="962" data-price="50.0" data-name="نقل الكفالة">
-        <div class="svc-img"><div class="icon-circle">🔀</div></div>
+      <div class="svc-card" data-id="962" data-price="50.0" data-name="نقل الكفالة" data-desc="خدمة الموافقة والاعتماد النهائي لنقل الكفالة عبر منصة &quot;أبشر أعمال&quot; تتيح استكمال نقل خدمات العامل المقيم إلى سجل المنشأة في أنظمة وزارة الداخلية بعد الموافقة العمالية." data-reqs="طلب نقل خدمة معتمد من قوى: توثيق وموافقة طلب نقل الخدمة عبر منصة قوى أولاً.||سداد رسوم نقل الخدمة: سداد المقابل المالي المقرر لنقل الكفالة عبر نظام سداد.||سريان إقامة وجواز العامل: ألا تكون الإقامة والجواز منتهية الصلاحية.||عدم وجود مخالفات: خلو سجل العامل والمنشأة من المخالفات المرورية أو الأمنية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔀</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">نقل الكفالة</div>
@@ -342,8 +366,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل الكفالة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="963" data-price="30.0" data-name="إصدار تأشيرة الخروج النهائي">
-        <div class="svc-img"><div class="icon-circle">✈️</div></div>
+      <div class="svc-card" data-id="963" data-price="30.0" data-name="إصدار تأشيرة الخروج النهائي" data-desc="خدمة إصدار تأشيرة الخروج النهائي عبر منصة &quot;أبشر أعمال&quot; تتيح للمنشآت إنهاء وضع العامل المقيم وإصدار التأشيرة الخاصة بمغادرته المملكة بشكل نهائي." data-reqs="سريان الإقامة ورخصة العمل: للعامل عند تقديم الطلب.||جواز سفر ساري المفعول: ألا تقل صلاحية جواز السفر عن 60 يوماً.||خلو السجل من المركبات: ألا تكون هناك أي مركبة مسجلة باسم العامل في نظام المرور.||عدم وجود مخالفات مرورية: تسوية جميع المخالفات على العامل والمنشأة.||تواجد العامل داخل المملكة: أن يكون العامل داخل أراضي المملكة وقت إصدار التأشيرة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">✈️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">إصدار تأشيرة الخروج النهائي</div>
@@ -352,8 +376,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار تأشيرة الخروج النهائي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="914" data-price="30.0" data-name="إصدار / تمديد تأشيرة الخروج والعودة">
-        <div class="svc-img"><div class="icon-circle">🔁</div></div>
+      <div class="svc-card" data-id="914" data-price="30.0" data-name="إصدار / تمديد تأشيرة الخروج والعودة" data-desc="خدمة إصدار أو تمديد تأشيرة الخروج والعودة عبر منصة &quot;أبشر أعمال&quot; تتيح لأصحاب المنشآت استخراج أو تمديد فترة تأشيرة السفر المؤقت للمكفولين من العمالة المقيمة." data-reqs="سريان الإقامة ورخصة العمل: للعامل المراد إصدار أو تمديد التأشيرة له.||سداد الرسوم الحكومية: تسوية رسوم التأشيرة أو رسوم التمديد عبر نظام سداد.||عدم وجود المخالفات المرورية: تسوية كافة المخالفات المرورية المسجلة على العامل وصاحب العمل.||جواز سفر ساري المفعول: ألا تقل صلاحية جواز سفر العامل عن 90 يوماً.||تواجد العامل داخل المملكة: (للإصدار والتمديد العادي) أو استيفاء شروط التمديد الخارجي عبر المنصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔁</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">إصدار / تمديد تأشيرة الخروج والعودة</div>
@@ -362,8 +386,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار / تمديد تأشيرة الخروج والعودة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="965" data-price="50.0" data-name="إصدار / تجديد إقامة">
-        <div class="svc-img"><div class="icon-circle">🪪</div></div>
+      <div class="svc-card" data-id="965" data-price="50.0" data-name="إصدار / تجديد إقامة" data-desc="خدمة إصدار أو تجديد هوية مقيم (الإقامة) عبر منصة &quot;أبشر أعمال&quot; تتيح لأصحاب المنشآت استخراج أو تمديد صلاحية هوية المقيم للعمالة الوافدة المسجلة في المنشأة." data-reqs="إصدار رخصة العمل: سداد وتجديد رخصة العمل المقررة عبر منصة قوى.||سداد الرسوم الحكومية: سداد رسوم إصدار/تجديد الإقامة ورسوم التأخير (إن وجدت) عبر نظام سداد.||اجتياز الفحص الطبي (للإصدار أول مرة): توفر تقرير فحص طبي معتمد وآلي في النظام.||التأمين الصحي الساري: توفر تأمين صحي إلكتروني ساري المفعول للعامل وأفراد أسرته المباشرين.||سداد المخالفات المرورية: تسوية كافة المخالفات المسجلة على العامل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🪪</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">إصدار / تجديد إقامة</div>
@@ -372,8 +396,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار / تجديد إقامة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="985" data-price="50.0" data-name="بلاغ تغيب عن العمل">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="985" data-price="50.0" data-name="بلاغ تغيب عن العمل" data-desc="خدمة تسجيل وتوثيق بلاغ تغيب عن العمل عبر منصة &quot;أبشر أعمال&quot; تتيح للمنشآت رفع بلاغ رسمي للجهات الأمنية في حال انقطاع المقيم عن العمل وخروجه عن السيطرة." data-reqs="سريان الإقامة: أن تكون إقامة العامل المقيم سارية المفعول وقت تقديم البلاغ.||صدور بلاغ انقطاع من قوى: تسجيل وصدور بلاغ انقطاع عن العمل معتمد عبر منصة قوى أولاً.||عدم وجود تأشيرة سفر معلقة: ألا تكون لدى العامل تأشيرة خروج وعودة أو خروج نهائي سارية.||تواجد العامل داخل المملكة: ألا يكون العامل خارج المملكة وقت رفع البلاغ.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">بلاغ تغيب عن العمل</div>
@@ -382,8 +406,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'بلاغ تغيب عن العمل')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="979" data-price="30.0" data-name="طلب تقرير مقيم">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="979" data-price="30.0" data-name="طلب تقرير مقيم" data-desc="خدمة إصدار واستخراج تقرير مقيم عبر منصة &quot;أبشر أعمال&quot; تتيح للمنشآت الحصول على وثيقة رسمية إلكترونية تحتوي على كافة البيانات التفصيلية للعمالة المقيمة على كفالتها لتقديمها للجهات الرسمية." data-reqs="حساب نشط في أبشر أعمال: للمنشأة التي ينتمي لها المقيم.||بيانات المقيم: رقم الإقامة أو رقم الحدود للعامل المراد استخراج التقرير له.||سداد الرسوم: سداد المقابل المالي لإصدار التقرير الإلكتروني عبر نظام سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">طلب تقرير مقيم</div>
@@ -392,8 +416,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب تقرير مقيم')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="918" data-price="30.0" data-name="الغاء تأشيرة الخروج النهائي">
-        <div class="svc-img"><div class="icon-circle">❌</div></div>
+      <div class="svc-card" data-id="918" data-price="30.0" data-name="الغاء تأشيرة الخروج النهائي" data-desc="خدمة إلغاء تأشيرة الخروج النهائي عبر منصة &quot;أبشر أعمال&quot; تتيح لأصحاب المنشآت إلغاء تأشيرة المغادرة النهائية المصدرة للعامل وإعادة وضعه النظامي على كفالة المنشأة." data-reqs="سريان فترة الإلغاء: تقديم طلب الإلغاء خلال 60 يوماً من تاريخ إصدار التأشيرة.||تواجد العامل داخل المملكة: أن يكون العامل موجوداً داخل أراضي المملكة ولم يغادر.||سريان الإقامة ورخصة العمل: استمرار صلاحية إقامة العامل أو تجديدها مباشرة.||سداد الغرامة (إن وجدت): سداد غرامة إلغاء الخروج النهائي في حال تجاوز المهلة النظامية المحددة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">❌</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">الغاء تأشيرة الخروج النهائي</div>
@@ -402,8 +426,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الغاء تأشيرة الخروج النهائي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="981" data-price="30.0" data-name="تحديث معلومات الجواز للمقيمين">
-        <div class="svc-img"><div class="icon-circle">📒</div></div>
+      <div class="svc-card" data-id="981" data-price="30.0" data-name="تحديث معلومات الجواز للمقيمين" data-desc="خدمة تحديث بيانات ومعلومات الجواز (تجديد الجواز) عبر منصة &quot;أبشر أعمال&quot; تتيح ربط معلومات الجواز الجديد للعامل المقيم ببيانات الإقامة المسجلة في أنظمة وزارة الداخلية." data-reqs="جواز السفر الجديد والقديم: توفير بيانات ورقم الجواز الحديث والقديم للعامل.||تواجد العامل داخل المملكة: أن يكون المقيم موجوداً داخل الأراضي السعودية وقت التحديث.||عدم وجود طلبات معلقة: ألا يكون للعامل طلبات تحديث جواز سابقة قيد الإجراء.||صورة الجواز الجديد: رفع صورة ضوئية واضحة من صفحات الجواز الجديد عبر المنصة إذا تطلب النظام ذلك.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📒</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">تحديث معلومات الجواز للمقيمين</div>
@@ -412,8 +436,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحديث معلومات الجواز للمقيمين')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="920" data-price="50.0" data-name="تقديم طلب تواصل">
-        <div class="svc-img"><div class="icon-circle">📞</div></div>
+      <div class="svc-card" data-id="920" data-price="50.0" data-name="تقديم طلب تواصل" data-desc="خدمة تقديم طلب تواصل عبر منصة &quot;أبشر أعمال&quot; تتيح لأصحاب المنشآت معالجة المشاكل التقنية أو استكمال المعاملات الاستثنائية لقطاع الجوازات والمرور التي لا يمكن تنفيذها آلياً عبر المنصة." data-reqs="تحديد الخدمة والقطاع: اختيار الخدمة الفرعية المحددة (الجوازات، المرور، إلخ).||شرح المبررات: كتابة وصف دقيق للمشكلة أو الطلب الاستثنائي.||إرفاق المرفقات والإثباتات: رفع صور ضوئية من الهويات، المراسلات، أو الخطابات الرسمية الموجهة للجهة بصيغة PDF أو صورة واضحة.||بيانات التواصل: التأكد من دقة رقم الجوال والبريد الإلكتروني للرد على الطلب.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📞</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة أبشر (أفراد - أعمال)</span>
           <div class="svc-name">تقديم طلب تواصل</div>
@@ -422,8 +446,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم طلب تواصل')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="921" data-price="50.0" data-name="تجديد استمارات السيارات">
-        <div class="svc-img"><div class="icon-circle">🚗</div></div>
+      <div class="svc-card" data-id="921" data-price="50.0" data-name="تجديد استمارات السيارات" data-desc="خدمة تجديد رخص سير المركبات (الاستمارة) عبر منصة &quot;أبشر أعمال&quot; تتيح للمنشآت والشركات تمديد صلاحية استمارات السيارات والشاحنات المسجلة ملكيتها باسم المنشأة." data-reqs="فحص دوري ساري: اجتياز الفحص الفني الدوري بنجاح وتوفير شهادة فحص سارية للمركبة.||وثيقة تأمين سارية: وجود وثيقة تأمين مركبات فعالة ومربوطة بنظام المرور.||سداد رسوم التجديد والتأخير: سداد رسوم تجديد الاستمارة وغرامات التأخير (إن وجدت) عبر نظام سداد.||سداد المخالفات المرورية: تسوية المخالفات المرورية المسجلة على المركبة أو المنشأة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚗</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة أبشر (أفراد - أعمال)</span>
           <div class="svc-name">تجديد استمارات السيارات</div>
@@ -572,8 +596,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاعتراض على المخالفات المرورية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="921" data-price="50.0" data-name="تجديد استمارات السيارات">
-        <div class="svc-img"><div class="icon-circle">🚗</div></div>
+      <div class="svc-card" data-id="921" data-price="50.0" data-name="تجديد استمارات السيارات" data-desc="خدمة تجديد رخص سير المركبات (الاستمارة) عبر منصة &quot;أبشر أعمال&quot; تتيح للمنشآت والشركات تمديد صلاحية استمارات السيارات والشاحنات المسجلة ملكيتها باسم المنشأة." data-reqs="فحص دوري ساري: اجتياز الفحص الفني الدوري بنجاح وتوفير شهادة فحص سارية للمركبة.||وثيقة تأمين سارية: وجود وثيقة تأمين مركبات فعالة ومربوطة بنظام المرور.||سداد رسوم التجديد والتأخير: سداد رسوم تجديد الاستمارة وغرامات التأخير (إن وجدت) عبر نظام سداد.||سداد المخالفات المرورية: تسوية المخالفات المرورية المسجلة على المركبة أو المنشأة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚗</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة أبشر (أفراد - أعمال)</span>
           <div class="svc-name">تجديد استمارات السيارات</div>
@@ -662,6 +686,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -691,6 +736,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
