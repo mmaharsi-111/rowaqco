@@ -148,6 +148,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
 .svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
 .svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
 @media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/balady.html">
@@ -348,8 +352,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار رخصة بلدية (تجارية)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1107" data-price="150.0" data-name="إصدار رخصة عربة متنقلة (فود تراك)">
-        <div class="svc-img"><div class="icon-circle">🚚</div></div>
+      <div class="svc-card" data-id="1107" data-price="150.0" data-name="إصدار رخصة عربة متنقلة (فود تراك)" data-desc='خدمة إصدار رخصة عربة متنقلة (فود تراك) عبر منصة "بلدي" تتيح للمواطنين المباشرين لأعمالهم ممارسة الأنشطة التجارية المتنقلة (مثل تقديم الأطعمة والمشروبات أو الأنشطة غير الغذائية) وتخصيص موقع أو مسار للعمل بشكل نظامي ودون الحاجة لتأسيس شركة أو استخراج سجل تجاري مستقل.' data-conditions="ألا يقل العمر عن 18 سنة وأن يكون المتقدم سعودي الجنسية وغير موظف حكومي.||العمل الشخصي: الالتزام بالعمل في العربة بنفسه.||عدم وجود رخص سابقة: ألا يمتلك المتقدم رخصة تجارية أخرى أو رخصة عربة متنقلة سارية (تُمنح رخصة واحدة فقط للمواطن).||لا يتطلب سجلاً تجارياً: يتم إصدار شهادة عمل حر بشكل استباقي ومجاني فور صدور الرخصة." data-reqs="الشهادة الصحية: سارية المفعول لصاحب العمل أو العاملين للأنشطة الغذائية.||صور العربة المتنقلة: صور أصلية واضحة للعينات الخارجية والداخلية للعربة وتجهيزاتها وتوضح اللوحة الخارجية.||وثائق المركبة (في حال كانت سيارة/مقطورة): رخصة السير (الاستمارة) أو إثبات الملكية، شهادة الفحص الدوري سارية المفعول، ووثيقة التأمين على المركبة.||تجهيزات واشتراطات السلامة (الدفاع المدني): توفير أدوات وطفايات الحريق ومطابقة الأبعاد والتوصيلات الكهربائية حسب لائحة الفود تراك.||كاميرات مراقبة وتعهد بالالتزام: رفع التعهدات المطلوبة إلكترونياً عبر المنصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚚</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
           <div class="svc-name">إصدار رخصة عربة متنقلة (فود تراك)</div>
@@ -588,6 +592,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     </div>
     <div class="svc-modal-body">
       <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
       <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
       <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
       <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
@@ -628,12 +636,21 @@ function openServiceInfo(iconEl) {
   const name = card.dataset.name || '';
   const desc = card.dataset.desc || '';
   const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
 
   document.getElementById('svcModalTitle').textContent = name;
   document.getElementById('svcModalDesc').textContent = desc;
   document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
     `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
   ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
 
   document.getElementById('svcModalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
