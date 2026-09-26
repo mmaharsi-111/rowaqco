@@ -129,6 +129,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/mudad.html">
 <meta property="og:type" content="website">
@@ -298,8 +322,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1157" data-price="30.0" data-name="ربط الحساب البنكي للمؤسسة مع مدد">
-        <div class="svc-img"><div class="icon-circle">🏦</div></div>
+      <div class="svc-card" data-id="1157" data-price="30.0" data-name="ربط الحساب البنكي للمؤسسة مع مدد" data-desc="خدمة ربط الحساب البنكي للمؤسسة عبر منصة &quot;مدد&quot; تتيح للمنشآت ربط حسابها المصرفي التجاري بنظام إدارة الرواتب أو نظام حماية الأجور لتحويل الأجور آلياً وتوثيق ملفات الصرف." data-reqs="حساب منشأة نشط: مسجل ومعتمد في منصة مدد.||حساب بنكي تجاري نشط: باسم المنشأة ومسجل في أحد البنوك السعودية المعتمدة.||رقم الآيبان (IBAN): مطابقة اسم المنشأة في البنك مع اسمها في السجل التجاري والمنصة.||صلاحية التفويض البنكي: موافقة الشخص المفوض بالتعاملات المالية مع الربط الإلكتروني أو رمز التحقق.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏦</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الاعمال</span>
           <div class="svc-name">ربط الحساب البنكي للمؤسسة مع مدد</div>
@@ -308,8 +332,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'ربط الحساب البنكي للمؤسسة مع مدد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1158" data-price="86.0" data-name="تسجيل منشأة في مدد">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1158" data-price="86.0" data-name="تسجيل منشأة في مدد" data-desc="خدمة تسجيل منشأة جديدة في منصة &quot;مدد&quot; تتيح لأصحاب الأعمال ربط منشآتهم بالنظام الوطني لإدارة الرواتب والالتزام بنظام حماية الأجور المعتمد من وزارة الموارد البشرية." data-reqs="سجل تجاري ساري المفعول: بنفس بيانات صاحب المنشأة أو المؤسسة.||حساب فعال في منصة قوى: ربط المنشأة وملفها العمالي المسجل لدى وزارة الموارد البشرية.||بيانات التواصل وصاحب العمل: رقم الهوية/الإقامة والبريد الإلكتروني ورقم الجوال المربوط بالنفاذ الوطني (أبشر).||سداد الاشتراك السنوي: سداد قيمة اشتراك المنصة بناءً على عدد العمالة في المنشأة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة مدد (الرواتب)</span>
           <div class="svc-name">تسجيل منشأة في مدد</div>
@@ -318,8 +342,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل منشأة في مدد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1159" data-price="30.0" data-name="طباعة تقارير إدارة الرواتب">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+      <div class="svc-card" data-id="1159" data-price="30.0" data-name="طباعة تقارير إدارة الرواتب" data-desc="خدمة طباعة تقارير إدارة الرواتب عبر منصة &quot;مدد&quot; تتيح لأصحاب المنشآت استخراج وتنزيل تقارير مالية وتفصيلية تفصح عن حركة الرواتب، البدلات، والخصومات الشهرية للموظفين لغايات الأرشفة أو المراجعة المحاسبية." data-reqs="حساب منشأة نشط: مسجل في نظام إدارة الرواتب بمنصة مدد.||رفع ومعالجة مسيرات الرواتب: وجود مسيرات رواتب مكتملة ومصروفة إلكترونياً عن الفترة المالية المطلوبة.||صلاحية الوصول: دخول المالك أو المفوض المالي المصرح له على الحساب.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖨️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التأسيس</span>
           <div class="svc-name">طباعة تقارير إدارة الرواتب</div>
@@ -328,8 +352,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة تقارير إدارة الرواتب')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1160" data-price="30.0" data-name="طباعة تقرير حماية الأجور">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1160" data-price="30.0" data-name="طباعة تقرير حماية الأجور" data-desc="خدمة طباعة تقرير نظام حماية الأجور عبر منصة &quot;مدد&quot; تتيح للمنشآت استخراج الشهادات والتقارير الرسمية التي تثبت نسبة التزام المنشأة بصرف أجور العاملين في مواعيدها ومطابقتها للشروط الحكومية." data-reqs="الالتزام بنظام حماية الأجور: رفع ملفات الأجور بشكل منتظم عن الشهر المطلوب.||معالجة الملاحظات: تقديم المبررات وصرف المستحقات لمعالجة أي فروقات أو ملاحظات مرصودة.||اعتماد ملف الرواتب: اكتمال عملية معالجة ملف الأجور من البنك والمنصة بنجاح.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة مدد (الرواتب)</span>
           <div class="svc-name">طباعة تقرير حماية الأجور</div>
@@ -338,8 +362,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة تقرير حماية الأجور')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1161" data-price="50.0" data-name="رفع مسير رواتب الموظفين الشهرية في مدد">
-        <div class="svc-img"><div class="icon-circle">📤</div></div>
+      <div class="svc-card" data-id="1161" data-price="50.0" data-name="رفع مسير رواتب الموظفين الشهرية في مدد" data-desc="خدمة رفع مسير الرواتب الشهري عبر منصة &quot;مدد&quot; تتيح للمنشآت رفع الملفات المالية الخاصة بأجور العاملين ومعالجتها لتحويل المستحقات وإرسال بيانات حماية الأجور إلكترونياً لوزارة الموارد البشرية." data-reqs="ملف مسير الرواتب المعتمد: إعداد مسير الرواتب بصيغة الملف المعتمدة (Excel/CSV) أو عبر منشئ المسيرات بالمنصة.||بيانات الآيبان (IBAN) للموظفين: صحة أرقام الحسابات البنكية أو بطاقات الرواتب الخاصة بجميع العاملين.||توثيق العقود: وجود عقود عمل موثقة للموظفين عبر منصة قوى.||توفر الرصيد المالي: وجود سيولة كافية في الحساب البنكي المرتبط لتغطية إجمالي الرواتب ورسوم التحويل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📤</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
           <div class="svc-name">رفع مسير رواتب الموظفين الشهرية في مدد</div>
@@ -348,8 +372,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع مسير رواتب الموظفين الشهرية في مدد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1162" data-price="30.0" data-name="إضافة موظفين في مدد">
-        <div class="svc-img"><div class="icon-circle">👥</div></div>
+      <div class="svc-card" data-id="1162" data-price="30.0" data-name="إضافة موظفين في مدد" data-desc="خدمة إضافة وتحديث بيانات الموظفين في منصة &quot;مدد&quot; تتيح تسجيل عمالة جديدة أو تحديث التفاصيل المالية للموظفين القائمين لإدراجهم ضمن مسير الرواتب ونظام حماية الأجور." data-reqs="تسجيل الموظف في منصة قوى: إدراج العامل وتوثيق عقده أولاً في منصة قوى.||رقم الهوية أو الإقامة: سارية المفعول للموظف المراد إضافته.||بيانات الحساب البنكي (IBAN): الحساب البنكي الخاص بالموظف لصرف الراتب.||تفاصيل الأجر: تحديد الأجر الأساسي، بدل السكن، والبدلات الأخرى بدقة وفق العقد الموثق.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👥</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الاعمال</span>
           <div class="svc-name">إضافة موظفين في مدد</div>
@@ -358,8 +382,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إضافة موظفين في مدد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1163" data-price="100.0" data-name="فتح حساب بنكي للمؤسسة في بنك اس تي سي وربطه مع مدد">
-        <div class="svc-img"><div class="icon-circle">🏧</div></div>
+      <div class="svc-card" data-id="1163" data-price="100.0" data-name="فتح حساب بنكي للمؤسسة في بنك اس تي سي وربطه مع مدد" data-desc="خدمة فتح حساب تجاري في stc pay وربطه بمدد تتيح لأصحاب المنشآت إنشاء حساب أعمال رقمي في stc pay وربطه آلياً بمدد لدفع الرواتب فورياً وإنجاز متطلبات حماية الأجور بسهولة." data-reqs="سجل تجاري ساري المفعول: باسم المؤسسة.||حساب محفظة أعمال stc pay (Business Account): مفعّل باسم المنشأة عبر منصة stc pay للأعمال.||حساب نشط في منصة مدد: مسجل ومكتمل البيانات.||توثيق النفاذ الوطني: إتمام التحقق الأمني لمالك المنشأة أو المفوض الرسمي عبر أبشر.||الموافقة على الربط الإلكتروني: الموافقة على مشاركة البيانات والربط الآلي بين تطبيق stc pay للأعمال ومنصة مدد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏧</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التأسيس</span>
           <div class="svc-name">فتح حساب بنكي للمؤسسة في بنك اس تي سي وربطه مع مدد</div>
@@ -438,6 +462,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -464,6 +509,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
