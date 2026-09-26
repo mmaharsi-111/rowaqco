@@ -132,6 +132,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/noor-faris.html">
 <meta property="og:type" content="website">
@@ -309,8 +333,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="grid-noor">
 
-      <div class="svc-card" data-id="1212" data-price="50" data-name="تسجيل طالب جديد">
-        <div class="svc-img"><div class="icon-circle">📝</div></div>
+      <div class="svc-card" data-id="1212" data-price="50" data-name="تسجيل طالب جديد" data-desc="خدمة تسجيل طالب جديد عبر &quot;منصة نور&quot; تتيح لأولياء الأمور تسجيل أطفالهم المقبولين في المدارس الحكومية والأهلية والأجنبية لبدء مسيرتهم التعليمية." data-reqs="بلوغ السن النظامية للقبول: استيفاء شرط السن المعتمد من وزارة التعليم للعام الدراسي.||سريان هوية الطالب وولي الأمر: بطاقة الهوية الوطنية للسعوديين، أو الإقامة النظامية للمقيمين.||شهادة الميلاد وتطعيمات الطفل: نسخة ضوئية من شهادة الميلاد وسجل التطعيمات الأساسية المكتملة.||إثبات السكن: صك ملكية أو عقد إيجار إلكتروني موثق لربط الطالب بالمدرسة القريبة من السكن.||الفحص الطبي التمهيدي: اجتياز اللياقة الطبية في أحد المراكز الصحية المعتمدة ورفعه بالنظام.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📝</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة نور</span>
           <div class="svc-name">تسجيل طالب جديد</div>
@@ -319,8 +343,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل طالب جديد - نور')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1213" data-price="50" data-name="نقل طالب من مدرسة إلى مدرسة">
-        <div class="svc-img"><div class="icon-circle">🏫</div></div>
+      <div class="svc-card" data-id="1213" data-price="50" data-name="نقل طالب من مدرسة إلى مدرسة" data-desc="خدمة نقل طالب بين المدارس عبر &quot;منصة نور&quot; تتيح لأولياء الأمور تحويل ملف الطالب من مدرسته الحالية إلى مدرسة أخرى حسب الشاغر والمحيط الجغرافي." data-reqs="حساب ولي الأمر في منصة نور: الدخول ببيانات ولي الأمر المعتمدة بالمنصة.||توفر شاغر بالمدرسة المطلوبة: إتاحة مقاعد شاغرة في الصف المحدد بالمدرسة المراد النقل إليها.||موافقة المدرسة المنقول إليها: القبول الإلكتروني من قائد المدرسة الجديدة عبر المنصة.||تحديث العنوان السكني: إرفاق إثبات السكن الجديد إذا كان النقل خارج القطاع التعليمي الحالي.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏫</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة نور</span>
           <div class="svc-name">نقل طالب من مدرسة إلى مدرسة</div>
@@ -329,8 +353,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل طالب من مدرسة إلى مدرسة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1214" data-price="75" data-name="تسجيل الطلبة في المرحلة الابتدائية">
-        <div class="svc-img"><div class="icon-circle">🖊️</div></div>
+      <div class="svc-card" data-id="1214" data-price="75" data-name="تسجيل الطلبة في المرحلة الابتدائية" data-desc="خدمة تسجيل طلاب الصف الأول الابتدائي عبر &quot;منصة نور&quot; تتيح لأولياء الأمور التقديم الإلكتروني للالتحاق بالصف الأول حسب المواعيد والأولوية الزمنية المحددة." data-reqs="السن النظامية للقبول: بلوغ سن 6 سنوات أو أقل بـ90 يوماً كحد أدنى عند بدء العام الدراسي.||اجتياز الروضة (للمستثنين في السن): شهادة نمو واجتياز مرحلة رياض الأطفال من روضة معتمدة.||الفحص الطبي للطفل: إجراء الفحص الطبي المعتمد في مراكز الرعاية الصحية الأولية.||سريان الهوية والسكن: هوية وطنية/إقامة سارية المفعول وإثبات العنوان الوطني لولي الأمر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖊️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة نور</span>
           <div class="svc-name">تسجيل الطلبة في المرحلة الابتدائية</div>
@@ -339,8 +363,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل الطلبة في المرحلة الابتدائية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1215" data-price="100" data-name="تسجيل طالب جديد (أجنبي)">
-        <div class="svc-img"><div class="icon-circle">🌍</div></div>
+      <div class="svc-card" data-id="1215" data-price="100" data-name="تسجيل طالب جديد (أجنبي)" data-desc="خدمة تسجيل الطلاب غير السعوديين عبر &quot;منصة نور&quot; تتيح للمقيمين تسجيل أطفالهم بالمدارس السعودية وفق النسب المحددة والضوابط المنظمة لتعليم المقيمين." data-reqs="إقامة سارية المفعول: إقامة سارية للطفل وولي أمره داخل المملكة.||جواز سفر ساري المفعول: للطفل المتقدم.||معادلة وتصديق الشهادات: تصديق شهادات السنوات السابقة ومعادلتها من الإدارة العامة للمقومات والشهادات بالوزارة.||مشهد عمل ولي الأمر: إثبات جهة عمل ولي الأمر ومفردات الأجر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌍</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة نور</span>
           <div class="svc-name">تسجيل طالب جديد (أجنبي)</div>
@@ -349,8 +373,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل طالب جديد (أجنبي)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1216" data-price="50" data-name="تسجيل طالب في النقل الدراسي (رافد)">
-        <div class="svc-img"><div class="icon-circle">🚌</div></div>
+      <div class="svc-card" data-id="1216" data-price="50" data-name="تسجيل طالب في النقل الدراسي (رافد)" data-desc="خدمة طلب النقل المدرسي (خدمات رافد) عبر &quot;منصة نور&quot; تتيح لأولياء الأمور التقديم والتسجيل للحصول على خدمة الحافلات المدرسية لنقل أطفالهم يومياً." data-reqs="حساب في منصة نور: تحديد الطالب المراد تسجيله من قائمة الأبناء.||تحديد موقع المنزل بدقة: خريطة سكن الطالب المحدثة للنقل المدرسي.||سداد أجور النقل: سداد المقابل المالي للخدمة عبر نظام سداد (استثناء الحالات المستفيدة من الضمان الاجتماعي).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚌</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة نور</span>
           <div class="svc-name">تسجيل طالب في النقل الدراسي (رافد)</div>
@@ -359,8 +383,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل طالب في النقل الدراسي (رافد)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1217" data-price="200" data-name="تسجيل خطة النشاط في منصة نور (فصل كامل)">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1217" data-price="200" data-name="تسجيل خطة النشاط في منصة نور (فصل كامل)" data-desc="خدمة اعتماد وتسجيل خطط النشاط الطلابي عبر &quot;منصة نور&quot; تتيح للمدارس والكوادر التعليمية رفع البرامج والأنشطة اللامنهجية المعتمدة للفصل الدراسي." data-reqs="صلاحية رائد النشاط/المدير: الدخول بحساب الكادر المعتمد في منصة نور.||المخطط التنفيذي للأنشطة: إدخال أهداف الجدول والأنشطة المحددة وفق أدلة وزارة التعليم.||اعتماد إدارة المدرسة: الموافقة الإلكترونية من مدير المدرسة على الخطة المرفوعة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة نور</span>
           <div class="svc-name">تسجيل خطة النشاط في منصة نور (فصل كامل)</div>
@@ -369,8 +393,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل خطة النشاط في منصة نور (فصل كامل)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1218" data-price="20" data-name="الاستعلام عن نتائج الطلاب">
-        <div class="svc-img"><div class="icon-circle">📊</div></div>
+      <div class="svc-card" data-id="1218" data-price="20" data-name="الاستعلام عن نتائج الطلاب" data-desc="خدمة الاستعلام عن النتائج وإشعارات الدرجات عبر &quot;منصة نور&quot; تتيح للطلاب وأولياء أمورهم الاطلاع على تقارير الدرجات والنتائج النهائية إلكترونياً." data-reqs="بيانات الدخول لحساب نور: اسم المستخدم وكلمة المرور الخاصة بولي الأمر أو الطالب.||رقم الهوية الوطنية/الإقامة: الاستعلام المباشر عبر رمز التحقق برقم الهوية عند تفعيل رابط النتائج السريع.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📊</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة نور</span>
           <div class="svc-name">الاستعلام عن نتائج الطلاب</div>
@@ -379,8 +403,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن نتائج الطلاب')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1219" data-price="40" data-name="تسجيل الطلاب في رياض الأطفال">
-        <div class="svc-img"><div class="icon-circle">🧸</div></div>
+      <div class="svc-card" data-id="1219" data-price="40" data-name="تسجيل الطلاب في رياض الأطفال" data-desc="خدمة تسجيل الأطفال في مرحلة رياض الأطفال عبر &quot;منصة نور&quot; تتيح لأولياء الأمور حجز مقاعد لأطفالهم في الروضات الحكومية والأهلية حسب المستويات الثلاثة." data-reqs="عمر الطفل النظامي: تحديد المستوى المناسب (المستوى الأول، الثاني، أو الثالث) بحسب تاريخ الميلاد.||شهادة الميلاد وسجل الأسرة: نسخة إلكترونية من شهادة ميلاد الطفل أو سجل الأسرة.||شهادة التطعيمات: كارت تطعيمات الطفل المكتملة.||الفحص الطبي: استكمال كشف اللياقة الطبية من المركز الصحي.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🧸</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة التعليم</span>
           <div class="svc-name">تسجيل الطلاب في رياض الأطفال</div>
@@ -399,8 +423,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="grid-faris">
 
-      <div class="svc-card" data-id="1220" data-price="50" data-name="التسجيل في نظام فارس للمعلمين">
-        <div class="svc-img"><div class="icon-circle">🖥️</div></div>
+      <div class="svc-card" data-id="1220" data-price="50" data-name="التسجيل في نظام فارس للمعلمين" data-desc="خدمة التسجيل وإنشاء حساب في نظام فارس تتيح للكادر التعليمي والإداري بوزارة التعليم التأسيس الرقمي للاستفادة من الخدمات الذاتية للموارد البشرية." data-reqs="رقم الهوية الوطنية/الإقامة: الخاصة بالمعلم أو الموظف.||الآيبان البنكي (IBAN): الحساب البنكي المسجل بنظام الرواتب بالوزارة.||البريد الإلكتروني الوزاري ورقم الجوال: المسجل في بيانات الموظف الرسمية بالوزارة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖥️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة فارس (التعليم)</span>
           <div class="svc-name">التسجيل في نظام فارس للمعلمين</div>
@@ -409,8 +433,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التسجيل في نظام فارس للمعلمين')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1221" data-price="50" data-name="طلب إجازة للمعلمين والمعلمات">
-        <div class="svc-img"><div class="icon-circle">🏖️</div></div>
+      <div class="svc-card" data-id="1221" data-price="50" data-name="طلب إجازة للمعلمين والمعلمات" data-desc="خدمة رفع طلب إجازة عبر &quot;نظام فارس&quot; تتيح للمعلمين والمعلمات تقديم طلبات الإجازات (عادية، مرضية، اضطرارية، وضع، أمومة) والاعتماد الإلكتروني من المدير المباشر." data-reqs="تحديد نوع ومدة الإجازة: اختيار نوع الإجازة وتاريخ البدء والانتهاء.||التقارير الطبية المعتمدة (للإجازة المرضية): التقارير الصادرة عبر منصة صحتي والمربوطة بالأنظمة.||المرفقات الداعمة: إرفاق الخطابات والشهادات المعتمدة بحسب نوع الإجازة المحددة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة فارس (التعليم)</span>
           <div class="svc-name">طلب إجازة للمعلمين والمعلمات</div>
@@ -419,8 +443,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب إجازة للمعلمين والمعلمات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1222" data-price="50" data-name="طلب تعريف بالراتب للمعلمين والمعلمات">
-        <div class="svc-img"><div class="icon-circle">💰</div></div>
+      <div class="svc-card" data-id="1222" data-price="50" data-name="طلب تعريف بالراتب للمعلمين والمعلمات" data-desc="خدمة إصدار شهادة التعريف بالراتب عبر &quot;نظام فارس&quot; تتيح للكوادر التعليمية والإدارية استخراج وتنزيل شهادة تفصيلية بالأجر والبدلات لتقديمها للجهات المعنية." data-reqs="حساب نشط في نظام فارس: الدخول المباشر بالبيانات المعتمدة للموظف.||تحديد نوع التعريف والجهة: اختيار التعريف (إجمالي، تفصيلي، أو موجه لجهة محددة).||الطباعة والتنزيل: تحميل الوثيقة فورياً بصيغة PDF ومزودة بالختم والرمز الرقمي.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💰</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة فارس (التعليم)</span>
           <div class="svc-name">طلب تعريف بالراتب للمعلمين والمعلمات</div>
@@ -499,6 +523,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -527,6 +572,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
