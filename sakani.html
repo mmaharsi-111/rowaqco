@@ -128,6 +128,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/sakani.html">
 <meta property="og:type" content="website">
@@ -299,8 +323,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1258" data-price="30.0" data-name="الاستعلام عن حالة الأهلية">
-        <div class="svc-img"><div class="icon-circle">🔍</div></div>
+      <div class="svc-card" data-id="1258" data-price="30.0" data-name="الاستعلام عن حالة الأهلية" data-desc="خدمة الاستعلام عن حالة الأهلية للاستحقاق السكني عبر منصة &quot;سكني&quot; تتيح للمواطنين والمواطنات التحقق الفوري من مدى استحقاقهم للدعم السكني الحكومي وفق الاشتراطات واللوائح المعتمدة لدى وزارة البلديات والإسكان." data-reqs="هوية وطنية سارية المفعول: عدم وجود مسكن مناسب مسجل باسم المتقدم أو أحد أفراد أسرته خلال الخمس سنوات الماضية.||السن النظامية وحالة الأسرة: ألا يقل عمر المتقدم عن 25 عاماً (استثناء الزوج أو الأب)، وأن تكون الأسرة مكونة من زوج وزوجة/أبناء.||عدم الاستفادة السابقة: ألا يكون المتقدم أو أحد أفراد أسرته قد استفاد مسبقاً من برنامج دعم سكني حكومي أو خاص.||توثيق بيانات الأسرة: تحديث السجل المدني وبيانات الدخل والتواصل عبر النفاذ الوطني الموحد (أبشر).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔍</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة سكني</span>
           <div class="svc-name">الاستعلام عن حالة الأهلية</div>
@@ -309,8 +333,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن حالة الأهلية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1259" data-price="50.0" data-name="إصدار شهادة إعفاء من ضريبة المسكن الأول">
-        <div class="svc-img"><div class="icon-circle">📜</div></div>
+      <div class="svc-card" data-id="1259" data-price="50.0" data-name="إصدار شهادة إعفاء من ضريبة المسكن الأول" data-desc="خدمة إصدار شهادة الإعفاء من ضريبة التصرفات العقارية للمسكن الأول عبر منصة &quot;سكني&quot; تتيح للمواطنين شراء مسكنهم الأول وتتحمل الدولة عنهم ضريبة التصرفات العقارية بنسبة 5% بما لا يتجاوز مليون ريال من سعر الشراء." data-reqs="صلاحية الأهلية بالمنصة: أن يكون المواطن حاصلاً على حالة استحقاق مقبولة ونشطة في منصة سكني.||عدم وجود مسكن مسجل سابقاً: إثبات أن العقار المراد شراؤه هو المسكن الأول للمواطن.||بيانات العقار والبائع: توفير الرقم المرجعي للعقار المقيد في هيئة الزكاة والضريبة والجمارك ورقم هوية البائع.||تطابق استخدام العقار: أن يكون العقار سكنياً وجاهزاً أو تحت الإنشاء للاستخدام الشخصي المباشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📜</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة سكني</span>
           <div class="svc-name">إصدار شهادة إعفاء من ضريبة المسكن الأول</div>
@@ -319,8 +343,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة إعفاء من ضريبة المسكن الأول')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1260" data-price="100.0" data-name="التقديم على حجز أرض مجانية في سكني">
-        <div class="svc-img"><div class="icon-circle">🏗️</div></div>
+      <div class="svc-card" data-id="1260" data-price="100.0" data-name="التقديم على حجز أرض مجانية في سكني" data-desc="خدمة التقديم وحجز الأراضي المجانية عبر منصة &quot;سكني&quot; تتيح للمواطنين المستحقين للدعم اختيار وحجز قطع الأراضي المخططة والمطورة المتاحة من قبل الوزارة وتملكها بدون مقابل." data-reqs="حالة استحقاق نشطة: استيفاء كافة شروط الأهلية المعتمدة في منصة سكني.||تحديد المدينة والمخطط: توفر مخططات أراضٍ أُتيح فيها الحجز إلكترونياً في المنطقة المحددة.||الالتزام بالبناء: التعهد الإلكتروني ببدء واستكمال أعمال البناء خلال المهلة الزمنية المحددة في العقد.||عقد أرض إلكتروني: توثيق عقد تملك الأرض المخصص إلكترونياً عبر المنصة فور الحجز.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏗️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة سكني</span>
           <div class="svc-name">التقديم على حجز أرض مجانية في سكني</div>
@@ -329,8 +353,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التقديم على حجز أرض مجانية في سكني')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1261" data-price="86.0" data-name="تسجيل في مستشارك العقاري">
-        <div class="svc-img"><div class="icon-circle">🏢</div></div>
+      <div class="svc-card" data-id="1261" data-price="86.0" data-name="تسجيل في مستشارك العقاري" data-desc="خدمة التسجيل في خدمة مستشارك العقاري عبر منصة &quot;سكني&quot; تتيح للمستفيدين الحصول على توصيات وتحليلات تمويلية وسكنية مخصصة ومقارنة الحلول بين البنوك والجهات التمويلية لتسهيل رحلة شراء أو بناء المسكن." data-reqs="حساب نشط في منصة سكني: توفر حالة أهلية استحقاق بالمنصة.||بيانات الدخل الشهري: تحديد إجمالي الراتب والتسهيلات المالية والالتزامات القائمة.||بيانات جهة العمل: تحديد نوع القطاع (حكومي، عسكري، خاص، متقاعد).||البيانات التفصيلية للعقار: تفاصيل نوع العقار وتكلفته التقديرية في حال تم اختياره المسبق.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏢</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة سكني</span>
           <div class="svc-name">تسجيل في مستشارك العقاري</div>
@@ -409,6 +433,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -435,6 +480,41 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
