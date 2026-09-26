@@ -130,6 +130,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/fasah.html">
 <meta property="og:type" content="website">
@@ -301,8 +325,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1099" data-price="50.0" data-name="إنشاء وتفعيل حساب المنشأة">
-        <div class="svc-img"><div class="icon-circle">🏢</div></div>
+      <div class="svc-card" data-id="1099" data-price="50.0" data-name="إنشاء وتفعيل حساب المنشأة" data-desc="خدمة إنشاء وتفعيل حساب المنشأة عبر منصة &quot;فسح&quot; تتيح للمستوردين، المصدرين، والمخلصين الجمركيين تأسيس حساب رقمي موحد لإدارة العمليات الجمركية والتقديم على الفسح الجمركي للبضائع إلكترونياً." data-reqs="سجل تجاري ساري المفعول: يتضمن أنشطة الاستيراد، التصدير، أو التخليص الجمركي.||العنوان الوطني للمنشأة: عنوان تجاري معتمد ومسجل لدى البريد السعودي (سبل).||التوثيق عبر النفاذ الوطني: تسجيل الدخول ببيانات صاحب العمل أو المفوض المعتمد لدى وزارة التجارة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏢</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة فسح</span>
           <div class="svc-name">إنشاء وتفعيل حساب المنشأة</div>
@@ -311,8 +335,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إنشاء وتفعيل حساب المنشأة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1100" data-price="50.0" data-name="إصدار وتجديد التفاويض الإلكترونية">
-        <div class="svc-img"><div class="icon-circle">📑</div></div>
+      <div class="svc-card" data-id="1100" data-price="50.0" data-name="إصدار وتجديد التفاويض الإلكترونية" data-desc="خدمة إصدار وتجديد التفاويض الجمركية الإلكترونية تتيح للمنشآت والمستوردين تفويض المخلصين الجمركيين المعتمدين لإتمام إجراءات التخليص والفسح للبضائع والشحنات عبر المنافذ الحدودية." data-reqs="حساب نشط بالمنصة: وجود حساب مفعل للمنشأة في منصة فسح.||بيانات المخلص الجمركي: رقم رخصة التخليص الجمركي أو الهوية الوطنية/الإقامة للمخلص التفويضي.||تحديد نطاق التفويض: تحديد المنافذ الجمركية المشمولة بالرخصة وصلاحية التفويض (زمني أو بشحنة محددة).||سداد المقابل المالي: دفع الرسوم المقررة لإصدار أو تجديد التفاويض بالمنصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📑</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة فسح</span>
           <div class="svc-name">إصدار وتجديد التفاويض الإلكترونية</div>
@@ -321,8 +345,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار وتجديد التفاويض الإلكترونية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1101" data-price="50.0" data-name="تقديم خطابات التعديل الإلكترونية">
-        <div class="svc-img"><div class="icon-circle">✏️</div></div>
+      <div class="svc-card" data-id="1101" data-price="50.0" data-name="تقديم خطابات التعديل الإلكترونية" data-desc="خدمة تقديم خطابات التعديل الإلكترونية تتيح للمستوردين والمخلصين تقديم طلبات إلكترونية لتعديل البيانات الواردة في البيانات الجمركية أو الشحنات قبل أو بعد المعاينة." data-reqs="رقم البيان الجمركي / بوليصة الشحن: البيان الجمركي المراد إجراء التعديل على بياناته.||المستندات الداعمة للتعديل: رفع الفواتير المعدلة، شهادات الأصل، أو خطابات التوضيح المعتمدة رسمياً.||موافقة أطراف الشحنة: التعهد بصحة البيانات المعدلة ومطابقتها للواقع الميداني.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">✏️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة فسح</span>
           <div class="svc-name">تقديم خطابات التعديل الإلكترونية</div>
@@ -331,8 +355,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم خطابات التعديل الإلكترونية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1102" data-price="50.0" data-name="تصدير بيانات الصادرات والواردات">
-        <div class="svc-img"><div class="icon-circle">📊</div></div>
+      <div class="svc-card" data-id="1102" data-price="50.0" data-name="تصدير بيانات الصادرات والواردات" data-desc="خدمة تصدير بيانات الاستيراد والتصدير تتيح للمنشآت التجارية استخراج كشوفات وتقارير إلكترونية تفصيلية لكافة حركة الشحنات والبيانات الجمركية السابقة الخاصة بملف المنشأة." data-reqs="صلاحية الوصول للحساب: حساب نشط للمنشأة مسجل وموثق بالنفاذ الوطني.||تحديد الفترة الزمنية: تحديد التاريخ والمدى الزمني المطلوب له تقارير الصادرات أو الواردات.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📊</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة فسح</span>
           <div class="svc-name">تصدير بيانات الصادرات والواردات</div>
@@ -411,6 +435,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -434,6 +479,41 @@ function sortServices(val) {
   });
   cards.forEach(c => grid.appendChild(c));
 }
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
