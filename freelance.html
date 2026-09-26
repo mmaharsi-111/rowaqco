@@ -131,6 +131,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/freelance.html">
 <meta property="og:type" content="website">
@@ -302,8 +326,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1281" data-price="100.0" data-name="التسجيل في تابي أو تمارا">
-        <div class="svc-img"><div class="icon-circle">💳</div></div>
+      <div class="svc-card" data-id="1281" data-price="100.0" data-name="التسجيل في تابي أو تمارا" data-desc="خدمة التسجيل في حلول الدفع الآجل (تابي/تمارا) تتيح لأصحاب المتاجر الإلكترونية والممارسين المستقلين ربط وثيقة العمل الحر أو التجارة الإلكترونية ببوابات الدفع الآجل لتقسيط المشتريات للعملاء." data-reqs="وثيقة عمل حر أو شهادة توثيق متجر: وثيقة عمل حر سارية المفعول مسجلة في نشاط التجارة الإلكترونية أو المبيعات.||متجر إلكتروني قائم: رابط متجر إلكتروني نشط يحتوي على المنتجات والشروط وسياسة الاستبدال والاسترجاع.||حساب بنكي تجاري/مستقل: حساب بنكي مرتبط باسم المستفيد لربط بوابة التحويلات المالية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💳</div></div>
         <div class="svc-body">
           <span class="svc-cat">العمل الحر</span>
           <div class="svc-name">التسجيل في تابي أو تمارا</div>
@@ -312,8 +336,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التسجيل في تابي أو تمارا')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1104" data-price="100.0" data-name="فتح حساب بنكي تجاري">
-        <div class="svc-img"><div class="icon-circle">🏦</div></div>
+      <div class="svc-card" data-id="1104" data-price="100.0" data-name="فتح حساب بنكي تجاري" data-desc="خدمة فتح حساب بنكي تجاري للممارس المستقل تتيح للحاصلين على وثائق العمل الحر تأسيس حساب مصرفي مخصص للأعمال ليفصل التعاملات المالية المهنية عن الحسابات الشخصية." data-reqs="وثيقة عمل حر سارية المفعول: صادرة من منصة العمل الحر التابعة لوزارة الموارد البشرية.||الهوية الوطنية: هوية وطنية للمواطن سارية المفعول.||العنوان الوطني: عنوان وطني موثق ومسجل في منصة سبل.||التوثيق عبر النفاذ الوطني: اعتماد فتح الحساب إلكترونياً عبر أبشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏦</div></div>
         <div class="svc-body">
           <span class="svc-cat">العمل الحر</span>
           <div class="svc-name">فتح حساب بنكي تجاري</div>
@@ -322,8 +346,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح حساب بنكي تجاري')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1105" data-price="86.0" data-name="شهادة توثيق التجارة الإلكترونية">
-        <div class="svc-img"><div class="icon-circle">🛒</div></div>
+      <div class="svc-card" data-id="1105" data-price="86.0" data-name="شهادة توثيق التجارة الإلكترونية" data-desc="خدمة إصدار شهادة توثيق المتجر الإلكتروني عبر المركز السعودي للأعمال بالتعاون مع منصة العمل الحر تتيح للممارسين توثيق متاجرهم إلكترونياً وزيادة موثوقية المستهلكين." data-reqs="وثيقة عمل حر نشطة: في تخصصات ومجالات الخدمات الإلكترونية أو المبيعات.||حساب بنكي تجاري: حساب بنكي مرتبط بالوثيقة لاستقبال عمليات المتجر.||رابط المتجر الإلكتروني: رابط فعال ومسجل لأحد المنصات المعتمدة (مثل سلة أو زد أو المنصات المستقلة).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🛒</div></div>
         <div class="svc-body">
           <span class="svc-cat">العمل الحر</span>
           <div class="svc-name">شهادة توثيق التجارة الإلكترونية</div>
@@ -332,8 +356,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'شهادة توثيق التجارة الإلكترونية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1106" data-price="86.0" data-name="التقديم على جهاز نقاط البيع">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+      <div class="svc-card" data-id="1106" data-price="86.0" data-name="التقديم على جهاز نقاط البيع" data-desc="خدمة طلب وتوفير أجهزة نقاط البيع (POS) تتيح لأصحاب المتاجر والمشاريع المستقلة استخراج أجهزة سداد إلكترونية لخدمة عملائهم والدفع عبر بطاقات مدى والبطاقات الائتمانية." data-reqs="وثيقة عمل حر سارية: تغطي نشاط البيع أو تقديم الخدمات الميدانية.||حساب بنكي مرتبط بالوثيقة: حساب بنكي محلي نشط تحول عليه مبالغ المبيعات.||العنوان الوطني: موقع النشاط أو العنوان الوطني المسجل للعميل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖨️</div></div>
         <div class="svc-body">
           <span class="svc-cat">العمل الحر</span>
           <div class="svc-name">التقديم على جهاز نقاط البيع</div>
@@ -342,8 +366,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التقديم على جهاز نقاط البيع')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="996" data-price="100.0" data-name="إصدار رخصة عربة متنقلة (فود تراك)">
-        <div class="svc-img"><div class="icon-circle">🚐</div></div>
+      <div class="svc-card" data-id="996" data-price="100.0" data-name="إصدار رخصة عربة متنقلة (فود تراك)" data-desc="خدمة إصدار وترخيص عربة الأغذية والخدمات المتنقلة تتيح للمواطنين والممارسين المستقلين الحصول على التصاريح البلدية والنظامية لتشغيل الفود تراك والأنشطة المتنقلة." data-reqs="وثيقة عمل حر سارية: في النشاط الغذائي أو الخدمي المتنقل.||شهادة الفحص الفني والمهني للعربة: مطابقة العربة لاشتراطات السلامة والبلدية والدفاع المدني.||الشهادة الصحية: شهادة صحية سارية للممارس صادرة من المنصة البلدية.||تحديد موقع التمركز: اختيار الموقع المعتمد لتمركز العربة عبر الأمانات أو البلدية التابعة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚐</div></div>
         <div class="svc-body">
           <span class="svc-cat">العمل الحر</span>
           <div class="svc-name">إصدار رخصة عربة متنقلة (فود تراك)</div>
@@ -352,8 +376,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار رخصة عربة متنقلة (فود تراك)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1108" data-price="50.0" data-name="وثيقة عمل حر">
-        <div class="svc-img"><div class="icon-circle">💼📄</div></div>
+      <div class="svc-card" data-id="1108" data-price="50.0" data-name="وثيقة عمل حر" data-desc="خدمة إصدار واستخراج وثيقة العمل الحر عبر البوابة الرسمية تتيح للمواطنين والموهوبين في مختلف التخصصات (مثل البرمجة، التصميم، التسويق، الأغذية) الحصول على وثيقة رسمية معتمدة لممارسة العمل الحر." data-reqs="الجنسية السعودية: أن يكون المتقدم سعودي الجنسية.||العمر النظامي: ألا يقل عمر المتقدم عن 18 عاماً ولا يزيد عن 60 عاماً.||حساب نشط في أبشر: للتأكد من البيانات والتوثيق بالنفاذ الوطني الموحد.||إثبات الكفاءة/معرض الأعمال: رفع ما يثبت المهارة أو التخصص (مثل الشهادات التدريبية، معرض الأعمال، أو نماذج من المشاريع السابقة).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💼📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">العمل الحر</span>
           <div class="svc-name">وثيقة عمل حر</div>
@@ -433,6 +457,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -456,6 +501,41 @@ function sortServices(val) {
   });
   cards.forEach(c => grid.appendChild(c));
 }
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
