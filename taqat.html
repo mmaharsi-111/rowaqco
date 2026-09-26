@@ -132,6 +132,30 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+/* ===== نافذة تفاصيل الخدمة ===== */
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/taqat.html">
 <meta property="og:type" content="website">
@@ -303,18 +327,18 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1321" data-price="50.0" data-name="تقديم دعم المنشآت">
-        <div class="svc-img"><div class="icon-circle">🏢</div></div>
+      <div class="svc-card" data-id="1321" data-price="50.0" data-name="تقديم دعم المنشآت" data-desc="خدمة تقديم طلب دعم المنشآت عبر منصة &quot;طاقات&quot; تتيح لأصحاب الأعمال والشركات الاستفادة من برامج التوظيف والدعم المالي المقدمة من صندوق تنمية الموارد البشرية (هدف) للمنشآت المستوفية لشروط التوطين." data-reqs="سجل تجاري نشط: خاص بالمنشأة ومسجل في أنظمة الموارد البشرية.||حساب مفعل في طاقات أعمال: ربط المنشأة بالنفاذ الوطني واستكمال بيانات الملف.||الالتزام بنسب التوطين: استيفاء نسبة التوطين المطلوبة بالمنشأة وعدم وجود مخالفات قائمة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏢</div></div>
         <div class="svc-body">
-          <span class="svc-cat alt">خدمات منصات التمويل والفروض</span>
+          <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
           <div class="svc-name">تقديم دعم المنشآت</div>
           <div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">57</span></div>
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم دعم المنشآت')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1322" data-price="86.0" data-name="تسجيل حساب في طاقات">
-        <div class="svc-img"><div class="icon-circle">📝</div></div>
+      <div class="svc-card" data-id="1322" data-price="86.0" data-name="تسجيل حساب في طاقات" data-desc="خدمة التسجيل وإنشاء حساب جديد عبر منصة &quot;طاقات&quot; تتيح للأفراد والمنشآت تأسيس ملف رقمي موحد للوصول لكافة برامج التوظيف والتدريب والدعم المالي." data-reqs="هوية وطنية أو إقامة سارية: للمواطنين أو المقيمين، أو السجل التجاري للمنشآت.||التوثيق عبر النفاذ الوطني (أبشر): تأكيد الحساب ورقم الجوال المعتمد.||تحديث البيانات الأساسية: إدخال العنوان الوطني المؤكد والبريد الإلكتروني.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📝</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
           <div class="svc-name">تسجيل حساب في طاقات</div>
@@ -323,8 +347,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل حساب في طاقات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1323" data-price="50.0" data-name="اعتراض على دفعة ناقصة أو لم تسلم">
-        <div class="svc-img"><div class="icon-circle">⚠️</div></div>
+      <div class="svc-card" data-id="1323" data-price="50.0" data-name="اعتراض على دفعة ناقصة أو لم تسلم" data-desc="خدمة تقديم اعتراض على الدفعات المالية تتيح للمستفيدين من برامج الدعم تقديم طلب مراجعة وتدقيق عند عدم استلام الدفعة المحددة أو عند نزولها ناقصة عن المبلغ المستحق." data-reqs="حساب مستفيد نشط: وجود دعم مالي سابق أو برنامج قائم للمستفيد.||كشف حساب بنكي: كشف حساب يوضح تفاصيل الحركة المالية والدفعات المستلمة.||شرح مبررات الاعتراض: تحديد رقم الدفعة والشهر المعني برفع الاعتراض.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚠️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
           <div class="svc-name">اعتراض على دفعة ناقصة أو لم تسلم</div>
@@ -333,8 +357,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'اعتراض على دفعة ناقصة أو لم تسلم')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1324" data-price="50.0" data-name="تسجيل في إعانة البحث عن عمل">
-        <div class="svc-img"><div class="icon-circle">🔍</div></div>
+      <div class="svc-card" data-id="1324" data-price="50.0" data-name="تسجيل في إعانة البحث عن عمل" data-desc="خدمة التقديم على برنامج إعانة البحث عن عمل تتيح للباحثين عن عمل الحصول على دعم مالي شهري ممتد مع برامج تدريب وتأهيل جادّة تساعدهم في إيجاد فرصة عمل مناسبة." data-reqs="أن يكون المتقدم سعودي الجنسية: أو من أم سعودية.||عمر المتقدم: ألا يقل عن 20 سنة ولا يزيد عن 40 سنة.||عدم وجود دخل أو نشاط تجاري: ألا يكون المتقدم موظفاً في القطاع العام أو الخاص أو حاملاً لسجل تجاري نشط.||عدم استحقاق معاش تقاعدي: ألا يكون يتقاضى أي معاش أو إعانة من الدولة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔍</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
           <div class="svc-name">تسجيل في إعانة البحث عن عمل</div>
@@ -343,40 +367,38 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل في إعانة البحث عن عمل')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1325" data-price="50.0" data-name="تسجيل في دعم توطين">
-        <div class="svc-img"><div class="icon-circle">🇸🇦</div></div>
+      <div class="svc-card" data-id="1325" data-price="50.0" data-name="تسجيل في دعم توطين" data-desc="خدمة التقديم على برنامج دعم التوطين تتيح للمنشآت والشركات الحصول على دعم مالي يغطي نسبة من أجور الموظفين السعوديين الموظفين حديثاً لتشجيع الاستقرار الوظيفي." data-reqs="عقد عمل موثق: توثيق عقد الموظف عبر منصة قوى.||التسجيل في التأمينات: إدراج الموظف ضمن قائمة المشتركين في التأمينات الاجتماعية.||التسجيل ببرنامج هدف: توجيه الطلب عبر حساب المنشأة المعتمد في طاقات.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🇸🇦</div></div>
         <div class="svc-body">
-          <span class="svc-cat alt">خدمات منصات التمويل والفروض</span>
+          <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
           <div class="svc-name">تسجيل في دعم توطين</div>
           <div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">57</span></div>
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل في دعم توطين')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1138" data-price="50.0" data-name="التسجيل في وظائف طاقات">
-        <div class="svc-img"><div class="icon-circle">💼</div></div>
+      <div class="svc-card" data-id="1138" data-price="50.0" data-name="التسجيل في وظائف طاقات" data-desc="خدمة التقديم على الفرص الوظيفية تتيح للباحثين عن عمل التقديم المباشر على الشواغر الوظيفية المعروضة من الشركات والمؤسسات عبر بوابة طاقات." data-reqs="سيرة ذاتية محدثة: إدخال البيانات الأكاديمية والخبرات والمقومات في الملف الشخصي.||حساب مفعل في منصة طاقات: الجاهزية للتقديم ومتابعة حالة الطلبات والمقابلات إلكترونياً.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💼</div></div>
         <div class="svc-body">
-          <span class="svc-cat alt">خدمات التقديم</span>
+          <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
           <div class="svc-name">التسجيل في وظائف طاقات</div>
           <div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">57</span></div>
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التسجيل في وظائف طاقات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1470" data-price="50.0" data-name="تسجيل في دعم حافز">
-        <div class="badge">دعم يصل لـ 2000 ﷼ شهر</div>
-        <div class="svc-img"><div class="icon-circle">💰</div></div>
+      <div class="svc-card" data-id="1470" data-price="50.0" data-name="تسجيل في دعم حافز" data-desc="خدمة التقديم على برنامج حافز (البحث عن عمل / صعوبة الحصول على عمل) تتيح للمواطنين المتقدمين الحصول على مخصص مالي شهري ودورات تدريبية متخصصة لتعزيز فرص توظيفهم." data-reqs="الجنسية والسن النظامي: أن يكون المتقدم سعودياً وتطبق عليه شروط السن الخاصة بالفرع المختار (20-35 سنة لحافز البحث عن عمل / 35-60 سنة لحافز صعوبة الحصول على عمل).||الجدية في البحث: الالتزام بتسجيل الدخول الأسبوعي وإكمال المهام التدريبية المحددة بالمنصة.||عدم وجود أصول أو إيرادات عالية: ألا يكون المتقدم يمتلك نشاطاً تجارياً أو سجلاً يدر دخلاً يتجاوز الحد المانع.||رقم الآيبان البنكي (IBAN): حساب بنكي محلي نشط ومسجل باسم المتقدم لربطه بالصرف.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💰</div></div>
         <div class="svc-body">
-          <span class="svc-cat alt">خدمات منصات التمويل والفروض</span>
+          <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
           <div class="svc-name">تسجيل في دعم حافز</div>
           <div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">57</span></div>
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تسجيل في دعم حافز')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1473" data-price="50.0" data-name="تسجيل في تمهير">
-        <div class="badge">دعم يصل لـ 3000 ﷼ شهرياً</div>
-        <div class="svc-img"><div class="icon-circle">🎓</div></div>
+      <div class="svc-card" data-id="1473" data-price="50.0" data-name="تسجيل في تمهير" data-desc="خدمة التقديم على برنامج التدريب على رأس العمل (تمهير) تتيح للحديثي التخرج من حملة الدبلومات والبكالوريوس وأعلى اكتساب الخبرات العملية وتدريبهم داخل المنشآت الحكومية والخاصة مع مكافأة مالية شهرية من الصندوق." data-reqs="المؤهل التعليمي: شهادة دبلوم (فني/إداري/مهني) أو بكالوريوس أو أعلى معتمدة.||عدم التسجيل بالتأمينات: ألا يكون المتقدم مسجلاً في التأمينات الاجتماعية أو موظفاً خلال الـ 6 أشهر الماضية.||عدم الاستفادة السابقة: ألا يكون قد استفاد من برنامج تمهير سابقاً.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🎓</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة طاقات (أفراد - أعمال)</span>
           <div class="svc-name">تسجيل في تمهير</div>
@@ -456,6 +478,27 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 </footer>
 
 <div id="sidebar-container"></div>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices() {
@@ -479,6 +522,41 @@ function sortServices(val) {
   });
   cards.forEach(c => grid.appendChild(c));
 }
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
