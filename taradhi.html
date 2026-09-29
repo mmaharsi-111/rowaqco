@@ -89,6 +89,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-img{height:110px;display:flex;align-items:center;justify-content:center;padding:12px;background:#fff;}
 .svc-img img{max-height:80px;max-width:140px;object-fit:contain;}
 .icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
 .svc-name{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:34px;}
@@ -283,23 +305,23 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
       </div>
     </div>
     <div class="services-grid" id="services-grid">
-      <div class="svc-card" data-id="1337" data-price="50.0" data-name="تقديم طلب صلح">
-        <div class="svc-img"><div class="icon-circle">🤝</div></div>
+      <div class="svc-card" data-id="1337" data-price="50.0" data-name="تقديم طلب صلح" data-desc='خدمة تقديم طلب الصلح عبر منصة "تراضي" تتيح للأفراد والمنشآت تقديم طلب تسوية ونزاع للتوصل إلى حل ودي بين الأطراف المتنازعة خارج المحاكم وتحرير سند تنفيذ معتمد.' data-reqs="بيانات أطراف النزاع: الهوية الوطنية، الإقامة، أو السجل التجاري ورقم الجوال لكل من مقدم الطلب والطرف الآخر.||تحديد نوع وموضوع النزاع: اختيار تصنيف دعوى الصلح (مالي، تجاري، أحوال شخصية، عقاري، أو مروري).||المستندات والوثائق الداعمة: رفع عقود العمل، الفواتير، الإثباتات المالية، أو المكاتبات المؤيدة لموضوع الطلب.||التوثيق عبر النفاذ الوطني: تسجيل الدخول واعتماد الطلب ببيانات أبشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🤝</div></div>
         <div class="svc-body"><span class="svc-cat">منصة تراضي</span><div class="svc-name">تقديم طلب صلح</div><div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">57</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم طلب صلح')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1338" data-price="30.0" data-name="طباعة وثيقة صلح">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+      <div class="svc-card" data-id="1338" data-price="30.0" data-name="طباعة وثيقة صلح" data-desc="خدمة إصدار وطباعة وثيقة الصلح المعتمدة تتيح للأطراف استخراج نسخة رسمية من وثيقة الصلح بعد التوصل لاتفاق واعتمادها إلكترونياً، حيث تعد الوثيقة سنداً تنفذياً قابلاً للتنفيذ المباشر أمام محاكم التنفيذ." data-reqs="اعتماد وثيقة الصلح: صدور موافقة وقبول الصلح النهائي من كافة أطراف النزاع والمصلح المعتمد.||حساب مفعل بالمنصة: الدخول ببيانات المستفيد عبر النفاذ الوطني الموحد لمباشرة طباعة الوثيقة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖨️</div></div>
         <div class="svc-body"><span class="svc-cat">منصة تراضي</span><div class="svc-name">طباعة وثيقة صلح</div><div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">34</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة وثيقة صلح')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1339" data-price="30.0" data-name="متابعة طلب صلح">
-        <div class="svc-img"><div class="icon-circle">🔍</div></div>
+      <div class="svc-card" data-id="1339" data-price="30.0" data-name="متابعة طلب صلح" data-desc="خدمة متابعة جلسات ومراحل طلب الصلح تتيح لمقدم الطلب والأطراف المعنية الاطلاع على مواعيد الجلسات الافتراضية، التواصل مع المصلح، ومتابعة حالة معالجة القضية خطوة بخطوة." data-reqs="رقم طلب الصلح: إدخال رقم الطلب المرجعي المسجل بالمنصة.||التوثيق بالنفاذ الوطني: تسجيل دخول صاحب الطلب أو أطراف النزاع للاطلاع على التحديثات.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔍</div></div>
         <div class="svc-body"><span class="svc-cat">منصة تراضي</span><div class="svc-name">متابعة طلب صلح</div><div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">34</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'متابعة طلب صلح')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1340" data-price="30.0" data-name="الاستعلام عن طلب تراضي">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1340" data-price="30.0" data-name="الاستعلام عن طلب تراضي" data-desc="خدمة الاستعلام الشامل عن حالة طلبات تراضي تتيح للمستفيدين والجهات التأكد من وجود وتفاصيل طلبات الصلح المقدمة وبيان ما إذا كانت قيد الدراسة، معتمدة، أو منتهية." data-reqs="رقم الطلب أو رقم الهوية/السجل التجاري: الخاص بأحد أطراف الدعوى لبدء عملية الاستعلام المباشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body"><span class="svc-cat">منصة تراضي</span><div class="svc-name">الاستعلام عن طلب تراضي</div><div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val">34</span></div></div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن طلب تراضي')">🛒 أضف للسلة</button></div>
       </div>
@@ -365,10 +387,65 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </footer>
 <div id="sidebar-container"></div>
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 function filterServices(){const q=document.getElementById("search-input").value.trim().toLowerCase();let any=false;document.querySelectorAll(".svc-card").forEach(c=>{const show=!q||(c.dataset.name||"").toLowerCase().includes(q);c.style.display=show?"":"none";if(show)any=true;});document.getElementById("empty-msg").style.display=any?"none":"block";}
 function sortServices(val){const grid=document.getElementById("services-grid");const cards=[...grid.querySelectorAll(".svc-card")];cards.sort((a,b)=>{if(val==="price-asc")return+a.dataset.price-+b.dataset.price;if(val==="price-desc")return+b.dataset.price-+a.dataset.price;if(val==="name")return(a.dataset.name||"").localeCompare(b.dataset.name||"","ar");return 0;});cards.forEach(c=>grid.appendChild(c));}
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
