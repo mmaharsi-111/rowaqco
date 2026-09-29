@@ -88,6 +88,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:130px;display:flex;align-items:center;justify-content:center;padding:14px;}
 .icon-circle{width:74px;height:74px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:32px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
 .svc-name{font-size:13px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:36px;}
@@ -306,8 +328,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1032" data-price="50.0" data-name="تعديل بيانات منشأة" data-cat="قوى عمالة">
-        <div class="svc-img"><div class="icon-circle">✏️</div></div>
+      <div class="svc-card" data-id="1032" data-price="50.0" data-name="تعديل بيانات منشأة" data-cat="قوى عمالة" data-desc='خدمة تعديل وتحديث بيانات المنشأة عبر منصة "قوى" تتيح إدارة وتعديل تفاصيل المنشأة الأساسية مثل العنوان الوطني، بيانات التواصل، الممثل المالي، أو الاسم التجاري.' data-reqs="سجل تجاري ساري ومحدث: مطابقة البيانات المراد تعديلها مع وزارة التجارة.||العنوان الوطني المسجل: توفير عنوان وطني نشط ومحدث باسم المنشأة.||بيانات الممثل القانوني: الهوية الوطنية وصلاحية التمثيل للمنشأة.||تأكيد النفاذ الوطني: التحقق من الطلب عبر حساب صاحب العمل في أبشر.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"✏️</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة قوى (العمالة)</span>
           <div class="svc-name">تعديل بيانات منشأة</div>
@@ -316,8 +338,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل بيانات منشأة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1033" data-price="30.0" data-name="قبول ملكية نقل رخصة بلدية (تجارية)" data-cat="بلدي رخصة نقل">
-        <div class="svc-img"><div class="icon-circle">✅</div></div>
+      <div class="svc-card" data-id="1033" data-price="30.0" data-name="قبول ملكية نقل رخصة بلدية (تجارية)" data-cat="بلدي رخصة نقل" data-desc='خدمة قبول نقل ملكية رخصة نشاط تجاري عبر منصة "بلدي" تتيح للطرف المُنقولة إليه الرخصة (المالك الجديد) الموافقة الإلكترونية على نقل ملكية الرخصة التجارية والتنازل عنها من المالك السابق، لتصبح المنشأة ورخصتها تحت مسؤوليته الكاملة.' data-reqs="طلب نقل ملكية مُرسل من المالك السابق: وجود طلب نقل ملكية نشط ومُدخل من قبل صاحب الرخصة الحالي عبر منصة بلدي.||سجل تجاري ساري المفعول للطرف الجديد: باسم المالك الجديد ومطابق لنفس النشاط التجاري المحدد في الرخصة.||عقد إيجار إلكتروني موثق باسم المالك الجديد (منصة إيجار) أو صك ملكية العقار باسمه.||تصريح الدفاع المدني (سلامة): نقل أو تحديث تصريح السلامة ليكون باسم المالك الجديد أو السجل الجديد.||موافقات الجهات الحكومية المشرفة (إن وجدت): توفير موافقة الجهة التنظيمية للأنشطة الخاصة (مثل وزارة الصحة أو الغذاء والدواء) باسم المالك الجديد.||عدم وجود مخالفات بلدية: تسوية وسداد أي غرامات أو مخالفات مسجلة على الرخصة أو العقار قبل إتمام القبول.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"✅</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة بلدي</span>
           <div class="svc-name">قبول ملكية نقل رخصة بلدية (تجارية)</div>
@@ -326,8 +348,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'قبول ملكية نقل رخصة بلدية (تجارية)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1034" data-price="30.0" data-name="نقل ملكية رخصة بلدية (تجارية)" data-cat="بلدي رخصة نقل">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="1034" data-price="30.0" data-name="نقل ملكية رخصة بلدية (تجارية)" data-cat="بلدي رخصة نقل" data-desc='خدمة نقل ملكية رخصة نشاط تجاري عبر منصة "بلدي" تتيح لصاحب المنشأة الحالي تقديم طلب التنازل عن الرخصة التجارية ونقل ملكيتها إلى طرف آخر (المالك الجديد) إلكترونياً.' data-reqs="رخصة تجارية سارية المفعول: عدم وجود طلبات إلكترونية أخرى معلقة على الرخصة.||عدم وجود مخالفات بلدية: تسوية وسداد جميع الغرامات أو المخالفات المسجلة على الرخصة قبل تقديم الطلب.||بيانات المالك الجديد: رقم الهوية الوطنية أو السجل التجاري للطرف المنقول إليه الرخصة.||سجل تجاري ساري للطرف الجديد: متوافق مع نفس النشاط التجاري الموضح بالرخصة.||عقد إيجار إلكتروني موثق باسم المالك الجديد (منصة إيجار) أو صك ملكية العقار باسمه.||موافقة الدفاع المدني (سلامة): سارية ومحدثة باسم المالك الجديد أو سجله التجاري.||قبول الطلب من المالك الجديد: موافقة الطرف الجديد إلكترونياً عبر منصة بلدي لإتمام عملية نقل الملكية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">نقل ملكية رخصة بلدية (تجارية)</div>
@@ -336,8 +358,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل ملكية رخصة بلدية (تجارية)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1035" data-price="50.0" data-name="تعديل رخصة بلدية (تجارية)" data-cat="بلدي رخصة تعديل">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1035" data-price="50.0" data-name="تعديل رخصة بلدية (تجارية)" data-cat="بلدي رخصة تعديل" data-desc='خدمة تعديل رخصة نشاط تجاري عبر منصة "بلدي" تتيح لأصحاب المنشآت إمكانية التعديل على بيانات الرخصة القائمة (مثل: تغيير النشاط التجاري، تعديل المساحة، تغيير الاسم التجاري، أو تعديل اللوحة الخارجية).' data-reqs="رخصة تجارية سارية المفعول||سجل تجاري ساري: متوافق مع النشاط الجديد في حال تغيير النشاط.||عقد إيجار إلكتروني موثق (منصة إيجار) أو صك ملكية العقار (في حال تعديل الموقع أو المساحة).||موافقة الدفاع المدني: شهادة أدوات سلامة أو تصريح سلامة ساري بحسب طبيعة النشاط والمساحة.||عقد نظافة: مع شركة معتمدة (مطلوب لبعض الأنشطة التجارية).||صورة للمحل/اللوحة: (مطلوبة فقط في حال تعديل بيانات اللوحة الخارجية أو واجهة المحل).||موافقات الجهات الحكومية المشرفة: (إن وجدت)، مثل موافقات الغذاء والدواء أو وزارة الصحة للأنشطة ذات الاشتراطات الخاصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التعديل او النقل</span>
           <div class="svc-name">تعديل رخصة بلدية (تجارية)</div>
@@ -346,8 +368,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل رخصة بلدية (تجارية)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1036" data-price="86.0" data-name="نقل السجل التجاري للمؤسسات" data-cat="سجل تجاري نقل">
-        <div class="svc-img"><div class="icon-circle">🏢</div></div>
+      <div class="svc-card" data-id="1036" data-price="86.0" data-name="نقل السجل التجاري للمؤسسات" data-cat="سجل تجاري نقل" data-desc='خدمة نقل ملكية السجل التجاري للمؤسسات عبر منصة "المركز السعودي للأعمال" تتيح لمالك المؤسسة التنازل عن السجل التجاري بكافة التزاماته وحقوقه ونقله لمالك جديد إلكترونياً.' data-reqs="سجل تجاري ساري المفعول: عدم وجود طلبات إلكترونية معلقة أو تراخيص مرتبطة تتطلب المعالجة أولاً.||هوية المالك الجديد: ألا يقل عمر المالك الجديد عن 18 عاماً وألا يكون موظفاً حكومياً.||موافقة الطرفين: التوثيق والموافقة الإلكترونية من البائع والمشتري عبر النفاذ الوطني (أبشر).||سداد الرسوم الحكومية: سداد رسوم نقل الملكية ورسوم الغرفة التجارية إن وجدت عبر نظام سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"🏢</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التعديل او النقل</span>
           <div class="svc-name">نقل السجل التجاري للمؤسسات</div>
@@ -356,8 +378,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل السجل التجاري للمؤسسات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1037" data-price="50.0" data-name="تعديل السجل التجاري للمؤسسات" data-cat="سجل تجاري تعديل">
-        <div class="svc-img"><div class="icon-circle">📝</div></div>
+      <div class="svc-card" data-id="1037" data-price="50.0" data-name="تعديل السجل التجاري للمؤسسات" data-cat="سجل تجاري تعديل" data-desc='خدمة تعديل بيانات السجل التجاري عبر منصة "المركز السعودي للأعمال" تتيح لأصحاب المؤسسات تعديل الأنشطة الاقتصادية، رأس المال، العنوان، أو رأس مال المؤسسة.' data-reqs="سجل تجاري ساري المفعول: للمؤسسة المراد تعديل بياناتها.||الأنشطة الجديدة (في حال تعديل النشاط): اختيار أنشطة متوافقة مع تصنيف الترقيم الدولي (أيزك 4).||الموافقات التخصّصية (إن وجدت): موافقة الجهات الحكومية المشرفة للأنشطة ذات الاشتراطات الخاصة قبل التعديل.||سداد رسوم التعديل: سداد الفاتورة الصادرة لفرق الرسوم أو فروق عضوية الغرفة التجارية عبر نظام سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"📝</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">تعديل السجل التجاري للمؤسسات</div>
@@ -366,8 +388,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل السجل التجاري للمؤسسات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1038" data-price="30.0" data-name="إصدار شهادة السعودة" data-cat="قوى سعودة">
-        <div class="svc-img"><div class="icon-circle">🇸🇦</div></div>
+      <div class="svc-card" data-id="1038" data-price="30.0" data-name="إصدار شهادة السعودة" data-cat="قوى سعودة" data-desc='خدمة إصدار شهادة السعودة عبر منصة "قوى" تتيح للمنشآت الحصول على وثيقة إلكترونية رسمية تثبت تحقيق المنشأة لنسب التوطين المطلوبة نظاماً لتقديمها للجهات الحكومية والمنافسات.' data-reqs="تحقيق نسبة التوطين المطلوبة: وقوع المنشأة في النطاق المسموح (الأخضر فما فوق) حسب دليل نطاقات.||الالتزام بنظام حماية الأجور: رفع جميع ملفات الأجور الشهرية دون تأخير.||توثيق عقود العمالة: توثيق العقود لجميع الموظفين على منصة قوى.||سجل تجاري نشط: سريان السجل التجاري ورخص التشغيل الخاصة بالمنشأة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"🇸🇦</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التعديل او النقل</span>
           <div class="svc-name">إصدار شهادة السعودة</div>
@@ -376,8 +398,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة السعودة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1039" data-price="50.0" data-name="إضافة مفوض إلكتروني" data-cat="تفويض أبشر">
-        <div class="svc-img"><div class="icon-circle">🔐</div></div>
+      <div class="svc-card" data-id="1039" data-price="50.0" data-name="إضافة مفوض إلكتروني" data-cat="تفويض أبشر" data-desc='خدمة إضافة تفويض إلكتروني عبر منصة "قوى" تتيح لصاحب العمل منح صلاحيات محددة لشخص آخر (مدير، ممثل، أو معقب) لإدارة وإجراء المعاملات الخاصة بالمنشأة عبر المنصة.' data-reqs="حساب فعال لصاحب العمل: وجود حساب مسجل وناشط على منصة قوى ومربوط بالنفاذ الوطني.||بيانات المفوض: رقم الهوية الوطنية أو الإقامة للمفوض المراد إضافته.||تحديد الصلاحيات: تحديد طبيعة الخدمات والأنشطة المسموح للمفوض إدارتها داخل المنصة.||قبول التفويض: قبول المفوض للطلب عبر حسابه الشخصي في المنصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"🔐</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">إضافة مفوض إلكتروني</div>
@@ -386,8 +408,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إضافة مفوض إلكتروني')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1040" data-price="50.0" data-name="تغيير نشاط منشأة" data-cat="سجل تجاري نشاط تعديل">
-        <div class="svc-img"><div class="icon-circle">🔀</div></div>
+      <div class="svc-card" data-id="1040" data-price="50.0" data-name="تغيير نشاط منشأة" data-cat="سجل تجاري نشاط تعديل" data-desc='خدمة تغيير النشاط الاقتصادي للمنشأة عبر منصة "قوى" تتيح لأصحاب الأعمال تعديل أو تحديث نوع النشاط الرئيسي أو الفرعي للمنشأة في سجلات وزارة الموارد البشرية.' data-reqs="تحديث السجل التجاري: تعديل النشاط التجاري أولاً لدى وزارة التجارة وسريان السجل.||رخصة بلدية محدثة: مطابقة النشاط الجديد في الترخيص البلدي للموقع.||تطابق المهن: إعادة تعديل مهن العمالة لتتناسب مع النشاط الاقتصادي الجديد.||عدم وجود طلبات معلقة: استكمال وسداد كافة المعاملات السابقة للمنشأة على قوى.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"🔀</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التعديل او النقل</span>
           <div class="svc-name">تغيير نشاط منشأة</div>
@@ -396,8 +418,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تغيير نشاط منشأة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="3456789" data-price="100.0" data-name="تحويل مؤسسة إلى شركة" data-cat="تحويل كيان تجاري">
-        <div class="svc-img"><div class="icon-circle">🏗️</div></div>
+      <div class="svc-card" data-id="3456789" data-price="100.0" data-name="تحويل مؤسسة إلى شركة" data-cat="تحويل كيان تجاري" data-desc='خدمة تحويل المؤسسة الفردية إلى شركة عبر منصة "المركز السعودي للأعمال" تتيح إعادة هيكلة المنشأة وتحويل كيانها القانوني إلى شركة (محدودة المسؤولية، شخص واحد، إلخ) لحفظ الحقوق والتوسع.' data-reqs="سجل تجاري ساري للمؤسسة: ألا يكون السجل التجاري منتهياً أو موقوفاً.||عقد تأسيس الشركة: إعداد وتوثيق عقد تأسيس الشركة وإدخال بيانات الشركاء ورأس المال.||موافقة الشركاء والمالك: الاعتماد الإلكتروني عبر النفاذ الوطني لجميع الشركاء المذكورين في العقد.||سداد الرسوم ونشر العقد: سداد رسوم تحويل الكيان ورسوم النشر الإلكتروني لعقد التأسيس.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)"🏗️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التعديل او النقل</span>
           <div class="svc-name">تحويل مؤسسة إلى شركة</div>
@@ -497,7 +519,62 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 function filterServices(){const q=document.getElementById('search-input').value.trim();const cards=document.querySelectorAll('.svc-card');let v=0;cards.forEach(c=>{const n=c.dataset.name||'';const show=!q||n.includes(q);c.style.display=show?'flex':'none';if(show)v++;});document.getElementById('results-count').textContent=v+' خدمة';document.getElementById('empty-results').style.display=v===0?'block':'none';}
 function sortServices(val){const grid=document.getElementById('services-grid');const cards=Array.from(grid.querySelectorAll('.svc-card'));cards.sort((a,b)=>{if(val==='price-asc')return(parseInt(a.dataset.price)||0)-(parseInt(b.dataset.price)||0);if(val==='price-desc')return(parseInt(b.dataset.price)||0)-(parseInt(a.dataset.price)||0);if(val==='name')return(a.dataset.name||'').localeCompare(b.dataset.name||'','ar');return 0;});cards.forEach(c=>grid.appendChild(c));}
 document.addEventListener('DOMContentLoaded',function(){updateCartBadge();document.getElementById('results-count').textContent=document.querySelectorAll('.svc-card').length+' خدمة';});
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script src="services-loader.js"></script>
 </body>
