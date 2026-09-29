@@ -80,6 +80,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:130px;display:flex;align-items:center;justify-content:center;padding:14px;}
 .icon-circle{width:74px;height:74px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:32px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
 .svc-name{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:34px;}
@@ -284,8 +306,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     <div style="margin-bottom:16px;"><span id="results-count" style="font-size:13px;color:var(--muted);font-weight:600;"></span></div>
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1177" data-price="100.0" data-name="استخراج تأشيرة العمالة الزراعية">
-        <div class="svc-img"><div class="icon-circle">🌾</div></div>
+      <div class="svc-card" data-id="1177" data-price="100.0" data-name="استخراج تأشيرة العمالة الزراعية" data-desc="خدمة إصدار وتأهيل تأشيرات العمالة الزراعية تتيح لأصحاب المزارع والمشاريع الزراعية الصغيرة والأفراد الحصول على التأشيرات الخاصة بالعمال المزارعين والرعاة." data-reqs='السجل الزراعي / تأييد البيئة والمياه والزراعة: توفر تأييد استقدام زراعي صادر من وزارة البيئة والمياه والزراعة.||إثبات الملكية أو عقد الإيجار للمزرعة: صك ملكية المزرعة أو عقد إيجار موثق.||هوية صاحب العمل: هوية وطنية سارية المفعول للمزارع أو المتقدم.||سداد الرسوم الحكومية: دفع رسوم التراخيص والتأشيرات المقررة عبر "سداد".'>
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌾</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">استخراج تأشيرة العمالة الزراعية</div>
@@ -293,8 +315,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج تأشيرة العمالة الزراعية')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="962" data-price="50.0" data-name="نقل الكفالة">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="962" data-price="50.0" data-name="نقل الكفالة" data-desc='خدمة الموافقة والاعتماد النهائي لنقل الكفالة عبر منصة "أبشر أعمال" تتيح استكمال نقل خدمات العامل المقيم إلى سجل المنشأة في أنظمة وزارة الداخلية بعد الموافقة العمالية.' data-reqs="طلب نقل خدمة معتمد من قوى: توثيق وموافقة طلب نقل الخدمة عبر منصة قوى أولاً.||سداد رسوم نقل الخدمة: سداد المقابل المالي المقرر لنقل الكفالة عبر نظام سداد.||سريان إقامة وجواز العامل: ألا تكون الإقامة والجواز منتهية الصلاحية.||عدم وجود مخالفات: خلو سجل العامل والمنشأة من المخالفات المرورية أو الأمنية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">نقل الكفالة</div>
@@ -302,8 +324,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل الكفالة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="963" data-price="30.0" data-name="إصدار تأشيرة الخروج النهائي">
-        <div class="svc-img"><div class="icon-circle">✈️</div></div>
+      <div class="svc-card" data-id="963" data-price="30.0" data-name="إصدار تأشيرة الخروج النهائي" data-desc='خدمة إصدار تأشيرة الخروج النهائي عبر منصة "أبشر أعمال" تتيح للمنشآت إنهاء وضع العامل المقيم وإصدار التأشيرة الخاصة بمغادرته المملكة بشكل نهائي.' data-reqs="سريان الإقامة ورخصة العمل: للعامل عند تقديم الطلب.||جواز سفر ساري المفعول: ألا تقل صلاحية جواز السفر عن 60 يوماً.||خلو السجل من المركبات: ألا تكون هناك أي مركبة مسجلة باسم العامل في نظام المرور.||عدم وجود مخالفات مرورية: تسوية جميع المخالفات على العامل والمنشأة.||تواجد العامل داخل المملكة: أن يكون العامل داخل أراضي المملكة وقت إصدار التأشيرة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">✈️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">إصدار تأشيرة الخروج النهائي</div>
@@ -311,8 +333,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار تأشيرة الخروج النهائي')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="964" data-price="30.0" data-name="إصدار / تمديد / تأشيرة الخروج والعودة">
-        <div class="svc-img"><div class="icon-circle">🔀</div></div>
+      <div class="svc-card" data-id="964" data-price="30.0" data-name="إصدار / تمديد / تأشيرة الخروج والعودة" data-desc='خدمة إصدار أو تمديد تأشيرة الخروج والعودة عبر منصة "أبشر أعمال" تتيح لأصحاب المنشآت استخراج أو تمديد فترة تأشيرة السفر المؤقت للمكفولين من العمالة المقيمة.' data-reqs="سريان الإقامة ورخصة العمل: للعامل المراد إصدار أو تمديد التأشيرة له.||سداد الرسوم الحكومية: تسوية رسوم التأشيرة أو رسوم التمديد عبر نظام سداد.||عدم وجود المخالفات المرورية: تسوية كافة المخالفات المرورية المسجلة على العامل وصاحب العمل.||جواز سفر ساري المفعول: ألا تقل صلاحية جواز سفر العامل عن 90 يوماً.||تواجد العامل داخل المملكة: (للإصدار والتمديد العادي) أو استيفاء شروط التمديد الخارجي عبر المنصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔀</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">إصدار / تمديد / تأشيرة الخروج والعودة</div>
@@ -320,8 +342,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار / تمديد / تأشيرة الخروج والعودة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="965" data-price="50.0" data-name="إصدار / تجديد إقامة">
-        <div class="svc-img"><div class="icon-circle">🪪</div></div>
+      <div class="svc-card" data-id="965" data-price="50.0" data-name="إصدار / تجديد إقامة" data-desc='خدمة إصدار أو تجديد هوية مقيم (الإقامة) عبر منصة "أبشر أعمال" تتيح لأصحاب المنشآت استخراج أو تمديد صلاحية هوية المقيم للعمالة الوافدة المسجلة في المنشأة.' data-reqs="إصدار رخصة العمل: سداد وتجديد رخصة العمل المقررة عبر منصة قوى.||سداد الرسوم الحكومية: سداد رسوم إصدار/تجديد الإقامة ورسوم التأخير (إن وجدت) عبر نظام سداد.||اجتياز الفحص الطبي (للإصدار أول مرة): توفر تقرير فحص طبي معتمد وآلي في النظام.||التأمين الصحي الساري: توفر تأمين صحي إلكتروني ساري المفعول للعامل وأفراد أسرته المباشرين.||سداد المخالفات المرورية: تسوية كافة المخالفات المسجلة على العامل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🪪</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة أبشر (أفراد - أعمال)</span>
           <div class="svc-name">إصدار / تجديد إقامة</div>
@@ -329,8 +351,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار / تجديد إقامة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="966" data-price="86.0" data-name="التقديم على التأمين الطبي">
-        <div class="svc-img"><div class="icon-circle">❤️‍🩹</div></div>
+      <div class="svc-card" data-id="966" data-price="86.0" data-name="التقديم على التأمين الطبي" data-desc='خدمة التقديم وإصدار وثيقة التأمين الطبي تتيح للأفراد، العوائل، وأصحاب المنشآت اختيار وتفعيل تغطية التأمين الصحي المعتمدة من المجلس الصحي وربطها آلياً بـ "الجوازات" ومؤسسة التأمينات الاجتماعية لضمان سريان الإقامة واستيفاء متطلبات العمل.' data-reqs="بيانات الهوية والمقيمين: أرقام الهويات الوطنية أو الإقامات لجميع المستفيدين والتابعين المراد تأمينهم.||نموذج الإفصاح الطبي: تعبئة النموذج الطبي الشامل المعتمد من شركة التأمين وبيان الحالات المرضية المزمنة (إن وجدت).||بيانات العنوان الوطني: عنوان وطني موثق ورقم جوال مفعل لربطه بالشركة.||سداد قيمة الوثيقة: اختيار شبكة المستشفيات/فئة التغطية (VIP، ذهبي، فضي، برونزي) وتسوية المقابل المالي.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">❤️‍🩹</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">التقديم على التأمين الطبي</div>
@@ -341,8 +363,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1238" data-price="30.0" data-name="نقل عامل بين الفروع">
-        <div class="svc-img"><div class="icon-circle">👷</div></div>
+      <div class="svc-card" data-id="1238" data-price="30.0" data-name="نقل عامل بين الفروع" data-desc='خدمة نقل خدمات العامل بين فروع المنشأة عبر منصة "قوى" تتيح للكيانات التي تملك عدة فروع نقل تسجيل العامل المقيم من فرع إلى فرع آخر تابع لنفس الرقم الموحد.' data-reqs="الرقم الموحد للمنشأة: أن تكون الفروع تابعة لنفس الرقم الموحد أو الكيان الرئيسي.||إقامة ورخصة عمل سارية: للعامل المراد نقل خدماته بين الفروع.||سريان السجلات التجارية للفروع: أن تكون حالة الفرع المنقول إليه قائمة ونشطة.||تحديث بيانات العقد: تعديل وتوثيق مكان العمل في عقد العامل عبر منصة قوى بعد النقل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👷</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة قوى (العمالة)</span>
           <div class="svc-name">نقل عامل بين الفروع</div>
@@ -350,8 +372,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل عامل بين الفروع')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1227" data-price="100.0" data-name="نقل تابع للمنشأة">
-        <div class="svc-img"><div class="icon-circle">👤</div></div>
+      <div class="svc-card" data-id="1227" data-price="100.0" data-name="نقل تابع للمنشأة" data-desc='خدمة نقل تابع للمنشأة عبر منصة "قوى" تتيح لأصحاب الأعمال نقل خدمة المرافقين (التابعين) لأفراد أسر المقيمين وتحويل وضعهم إلى عامل مقيم على كفالة المنشأة.' data-reqs="حساب منشأة نشط: في منصة قوى بوضع نظامي يسمح بالتجميع والتأهيل.||إقامة التابع سارية المفعول: عدم وجود بلاغات أو مخالفات تسلُّم على المقيم.||بلوغ السن القانونية: ألا يقل عمر التابع عن 18 عاماً عند تقديم الطلب.||موافقة رب الأسرة: الموافقة الإلكترونية من الكفيل الحالي (رب الأسرة) عبر منصة أبشر.||عقد عمل إلكتروني: توثيق عقد العمل للتابع عبر منصة قوى بعد قبول الطلب.||سداد الرسوم المقررة: تسوية رسوم نقل الخدمة ورخص العمل عبر الجهات المختصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👤</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة قوى (العمالة)</span>
           <div class="svc-name">نقل تابع للمنشأة</div>
@@ -359,8 +381,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل تابع للمنشأة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1229" data-price="50.0" data-name="نقل كفالة عامل للمنشأة">
-        <div class="svc-img"><div class="icon-circle">🤝</div></div>
+      <div class="svc-card" data-id="1229" data-price="50.0" data-name="نقل كفالة عامل للمنشأة" data-desc='خدمة نقل خدمة (كفالة) عامل للمنشأة عبر منصة "قوى" تتيح للمنشآت استقطاب ونقل خدمات العمالة المقيمة من صاحب عمل آخر إلى سجل المنشأة.' data-reqs="نطاق المنشأة: أن تكون المنشأة في نطاق يسمح بنقل الخدمات (الأخضر فما فوق).||إقامة ورخصة عمل سارية: للعامل المراد نقل خدمته (أو استيفاء شروط النقل التلقائي في حال الانتهاء).||التزام المنشأة بالنطاقات وحماية الأجور: عدم وجود متأخرات أجور أو انقطاع في التوثيق.||موافقة العامل: موافقة العامل على العرض الوظيفي والنقل عبر منصة قوى أفراد.||موافقة صاحب العمل الحالي: (في الحالات العادية) أو بدون موافقته في الحالات النظامية المعتمدة.||سداد رسوم نقل الخدمة: سداد المقابل المالي للتنقل عبر منصة سداد/أبشر أعمال.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🤝</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">نقل كفالة عامل للمنشأة</div>
@@ -368,8 +390,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل كفالة عامل للمنشأة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="971" data-price="50.0" data-name="توثيق عقد الموظفين">
-        <div class="svc-img"><div class="icon-circle">📝</div></div>
+      <div class="svc-card" data-id="971" data-price="50.0" data-name="توثيق عقد الموظفين" data-desc='خدمة توثيق عقود الموظفين عبر منصة "قوى" تتيح للمنشآت إنشاء وتوثيق العقود الوظيفية للعاملين (سعوديين ومقيمين) لحفظ حقوق الطرفين وضمان الامتثال لنظام العمل.' data-reqs="حساب منشأة نشط: مسجل على منصة قوى.||بيانات الموظف: رقم الهوية الوطنية للسعودي أو رقم الإقامة/الحدود للمقيم.||بيانات العقد الشاملة: تحديد المسمى الوظيفي، الأجر، الأبدية، فترة التجربة، وساعات العمل.||قبول الموظف: موافقة الموظف الإلكترونية على العقد عبر حسابه الخاص في قوى أفراد خلال المهلة المحددة (10 أيام).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📝</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">توثيق عقد الموظفين</div>
@@ -377,8 +399,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'توثيق عقد الموظفين')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="972" data-price="30.0" data-name="إضافة موظفين على مدد">
-        <div class="svc-img"><div class="icon-circle">➕</div></div>
+      <div class="svc-card" data-id="972" data-price="30.0" data-name="إضافة موظفين على مدد" data-desc='خدمة إضافة وتحديث بيانات الموظفين في منصة "مدد" تتيح تسجيل عمالة جديدة أو تحديث التفاصيل المالية للموظفين القائمين لإدراجهم ضمن مسير الرواتب ونظام حماية الأجور.' data-reqs="تسجيل الموظف في منصة قوى: إدراج العامل وتوثيق عقده أولاً في منصة قوى.||رقم الهوية أو الإقامة: سارية المفعول للموظف المراد إضافته.||بيانات الحساب البنكي (IBAN): الحساب البنكي الخاص بالموظف لصرف الراتب.||تفاصيل الأجر: تحديد الأجر الأساسي، بدل السكن، والبدلات الأخرى بدقة وفق العقد الموثق.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">➕</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">إضافة موظفين على مدد</div>
@@ -386,8 +408,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إضافة موظفين على مدد')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1233" data-price="50.0" data-name="تعديل المهنة">
-        <div class="svc-img"><div class="icon-circle">✏️</div></div>
+      <div class="svc-card" data-id="1233" data-price="50.0" data-name="تعديل المهنة" data-desc='خدمة تعديل مهنة الموظف عبر منصة "قوى" تتيح تغيير وتعديل المسمى الوظيفي للعامل المقيم في السجلات الرسمية بما يتوافق مع مؤهلته ونشاط العمل الفعلي.' data-reqs="سريان الإقامة ورخصة العمل: للعامل المراد تعديل مهنته.||تطابق المهنة مع النشاط: أن تكون المهنة الجديدة متوافقة مع دليل الأنشطة الاقتصادية للمنشأة.||شهادات ومؤهلات علمية (للأنشطة التخصصية): توثيق الشهادة أو الاختبار المهني إذا كانت المهنة الجديدة متخصصة أو هندسية/طبية.||عدم وجود طلبات معلقة: خلو سجل العامل والمنشأة من أي طلبات تعديل سابقة لم تكتمل.||سداد رسوم تعديل المهنة: سداد المقابل المالي المقررة عبر نظام سداد (1000 ريال).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">✏️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">تعديل المهنة</div>
@@ -395,8 +417,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل المهنة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1234" data-price="30.0" data-name="إلغاء التأشيرات للعمال">
-        <div class="svc-img"><div class="icon-circle">❌</div></div>
+      <div class="svc-card" data-id="1234" data-price="30.0" data-name="إلغاء التأشيرات للعمال" data-desc='خدمة إلغاء التأشيرات المصدرة عبر منصة "قوى" تتيح لأصحاب المنشآت إلغاء تأشيرات الاستقدام الصادرة وغير المستخدمة لاسترداد قيمتها المالية.' data-reqs="تأشيرة صادرة وغير مستخدمة: ألا يكون قد تم استخدام التأشيرة أو دخُول العامل بها للمملكة.||سريان مدة التأشيرة: تقديم طلب الإلغاء ضمن فترة الصلاحية أو حسب الضوابط المتاحة بالمنصة.||عدم وجود طلبات استقدام مرتبطة: إلغاء أي ارتباط إلكتروني قائم للتأشيرة بمكاتب الاستقدام.||حساب منشأة نشط: تقديم الطلب بواسطة صاحب المنشأة أو المفوض المعتمد في منصة قوى.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">❌</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">إلغاء التأشيرات للعمال</div>
@@ -404,8 +426,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إلغاء التأشيرات للعمال')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="975" data-price="50.0" data-name="بلاغ إقطاع عن العمال (بلاغ الهروب)">
-        <div class="svc-img"><div class="icon-circle">🚨</div></div>
+      <div class="svc-card" data-id="975" data-price="50.0" data-name="بلاغ إقطاع عن العمال (بلاغ الهروب)" data-desc='خدمة تسجيل بلاغ انقطاع عن العمل عبر منصة "قوى" تتيح للمنشآت الإبلاغ عن تغيب الموظف المقيم وانقطاعه عن العمل لإخلائه من مسؤولية المنشأة.' data-reqs="سريان إقامة الموظف: أن تكون إقامة العامل سارية المفعول وقت تقديم البلاغ.||انقطاع عن العمل: تغيب العامل الفعلي عن العمل لعدد الأيام المحدد نظاماً دون عذر مشروع.||عقد عمل موثق: وجود عقد عمل موثق ومسجل إلكترونياً على منصة قوى.||عدم وجود دعوى قضائية قائمة: ألا يكون هناك قضايا عمالية مفتوحة بين المنشأة والعامل في المحاكم العمالية.||عدم وجود طلب نقل خدمة معلق: ألا يكون العامل في طور نقل الخدمات لمنشأة أخرى.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚨</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">بلاغ إقطاع عن العمال (بلاغ الهروب)</div>
@@ -413,8 +435,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'بلاغ إقطاع عن العمال (بلاغ الهروب)')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="951" data-price="50.0" data-name="استخراج وتجديد الشهادات الصحية للعمالة">
-        <div class="svc-img"><div class="icon-circle">🏥</div></div>
+      <div class="svc-card" data-id="951" data-price="50.0" data-name="استخراج وتجديد الشهادات الصحية للعمالة" data-desc='خدمة إصدار وتجديد الشهادة الصحية للعمالة عبر منصة "بلدي" تتيح لأصحاب المنشآت والعمالة في الأنشطة المتعلقة بالصحة العامة (مثل المطاعم، صالونات التجميل، التموينات، والمغاسل) إصدار أو تمديد صلاحية الشهادة الصحية التي تثبت خلو العامل من الأمراض المعدية وصلاحيته لممارسة العمل.' data-reqs="إقامة أو هوية سارية المفعول: للعامل المراد إصدار أو تجديد الشهادة الصحية له.||رخصة تجارية سارية المفعول: للمنشأة التي يعمل بها العامل ومخصصة لنشاط صحي يتطلب شهادة صحية.||تقرير الفحص الطبي: إجراء الفحص الطبي المعتمد في أحد المراكز الطبية أو المستشفيات المعتمدة لدى منصة بلدي ورفعه آلياً على النظام.||اجتياز التثقيف الصحي: تقديم وثيقة أو كشف آلي يفيد باجتياز العامل لبرنامج التثقيف الصحي/المهني المعتمد.||صورة شخصية حديثة للعامل: خلفية بيضاء لطباعتها على الشهادة الصحية.||في حال التجديد: تقديم طلب التجديد قبل انتهاء الشهادة الصحية الحالية أو خلال الفترة المحددة نظاماً.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏥</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة بلدي</span>
           <div class="svc-name">استخراج وتجديد الشهادات الصحية للعمالة</div>
@@ -422,8 +444,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'استخراج وتجديد الشهادات الصحية للعمالة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1236" data-price="50.0" data-name="إصدار / تجديد رخصة عمل">
-        <div class="svc-img"><div class="icon-circle">🔖</div></div>
+      <div class="svc-card" data-id="1236" data-price="50.0" data-name="إصدار / تجديد رخصة عمل" data-desc='خدمة إصدار أو تجديد رخصة العمل عبر منصة "قوى" تتيح للمنشآت استخراج أو تمديد رخص العمل للعمالة المقيمة، وهي شرط أساسي لإصدار أو تجديد الإقامة.' data-reqs="وجود العامل في سجل المنشأة: أن يكون العامل مسجلاً على رأس العمل في المنشأة.||تجديد العقود والالتزام: توثيق عقد العامل عبر منصة قوى والالتزام بحماية الأجور.||نطاق المنشأة: ألا تكون المنشأة في النطاق الأحمر الذي يمنع خدمات التجديد.||سداد المقابل المالي ورسوم الرخصة: سداد الفاتورة الصادرة التي تشمل المقابل المالي للعمالة الوافدة ورسوم رخصة العمل عبر سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔖</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">إصدار / تجديد رخصة عمل</div>
@@ -431,8 +453,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار / تجديد رخصة عمل')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="978" data-price="50.0" data-name="تعديل المهنة في أبشر أفراد/أعمال">
-        <div class="svc-img"><div class="icon-circle">🆔</div></div>
+      <div class="svc-card" data-id="978" data-price="50.0" data-name="تعديل المهنة في أبشر أفراد/أعمال" data-desc='خدمة طلب تعديل المهنة عبر منصة "أبشر" تتيح للمواطنين والمقيمين تحديث حالتهم الوظيفية والمهنية المسجلة بالأنظمة الحكومية.' data-reqs="خطاب/شهادة الخدمة أو إخلاء الطرف: إرفاق مستند أصل يثبت الاستقالة أو التقاعد للموظفين الحكوميين السابقين.||خطاب التعريف أو العقد: إرفاق وثيقة مشهودة من جهة العمل الجديدة أو منصة قوى للقطاع الخاص.||المؤهل العلمي أو الرخصة المهنية: إرفاق الوثائق الداعمة للشيء المراد التعديل إليه.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🆔</div></div>
         <div class="svc-body">
           <span class="svc-cat">أبشر أفراد</span>
           <div class="svc-name">تعديل المهنة في أبشر أفراد/أعمال</div>
@@ -440,8 +462,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل المهنة في أبشر أفراد/أعمال')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="979" data-price="30.0" data-name="طلب تقرير مقيم">
-        <div class="svc-img"><div class="icon-circle">📊</div></div>
+      <div class="svc-card" data-id="979" data-price="30.0" data-name="طلب تقرير مقيم" data-desc='خدمة إصدار واستخراج تقرير مقيم عبر منصة "أبشر أعمال" تتيح للمنشآت الحصول على وثيقة رسمية إلكترونية تحتوي على كافة البيانات التفصيلية للعمالة المقيمة على كفالتها لتقديمها للجهات الرسمية.' data-reqs="حساب نشط في أبشر أعمال: للمنشأة التي ينتمي لها المقيم.||بيانات المقيم: رقم الإقامة أو رقم الحدود للعامل المراد استخراج التقرير له.||سداد الرسوم: سداد المقابل المالي لإصدار التقرير الإلكتروني عبر نظام سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📊</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">طلب تقرير مقيم</div>
@@ -449,8 +471,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب تقرير مقيم')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1038" data-price="30.0" data-name="إصدار شهادة السعودة">
-        <div class="svc-img"><div class="icon-circle">🇸🇦</div></div>
+      <div class="svc-card" data-id="1038" data-price="30.0" data-name="إصدار شهادة السعودة" data-desc='خدمة إصدار شهادة السعودة عبر منصة "قوى" تتيح للمنشآت الحصول على وثيقة إلكترونية رسمية تثبت تحقيق المنشأة لنسب التوطين المطلوبة نظاماً لتقديمها للجهات الحكومية والمنافسات.' data-reqs="تحقيق نسبة التوطين المطلوبة: وقوع المنشأة في النطاق المسموح (الأخضر فما فوق) حسب دليل نطاقات.||الالتزام بنظام حماية الأجور: رفع جميع ملفات الأجور الشهرية دون تأخير.||توثيق عقود العمالة: توثيق العقود لجميع الموظفين على منصة قوى.||سجل تجاري نشط: سريان السجل التجاري ورخص التشغيل الخاصة بالمنشأة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🇸🇦</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التعديل او النقل</span>
           <div class="svc-name">إصدار شهادة السعودة</div>
@@ -458,8 +480,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة السعودة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="981" data-price="30.0" data-name="تحديث معلومات الجواز للمقيمين">
-        <div class="svc-img"><div class="icon-circle">📒</div></div>
+      <div class="svc-card" data-id="981" data-price="30.0" data-name="تحديث معلومات الجواز للمقيمين" data-desc='خدمة تحديث بيانات ومعلومات الجواز (تجديد الجواز) عبر منصة "أبشر أعمال" تتيح ربط معلومات الجواز الجديد للعامل المقيم ببيانات الإقامة المسجلة في أنظمة وزارة الداخلية.' data-reqs="جواز السفر الجديد والقديم: توفير بيانات ورقم الجواز الحديث والقديم للعامل.||تواجد العامل داخل المملكة: أن يكون المقيم موجوداً داخل الأراضي السعودية وقت التحديث.||عدم وجود طلبات معلقة: ألا يكون للعامل طلبات تحديث جواز سابقة قيد الإجراء.||صورة الجواز الجديد: رفع صورة ضوئية واضحة من صفحات الجواز الجديد عبر المنصة إذا تطلب النظام ذلك.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📒</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">تحديث معلومات الجواز للمقيمين</div>
@@ -467,8 +489,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحديث معلومات الجواز للمقيمين')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="982" data-price="30.0" data-name="إلغاء تأشيرة الخروج النهائي">
-        <div class="svc-img"><div class="icon-circle">🚫</div></div>
+      <div class="svc-card" data-id="982" data-price="30.0" data-name="إلغاء تأشيرة الخروج النهائي" data-desc='خدمة إلغاء تأشيرة الخروج النهائي عبر منصة "أبشر أعمال" تتيح لأصحاب المنشآت إلغاء تأشيرة المغادرة النهائية المصدرة للعامل وإعادة وضعه النظامي على كفالة المنشأة.' data-reqs="سريان فترة الإلغاء: تقديم طلب الإلغاء خلال 60 يوماً من تاريخ إصدار التأشيرة.||تواجد العامل داخل المملكة: أن يكون العامل موجوداً داخل أراضي المملكة ولم يغادر.||سريان الإقامة ورخصة العمل: استمرار صلاحية إقامة العامل أو تجديدها مباشرة.||سداد الغرامة (إن وجدت): سداد غرامة إلغاء الخروج النهائي في حال تجاوز المهلة النظامية المحددة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚫</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">إلغاء تأشيرة الخروج النهائي</div>
@@ -476,8 +498,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إلغاء تأشيرة الخروج النهائي')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="983" data-price="30.0" data-name="إلغاء تأشيرة الخروج والعودة">
-        <div class="svc-img"><div class="icon-circle">🚫</div></div>
+      <div class="svc-card" data-id="983" data-price="30.0" data-name="إلغاء تأشيرة الخروج والعودة" data-desc='خدمة إلغاء تأشيرة الخروج والعودة عبر منصة "أبشر أعمال" تتيح لأصحاب الأعمال إلغاء التأشيرة المصدرة للعامل المقيم وإعادتها لحالتها قبل السفر.' data-reqs="تواجد العامل داخل المملكة: ألا يكون العامل قد غادر المملكة بالتأشيرة المراد إلغاؤها.||تقديم الطلب خلال مدة الصلاحية: إلغاء التأشيرة قبل انتهاء مدة صلاحيتها المحددة عند الإصدار.||عدم وجود مخالفات: عدم تسجيل مخالفة عدم إلغاء التأشيرة في حال انتهاء صلاحيتها.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚫</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة أبشر (أفراد - أعمال)</span>
           <div class="svc-name">إلغاء تأشيرة الخروج والعودة</div>
@@ -485,8 +507,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إلغاء تأشيرة الخروج والعودة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1243" data-price="50.0" data-name="تصحيح المهنة">
-        <div class="svc-img"><div class="icon-circle">🔧</div></div>
+      <div class="svc-card" data-id="1243" data-price="50.0" data-name="تصحيح المهنة" data-desc='خدمة تصحيح مهنة العامل عبر منصة "قوى" تتيح تعديل وتصحيح المسمى الوظيفي للعاملين دون الاستفادة من مهل الاستثناءات السابقة أو بدون رسوم فائضة، في حال وجود خطأ في تسجيل المهنة الأصلية.' data-reqs="إقامة ورخصة عمل سارية: للعامل المراد تصحيح مهنته.||التوافق مع نشاط المنشأة: أن تكون المهنة الجديدة المحددة متوافقة مع دليل الأنشطة للمنشأة.||توثيق العقد: تعديل وتوثيق عقد العمل بالمهنة الجديدة عبر منصة قوى.||المؤهلات المطلوبة: تقديم الاعتماد المهني أو الشهادة الدراسية إذا كانت المهنة من المهن المقيدة باشتراطات هندسية أو صحية أو مهنية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔧</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">تصحيح المهنة</div>
@@ -494,8 +516,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تصحيح المهنة')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="985" data-price="50.0" data-name="بلاغ تغيب عن العمل">
-        <div class="svc-img"><div class="icon-circle">⚠️</div></div>
+      <div class="svc-card" data-id="985" data-price="50.0" data-name="بلاغ تغيب عن العمل" data-desc='خدمة تسجيل وتوثيق بلاغ تغيب عن العمل عبر منصة "أبشر أعمال" تتيح للمنشآت رفع بلاغ رسمي للجهات الأمنية في حال انقطاع المقيم عن العمل وخروجه عن السيطرة.' data-reqs="سريان الإقامة: أن تكون إقامة العامل المقيم سارية المفعول وقت تقديم البلاغ.||صدور بلاغ انقطاع من قوى: تسجيل وصدور بلاغ انقطاع عن العمل معتمد عبر منصة قوى أولاً.||عدم وجود تأشيرة سفر معلقة: ألا تكون لدى العامل تأشيرة خروج وعودة أو خروج نهائي سارية.||تواجد العامل داخل المملكة: ألا يكون العامل خارج المملكة وقت رفع البلاغ.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚠️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">بلاغ تغيب عن العمل</div>
@@ -503,8 +525,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'بلاغ تغيب عن العمل')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="43245612" data-price="100.0" data-name="نقل كفالة عامل منزلي إلى منشأة" data-cat="نقل كفالة مساند">
-        <div class="svc-img"><div class="icon-circle">🏗️</div></div>
+      <div class="svc-card" data-id="43245612" data-price="100.0" data-name="نقل كفالة عامل منزلي إلى منشأة" data-cat="نقل كفالة مساند" data-desc="خدمة نقل خدمات العامل المنزلي إلى منشأة/شركة تتيح للأفراد والشركات تحويل صفة العامل المنزلي (مثل سائق خاص) إلى عامل مهني مسجل على ملف المنشأة وتعديل مهنته نظامياً." data-reqs="موافقة صاحب العمل الحالي والعامل: الاعتماد الإلكتروني لنقل الخدمات والتنازل عبر منصة مساند وقوى.||سجل تجاري نشط للمنشأة: ملف منشأة مفعل وبحالة نظامية متوافقة مع نطاقات التوطين.||سداد رسوم نقل الخدمات وتغيير المهنة: تسوية الفروقات المادية والرسوم المرورية المقررة.||فحص طبي وتأمين: اجتياز العامل للفحص الطبي الشامل وصدور التأمين المهني.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏗️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الموظفين والعمال</span>
           <div class="svc-name">نقل كفالة عامل منزلي إلى منشأة</div>
@@ -594,7 +616,62 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 function filterServices(){const q=document.getElementById('search-input').value.trim();const cards=document.querySelectorAll('.svc-card');let v=0;cards.forEach(c=>{const n=c.dataset.name||'';const show=!q||n.includes(q);c.style.display=show?'flex':'none';if(show)v++;});document.getElementById('results-count').textContent=v+' خدمة';document.getElementById('empty-results').style.display=v===0?'block':'none';}
 function sortServices(val){const grid=document.getElementById('services-grid');const cards=Array.from(grid.querySelectorAll('.svc-card'));cards.sort((a,b)=>{if(val==='price-asc')return(parseInt(a.dataset.price)||0)-(parseInt(b.dataset.price)||0);if(val==='price-desc')return(parseInt(b.dataset.price)||0)-(parseInt(a.dataset.price)||0);if(val==='name')return(a.dataset.name||'').localeCompare(b.dataset.name||'','ar');return 0;});cards.forEach(c=>grid.appendChild(c));}
 document.addEventListener('DOMContentLoaded',function(){updateCartBadge();document.getElementById('results-count').textContent=document.querySelectorAll('.svc-card').length+' خدمة';});
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script src="services-loader.js"></script>
 </body>
