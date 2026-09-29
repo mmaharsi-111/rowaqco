@@ -87,6 +87,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:140px;display:flex;align-items:center;justify-content:center;padding:16px;background:#fff;}
 .icon-circle{width:80px;height:80px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:36px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:12px 14px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;line-height:1.5;}
 .svc-name{font-size:13px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:38px;}
@@ -311,8 +333,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="922" data-cat="الأحوال المدنية" data-price="50.0" data-name="تجديد الهوية الوطنية">
-        <div class="svc-img"><div class="icon-circle">🪪</div></div>
+      <div class="svc-card" data-id="922" data-cat="الأحوال المدنية" data-price="50.0" data-name="تجديد الهوية الوطنية" data-desc='خدمة تجديد بطاقة الهوية الوطنية عبر منصة "أبشر أفراد" تتيح للمواطنين والمواطنات طلب تجديد الهوية عند اقتراب انتهاء صلاحيتها وشحنها إلى العنوان الوطني.' data-reqs="سريان فترة التجديد: تقديم الطلب خلال 180 يوماً قبل تاريخ انتهاء بطاقة الهوية الوطنية.||صورة شخصية حديثة: متوافقة مع الاشتراطات (خلفية بيضاء، بالزي الرسمي بدون نظارات أو تحسينات إلكترونية).||العنوان الوطني: توفر عنوان وطني مسجل ومفعل لدى سبل لطلب توصيل الوثيقة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🪪</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأفراد</span>
           <div class="svc-name">تجديد الهوية الوطنية</div>
@@ -321,8 +343,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد الهوية الوطنية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1057" data-cat="الأحوال المدنية" data-price="50.0" data-name="تعديل المؤهل الدراسي في الأحوال المدنية">
-        <div class="svc-img"><div class="icon-circle">📚</div></div>
+      <div class="svc-card" data-id="1057" data-cat="الأحوال المدنية" data-price="50.0" data-name="تعديل المؤهل الدراسي في الأحوال المدنية" data-desc='خدمة تعديل وتحديث المؤهل الدراسي عبر منصة "أبشر أفراد" تتيح للمواطنين تعديل درجتهم العلمية المسجلة في السجل المدني إلكترونياً.' data-reqs="الشهادة/المؤهل الدراسي: نسخة طبق الأصل أو صورة ضوئية واضحة للمؤهل العلمي المراد تسجيله.||معادلة الشهادة (للمؤهلات الخارجية): إرفاق قرار المعادلة الصادر من وزارة التعليم إذا كانت الشهادة من خارج المملكة.||تطابق البيانات: وضوح الاسم، تاريخ التخرج، والجهة الصادرة منها الشهادة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📚</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات المنصات الحكومية</span>
           <div class="svc-name">تعديل المؤهل الدراسي في الأحوال المدنية</div>
@@ -331,8 +353,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تعديل المؤهل الدراسي في الأحوال المدنية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="925" data-cat="أبشر أفراد" data-price="30.0" data-name="الاستعلام عن المخالفات المرورية">
-        <div class="svc-img"><div class="icon-circle">⚠️</div></div>
+      <div class="svc-card" data-id="925" data-cat="أبشر أفراد" data-price="30.0" data-name="الاستعلام عن المخالفات المرورية" data-desc='خدمة الاستعلام عن المخالفات المرورية عبر منصة "أبشر أفراد" تتيح للمواطنين والمقيمين والزائرين استعراض تفاصيل المخالفات المسجلة بحقهم أو على المركبات التابعة لهم.' data-reqs="حساب نشط في أبشر: توفر حساب مفعل للمستعلم على المنصة.||بيانات هوية الاستعلام: رقم الهوية الوطنية، رقم الإقامة، أو رقم الحدود/الجواز للزائرين.||رقم المخالفة أو لوحة المركبة: (في حال الاستعلام التفصيلي عن مخالفة محددة).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚠️</div></div>
         <div class="svc-body">
           <span class="svc-cat">أبشر أفراد</span>
           <div class="svc-name">الاستعلام عن المخالفات المرورية</div>
@@ -341,8 +363,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن المخالفات المرورية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="926" data-cat="المرور" data-price="50.0" data-name="نقل ملكية المركبة بين أفراد الأسرة">
-        <div class="svc-img"><div class="icon-circle">🚗</div></div>
+      <div class="svc-card" data-id="926" data-cat="المرور" data-price="50.0" data-name="نقل ملكية المركبة بين أفراد الأسرة" data-desc='خدمة نقل ملكية المركبة بين أفراد الأسرة عبر منصة "أبشر أفراد" تتيح للمواطنين والمقيمين مبايعة ونقل ملكية السيارات بين الأقارب من الدرجة الأولى دون الحاجة لوسيط تجاري أو معرض سيارات.' data-reqs="صلة قرابة من الدرجة الأولى: توثيق القرابة بين البائع والمشتري (أب، أم، ابن، ابنة، زوج، زوجة).||سريان الفحص الدوري والتأمين: وجود شهادة فحص فني دوري سارية، ووثيقة تأمين مركبة سارية باسم المشتري الجديد.||سريان رخصة السير والقيادة: صلاحية استمارة المركبة ورخصة قيادة المشتري.||سداد الرسوم والمخالفات: تسوية كافة المخالفات المرورية على الطرفين وسداد رسوم نقل الملكية المحددة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚗</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأفراد</span>
           <div class="svc-name">نقل ملكية المركبة بين أفراد الأسرة</div>
@@ -351,8 +373,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'نقل ملكية المركبة بين أفراد الأسرة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="927" data-cat="أبشر أفراد" data-price="50.0" data-name="نقل ملكية المركبة فوري">
-        <div class="svc-img"><div class="icon-circle">🚘</div></div>
+      <div class="svc-card" data-id="927" data-cat="أبشر أفراد" data-price="50.0" data-name="نقل ملكية المركبة فوري" data-desc='خدمة مبايعة ونقل ملكية المركبات فورياً (مبايعة المركبات) عبر منصة "أبشر أفراد" تتيح للأفراد البائع والمشتري إتمام مبايعة السيارة وتحويل ملكيتها ومبلغها فورياً وبشكل آمن دون وسطاء.' data-reqs="سريان الفحص الدوري والتأمين: وجود شهادة فحص فني سارية للمركبة، وتأمين ساري باسم المشتري.||سريان استمارة المركبة وهويات الطرفين: صلاحية رخصة السير والهوية الوطنية/الإقامة للبائع والمشتري.||حساب بنكي لكل طرف: توفر حساب بنكي محلي باسم البائع والمشتري لإتمام عملية إيداع وحجز المبلغ وإعادة تحويله.||سداد الرسوم والمخالفات: تسوية كافة المخالفات المرورية وسداد رسوم المبايعة ورسوم نقل الملكية الحكومية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚘</div></div>
         <div class="svc-body">
           <span class="svc-cat">أبشر أفراد</span>
           <div class="svc-name">نقل ملكية المركبة فوري</div>
@@ -373,8 +395,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="929" data-cat="المرور" data-price="50.0" data-name="تجديد رخصة القيادة">
-        <div class="svc-img"><div class="icon-circle">🪪</div></div>
+      <div class="svc-card" data-id="929" data-cat="المرور" data-price="50.0" data-name="تجديد رخصة القيادة" data-desc='خدمة تجديد رخصة القيادة عبر منصة "أبشر أفراد" تتيح للمواطنين والمقيمين تمديد صلاحية رخصة القيادة الخاصة أو الفردية إلكترونياً دون الحاجة لمراجعة إدارات المرور.' data-reqs="الفحص الطبي التجديدي: اجتياز الفحص الطبي الخاص برخص القيادة في أحد المراكز الطبية المعتمدة ورفعه آلياً للنظام.||سداد الرسوم والغرامات: سداد رسوم التجديد للسنوات المختارة وتسوية المخالفات المرورية ورسوم التأخير (إن وجدت).||صورة شخصية وبصمة متوفرة: وجود صورة وبصمة مسجلة في نظام وزارة الداخلية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🪪</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأفراد</span>
           <div class="svc-name">تجديد رخصة القيادة</div>
@@ -383,8 +405,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد رخصة القيادة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="930" data-cat="الأحوال المدنية" data-price="50.0" data-name="طلب هوية وطنية بدل فاقد">
-        <div class="svc-img"><div class="icon-circle">🔖</div></div>
+      <div class="svc-card" data-id="930" data-cat="الأحوال المدنية" data-price="50.0" data-name="طلب هوية وطنية بدل فاقد" data-desc='خدمة إصدار بطاقة هوية وطنية بدل فاقد عبر منصة "أبشر أفراد" تتيح للمواطنين الإبلاغ عن فقدان البطاقة وإصدار بديل لها إلكترونياً.' data-reqs="الإبلاغ عن الفقدان: تسليم الإقرار الإلكتروني بفقدان الهوية القديمة عبر المنصة.||صورة شخصية حديثة: مطابقة للمواصفات الرسمية للجهات الخدمية.||سداد الغرامات (إن وجدت): سداد غرامة فقدان الهوية في حال تكرار التلف أو الفقدان للمرة الثانية فأكثر.||عنوان وطني دقيق: لتوصيل البطاقة الجديدة عبر البريد السعودي.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔖</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأفراد</span>
           <div class="svc-name">طلب هوية وطنية بدل فاقد</div>
@@ -393,8 +415,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طلب هوية وطنية بدل فاقد')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="931" data-cat="أبشر أفراد" data-price="50.0" data-name="تحديث البيانات على منصة أبشر">
-        <div class="svc-img"><div class="icon-circle">🆔</div></div>
+      <div class="svc-card" data-id="931" data-cat="أبشر أفراد" data-price="50.0" data-name="تحديث البيانات على منصة أبشر" data-desc='خدمة تحديث البيانات الشخصية عبر منصة "أبشر أفراد" تتيح للمستخدمين تعديل وتحديث معلومات التواصل والبيانات الأساسية المسجلة في حسابهم الرقمي.' data-reqs="تأكيد الهوية: الدخول المباشر عبر النفاذ الوطني الموحد (أبشر).||رقم الجوال الجديد: أن يكون مسجلاً باسم صاحب الحساب لدى إحدى شركات الاتصالات.||البريد الإلكتروني: توفر بريد إلكتروني نشط لاستلام إشعارات التحقق.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🆔</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة أبشر (أفراد - أعمال)</span>
           <div class="svc-name">تحديث البيانات على منصة أبشر</div>
@@ -403,8 +425,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تحديث البيانات على منصة أبشر')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1279" data-cat="خدمات عامة" data-price="30.0" data-name="الاستعلام عن السجلات التجارية على اسمك">
-        <div class="svc-img"><div class="icon-circle">🏢</div></div>
+      <div class="svc-card" data-id="1279" data-cat="خدمات عامة" data-price="30.0" data-name="الاستعلام عن السجلات التجارية على اسمك" data-desc='خدمة الاستعلام عن السجلات التجارية عبر منصة "المركز السعودي للأعمال" تتيح للمواطنين عرض واستعراض كافة السجلات التجارية (الرئيسية والفرعية) المسجلة باسمهم وحالتها النظامية.' data-reqs="هوية وطنية سارية: رقم الهوية الوطنية للمستعلم.||التحقق عبر النفاذ الوطني: تسجيل الدخول المباشر بحساب أبشر لمستعرض البيانات.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏢</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات عامة</span>
           <div class="svc-name">الاستعلام عن السجلات التجارية على اسمك</div>
@@ -413,8 +435,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاستعلام عن السجلات التجارية على اسمك')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="932" data-cat="أبشر أفراد" data-price="50.0" data-name="تجديد جواز السفر السعودي">
-        <div class="svc-img"><div class="icon-circle">📗</div></div>
+      <div class="svc-card" data-id="932" data-cat="أبشر أفراد" data-price="50.0" data-name="تجديد جواز السفر السعودي" data-desc='خدمة تجديد جواز السفر السعودي عبر منصة "أبشر أفراد" تتيح للمواطنين تمديد وتجديد جوازات سفرهم الإلكترونية أو جوازات سفر التابعين عند اقتراب انتهاء صلاحيتها.' data-reqs="سريان فترة التجديد: تجديد الجواز في حال تبقى أقل من 12 شهراً على انتهائه.||تسليم الجواز القديم: فحص أو تسليم الجواز السابق عبر الفروع أو مكاتب البريد السعودي عند طلب الوثيقة الجديدة.||سداد الرسوم والمخالفات: تسوية كافة المخالفات المرورية وسداد رسوم تجديد الجواز عبر نظام سداد.||تواجد المواطن داخل المملكة: أن يكون صاحب الجواز موجوداً داخل الأراضي السعودية وقت تقديم الطلب.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📗</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأفراد</span>
           <div class="svc-name">تجديد جواز السفر السعودي</div>
@@ -423,8 +445,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد جواز السفر السعودي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="933" data-cat="أبشر أفراد" data-price="50.0" data-name="إصدار جواز سفر سعودي جديد">
-        <div class="svc-img"><div class="icon-circle">✈️</div></div>
+      <div class="svc-card" data-id="933" data-cat="أبشر أفراد" data-price="50.0" data-name="إصدار جواز سفر سعودي جديد" data-desc='خدمة إصدار جواز السفر السعودي لأول مرة عبر منصة "أبشر أفراد" تتيح للمواطنين استخراج جواز السفر الإلكتروني لهم أو لأحد أفراد أسرهم دون مراجعة إدارات الجوازات.' data-reqs="هوية وطنية سارية: للمواطنين بعمر 12 سنة فما فوق.||صورة شخصية حديثة: مطابقة للمواصفات الرسمية وملتقطة إلكترونياً.||سداد الرسوم: سداد رسوم إصدار الجواز (300 ريال لـ5 سنوات أو 600 ريال لـ10 سنوات للمواطن بالغ 21 سنة).||موافقة ولي الأمر: (للأبناء والبنات دون السن النظامية المحدد).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">✈️</div></div>
         <div class="svc-body">
           <span class="svc-cat">أبشر أفراد</span>
           <div class="svc-name">إصدار جواز سفر سعودي جديد</div>
@@ -443,8 +465,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إفادة بعدم وجود سجل تجاري')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="934" data-cat="المرور" data-price="30.0" data-name="الاعتراض على المخالفات المرورية">
-        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+      <div class="svc-card" data-id="934" data-cat="المرور" data-price="30.0" data-name="الاعتراض على المخالفات المرورية" data-desc='خدمة الاعتراض على المخالفات المرورية عبر منصة "أبشر أفراد" تتيح للمواطنين والمقيمين تقديم اعتراض إلكتروني على المخالفات المرورية الرصد الآلي أو الميداني قبل السداد.' data-reqs="التقديم خلال مهلة الاعتراض: تقديم الطلب خلال 30 يوماً من تاريخ تسجيل المخالفة.||عدم وجود اعتراض قائم: ألا يكون قد صدر حكم نهائي بالرفض على نفس المخالفة من اللجان الابتدائية.||تفاصيل أدلة الاعتراض: كتابة أسباب الاعتراض وإرفاق أي أدلة أو صور تُثبت عدم صحة مخالفة الرصد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأفراد</span>
           <div class="svc-name">الاعتراض على المخالفات المرورية</div>
@@ -453,8 +475,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'الاعتراض على المخالفات المرورية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="921" data-cat="أبشر أفراد" data-price="50.0" data-name="تجديد استمارات السيارات">
-        <div class="svc-img"><div class="icon-circle">🔖</div></div>
+      <div class="svc-card" data-id="921" data-cat="أبشر أفراد" data-price="50.0" data-name="تجديد استمارات السيارات" data-desc='خدمة تجديد رخص سير المركبات (الاستمارة) عبر منصة "أبشر أعمال" تتيح للمنشآت والشركات تمديد صلاحية استمارات السيارات والشاحنات المسجلة ملكيتها باسم المنشأة.' data-reqs="فحص دوري ساري: اجتياز الفحص الفني الدوري بنجاح وتوفير شهادة فحص سارية للمركبة.||وثيقة تأمين سارية: وجود وثيقة تأمين مركبات فعالة ومربوطة بنظام المرور.||سداد رسوم التجديد والتأخير: سداد رسوم تجديد الاستمارة وغرامات التأخير (إن وجدت) عبر نظام سداد.||سداد المخالفات المرورية: تسوية المخالفات المرورية المسجلة على المركبة أو المنشأة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔖</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة أبشر (أفراد - أعمال)</span>
           <div class="svc-name">تجديد استمارات السيارات</div>
@@ -463,8 +485,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد استمارات السيارات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="935" data-cat="الأحوال المدنية" data-price="50.0" data-name="تسجيل المواليد">
-        <div class="svc-img"><div class="icon-circle">👶</div></div>
+      <div class="svc-card" data-id="935" data-cat="الأحوال المدنية" data-price="50.0" data-name="تسجيل المواليد" data-desc='خدمة تسجيل المولود الجديد عبر منصة "أبشر أفراد" تتيح للوالدين إضافة المولود في السجل المدني واستخراج شهادة الميلاد وسجل الأسرة وشحن المستندات للمنزل.' data-reqs="بلاغ ولادة إلكتروني: صدور البلاغ الآلي من المستشفى المسجل لدى وزارة الصحة.||عقد زواج موثق: وجود عقد زواج رسمي ومسجل إلكترونياً بالنظام.||سريان هوية الوالدين: صلاحية بطاقة الهوية الوطنية أو الإقامة للوالدين.||العنوان الوطني: توفر عنوان وطني مسجل لشحن شهادة الميلاد وسجل الأسرة المحدث.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👶</div></div>
         <div class="svc-body">
           <span class="svc-cat">أبشر أفراد</span>
           <div class="svc-name">تسجيل المواليد</div>
@@ -604,7 +626,62 @@ document.addEventListener('DOMContentLoaded', function() {
   updateCartBadge();
   document.getElementById('results-count').textContent = document.querySelectorAll('.svc-card').length + ' خدمة';
 });
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js"></script>
 <script src="services-loader.js"></script>
 </body>
