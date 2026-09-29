@@ -83,10 +83,6 @@
       <a href="ministry-industry.html">وزارة الصناعة والثروة المعدنية</a>
     </div>
 
-    <a href="engineering-consulting.html" class="sb-item">
-      <span class="sb-icon">🏗️</span><span class="sb-label">خدمات الاستشارات الهندسية</span>
-    </a>
-
     <div class="sb-item has-sub" onclick="toggleSub(this)">
       <span><span class="sb-icon">💰</span> خدمات منصات الدعم الغير مسترد</span>
       <span class="sb-arrow">❯</span>
