@@ -80,6 +80,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:130px;display:flex;align-items:center;justify-content:center;padding:14px;}
 .icon-circle{width:74px;height:74px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:32px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
 .svc-name{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:34px;}
@@ -284,8 +306,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
     <div style="margin-bottom:16px;"><span id="results-count" style="font-size:13px;color:var(--muted);font-weight:600;"></span></div>
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1018" data-price="50.0" data-name="تجديد رخصة بلدية (تجارية)">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="1018" data-price="50.0" data-name="تجديد رخصة بلدية (تجارية)" data-desc='خدمة تجديد رخصة نشاط تجاري عبر منصة "بلدي" تتيح لأصحاب المنشآت التجارية تمديد صلاحية رخصة المحل التجاري لفترة جديدة لضمان الاستمرارية القانونية للنشاط وتجنب الغرامات الإلكترونية.' data-reqs="الرخصة التجارية الحالية: أن تكون في فترة التجديد المسموح بها (خلال 3 أشهر قبل انتهائها أو بعد انتهائها مباشرة مع احتساب أي غرامات تأخير إن وجدت).||سجل تجاري ساري المفعول: ومطابق لنشاط الرخصة.||عقد إيجار إلكتروني موثق (منصة إيجار) أو صك ملكية ساري للعين التجارية.||تصريح الدفاع المدني (سلامة): ساري المفعول ومتوافق مع مساحة ونوع النشاط.||عقد حاوية نظافة: ساري مع شركة معتمدة (مطلوب لبعض الأنشطة).||موافقات الجهات المشرفة: (إن وجدت) بحسب نوع النشاط (مثل وزارة الصحة، هيئة الغذاء والدواء، أو غيرها).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
           <div class="svc-name">تجديد رخصة بلدية (تجارية)</div>
@@ -293,8 +315,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد رخصة بلدية (تجارية)')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="996" data-price="100.0" data-name="إصدار رخصة عربة متنقلة (فود تراك)">
-        <div class="svc-img"><div class="icon-circle">🚚</div></div>
+      <div class="svc-card" data-id="996" data-price="100.0" data-name="إصدار رخصة عربة متنقلة (فود تراك)" data-desc='خدمة إصدار رخصة عربة متنقلة (فود تراك) عبر منصة "بلدي" تتيح للمواطنين وأصحاب الأنشطة والممارسين المستقلين (بسجل تجاري أو بوثيقة عمل حر) ممارسة الأنشطة التجارية والغذائية المتنقلة، وتخصيص موقع أو مسار معتمد للعمل بشكل نظامي دون الحاجة لتأسيس شركة أو استخراج سجل تجاري مستقل.' data-conditions="ألا يقل العمر عن 18 سنة وأن يكون المتقدم سعودي الجنسية وغير موظف حكومي.||العمل الشخصي: الالتزام بالعمل في العربة بنفسه.||عدم وجود رخص سابقة: ألا يمتلك المتقدم رخصة تجارية أخرى أو رخصة عربة متنقلة سارية (تُمنح رخصة واحدة فقط للمواطن).||لا يتطلب سجلاً تجارياً: يتم إصدار شهادة عمل حر بشكل استباقي ومجاني فور صدور الرخصة إن لم يكن لدى المتقدم سجل تجاري." data-reqs="وثيقة عمل حر سارية أو سجل تجاري: حسب نوع النشاط (فردي مستقل أو منشأة)، وتصدر شهادة العمل الحر تلقائياً لمن لا يملك سجلاً تجارياً.||الشهادة الصحية: سارية المفعول لصاحب العمل أو العاملين في الأنشطة الغذائية.||صور العربة المتنقلة: صور أصلية واضحة للعينات الخارجية والداخلية للعربة وتجهيزاتها وتوضح اللوحة الخارجية.||وثائق المركبة وفحصها الفني (في حال كانت سيارة/مقطورة): رخصة السير (الاستمارة) أو إثبات الملكية، وشهادة الفحص الدوري/الفني سارية المفعول، ووثيقة التأمين على المركبة.||تجهيزات واشتراطات السلامة (الدفاع المدني): توفير أدوات وطفايات الحريق ومطابقة الأبعاد والتوصيلات الكهربائية حسب لائحة الفود تراك.||تحديد موقع التمركز: اختيار الموقع المعتمد لتمركز العربة عبر الأمانة أو البلدية التابعة.||كاميرات مراقبة وتعهد بالالتزام: رفع التعهدات المطلوبة إلكترونياً عبر المنصة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🚚</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
           <div class="svc-name">إصدار رخصة عربة متنقلة (فود تراك)</div>
@@ -302,8 +324,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار رخصة عربة متنقلة (فود تراك)')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="997" data-price="100.0" data-name="إصدار وتجديد رخصة سكن جماعي">
-        <div class="svc-img"><div class="icon-circle">🏘️</div></div>
+      <div class="svc-card" data-id="997" data-price="100.0" data-name="إصدار وتجديد رخصة سكن جماعي" data-desc='خدمة إصدار وتجديد رخصة سكن جماعي للأفراد عبر منصة "بلدي" تتيح لأصحاب العقارات أو المنشآت والشركات ترخيص أو تجديد ترخيص العقارات المخصصة لإسكان العمالة والأفراد، لضمان استيفائها للاشتراطات الفنية والصحية وصلاحيتها للسكن وفق المعايير المعتمدة.' data-reqs="صك الملكية أو عقد الإيجار: صك ملكية ساري للعقار أو عقد إيجار إلكتروني موثق عبر منصة إيجار.||تصريح/شهادة السلامة (الدفاع المدني): شهادة أدوات سلامة سارية المفعول تؤكد توفر طفايات الحريق، أجهزة الإنذار، ومخارج الطوارئ.||تقرير/شهادة تقييم السكن: تقرير هندسي أو شهادة معتمدة تفيد بمطابقة المبنى لاشتراطات السكن الجماعي (المساحة المخصصة لكل فرد، التهوية، والإضاءة).||عقد نظافة ورفع نفايات: عقد ساري مع شركة معتمدة لنقل وتجميع النفايات.||عقد مكافحة حشرات وآفات: عقد ساري مع شركة معتمدة للرش والمكافحة الدورية.||سجل تجاري ساري: للشركة أو المؤسسة المالكة/المستأجرة للعقار (أو المؤجرة للعمالة).||في حال التجديد: توفير رقم الرخصة القديمة مع تحديث المستندات المنتهية (مثل شهادة السلامة وعقود الصيانة والخدمات).">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏘️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">إصدار وتجديد رخصة سكن جماعي</div>
@@ -311,8 +333,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار وتجديد رخصة سكن جماعي')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="986" data-price="50.0" data-name="إصدار ترخيص 24 ساعة محل تجاري">
-        <div class="svc-img"><div class="icon-circle">🏪</div></div>
+      <div class="svc-card" data-id="986" data-price="50.0" data-name="إصدار ترخيص 24 ساعة محل تجاري" data-desc='خدمة إصدار تصريح تقديم الخدمة لمدة 24 ساعة عبر منصة "بلدي" تتيح لأصحاب الأنشطة التجارية السماح لمحلهم بالعمل وممارسة النشاط التجاري طوال اليوم (خلال أوقات الحظر أو الساعات المتأخرة من الليل)، وذلك للأنشطة المسموح لها مستوفاة الاشتراطات.' data-reqs="رخصة تجارية سارية المفعول: يجب أن يكون المحل حاصلاً على رخصة نشاط تجاري سارية وصادرة من بلدي.||سجل تجاري ساري: متوافق مع النشاط المراد تشغيله 24 ساعة.||تركيب كاميرات مراقبة (مواصفات الأجهزة الأمنية): وجود نظام كاميرات مراقبة أمنية خارجي وداخلي يعمل على مدار الساعة مع تقديم شهادة إنجاز/تركيب من شركة معتمدة (أو استيفاء اشتراطات الأمن والسلامة).||موافقة الجهات المختصة (إن وجدت): موافقة وزارة الداخلية/الشرطة للأنشطة التي تتطلب ذلك أمنياً.||نشاط مسموح به: أن يكون النشاط التجاري ضمن قائمة الأنشطة المسموح لها بالعمل لمدة 24 ساعة وفق الضوابط واللائحة التنظيمية للبلديات.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏪</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">إصدار ترخيص 24 ساعة محل تجاري</div>
@@ -320,8 +342,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار ترخيص 24 ساعة محل تجاري')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1349" data-price="86.0" data-name="تقديم الإقرارات الضريبية">
-        <div class="svc-img"><div class="icon-circle">💹</div></div>
+      <div class="svc-card" data-id="1349" data-price="86.0" data-name="تقديم الإقرارات الضريبية" data-desc='خدمة تقديم الإقرارات الضريبية (ضريبة القيمة المضافة / الزكاة والدخل) عبر منصة "هيئة الزكاة والضريبة والجمارك" تتيح لأصحاب المنشآت والمكلفين الإفصاح الدوري عن المشتريات، المبيعات، والإيرادات المالية لاحتساب الالتزام الزكوي أو الضريبي المستحق وسداده.' data-reqs="رقم مميز وحساب نشط: تسجيل المنشأة مسبقاً لدى هيئة الزكاة والضريبة والجمارك.||سجل تجاري ساري المفعول: بنفس بيانات المكلف المتقدم.||الفواتير والقوائم المالية: الفواتير الضريبية المعتمدة (صادرة وواردة) والقوائم المالية عن الفترة الضريبية المحددة.||سداد المستحقات السابقة: عدم وجود إقرارات متأخرة لم يتم تقديمها عن فترات سابقة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💹</div></div>
         <div class="svc-body">
           <span class="svc-cat">الزكاة والضريبة والجمارك</span>
           <div class="svc-name">تقديم الإقرارات الضريبية</div>
@@ -329,8 +351,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تقديم الإقرارات الضريبية')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1023" data-price="50.0" data-name="تجديد السجل التجاري للمؤسسات">
-        <div class="svc-img"><div class="icon-circle">📋</div></div>
+      <div class="svc-card" data-id="1023" data-price="50.0" data-name="تجديد السجل التجاري للمؤسسات" data-desc='خدمة تجديد السجل التجاري عبر منصة "المركز السعودي للأعمال" تتيح لأصحاب المؤسسات تمديد صلاحية السجل التجاري لسنوات إضافية وضمان استمرار الأعمال.' data-reqs="سجل تجاري قائم: تقديم الطلب قبل انتهاء السجل أو خلال مهلة التجديد المتاحة.||اختيار عدد السنوات: تحديد عدد سنوات التجديد (من سنة إلى 5 سنوات).||سداد رسوم التجديد: سداد رسوم السجل التجاري ورسوم الغرفة التجارية عبر نظام سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📋</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
           <div class="svc-name">تجديد السجل التجاري للمؤسسات</div>
@@ -338,8 +360,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد السجل التجاري للمؤسسات')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1024" data-price="50.0" data-name="اشتراك او تجديد ابشر أعمال">
-        <div class="svc-img"><div class="icon-circle">🆔</div></div>
+      <div class="svc-card" data-id="1024" data-price="50.0" data-name="اشتراك او تجديد ابشر أعمال" data-desc='خدمة الاشتراك أو تجديد العضوية في منصة "أبشر أعمال" تتيح للمنشآت والمؤسسات الوصول للخدمات الإلكترونية لقطاع الأعمال بوزارة الداخلية وتمديد الصلاحية سنوياً.' data-reqs="سجل تجاري ساري المفعول: للمنشأة الرئيسية أو الفرعية.||حساب مفعل في النفاذ الوطني: لمالك المنشأة أو المفوض الرسمي في أبشر أفراد.||بيانات التواصل: رقم جوال نشط وبريد إلكتروني مسجل.||سداد رسوم الاشتراك: سداد المقابل المالي للباقة المختارة عبر نظام سداد.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🆔</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات المنصات الحكومية</span>
           <div class="svc-name">اشتراك او تجديد ابشر أعمال</div>
@@ -347,8 +369,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'اشتراك او تجديد ابشر أعمال')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1025" data-price="50.0" data-name="تجديد رخصة سلامة (الدفاع المدني)">
-        <div class="svc-img"><div class="icon-circle">🛡️</div></div>
+      <div class="svc-card" data-id="1025" data-price="50.0" data-name="تجديد رخصة سلامة (الدفاع المدني)" data-desc='خدمة تجديد تصريح/رخصة السلامة عبر منصة "سلامة" الإلكترونية التابعة للدفاع المدني تتيح لأصحاب المنشآت والمحلات التجارية تمديد صلاحية تصريح السلامة الخاص بالموقع لضمان استمرار مطابقة المنشأة لاشتراطات الوقاية والحماية من الحريق، وهو متطلب أساسي لتجديد الرخصة البلدية.' data-reqs="تصريح/رخصة السلامة السابقة: رقم التصريح المنتهي أو القريب من الانتهاء.||سجل تجاري ساري المفعول: متوافق مع اسم المنشأة والنشاط الحالي.||عقد صيانة وتفتيش ساري: عقد مع إحدى شركات أو مؤسسات السلامة المعتمدة في منصة سلامة لفحص وصيانة أجهزة الكشف والإطفاء.||تقرير الفحص الدوري: تقرير كشف فني صادر من شركة السلامة يثبت كفاءة وسلامة الأجهزة (كواشف الدخان، طفايات الحريق، مضخات الحريق، ومخارج الطوارئ).||عقد إيجار إلكتروني موثق (منصة إيجار) أو صك ملكية ساري للعقار.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🛡️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">تجديد رخصة سلامة (الدفاع المدني)</div>
@@ -356,8 +378,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد رخصة سلامة (الدفاع المدني)')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1026" data-price="30.0" data-name="إصدار شهادة الالتزام بالنظام وحماية الأجور">
-        <div class="svc-img"><div class="icon-circle">📜</div></div>
+      <div class="svc-card" data-id="1026" data-price="30.0" data-name="إصدار شهادة الالتزام بالنظام وحماية الأجور" data-desc='خدمة إصدار شهادة الالتزام بنظام حماية الأجور عبر منصة "قوى" تتيح للمنشآت إثبات التزامها برفع ملفات الأجر وصرف مستحقات العاملين في مواعيدها المحددة.' data-reqs="حساب منشأة نشط: ومسجل على منصة قوى.||رفع ملفات الأجور بشكل منتظم: الالتزام برفع ملفات الأجور الشهرية عبر المنصة بنسبة التزام لا تقل عن النسبة النظامية المحددة.||معالجة مبررات الملاحظات: معالجة أي فروقات أو ملاحظات مرصودة على ملفات الأجور المرفوعة سابقاً.||توثيق عقود العاملين: توثيق العقود لجميع العمالة المسجلة على المنشأة عبر منصة قوى.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📜</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
           <div class="svc-name">إصدار شهادة الالتزام بالنظام وحماية الأجور</div>
@@ -365,8 +387,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة الالتزام بالنظام وحماية الأجور')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="993" data-price="50.0" data-name="فتح حساب وتفعيل منصة قوى">
-        <div class="svc-img"><div class="icon-circle">👷</div></div>
+      <div class="svc-card" data-id="993" data-price="50.0" data-name="فتح حساب وتفعيل منصة قوى" data-desc='خدمة فتح حساب وتفعيل المنصة عبر "قوى" تتيح لأصحاب الأعمال والشركات والمؤسسات إنشاء حساب رقمي لإدارة جميع خدمات قطاع العمل إلكترونياً.' data-reqs="هوية صاحب المنشأة/المفوض: رقم الهوية الوطنية أو الإقامة الخاصة بمالك المنشأة أو المفوض الرسمي.||سجل تجاري نشط أو ترخيص: رقم السجل التجاري القائم والمربوط بوزارة التجارة.||حساب في أبشر (النفاذ الوطني): للتحقق من هوية صاحب الطلب والتفعيل المباشر.||بيانات التواصل: رقم جوال مسجل وبريد إلكتروني نشط لاستلام التفعيلات والرموز.||سداد اشتراك المنصة: سداد قيمة الاشتراك السنوي المعتمد لمنصة قوى بحسب حجم المنشأة.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👷</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات الأعمال</span>
           <div class="svc-name">فتح حساب وتفعيل منصة قوى</div>
@@ -374,8 +396,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فتح حساب وتفعيل منصة قوى')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1160" data-price="30.0" data-name="طباعة تقرير حماية الأجور">
-        <div class="svc-img"><div class="icon-circle">💰</div></div>
+      <div class="svc-card" data-id="1160" data-price="30.0" data-name="طباعة تقرير حماية الأجور" data-desc='خدمة طباعة تقرير نظام حماية الأجور عبر منصة "مدد" تتيح للمنشآت استخراج الشهادات والتقارير الرسمية التي تثبت نسبة التزام المنشأة بصرف أجور العاملين في مواعيدها ومطابقتها للشروط الحكومية.' data-reqs="الالتزام بنظام حماية الأجور: رفع ملفات الأجور بشكل منتظم عن الشهر المطلوب.||معالجة الملاحظات: تقديم المبررات وصرف المستحقات لمعالجة أي فروقات أو ملاحظات مرصودة.||اعتماد ملف الرواتب: اكتمال عملية معالجة ملف الأجور من البنك والمنصة بنجاح.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💰</div></div>
         <div class="svc-body">
           <span class="svc-cat">منصة مدد (الرواتب)</span>
           <div class="svc-name">طباعة تقرير حماية الأجور</div>
@@ -383,8 +405,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة تقرير حماية الأجور')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1161" data-price="50.0" data-name="رفع مسير رواتب الموظفين الشهرية في مدد">
-        <div class="svc-img"><div class="icon-circle">📊</div></div>
+      <div class="svc-card" data-id="1161" data-price="50.0" data-name="رفع مسير رواتب الموظفين الشهرية في مدد" data-desc='خدمة رفع مسير الرواتب الشهري عبر منصة "مدد" تتيح للمنشآت رفع الملفات المالية الخاصة بأجور العاملين ومعالجتها لتحويل المستحقات وإرسال بيانات حماية الأجور إلكترونياً لوزارة الموارد البشرية.' data-reqs="ملف مسير الرواتب المعتمد: إعداد مسير الرواتب بصيغة الملف المعتمدة (Excel/CSV) أو عبر منشئ المسيرات بالمنصة.||بيانات الآيبان (IBAN) للموظفين: صحة أرقام الحسابات البنكية أو بطاقات الرواتب الخاصة بجميع العاملين.||توثيق العقود: وجود عقود عمل موثقة للموظفين عبر منصة قوى.||توفر الرصيد المالي: وجود سيولة كافية في الحساب البنكي المرتبط لتغطية إجمالي الرواتب ورسوم التحويل.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📊</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات تجديد دورية ومتكررة</span>
           <div class="svc-name">رفع مسير رواتب الموظفين الشهرية في مدد</div>
@@ -392,8 +414,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'رفع مسير رواتب الموظفين الشهرية في مدد')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1159" data-price="30.0" data-name="طباعة تقارير إدارة الرواتب">
-        <div class="svc-img"><div class="icon-circle">🖨️</div></div>
+      <div class="svc-card" data-id="1159" data-price="30.0" data-name="طباعة تقارير إدارة الرواتب" data-desc='خدمة طباعة تقارير إدارة الرواتب عبر منصة "مدد" تتيح لأصحاب المنشآت استخراج وتنزيل تقارير مالية وتفصيلية تفصح عن حركة الرواتب، البدلات، والخصومات الشهرية للموظفين لغايات الأرشفة أو المراجعة المحاسبية.' data-reqs="حساب منشأة نشط: مسجل في نظام إدارة الرواتب بمنصة مدد.||رفع ومعالجة مسيرات الرواتب: وجود مسيرات رواتب مكتملة ومصروفة إلكترونياً عن الفترة المالية المطلوبة.||صلاحية الوصول: دخول المالك أو المفوض المالي المصرح له على الحساب.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🖨️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التأسيس</span>
           <div class="svc-name">طباعة تقارير إدارة الرواتب</div>
@@ -401,8 +423,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'طباعة تقارير إدارة الرواتب')">🛒 أضف للسلة</button></div>
       </div>
-      <div class="svc-card" data-id="1002" data-price="300.0" data-name="شهادة تركيب أدوات الوقاية من الحريق (سلامة)">
-        <div class="svc-img"><div class="icon-circle">🧯</div></div>
+      <div class="svc-card" data-id="1002" data-price="300.0" data-name="شهادة تركيب أدوات الوقاية من الحريق (سلامة)" data-desc='خدمة إصدار شهادة تركيب أدوات الوقاية والحماية من الحريق عبر منصة "سلامة" (التابعة للدفاع المدني) تتيح لأصحاب المنشآت والمحلات التجارية إثبات جاهزية موقعهم وتوفر كافة أجهزة ومعدات السلامة من قبل شركة سلامة معتمدة، وهي شرط أساسي لإصدار أو تجديد الرخصة البلدية.' data-reqs="سجل تجاري ساري المفعول: بنفس بيانات اسم المنشأة والنشاط.||عقد صيانة أدوات السلامة: عقد ساري مع إحدى الشركات/المؤسسات المعتمدة والمُدرجة في منصة سلامة.||تركيب واستيفاء أدوات السلامة: توفير الكواشف، الطفايات، أجهزة الإنذار، واللوحات الإرشادية حسب مساحة المحل ودرجة خطورة النشاط.||عقد إيجار إلكتروني موثق (منصة إيجار) أو صك ملكية العقار لتحديد موقع العين ومساحتها.||صورة للموقع/العنوان الوطني: لتسهيل ربط الموقع إلكترونياً.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🧯</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات معاملات التأسيس</span>
           <div class="svc-name">شهادة تركيب أدوات الوقاية من الحريق (سلامة)</div>
@@ -483,7 +505,62 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 function filterServices(){const q=document.getElementById('search-input').value.trim();const cards=document.querySelectorAll('.svc-card');let v=0;cards.forEach(c=>{const n=c.dataset.name||'';const show=!q||n.includes(q);c.style.display=show?'flex':'none';if(show)v++;});document.getElementById('results-count').textContent=v+' خدمة';document.getElementById('empty-results').style.display=v===0?'block':'none';}
 function sortServices(val){const grid=document.getElementById('services-grid');const cards=Array.from(grid.querySelectorAll('.svc-card'));cards.sort((a,b)=>{if(val==='price-asc')return(parseInt(a.dataset.price)||0)-(parseInt(b.dataset.price)||0);if(val==='price-desc')return(parseInt(b.dataset.price)||0)-(parseInt(a.dataset.price)||0);if(val==='name')return(a.dataset.name||'').localeCompare(b.dataset.name||'','ar');return 0;});cards.forEach(c=>grid.appendChild(c));}
 document.addEventListener('DOMContentLoaded',function(){updateCartBadge();document.getElementById('results-count').textContent=document.querySelectorAll('.svc-card').length+' خدمة';});
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script src="services-loader.js"></script>
 </body>
