@@ -1,5 +1,5 @@
 /**
- * services-loader.js — رواق التميز
+ * services-loader.js — رواق
  * يجلب الخدمات من services.json ويحدّث الصفحة تلقائياً
  */
 
