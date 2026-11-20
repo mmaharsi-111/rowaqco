@@ -559,6 +559,23 @@ function doLogoutCart() {
 }
 
 /* ── إرسال الطلب لأودو ── */
+function buildOrderWhatsappMessage(cart, user, opts){
+  opts = opts || {};
+  const items = cart.map(i=>`• ${i.name} (${i.qty||1}x) — ${(i.price*(i.qty||1)).toFixed(0)} ﷼`).join('\n');
+  let msg = `مرحباً، أريد تأكيد طلبي:\n\n👤 ${user.name}\n📞 ${user.phone}\n`;
+  if (opts.orderId) msg += `\n🔖 رقم الطلب: #${opts.orderId}\n`;
+  msg += `\n${items}`;
+  if (opts.odooFailed) {
+    msg += `\n\n⚠️ تنبيه: تعذّر إرسال هذا الطلب تلقائياً إلى نظام أودو — يُرجى تسجيله يدوياً.`;
+  }
+  return msg;
+}
+
+function sendOrderToWhatsapp(cart, user, opts){
+  const msg = encodeURIComponent(buildOrderWhatsappMessage(cart, user, opts));
+  window.open(`https://wa.me/966505659737?text=${msg}`,'_blank');
+}
+
 async function checkoutWhatsapp(){
   const cart = getCart();
   if(cart.length===0){ alert('السلة فارغة! أضف خدمة أولاً.'); return; }
@@ -617,6 +634,8 @@ async function checkoutWhatsapp(){
       orders.unshift(orderRecord);
       localStorage.setItem('rawaq_orders', JSON.stringify(orders));
 
+      sendOrderToWhatsapp(cart, user, { orderId: data.orderId });
+
       clearCart();
 
       // ✅ إظهار صفحة نجاح الطلب
@@ -663,10 +682,8 @@ async function checkoutWhatsapp(){
   } catch(err) {
     btn.disabled = false;
     btn.textContent = '🚀 اطلب الآن';
-    // Fallback لواتساب
-    const items = cart.map(i=>`• ${i.name} (${i.qty||1}x) — ${(i.price*(i.qty||1)).toFixed(0)} ﷼`).join('\n');
-    const msg = encodeURIComponent(`مرحباً، أريد تأكيد طلبي:\n\n👤 ${user.name}\n📞 ${user.phone}\n\n${items}`);
-    window.open(`https://wa.me/966505659737?text=${msg}`,'_blank');
+    // لم يصل الطلب لأودو — أرسله عبر واتساب مع تنبيه بالفشل
+    sendOrderToWhatsapp(cart, user, { odooFailed: true });
     console.error(err);
   }
 }
