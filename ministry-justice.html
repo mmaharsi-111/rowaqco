@@ -82,6 +82,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:130px;display:flex;align-items:center;justify-content:center;padding:14px;background:#fff;}
 .icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;}
 .svc-name{font-size:13px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:36px;}
@@ -284,8 +306,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid">
 
-      <div class="svc-card" data-id="1458" data-price="50.0" data-name="خدمة الاستعلام عن طلبات التنفيذ">
-        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+      <div class="svc-card" data-id="1458" data-price="50.0" data-name="خدمة الاستعلام عن طلبات التنفيذ" data-desc="خدمة الاستعلام عن طلبات التنفيذ عبر بوابة ناجز التابعة لوزارة العدل تتيح للدائن أو وكيله متابعة حالة طلب تنفيذ سند تنفيذي (كصك أو حكم قضائي أو عقد موثق) أمام محكمة التنفيذ، ومعرفة الإجراءات التي اتُخذت ضد المدين كالحجز على أمواله أو منعه من السفر." data-reqs="رقم طلب التنفيذ الصادر عند تقديم الطلب لمحكمة التنفيذ||رقم الهوية الوطنية أو الإقامة لمقدّم طلب التنفيذ||تسجيل الدخول إلى بوابة ناجز بحساب النفاذ الوطني الموحد لمتابعة تفاصيل الطلب وإجراءاته">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة العدل</span>
           <div class="svc-name">خدمة الاستعلام عن طلبات التنفيذ</div>
@@ -297,8 +319,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1611" data-price="86.0" data-name="إصدار وكالة شرعية">
-        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+      <div class="svc-card" data-id="1611" data-price="86.0" data-name="إصدار وكالة شرعية" data-desc="خدمة إصدار وكالة إلكترونية عبر منصة &quot;ناجز&quot; تتيح للمواطنين والمقيمين إنشاء وكالة شرعية وتفويض أفراد أو محامين لمراجعة الجهات أو التصرف نيابة عنهم." data-reqs="هوية الموكل والوكيل: أرقام الهويات الوطنية أو الإقامات وسارية المفعول للطرفين.||أهلية الموكل: ألا يكون الموكل قاصراً أو محجوراً عليه، وتوفر حساب مفعل بأبشر.||تحديد البنود والتخاويل: اختيار نص بنود الوكالة المعتمدة من وزارة العدل وتحديد مدة صلاحيتها.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة العدل</span>
           <div class="svc-name">إصدار والغاء الوكالات الشرعية</div>
@@ -310,8 +332,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1460" data-price="50.0" data-name="تقديم دعوى مالية">
-        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+      <div class="svc-card" data-id="1460" data-price="50.0" data-name="تقديم دعوى مالية" data-desc="خدمة تقديم دعوى مالية عبر بوابة ناجز التابعة لوزارة العدل تتيح لأي شخص له مطالبة مالية ضد آخر (كمبلغ دين أو مستحقات مالية) تقديم صحيفة الدعوى إلكترونياً أمام المحكمة المختصة دون الحاجة للحضور الشخصي، ليتم تحديد موعد الجلسة ومتابعة إجراءات القضية من خلال البوابة نفسها." data-reqs="تسجيل الدخول إلى بوابة ناجز بحساب النفاذ الوطني الموحد||تحديد نوع الدعوى المالية وبيانات الطرف المدعى عليه بدقة (الاسم ورقم الهوية إن توفر)||رفع المستندات الداعمة للمطالبة المالية: كسند الدين أو العقد أو أي إثبات للمستحق المالي||سداد رسوم تقديم صحيفة الدعوى عبر البوابة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة العدل</span>
           <div class="svc-name">تقديم دعوى مالية</div>
@@ -323,21 +345,21 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1461" data-price="200.0" data-name="دعوى محكمة عالمية">
-        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+      <div class="svc-card" data-id="1461" data-price="200.0" data-name="دعوى عمالية" data-desc="خدمة تقديم دعوى عمالية عبر بوابة ناجز التابعة لوزارة العدل تتيح للعامل أو صاحب العمل رفع صحيفة الدعوى إلى المحكمة العمالية المختصة بعد تعذّر التسوية الودية للنزاع العمالي لدى مكتب العمل التابع لوزارة الموارد البشرية والتنمية الاجتماعية، وذلك باعتبارها الخطوة التالية بعد انتهاء مهلة الصلح المحددة نظاماً دون التوصل لاتفاق." data-reqs="محضر تعذر الصلح الصادر من مكتب العمل بعد انقضاء مهلة التسوية الودية النظامية، وهو شرط أساسي لقبول الدعوى||عقد العمل أو ما يثبت العلاقة العمالية بين الطرفين||كشوف الرواتب أو أي مستندات تدعم المطالبة (مستحقات، تعويضات، إنهاء خدمة، إلخ)||تسجيل الدخول إلى بوابة ناجز بحساب النفاذ الوطني الموحد وتعبئة صحيفة الدعوى العمالية" data-conditions="لا يجوز تقديم الدعوى العمالية مباشرة دون محضر تعذر الصلح الصادر عن مكتب العمل أولاً؛ وتختلف بعض التفاصيل الإجرائية (كمهلة التقادم والرسوم) بحسب آخر التحديثات النظامية فيُنصح بالتأكد منها قبل التقديم">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة العدل</span>
-          <div class="svc-name">دعوى محكمة عالمية</div>
+          <div class="svc-name">دعوى عمالية</div>
           <div class="svc-price" style="direction:ltr;text-align:right;"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTI0LjE0IDEyNTYuMzkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMyMzFmMjA7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5OS42MiwxMTEzLjAyaDBjLTIwLjA2LDQ0LjQ4LTMzLjMyLDkyLjc1LTM4LjQsMTQzLjM3bDQyNC41MS05MC4yNGMyMC4wNi00NC40NywzMy4zMS05Mi43NSwzOC40LTE0My4zN2wtNDI0LjUxLDkwLjI0WiIvPgogIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwODUuNzMsODk1LjhjMjAuMDYtNDQuNDcsMzMuMzItOTIuNzUsMzguNC0xNDMuMzdsLTMzMC42OCw3MC4zM3YtMTM1LjJsMjkyLjI3LTYyLjExYzIwLjA2LTQ0LjQ3LDMzLjMyLTkyLjc1LDM4LjQtMTQzLjM3bC0zMzAuNjgsNzAuMjdWNjYuMTNjLTUwLjY3LDI4LjQ1LTk1LjY3LDY2LjMyLTEzMi4yNSwxMTAuOTl2NDAzLjM1bC0xMzIuMjUsMjguMTFWMGMtNTAuNjcsMjguNDQtOTUuNjcsNjYuMzItMTMyLjI1LDExMC45OXY1MjUuNjlsLTI5NS45MSw2Mi44OGMtMjAuMDYsNDQuNDctMzMuMzMsOTIuNzUtMzguNDIsMTQzLjM3bDMzNC4zMy03MS4wNXYxNzAuMjZsLTM1OC4zLDc2LjE0Yy0yMC4wNiw0NC40Ny0zMy4zMiw5Mi43NS0zOC40LDE0My4zN2wzNzUuMDQtNzkuN2MzMC41My02LjM1LDU2Ljc3LTI0LjQsNzMuODMtNDkuMjRsNjguNzgtMTAxLjk3di0uMDJjNy4xNC0xMC41NSwxMS4zLTIzLjI3LDExLjMtMzYuOTd2LTE0OS45OGwxMzIuMjUtMjguMTF2MjcwLjRsNDI0LjUzLTkwLjI4WiIvPgo8L3N2Zz4=" alt="ريال سعودي" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;filter:invert(18%) sepia(60%) saturate(800%) hue-rotate(120deg) brightness(70%)"> <span class="price-val" data-price="150">230</span></div>
         </div>
         <div class="svc-footer">
-          <button class="btn-cart" onclick="cartAdd(this,'دعوى محكمة عالمية')">
+          <button class="btn-cart" onclick="cartAdd(this,'دعوى عمالية')">
             🛒 أضف للسلة</button>
         </div>
       </div>
 
-      <div class="svc-card" data-id="1462" data-price="30.0" data-name="حجز المواعيد في المحكمة">
-        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+      <div class="svc-card" data-id="1462" data-price="30.0" data-name="حجز المواعيد في المحكمة" data-desc="خدمة حجز المواعيد في المحكمة عبر بوابة ناجز التابعة لوزارة العدل تتيح لأطراف القضية أو من يمثلهم تحديد موعد حضور الجلسات القضائية أو مواعيد المعاملات الأخرى لدى المحكمة المختصة، ومعرفة تفاصيل الموعد (التاريخ والوقت والقاضي أو الدائرة القضائية)." data-reqs="رقم القضية أو رقم الطلب المرتبط بالموعد المطلوب حجزه||رقم الهوية الوطنية أو الإقامة لصاحب العلاقة بالقضية||تسجيل الدخول إلى بوابة ناجز بحساب النفاذ الوطني الموحد لمتابعة قائمة القضايا والمواعيد">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة العدل</span>
           <div class="svc-name">حجز المواعيد في المحكمة</div>
@@ -349,8 +371,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1463" data-price="50.0" data-name="تقديم دعوى زيارة - تنظيم حقوق زيارة الأبناء">
-        <div class="svc-img"><div class="icon-circle">⚖️</div></div>
+      <div class="svc-card" data-id="1463" data-price="50.0" data-name="تقديم دعوى زيارة - تنظيم حقوق زيارة الأبناء" data-desc="خدمة تقديم دعوى زيارة لتنظيم حقوق زيارة الأبناء عبر بوابة ناجز التابعة لوزارة العدل تتيح للوالد أو الوالدة غير الحاضن رفع دعوى أمام محكمة الأحوال الشخصية لتحديد مواعيد وآلية زيارة الأبناء بعد الانفصال أو الطلاق، في حال تعذّر الاتفاق الودي بين الطرفين على ذلك." data-reqs="تسجيل الدخول إلى بوابة ناجز بحساب النفاذ الوطني الموحد وتعبئة صحيفة الدعوى||بيانات الطرف الحاضن للأبناء ومستند إثبات العلاقة الأسرية (كوثيقة الطلاق أو حكم الحضانة إن وجد)||بيانات الأبناء المطلوب تنظيم حقوق زيارتهم (الاسم والعمر)||توضيح الآلية المطلوبة لتنظيم الزيارة (الأيام والمواعيد والمكان المقترح) لتعرض على المحكمة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة العدل</span>
           <div class="svc-name">تقديم دعوى زيارة - تنظيم حقوق زيارة الأبناء</div>
@@ -424,9 +446,64 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </footer>
 
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() { updateCartBadge(); });
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
