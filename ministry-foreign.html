@@ -82,6 +82,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:130px;display:flex;align-items:center;justify-content:center;padding:14px;background:#fff;}
 .icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;}
 .svc-name{font-size:13px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:36px;}
@@ -284,8 +306,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid">
 
-      <div class="svc-card" data-id="1439" data-price="50.0" data-name="طلب زيارة عائلية">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1439" data-price="50.0" data-name="طلب زيارة عائلية" data-desc="خدمة طلب زيارة عائلية عبر منصة التأشيرات الإلكترونية التابعة لوزارة الخارجية تتيح للمواطن السعودي أو المقيم النظامي الذي تربطه بالزائر صلة قرابة التقدّم بطلب تأشيرة زيارة لأحد أقاربه القادمين من خارج المملكة، حيث يُدخل مقدّم الطلب بيانات الزائر ويدفع الرسوم المقررة، ثم تُراجع وزارة الخارجية الطلب ليصدر بعد الموافقة مستند التأشيرة الذي يُمكّن الزائر من استكمال إجراءات الدخول عبر سفارة أو قنصلية المملكة في بلده." data-reqs="أن يكون مقدم الطلب مواطنًا أو مقيمًا نظاميًا تربطه بالزائر صلة قرابة||ألا تقل صلاحية جواز سفر الزائر عن 6 أشهر من تاريخ التقديم||توفر تأمين صحي سارٍ للزائر وملاءة مالية كافية لتغطية إقامته وتنقله وطعامه خلال الزيارة||أن يكون سن الزائر 18 عامًا فأكثر، إلا إذا كان برفقة ولي قانوني||سداد رسوم الخدمة عبر وسائل الدفع الإلكترونية المتاحة في المنصة" data-conditions="درجة صلة القرابة المقبولة قد تختلف حسب ضوابط المنصة، ويُنصح بمراجعة شروط الخدمة قبل التقديم للتأكد من انطباقها على صلتك بالزائر">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">طلب زيارة عائلية</div>
@@ -297,8 +319,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1595" data-price="50.0" data-name="تقديم طلب زيارة عائلية للمقيمين">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1595" data-price="50.0" data-name="تقديم طلب زيارة عائلية للمقيمين" data-desc="خدمة تقديم طلب زيارة عائلية للمقيمين عبر منصة التأشيرات الإلكترونية التابعة لوزارة الخارجية تتيح للمقيم صاحب الإقامة النظامية السارية دعوة أحد أقاربه من خارج المملكة لزيارته، عبر إدخال بيانات الزائر وصلة القرابة ودفع الرسوم المقررة، ليصدر مستند التأشيرة بعد المراجعة والموافقة ويُرسله المقيم إلى الزائر لاستكمال إجراءات التأشيرة في بلده." data-reqs="أن يكون مقدم الطلب مقيمًا بإقامة نظامية سارية داخل المملكة||تقديم ما يثبت صلة القرابة النظامية بين المقيم والزائر عند تعبئة الطلب||توفر جواز سفر سارٍ وصورة شخصية حديثة للزائر||سداد رسوم تقديم الطلب عبر المنصة||الاحتفاظ برقم الطلب الصادر لمتابعة حالته، وعدم حجز السفر قبل صدور التأشيرة فعليًا">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تقديم طلب زيارة عائلية للمقيمين</div>
@@ -310,8 +332,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1596" data-price="50.0" data-name="تقديم طلب زيارة شخصية للمواطنين">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1596" data-price="50.0" data-name="تقديم طلب زيارة شخصية للمواطنين" data-desc="خدمة تقديم طلب زيارة شخصية للمواطنين عبر منصة التأشيرات الإلكترونية التابعة لوزارة الخارجية تتيح للمواطن السعودي دعوة شخص من خارج المملكة لزيارته دون اشتراط صلة قرابة بينهما، بما يشمل دعوة الأصدقاء لأداء العمرة أو الزيارة الشخصية، حيث يُدخل المواطن بيانات المدعو ويوافق على التعهدات اللازمة، فيصدر مستند تأشيرة الزيارة الشخصية الذي يُرسله إلى المدعو لاستكمال طلب تأشيرة الدخول لدى السفارة أو القنصلية السعودية في بلده." data-reqs="الخدمة مخصصة للمواطنين السعوديين فقط (المقيمون يستخدمون خدمة الزيارة العائلية)||إدخال بيانات جواز سفر المدعو وجنسيته بدقة في نموذج الطلب||الموافقة على التعهدات الإلزامية في المنصة بشأن سلوك الضيف ومسؤولية المستضيف عنه||تعبئة المدعو لنموذج طلب تأشيرة الدخول بعد استلام مستند التأشيرة، ثم سداد رسوم التأشيرة والتأمين الصحي||تقديم المدعو جواز سفره والمستندات لدى السفارة أو القنصلية السعودية أو مركز معتمد في بلده لاستكمال إصدار التأشيرة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تقديم طلب زيارة شخصية للمواطنين</div>
@@ -323,8 +345,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1443" data-price="30.0" data-name="استعلام عن طلب زيارة">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1442" data-price="30.0" data-name="حجز تصديق الوكالات الخارجية" data-desc="خدمة حجز تصديق الوكالات الخارجية عبر منصة التصديقات التابعة لوزارة الخارجية تتيح للمواطن أو المقيم تصديق وكالة (وكالة شرعية) صادرة خارج المملكة العربية السعودية بهدف استخدامها رسمياً داخل المملكة أمام الجهات الحكومية والمحاكم والبنوك، وذلك بعد أن تكون الوكالة قد صُدّقت مسبقاً من الجهات المختصة في الدولة التي صدرت منها، ثم من سفارة أو قنصلية المملكة في تلك الدولة، لتكون هذه الخدمة هي التصديق النهائي من وزارة الخارجية السعودية الذي يمنح الوكالة الاعتماد الرسمي للتعامل بها محلياً." data-reqs="تقديم أصل الوكالة الصادرة من خارج المملكة مصدّقة مسبقاً من الجهات الرسمية في بلد الإصدار||حصول الوكالة على تصديق سفارة أو قنصلية المملكة العربية السعودية في البلد الذي صدرت منه||تحديد موعد لحجز التصديق عبر منصة التصديقات أو المنصة الإلكترونية التابعة لوزارة الخارجية وسداد الرسوم المقررة||إحضار هوية مقدم الطلب (الهوية الوطنية أو الإقامة أو جواز السفر) عند استكمال إجراء التصديق||التأكد من أن بيانات الوكيل والموكل ونص الوكالة واضحة وسليمة قبل التقديم لتجنب الرفض أو إعادة الإجراء" data-conditions="تختلف خطوات التصديق المسبق (توثيق محلي ثم تصديق السفارة) حسب الدولة المُصدرة للوكالة، ويُنصح بمراجعة سفارة أو قنصلية المملكة في تلك الدولة للتأكد من الخطوات والمستندات الدقيقة قبل التقديم">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تصديق الوكالات الخارجية</div>
@@ -336,8 +358,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1443" data-price="30.0" data-name="استعلام عن طلب زيارة">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1443" data-price="30.0" data-name="استعلام عن طلب زيارة" data-desc="خدمة الاستعلام عن طلب زيارة عبر منصة التأشيرات الإلكترونية التابعة لوزارة الخارجية تتيح لمقدّم الطلب متابعة حالة طلب تأشيرة الزيارة (عائلية أو شخصية أو تجارية أو عمل) دون الحاجة لتسجيل الدخول بحساب، بإدخال رقم الطلب أو رقم مستند التأشيرة إلى جانب رقم الهوية أو الإقامة، لمعرفة ما إذا كان الطلب لا يزال قيد المراجعة أو تمت الموافقة عليه وصدر مستند التأشيرة." data-reqs="الاحتفاظ برقم الطلب الصادر عند تقديم طلب الزيارة، أو رقم مستند التأشيرة إن وُجد||إدخال رقم الهوية الوطنية (للمواطن) أو رقم الإقامة (للمقيم) بجانب رقم الطلب||تحديد نوع التأشيرة (عائلية، شخصية، تجارية، عمل) من صفحة الاستعلام||إدخال رمز التحقق الظاهر على الصفحة لإتمام عملية البحث">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">استعلام عن طلب زيارة</div>
@@ -349,8 +371,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1444" data-price="30.0" data-name="تفويض تأشيرات عمل">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1444" data-price="30.0" data-name="تفويض تأشيرات عمل" data-desc="خدمة تفويض تأشيرات العمل عبر منصة التأشيرات الإلكترونية التابعة لوزارة الخارجية (بالتكامل مع أبشر أعمال ومنصة قوى) تتيح لصاحب المنشأة أو الكفيل الذي لا يرغب في إنهاء إجراءات تأشيرات عمالته بنفسه تفويضَ مكتب استقدام معتمد أو شخص موثوق لإنجاز إجراءات استخراج تأشيرات العمل نيابةً عنه، عبر إدخال بيانات المفوَّض من حساب المنشأة على المنصة وتوثيق هويته وصلاحياته عبر أبشر أعمال." data-reqs="وجود ملف منشأة مسجل ومرتبط بالسجل التجاري وبحساب أبشر أعمال باسم المالك أو صاحب الصلاحية||إدخال رقم هوية أو إقامة المفوَّض (مكتب الاستقدام أو الشخص) وبياناته في نظام إدارة المفوضين على المنصة||توفر رقم تأشيرة صادر أو حصة استقدام معتمدة من وزارة الموارد البشرية (منصة قوى) تُنجز إجراءاتها بالتفويض||تأكيد عملية التفويض برمز يُرسل إلى جوال صاحب الصلاحية، وقبول المفوَّض للتفويض||إمكانية الاستعلام عن التفويضات الصادرة أو إلغائها لاحقًا من حساب المنشأة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تفويض تأشيرات عمل</div>
@@ -362,8 +384,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1600" data-price="30.0" data-name="تفويض تأشيرات العمل">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1600" data-price="30.0" data-name="تفويض تأشيرات العمل" data-desc="خدمة تفويض تأشيرات العمل عبر منصة التأشيرات الإلكترونية التابعة لوزارة الخارجية (بالتكامل مع أبشر أعمال ومنصة قوى) تتيح لصاحب المنشأة أو الكفيل الذي لا يرغب في إنهاء إجراءات تأشيرات عمالته بنفسه تفويضَ مكتب استقدام معتمد أو شخص موثوق لإنجاز إجراءات استخراج تأشيرات العمل نيابةً عنه، عبر إدخال بيانات المفوَّض من حساب المنشأة على المنصة وتوثيق هويته وصلاحياته عبر أبشر أعمال." data-reqs="وجود ملف منشأة مسجل ومرتبط بالسجل التجاري وبحساب أبشر أعمال باسم المالك أو صاحب الصلاحية||إدخال رقم هوية أو إقامة المفوَّض (مكتب الاستقدام أو الشخص) وبياناته في نظام إدارة المفوضين على المنصة||توفر رقم تأشيرة صادر أو حصة استقدام معتمدة من وزارة الموارد البشرية (منصة قوى) تُنجز إجراءاتها بالتفويض||تأكيد عملية التفويض برمز يُرسل إلى جوال صاحب الصلاحية، وقبول المفوَّض للتفويض||إمكانية الاستعلام عن التفويضات الصادرة أو إلغائها لاحقًا من حساب المنشأة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">تفويض تأشيرات العمل</div>
@@ -375,8 +397,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         </div>
       </div>
 
-      <div class="svc-card" data-id="1601" data-price="100.0" data-name="طلب زيارة عمل">
-        <div class="svc-img"><div class="icon-circle">🌐</div></div>
+      <div class="svc-card" data-id="1601" data-price="100.0" data-name="طلب زيارة عمل" data-desc="خدمة طلب زيارة عمل عبر منصة التأشيرات الإلكترونية التابعة لوزارة الخارجية تتيح للمنشآت والشركات العاملة داخل المملكة استضافة زائر أجنبي (استشاري أو فني أو خبير) لأداء مهمة عمل محددة ومؤقتة لدى المنشأة، دون أن ينشأ عن ذلك عقد توظيف أو تأشيرة عمل دائمة، حيث تتقدّم المنشأة بالطلب إلكترونيًا من حسابها على المنصة مدخلةً بيانات الزائر والغرض من الزيارة." data-reqs="أن تكون المنشأة أو الشركة المستضيفة مسجلة رسميًا بسجل تجاري ساري وموثقة على منصة التأشيرات||تعبئة بيانات جواز سفر الزائر وتحديد الغرض الدقيق من زيارة العمل (استشارة، تدريب، أعمال فنية...)||توضيح طبيعة المهمة وربطها بنشاط المنشأة المسجّل، على أن تبقى زيارة مؤقتة لا تأشيرة عمل دائمة||سريان جواز سفر الزائر وتوفر تأمين صحي سارٍ له قبل السفر||سداد رسوم طلب الزيارة المقررة عبر المنصة قبل إصدار مستند التأشيرة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🌐</div></div>
         <div class="svc-body">
           <span class="svc-cat">وزارة الخارجية</span>
           <div class="svc-name">طلب زيارة عمل</div>
@@ -450,9 +472,64 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   </div>
 </footer>
 
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="sidebar.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() { updateCartBadge(); });
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
 <script src="services-loader.js"></script>
 </body>
