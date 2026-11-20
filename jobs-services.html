@@ -88,6 +88,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:110px;display:flex;align-items:center;justify-content:center;padding:12px;background:#fff;}
 .icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
 .svc-name{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:34px;}
@@ -295,8 +317,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1134" data-price="50.0" data-name="التقديم على وظائف منصة بيت كوم">
-        <div class="svc-img"><div class="icon-circle">🏠</div></div>
+      <div class="svc-card" data-id="1134" data-price="50.0" data-name="التقديم على وظائف منصة بيت كوم" data-desc="خدمة التقديم على الوظائف عبر منصة بيت.كوم تتيح للباحثين عن عمل إنشاء حساب والبحث بين آلاف الوظائف المعروضة من الشركات في السعودية والتقديم المباشر عليها، وهي من أكبر وأشهر منصات التوظيف في الشرق الأوسط وشمال أفريقيا." data-reqs="سيرة ذاتية جاهزة: بصيغة ملف أو بيانات كاملة لبنائها داخل المنصة||بريد إلكتروني ورقم جوال فعّالين لإنشاء الحساب وتأكيده||بيانات المؤهل والخبرات: التخصص والمسمى الوظيفي المستهدف للتقديم">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏠</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات التقديم</span>
           <div class="svc-name">التقديم على وظائف منصة بيت كوم</div>
@@ -305,8 +327,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التقديم على وظائف منصة بيت كوم')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1135" data-price="50.0" data-name="التقديم على وظائف منصة صبار">
-        <div class="svc-img"><div class="icon-circle">💼</div></div>
+      <div class="svc-card" data-id="1135" data-price="50.0" data-name="التقديم على وظائف منصة صبار" data-desc="خدمة التقديم على وظائف منصة صبار تتيح للباحثين عن عمل إنشاء ملف شخصي والبحث عن الشواغر المعروضة من الشركات في السعودية عبر خيارات تصفية متقدمة حسب المجال والموقع والمستوى الوظيفي، لوظائف بدوام كامل أو جزئي." data-reqs="حساب مسجَّل في المنصة ببريد إلكتروني ورقم جوال فعّالين||بيانات المؤهل والخبرة لإدخالها في الملف الشخصي||تحديد نوع ومجال الوظيفة المطلوبة: دوام كامل أو جزئي والتخصص المستهدف">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">💼</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات التقديم</span>
           <div class="svc-name">التقديم على وظائف منصة صبار</div>
@@ -315,8 +337,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التقديم على وظائف منصة صبار')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1136" data-price="50.0" data-name="التقديم على وظائف منصة مرن">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="1136" data-price="50.0" data-name="التقديم على وظائف منصة مرن" data-desc="خدمة التسجيل في منصة مرن تتيح للباحثين عن عمل توثيق عقود العمل المرن بالساعة مع منشآت القطاع الخاص إلكترونياً، وهي منصة رسمية أطلقتها وزارة الموارد البشرية والتنمية الاجتماعية لتنظيم التشغيل المؤقت والموسمي وزيادة الدخل بصورة نظامية." data-reqs="حساب أبشر فعّال لتوثيق الهوية والتحقق من البيانات عبر النفاذ الوطني||عرض عمل من منشأة مسجّلة لبدء إجراءات توثيق العقد||رقم حساب بنكي (آيبان) لاستلام الأجر بالساعة المتفق عليه" data-conditions="منصة مرن لا تُستخدم للبحث عن وظائف مباشرة كبقية المنصات، بل لتوثيق عقد عمل مرن بعد الاتفاق مع منشأة على فرصة عمل مؤقتة أو بالساعة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات التقديم</span>
           <div class="svc-name">التقديم على وظائف منصة مرن</div>
@@ -325,8 +347,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التقديم على وظائف منصة مرن')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1137" data-price="50.0" data-name="التقديم على الوظائف الحكومية (جدارات)">
-        <div class="svc-img"><div class="icon-circle">🏛️</div></div>
+      <div class="svc-card" data-id="1137" data-price="50.0" data-name="التقديم على الوظائف الحكومية (جدارات)" data-desc="خدمة التقديم على الوظائف الحكومية عبر منصة جدارات (jadarat.sa) تتيح للمواطنين الباحثين عن عمل إنشاء ملف وظيفي موحّد والتقديم المباشر على الشواغر المعلنة في الجهات الحكومية، وهي المنصة الوطنية التي تشرف عليها وزارة الموارد البشرية والتنمية الاجتماعية." data-reqs="حساب نفاذ أو أبشر فعّال لتسجيل الدخول والتحقق من الهوية الوطنية||سيرة ذاتية وبيانات المؤهل: التخصص والمؤهل العلمي والخبرات في الملف الوظيفي||استيفاء شروط الوظيفة المعلنة وتطابق المؤهل والتخصص مع الإعلان قبل التقديم||الاستعداد لاختبارات القبول إن وُجدت، مثل اختبار جدارة المهنية حسب الوظيفة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏛️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات التقديم</span>
           <div class="svc-name">التقديم على الوظائف الحكومية (جدارات)</div>
@@ -335,8 +357,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التقديم على الوظائف الحكومية (جدارات)')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1138" data-price="50.0" data-name="التسجيل في وظائف طاقات">
-        <div class="svc-img"><div class="icon-circle">⚡</div></div>
+      <div class="svc-card" data-id="1138" data-price="50.0" data-name="التسجيل في وظائف طاقات" data-desc="خدمة التقديم على الفرص الوظيفية تتيح للباحثين عن عمل التقديم المباشر على الشواغر الوظيفية المعروضة من الشركات والمؤسسات عبر بوابة طاقات." data-reqs="سيرة ذاتية محدثة: إدخال البيانات الأكاديمية والخبرات والمقومات في الملف الشخصي.||حساب مفعل في منصة طاقات: الجاهزية للتقديم ومتابعة حالة الطلبات والمقابلات إلكترونياً.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⚡</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات التقديم</span>
           <div class="svc-name">التسجيل في وظائف طاقات</div>
@@ -345,8 +367,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التسجيل في وظائف طاقات')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1139" data-price="50.0" data-name="التقديم على الوظائف العسكرية">
-        <div class="svc-img"><div class="icon-circle">🎖️</div></div>
+      <div class="svc-card" data-id="1139" data-price="50.0" data-name="التقديم على الوظائف العسكرية" data-desc="خدمة التقديم على الوظائف العسكرية تساعد الراغبين في الالتحاق بالقطاعات الأمنية والعسكرية — كوزارة الداخلية ووزارة الدفاع — على التسجيل عبر القناة الرسمية الخاصة بكل جهة، مثل بوابة أبشر للتوظيف أو بوابة التجنيد الموحد، بحسب الجهة والإعلان المطلوب." data-reqs="حساب أبشر فعّال لتسجيل الدخول ومتابعة حالة الطلب ومواعيد المقابلات||استيفاء الشروط العامة: الجنسية السعودية والعمر المحدد في الإعلان واللياقة الطبية||حسن السيرة والسلوك وعدم وجود إدانات سابقة في جرائم مخلة بالشرف أو الأمانة||مطابقة المؤهل العلمي لشروط الرتبة والفرع المعلن عنه حسب تخصص الإعلان" data-conditions="تختلف الشروط التفصيلية (العمر، المؤهل، الفروع المطلوبة) من إعلان توظيف إلى آخر وبحسب الجهة (الدفاع، الداخلية، الحرس الوطني...)، فيُنصح بمراجعة شروط الإعلان المحدد قبل التقديم">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🎖️</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات التقديم</span>
           <div class="svc-name">التقديم على الوظائف العسكرية</div>
@@ -355,8 +377,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التقديم على الوظائف العسكرية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1140" data-price="50.0" data-name="التقديم على وظائف تطبيق أسعى">
-        <div class="svc-img"><div class="icon-circle">📱</div></div>
+      <div class="svc-card" data-id="1140" data-price="50.0" data-name="التقديم على وظائف تطبيق أسعى" data-desc="خدمة التقديم على وظائف تطبيق أسعى تساعد الباحثين عن عمل الراغبين في فرص دوام جزئي على إنشاء حساب في التطبيق وتعبئة الملف الشخصي للتواصل مع المنشآت الباحثة عن موظفين عبر لوحة التحكم الخاصة بها." data-reqs="رقم جوال فعّال لإنشاء الحساب وتأكيده عبر التطبيق||بيانات أساسية ومهارات العمل لعرضها على المنشآت الباحثة عن عاملين بدوام جزئي||تحديد نوع العمل والمدينة المطلوبة لمطابقة الفرص المناسبة" data-conditions="أسعى تطبيق تشغيل خاص لفرص الدوام الجزئي وليس منصة حكومية رسمية، وتختلف آلية وشروط العمل فيه بحسب المنشأة المشغّلة لكل فرصة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📱</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات التقديم</span>
           <div class="svc-name">التقديم على وظائف تطبيق أسعى</div>
@@ -365,8 +387,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'التقديم على وظائف تطبيق أسعى')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1576" data-price="100.0" data-name="تصميم سيرة ذاتية احترافية (CV) عربي أو إنجليزي.">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1576" data-price="100.0" data-name="تصميم سيرة ذاتية احترافية (CV) عربي أو إنجليزي." data-desc="خدمة إعداد وتصميم السيرة الذاتية (CV) تتيح للباحثين عن عمل والمهنيين صياغة وتنسيق ملف مهني متكامل ومطابق لمعايير أنظمة الفرز الذكي (ATS) لتعزيز فرص القبول الوظيفي." data-reqs="البيانات الشخصية والمهنية: الاسم، وسائل التواصل، والعنوان الوطني.||المؤهلات والأكاديميات: الشهادات العلمية، التخصص، وتواريخ التخرج.||الخبرات والدورات: كشف بالخبرات العملية السابقة، المسميات الوظيفية، والشهادات التدريبية أو المهارات التقنية واللغوية.">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات التقديم</span>
           <div class="svc-name">تصميم سيرة ذاتية احترافية (CV) عربي أو إنجليزي.</div>
@@ -482,7 +504,63 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="services-loader.js"></script>
 </body>
 </html>
