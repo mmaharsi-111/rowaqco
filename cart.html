@@ -566,7 +566,7 @@ function buildOrderWhatsappMessage(cart, user, opts){
   if (opts.orderId) msg += `\n🔖 رقم الطلب: #${opts.orderId}\n`;
   msg += `\n${items}`;
   if (opts.odooFailed) {
-    msg += `\n\n⚠️ تنبيه: تعذّر إرسال هذا الطلب تلقائياً إلى نظام أودو — يُرجى تسجيله يدوياً.`;
+    msg += `\n\nارجو المساعدة لاتمام الطلب`;
   }
   return msg;
 }
