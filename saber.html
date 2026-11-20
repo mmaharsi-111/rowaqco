@@ -154,6 +154,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
 .svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
 @media(max-width:480px){.svc-modal-box{max-height:90vh;}}
+
+.hero-icon-box{flex-shrink:0;}
+.hero-icon-img{}
+@media(max-width:768px){.hero-icon-img{height:24px!important;width:auto!important;}.hero-icon-box{padding:5px!important;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/saber.html">
 <meta property="og:type" content="website">
@@ -314,10 +318,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   <div class="wrap">
 
     <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:32px;color:#fff;display:flex;align-items:center;gap:18px;">
-      <div style="background:#fff;border-radius:12px;padding:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
-        <img src="saber.webp" alt="سابر" style="height:56px;width:auto;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML='📦';this.parentElement.style.fontSize='40px';this.parentElement.style.background='none';">
+      <div class="hero-icon-box" style="background:#fff;border-radius:12px;padding:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+        <img class="hero-icon-img" src="saber.webp" alt="سابر" style="height:56px;width:auto;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML='📦';this.parentElement.style.fontSize='40px';this.parentElement.style.background='none';">
       </div>
-      <div>
+      <div style="flex:1;min-width:0;">
         <h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">خدمات منصة سابر</h2>
         <p style="font-size:13px;opacity:.88;line-height:1.6;">نُساعد المنشآت في الحصول على شهادات المطابقة عبر منصة سابر — إصدار شهادات مطابقة للمنتجات المحلية والمستوردة، شهادات الإعفاء، وتسجيل المنتجات وفق اشتراطات الجودة السعودية.</p>
       </div>

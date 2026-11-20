@@ -151,6 +151,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 .mobile-cart-btn{display:none!important;}
 @media(max-width:768px){nav,.header-nav{display:none!important;}.header-cta{display:none!important;}.header-inner{flex-wrap:nowrap;padding:10px 16px;}.mobile-cart-btn{display:flex!important;position:relative;align-items:center;gap:8px;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;}.mobile-cart-badge{position:absolute;top:-7px;left:-7px;background:#e53e3e;color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center;border:2px solid #fff;}.footer-grid{grid-template-columns:1fr 1fr!important;}}
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important;}.header-inner{padding:8px 12px;}.logo img{height:40px;}.logo-text strong{font-size:14px;}.logo-text span{font-size:10px;}}
+
+.hero-icon-box{flex-shrink:0;}
+.hero-icon-img{}
+@media(max-width:768px){.hero-icon-img{height:24px!important;width:auto!important;}.hero-icon-box{padding:5px!important;}}
 </style>
 <link rel="canonical" href="https://www.rowaqco.com/ministry-industry.html">
 <meta property="og:type" content="website">
@@ -311,10 +315,10 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
   <div class="wrap">
 
     <div style="background:linear-gradient(135deg,var(--green),#0e6b44);border-radius:14px;padding:24px 28px;margin-bottom:24px;color:#fff;display:flex;align-items:center;gap:18px;">
-      <div style="background:#fff;border-radius:12px;padding:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
-        <img src="ministry-industry.svg" alt="وزارة الصناعة والثروة المعدنية" style="height:56px;width:auto;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML='⚙️';this.parentElement.style.fontSize='40px';this.parentElement.style.background='none';">
+      <div class="hero-icon-box" style="background:#fff;border-radius:12px;padding:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+        <img class="hero-icon-img" src="ministry-industry.svg" alt="وزارة الصناعة والثروة المعدنية" style="height:56px;width:auto;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML='⚙️';this.parentElement.style.fontSize='40px';this.parentElement.style.background='none';">
       </div>
-      <div>
+      <div style="flex:1;min-width:0;">
         <h2 style="font-size:20px;font-weight:900;margin-bottom:4px;">وزارة الصناعة والثروة المعدنية</h2>
         <p style="font-size:13px;opacity:.88;line-height:1.6;">نُساعد المنشآت الصناعية في الحصول على تراخيص وزارة الصناعة والثروة المعدنية — إصدار الترخيص الصناعي، تسجيل شهادة المنشأ، والاستفادة من برامج دعم القطاع الصناعي.</p>
       </div>
