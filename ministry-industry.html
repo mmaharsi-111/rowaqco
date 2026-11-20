@@ -88,6 +88,28 @@ header{background:#fff;border-bottom:2px solid var(--border);position:sticky;top
 .svc-card::after{content:'';position:absolute;top:5px;right:50%;transform:translateX(50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--green);}
 .svc-img{height:110px;display:flex;align-items:center;justify-content:center;padding:12px;background:#fff;}
 .icon-circle{width:68px;height:68px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:30px;}
+.icon-circle.clickable{cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;}
+.icon-circle.clickable:hover{transform:scale(1.12);box-shadow:0 4px 14px rgba(10,92,58,.28);}
+.icon-circle.clickable::after{content:'i';position:absolute;bottom:-4px;left:-4px;width:20px;height:20px;border-radius:50%;background:transparent;color:var(--green);font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,'Times New Roman',serif;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2);}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(10,30,20,.55);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;}
+.svc-modal-box{background:#fff;border-radius:16px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);direction:rtl;}
+.svc-modal-head{background:var(--green);color:#fff;padding:20px 56px 20px 24px;border-radius:16px 16px 0 0;position:sticky;top:0;}
+.svc-modal-head h3{font-size:17px;font-weight:900;margin:0;}
+.svc-modal-close{position:absolute;top:14px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.svc-modal-close:hover{background:rgba(255,255,255,.35);}
+.svc-modal-body{padding:22px 24px;}
+.svc-modal-desc{color:var(--mid);font-size:14px;line-height:1.8;margin-bottom:20px;}
+.svc-modal-reqs-title{font-size:14px;font-weight:900;color:var(--green);margin-bottom:6px;}
+.svc-modal-reqs-note{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.svc-modal-reqs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.svc-modal-reqs li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--green-pale);padding:10px 12px;border-radius:10px;}
+.svc-modal-reqs li .req-num{background:var(--green);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.svc-modal-cond-title{font-size:14px;font-weight:900;color:#8a6d1a;margin-bottom:10px;}
+.svc-modal-cond{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;}
+.svc-modal-cond li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--dark);line-height:1.6;background:var(--gold-light);padding:9px 12px;border-radius:10px;}
+.svc-modal-cond li::before{content:'●';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:5px;}
+@media(max-width:480px){.svc-modal-box{max-height:90vh;}}
 .svc-body{padding:11px 13px 0;flex:1;}
 .svc-cat{display:inline-block;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-bottom:7px;line-height:1.5;}
 .svc-name{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.45;margin-bottom:6px;min-height:34px;}
@@ -300,8 +322,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
 
     <div class="services-grid" id="services-grid">
 
-      <div class="svc-card" data-id="1142" data-price="100.0" data-name="إصدار الترخيص الصناعي">
-        <div class="svc-img"><div class="icon-circle">🏭</div></div>
+      <div class="svc-card" data-id="1142" data-price="100.0" data-name="إصدار الترخيص الصناعي" data-desc="خدمة إصدار الترخيص الصناعي عبر منصة وزارة الصناعة والثروة المعدنية الإلكترونية تتيح لأصحاب المنشآت الراغبين في تشغيل مصنع أو منشأة صناعية في المملكة استكمال إجراءات الحصول على الترخيص اللازم للعمل، حيث يمر الترخيص بمراحل متتابعة على المنصة (التأسيس، ثم الإنشاء الذي يتيح بناء المنشأة دون التشغيل الفعلي، ثم الإنتاج الذي يمنح الصلاحية الكاملة لممارسة النشاط الصناعي والاستفادة من الإعفاءات الجمركية المرتبطة به)." data-reqs="سجل تجاري ساري يغطي النشاط الصناعي المطلوب ترخيصه||شهادة تسجيل ضريبة القيمة المضافة||موقع المنشأة ضمن مدينة صناعية معتمدة أو منطقة مخصصة للنشاط الصناعي وفق المخطط العام||عقد تخصيص أو إيجار للأرض أو الموقع المطلوب||وصف فني للنشاط والمنتجات المزمع تصنيعها||إنشاء حساب على منصة الوزارة الإلكترونية وتعبئة الطلب برقم الهوية أو السجل التجاري" data-conditions="تختلف تسمية المنصة والرسوم ومدة صلاحية الترخيص بحسب نوع المنشأة وحجمها، ويُنصح بالتأكد من التفاصيل الدقيقة مباشرة من الوزارة قبل التقديم">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🏭</div></div>
         <div class="svc-body">
           <span class="svc-cat">التراخيص الصناعية</span>
           <div class="svc-name">إصدار الترخيص الصناعي</div>
@@ -310,8 +332,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار الترخيص الصناعي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1143" data-price="86.0" data-name="تجديد الترخيص الصناعي">
-        <div class="svc-img"><div class="icon-circle">🔄</div></div>
+      <div class="svc-card" data-id="1143" data-price="86.0" data-name="تجديد الترخيص الصناعي" data-desc="خدمة تجديد الترخيص الصناعي عبر منصة وزارة الصناعة والثروة المعدنية تتيح للمنشآت الصناعية المرخصة تجديد ترخيصها قبل انتهاء مدة صلاحيته لضمان استمرارية العمل دون انقطاع، وقد رفعت الوزارة مدة صلاحية الترخيص الصناعي من 3 إلى 5 سنوات عند استيفاء المنشأة لكافة الاشتراطات." data-reqs="رقم الترخيص الصناعي الحالي الساري أو المنتهي حديثاً||سجل تجاري ساري||تحديث بيانات الموقع أو النشاط إن حدث أي تغيير عليها||استيفاء الشروط المرتبطة بالترخيص الأصلي (البيئية والبلدية والسلامة)||تقديم طلب التجديد عبر المنصة الإلكترونية للوزارة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔄</div></div>
         <div class="svc-body">
           <span class="svc-cat">التراخيص الصناعية</span>
           <div class="svc-name">تجديد الترخيص الصناعي</div>
@@ -320,8 +342,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تجديد الترخيص الصناعي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1144" data-price="100.0" data-name="ترقية الترخيص الصناعي">
-        <div class="svc-img"><div class="icon-circle">⬆️</div></div>
+      <div class="svc-card" data-id="1144" data-price="100.0" data-name="ترقية الترخيص الصناعي" data-desc="خدمة ترقية الترخيص الصناعي تتيح للمنشآت الحاصلة على ترخيص صناعي في مرحلة الإنشاء الانتقال إلى مرحلة الإنتاج التي تمنحها الصلاحية الكاملة لممارسة النشاط الصناعي الفعلي والاستفادة من المزايا والإعفاءات المرتبطة بمرحلة الإنتاج، بعد استكمال بناء المنشأة وتجهيزها للتشغيل." data-reqs="رقم الترخيص الصناعي الحالي (مرحلة الإنشاء)||اكتمال بناء وتجهيز المنشأة بما يتوافق مع المخططات المعتمدة||الحصول على شهادات إتمام البناء والسلامة والتراخيص البلدية اللازمة||استيفاء التصريح البيئي للتشغيل إن وجد||سجل تجاري محدث" data-conditions="مفهوم (ترقية الترخيص) هنا مبني على تدرج مراحل الترخيص الصناعي (تأسيس، إنشاء، إنتاج) المعلنة من الوزارة، ويُنصح بالتأكد من المتطلبات الدقيقة لهذه المرحلة مباشرة من منصة الوزارة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⬆️</div></div>
         <div class="svc-body">
           <span class="svc-cat">التراخيص الصناعية</span>
           <div class="svc-name">ترقية الترخيص الصناعي</div>
@@ -330,8 +352,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'ترقية الترخيص الصناعي')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1145" data-price="100.0" data-name="تأييد العمالة الوافدة">
-        <div class="svc-img"><div class="icon-circle">👷</div></div>
+      <div class="svc-card" data-id="1145" data-price="100.0" data-name="تأييد العمالة الوافدة" data-desc="خدمة تأييد العمالة الوافدة عبر منصة وزارة الصناعة والثروة المعدنية تتيح للمنشآت الصناعية المرخصة الحصول على موافقة الوزارة المسبقة عند الحاجة لاستقدام عمالة وافدة إضافية للمصنع، كخطوة لازمة قبل استكمال إجراءات التأشيرات والإقامات لدى وزارة الموارد البشرية والتنمية الاجتماعية ومنصة قوى." data-reqs="ترخيص صناعي ساري للمنشأة||تقديم طلب التأييد عبر منصة الوزارة الإلكترونية مع تحديد نوع (تأييد العمالة)||بيان العدد المطلوب من العمالة وربطه بالطاقة الإنتاجية أو احتياج المنشأة||سجل تجاري ساري وحساب مفعل على منصتي قوى ومقيم" data-conditions="هذا التأييد خطوة مسبقة فقط قبل إجراءات التأشيرة والإقامة لدى وزارة الموارد البشرية ومنصة قوى، وقد تختلف المستندات المطلوبة تحديداً بحسب حجم المنشأة ونشاطها">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">👷</div></div>
         <div class="svc-body">
           <span class="svc-cat">خدمات العمالة</span>
           <div class="svc-name">تأييد العمالة الوافدة</div>
@@ -340,8 +362,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'تأييد العمالة الوافدة')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1146" data-price="100.0" data-name="إصدار شهادة المنشأ">
-        <div class="svc-img"><div class="icon-circle">📄</div></div>
+      <div class="svc-card" data-id="1146" data-price="100.0" data-name="إصدار شهادة المنشأ" data-desc="خدمة إصدار شهادة المنشأ عبر منصة وزارة الصناعة والثروة المعدنية (الجهة المعنية بإصدارها حالياً بعد نقل الاختصاص إليها من وزارة التجارة) تتيح للمصدّرين من المنشآت الصناعية والتجارية وحتى الأفراد (كالمزارعين والصيادين والحرفيين) إصدار وثيقة تثبت أن المنتجات المصدَّرة ذات منشأ سعودي، وتوجد منها نماذج متعددة (نموذج دول الخليج، نموذج الدول العربية، نموذج تفضيلي لدول اتفاقيات التجارة الحرة، ونموذج عام لبقية الدول) بحسب الدولة المستوردة." data-reqs="سجل تجاري للمنشأة المصدِّرة||ترخيص صناعي ساري إذا كان مقدم الطلب جهة تصنيع||فاتورة التصدير ومستندات الشحن للمنتج المراد تصديره||بيانات تفصيلية عن المنتج وعملية تصنيعه تدعم إثبات المنشأ السعودي||تقديم الطلب ومتابعته بالكامل إلكترونياً عبر منصة الوزارة">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">📄</div></div>
         <div class="svc-body">
           <span class="svc-cat">الشهادات والوثائق</span>
           <div class="svc-name">إصدار شهادة المنشأ</div>
@@ -350,8 +372,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار شهادة المنشأ')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1147" data-price="200.0" data-name="فسح استيراد المواد الكيميائية">
-        <div class="svc-img"><div class="icon-circle">🧪</div></div>
+      <div class="svc-card" data-id="1147" data-price="200.0" data-name="فسح استيراد المواد الكيميائية" data-desc="خدمة فسح استيراد المواد الكيميائية عبر منصة وزارة الصناعة والثروة المعدنية تتيح للمنشآت الصناعية المستوردة لمواد كيميائية الحصول على تصريح الاستيراد اللازم بموجب نظام مراقبة المواد الكيميائية، حيث لا يجوز استيراد أو تصدير أو إعادة تصدير أي مادة كيميائية مصنّفة دون الحصول على هذا التصريح من الوزارة أولاً، ولا تقوم الجمارك السعودية بالإفراج عن أي شحنة كيميائية دون صدوره." data-reqs="ترخيص صناعي للمنشأة مرتبط باستخدام المادة الكيميائية المطلوب استيرادها||بيان الاستيراد مع تحديد نوع المادة الكيميائية وتصنيفها الجمركي||تحديد القائمة التي تنتمي إليها المادة من بين القوائم التنظيمية لمواد مقيدة أو محظورة||مستندات المورد والشحنة||تقديم الطلب عبر منصة الوزارة الإلكترونية قبل وصول الشحنة للجمارك" data-conditions="تختلف درجة التقييد والمستندات المطلوبة بحسب تصنيف المادة الكيميائية ضمن القوائم التنظيمية الخاصة بنظام مراقبة المواد الكيميائية، ويُنصح بالتأكد من تصنيف المادة قبل التقديم">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🧪</div></div>
         <div class="svc-body">
           <span class="svc-cat">الاستيراد والفسح</span>
           <div class="svc-name">فسح استيراد المواد الكيميائية</div>
@@ -360,8 +382,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'فسح استيراد المواد الكيميائية')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1148" data-price="100.0" data-name="إصدار وتجديد رخص الكشف التعديني">
-        <div class="svc-img"><div class="icon-circle">⛏️</div></div>
+      <div class="svc-card" data-id="1148" data-price="100.0" data-name="إصدار وتجديد رخص الكشف التعديني" data-desc="خدمة إصدار وتجديد رخص الكشف التعديني عبر منصة (تعدين) التابعة لوزارة الصناعة والثروة المعدنية تتيح للمستثمرين الراغبين في استكشاف المعادن الحصول على رخصة كشف تمنحهم حق التنقيب عن المعادن في منطقة محددة، وفق اللائحة التنفيذية لنظام الاستثمار التعديني التي تمنح رخصة الكشف عن معادن الفئة (أ/ب) لمدة 5 سنوات، ومعادن الفئة (ج) لمدة سنة واحدة." data-reqs="طلب يحدد فئة المعدن المستهدف (أ، ب، أو ج) والمنطقة المطلوب استكشافها||برنامج استكشاف جيولوجي وتقني للمنطقة المطلوبة||إثبات وضع الأرض (حكومية أو خاصة أو بحرية) وموافقة مالك الأرض إن لزم||إثبات القدرة الفنية والمالية على تنفيذ أعمال الاستكشاف||لتجديد رخصة قائمة: تقديم رقم رخصة الكشف الحالية قبل انتهائها" data-conditions="تُعفى الجهات الحكومية والجامعات ومراكز البحث الوطنية من اشتراط الحصول على رخصة كشف، وتقدَّم جميع الطلبات عبر منصة (تعدين) الإلكترونية">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">⛏️</div></div>
         <div class="svc-body">
           <span class="svc-cat">الرخص التعدينية</span>
           <div class="svc-name">إصدار وتجديد رخص الكشف التعديني</div>
@@ -370,8 +392,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار وتجديد رخص الكشف التعديني')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1149" data-price="100.0" data-name="إصدار رخص استغلال المحاجر">
-        <div class="svc-img"><div class="icon-circle">🪨</div></div>
+      <div class="svc-card" data-id="1149" data-price="100.0" data-name="إصدار رخص استغلال المحاجر" data-desc="خدمة إصدار رخص استغلال المحاجر عبر منصة (تعدين) التابعة لوزارة الصناعة والثروة المعدنية تتيح لأصحاب المنشآت العاملة في استخراج مواد البناء (كالرمل والحصى والصخور) الحصول على ترخيص محجر مواد البناء، وتصدر هذه الرخصة لمدة تصل إلى 10 سنوات قابلة للتجديد ضمن فئة معادن البناء (الفئة ج)." data-reqs="تحديد موقع المحجر المطلوب وإثبات حق الانتفاع بالأرض||تقديم خطة تشغيلية فنية لاستغلال المحجر||استيفاء المتطلبات البيئية المرتبطة بأعمال الاستخراج والتكسير||الالتزام بالشروط التنظيمية للترخيص والخضوع للتفتيش الدوري بعد الحصول عليه||تقديم الطلب عبر منصة (تعدين) الإلكترونية" data-conditions="تخضع المحاجر المرخصة لتفتيش دوري من الوزارة، وتُطبَّق عقوبات على التشغيل دون ترخيص أو مخالفة شروطه">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🪨</div></div>
         <div class="svc-body">
           <span class="svc-cat">الرخص التعدينية</span>
           <div class="svc-name">إصدار رخص استغلال المحاجر</div>
@@ -380,8 +402,8 @@ footer{background:#111827;color:rgba(255,255,255,.8);padding:56px 24px 24px;}
         <div class="svc-footer"><button class="btn-cart" onclick="cartAdd(this,'إصدار رخص استغلال المحاجر')">🛒 أضف للسلة</button></div>
       </div>
 
-      <div class="svc-card" data-id="1150" data-price="80.0" data-name="تحويل الرخص التعدينية">
-        <div class="svc-img"><div class="icon-circle">🔀</div></div>
+      <div class="svc-card" data-id="1150" data-price="80.0" data-name="تحويل الرخص التعدينية" data-desc="خدمة تحويل الرخص التعدينية عبر منصة (تعدين) تغطي حالات تتعلق بتغيير وضع الترخيص التعديني القائم، ومنها انتقال صاحب رخصة الكشف إلى رخصة استغلال (تعدين) للموقع نفسه بعد ثبوت وجود معدن قابل للاستغلال التجاري، أو نقل ملكية الترخيص من طرف إلى آخر بحسب طبيعة الطلب." data-reqs="رقم الرخصة التعدينية الحالية (رخصة الكشف أو الاستغلال القائمة)||تحديد نوع التحويل المطلوب: ترقية من رخصة كشف إلى رخصة استغلال، أو نقل ملكية الرخصة لطرف آخر||تقرير فني يوضح نتائج أعمال الكشف أو حالة الموقع الحالية||استيفاء الشروط النظامية المرتبطة بالرخصة الجديدة أو بالمالك الجديد||تقديم الطلب عبر منصة (تعدين) الإلكترونية" data-conditions="تفاصيل هذه الخدمة غير موثقة رسمياً بشكل كامل في المصادر المتاحة، ويُنصح بتأكيد الإجراء الدقيق والمستندات المطلوبة مباشرة من وزارة الصناعة والثروة المعدنية قبل التقديم النهائي">
+        <div class="svc-img"><div class="icon-circle clickable" onclick="openServiceInfo(this)">🔀</div></div>
         <div class="svc-body">
           <span class="svc-cat">الرخص التعدينية</span>
           <div class="svc-name">تحويل الرخص التعدينية</div>
@@ -486,7 +508,63 @@ function sortServices(val) {
 }
 
 document.addEventListener('DOMContentLoaded', updateCartBadge);
+
+function openServiceInfo(iconEl) {
+  const card = iconEl.closest('.svc-card');
+  if (!card) return;
+  const name = card.dataset.name || '';
+  const desc = card.dataset.desc || '';
+  const reqs = (card.dataset.reqs || '').split('||').filter(Boolean);
+  const conditions = (card.dataset.conditions || '').split('||').filter(Boolean);
+
+  document.getElementById('svcModalTitle').textContent = name;
+  document.getElementById('svcModalDesc').textContent = desc;
+  document.getElementById('svcModalReqs').innerHTML = reqs.map((r, i) =>
+    `<li><span class="req-num">${i + 1}</span><span>${r}</span></li>`
+  ).join('');
+
+  const condBlock = document.getElementById('svcModalCondBlock');
+  if (conditions.length) {
+    document.getElementById('svcModalCond').innerHTML = conditions.map(c => `<li>${c}</li>`).join('');
+    condBlock.style.display = '';
+  } else {
+    condBlock.style.display = 'none';
+  }
+
+  document.getElementById('svcModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceInfo() {
+  document.getElementById('svcModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceInfo();
+});
 </script>
+
+<!-- نافذة تفاصيل الخدمة -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceInfo()">
+  <div class="svc-modal-box">
+    <div class="svc-modal-head">
+      <h3 id="svcModalTitle"></h3>
+      <button class="svc-modal-close" onclick="closeServiceInfo()" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc" id="svcModalDesc"></p>
+      <div id="svcModalCondBlock" style="display:none;">
+        <div class="svc-modal-cond-title">⚠️ شروط وملاحظات أساسية قبل التقديم</div>
+        <ul class="svc-modal-cond" id="svcModalCond"></ul>
+      </div>
+      <div class="svc-modal-reqs-title">📋 المتطلبات والأوراق المطلوبة</div>
+      <div class="svc-modal-reqs-note">(قد لا يتم احتياجها جميعاً حسب حالة كل طلب)</div>
+      <ul class="svc-modal-reqs" id="svcModalReqs"></ul>
+    </div>
+  </div>
+</div>
+
 <script src="services-loader.js"></script>
 </body>
 </html>
